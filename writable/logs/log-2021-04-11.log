@@ -1,0 +1,72 @@
+CRITICAL - 2021-04-11 03:08:13 --> The framework needs the following extension(s) installed and loaded: {0}.
+#0 /var/www/html/system/CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension()
+#1 /var/www/html/system/CodeIgniter.php(172): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 /var/www/html/system/bootstrap.php(159): CodeIgniter\CodeIgniter->initialize()
+#3 /var/www/html/public/index.php(35): require('...')
+#4 {main}
+CRITICAL - 2021-04-11 03:08:15 --> The framework needs the following extension(s) installed and loaded: {0}.
+#0 /var/www/html/system/CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension()
+#1 /var/www/html/system/CodeIgniter.php(172): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 /var/www/html/system/bootstrap.php(159): CodeIgniter\CodeIgniter->initialize()
+#3 /var/www/html/public/index.php(35): require('...')
+#4 {main}
+CRITICAL - 2021-04-11 03:08:16 --> The framework needs the following extension(s) installed and loaded: {0}.
+#0 /var/www/html/system/CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension()
+#1 /var/www/html/system/CodeIgniter.php(172): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 /var/www/html/system/bootstrap.php(159): CodeIgniter\CodeIgniter->initialize()
+#3 /var/www/html/public/index.php(35): require('...')
+#4 {main}
+CRITICAL - 2021-04-11 03:09:41 --> The framework needs the following extension(s) installed and loaded: {0}.
+#0 /var/www/html/system/CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension()
+#1 /var/www/html/system/CodeIgniter.php(172): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 /var/www/html/system/bootstrap.php(159): CodeIgniter\CodeIgniter->initialize()
+#3 /var/www/html/public/index.php(35): require('...')
+#4 {main}
+CRITICAL - 2021-04-11 03:10:27 --> The framework needs the following extension(s) installed and loaded: {0}.
+#0 /var/www/html/system/CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension()
+#1 /var/www/html/system/CodeIgniter.php(172): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 /var/www/html/system/bootstrap.php(159): CodeIgniter\CodeIgniter->initialize()
+#3 /var/www/html/public/index.php(35): require('...')
+#4 {main}
+CRITICAL - 2021-04-11 03:10:28 --> The framework needs the following extension(s) installed and loaded: {0}.
+#0 /var/www/html/system/CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension()
+#1 /var/www/html/system/CodeIgniter.php(172): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 /var/www/html/system/bootstrap.php(159): CodeIgniter\CodeIgniter->initialize()
+#3 /var/www/html/public/index.php(35): require('...')
+#4 {main}
+CRITICAL - 2021-04-11 03:10:28 --> The framework needs the following extension(s) installed and loaded: {0}.
+#0 /var/www/html/system/CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension()
+#1 /var/www/html/system/CodeIgniter.php(172): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 /var/www/html/system/bootstrap.php(159): CodeIgniter\CodeIgniter->initialize()
+#3 /var/www/html/public/index.php(35): require('...')
+#4 {main}
+CRITICAL - 2021-04-11 03:10:28 --> The framework needs the following extension(s) installed and loaded: {0}.
+#0 /var/www/html/system/CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension()
+#1 /var/www/html/system/CodeIgniter.php(172): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 /var/www/html/system/bootstrap.php(159): CodeIgniter\CodeIgniter->initialize()
+#3 /var/www/html/public/index.php(35): require('...')
+#4 {main}
+CRITICAL - 2021-04-11 03:10:28 --> The framework needs the following extension(s) installed and loaded: {0}.
+#0 /var/www/html/system/CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension()
+#1 /var/www/html/system/CodeIgniter.php(172): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 /var/www/html/system/bootstrap.php(159): CodeIgniter\CodeIgniter->initialize()
+#3 /var/www/html/public/index.php(35): require('...')
+#4 {main}
+CRITICAL - 2021-04-11 03:10:34 --> The framework needs the following extension(s) installed and loaded: {0}.
+#0 /var/www/html/system/CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension()
+#1 /var/www/html/system/CodeIgniter.php(172): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 /var/www/html/system/bootstrap.php(159): CodeIgniter\CodeIgniter->initialize()
+#3 /var/www/html/public/index.php(35): require('...')
+#4 {main}
+CRITICAL - 2021-04-11 03:12:51 --> The framework needs the following extension(s) installed and loaded: {0}.
+#0 /var/www/html/system/CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension()
+#1 /var/www/html/system/CodeIgniter.php(172): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 /var/www/html/system/bootstrap.php(159): CodeIgniter\CodeIgniter->initialize()
+#3 /var/www/html/public/index.php(35): require('...')
+#4 {main}
+CRITICAL - 2021-04-11 03:14:23 --> The framework needs the following extension(s) installed and loaded: {0}.
+#0 /var/www/html/system/CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension()
+#1 /var/www/html/system/CodeIgniter.php(172): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 /var/www/html/system/bootstrap.php(159): CodeIgniter\CodeIgniter->initialize()
+#3 /var/www/html/public/index.php(35): require('...')
+#4 {main}
