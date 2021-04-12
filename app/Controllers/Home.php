@@ -13,6 +13,9 @@ class Home extends BaseController
 		$data['uri'] = $this->request->uri;
 
 		echo view('user/header', $data);
-		echo view('welcome_message');
+		echo view('user/css', $data);
+		echo view('user/navbar', $data);
+		echo view('home/index', $data);
+		echo view('user/footer', $data);
 	}
 }
