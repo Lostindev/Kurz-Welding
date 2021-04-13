@@ -16,6 +16,14 @@
 </head>
 <body class="hold-transition login-page">
 
+<?php if (isset($message)) : ?>
+                            <div class=" alert alert-danger">
+                                <div class="text-white">
+                                 <?php print_r($message); ?>
+                                </div>
+                            </div>
+<?php endif; ?>
+
 <div class="login-box">
   <div class="login-logo">
     <a href="../../index2.html"><b>Kurz Welding</a>

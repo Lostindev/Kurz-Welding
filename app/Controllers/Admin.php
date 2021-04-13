@@ -23,9 +23,9 @@ class Admin extends BaseController
     public function login($page = 'login')
     {
         $session = \Config\Services::session();
+        $request = \Config\Services::request();
         $data['message'] = $session->getFlashdata('message');
         helper('form');
- 
         echo view('admin/login', $data);
     }
 
@@ -47,7 +47,7 @@ class Admin extends BaseController
                     echo 'valid user';
                 } else {
                     $session->setFlashdata('message','Please check your information and try again.');
-                    return redirect()->to(site_url('/admin/login'));
+                    return redirect()->to(site_url('/admin/login',$data));
                 }
 
             } else {
