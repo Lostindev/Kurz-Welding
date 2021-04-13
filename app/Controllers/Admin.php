@@ -23,7 +23,10 @@ class Admin extends BaseController
     public function login($page = 'login')
     {
         $session = \Config\Services::session();
-        echo view('admin/login');
+        $data['message'] = $session->getFlashdata('message');
+        helper('form');
+ 
+        echo view('admin/login', $data);
     }
 
     public function auth($page ="auth")
@@ -43,7 +46,8 @@ class Admin extends BaseController
 
                     echo 'valid user';
                 } else {
-                    echo 'error';
+                    $session->setFlashdata('message','Please check your information and try again.');
+                    return redirect()->to(site_url('/admin/login'));
                 }
 
             } else {
@@ -62,11 +66,13 @@ class Admin extends BaseController
 
                     echo 'valid user';
                 } else {
-                    echo 'error';
+                    $session->setFlashdata('message','Please check your information and try again.');
+                    return redirect()->to(base_url('/admin/login'));
                 }
 
             } else {
-                echo 'error';
+                $session->setFlashdata('message','Please check your information and try again.');
+                return redirect()->to(base_url('/admin/login'));
             }
         }
     }
