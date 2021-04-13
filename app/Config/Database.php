@@ -32,13 +32,13 @@ class Database extends Config
 	 */
 	public $default = [
 		'DSN'      => '',
-		'hostname' => 'localhost',
-		'username' => '',
-		'password' => '',
-		'database' => '',
+		'hostname' => '3.15.181.4',
+		'username' => 'dbAdmin',
+		'password' => 'ASDFasdf123!',
+		'database' => 'ecommerce',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',
-		'pConnect' => false,
+		'pConnect' => true,
 		'DBDebug'  => (ENVIRONMENT !== 'production'),
 		'charset'  => 'utf8',
 		'DBCollat' => 'utf8_general_ci',

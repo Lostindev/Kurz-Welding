@@ -1,0 +1,7 @@
+#landingSection {
+    background-image: url('/img/home/splash.jpg');
+    background-size: cover;
+    background-position:center;
+    height:100vh;
+    background-color:black;
+}
