@@ -28,7 +28,7 @@ class Admin extends BaseController
         }
         else {
             $session->setFlashdata('message','Please login first to access admin panel.');
-            return redirect()->to(site_url('/admin/login'));
+            return redirect()->to(base_url('/admin/login'));
         }
 
 	}
