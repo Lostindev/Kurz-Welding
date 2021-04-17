@@ -4,6 +4,7 @@ use CodeIgniter\Controller;
 
 class Admin extends BaseController
 {
+
 	public function index($page = 'index')
 	{
         $session = \Config\Services::session();
@@ -41,6 +42,7 @@ class Admin extends BaseController
         helper('form');
         echo view('admin/login', $data);
     }
+
 
     public function auth($page ="auth")
     {
@@ -113,6 +115,39 @@ class Admin extends BaseController
                 $session->setFlashdata('message','Please check your information and try again.');
                 return redirect()->to(base_url('/admin/login'));
             }
+        }
+    }
+
+    public function newCategory($page = 'newCategory')
+    {
+		$data['title'] = 'Admin - Add Category';
+		$data['metaData'] = "";
+		$data['page'] = $page;
+		$data['cssFile'] = $page;
+		$data['uri'] = $this->request->uri;
+
+        $session = \Config\Services::session();
+        if (adminLoggedIn()) {
+            echo view('admin/header/header', $data);
+            echo view('admin/header/css', $data);
+            echo view('admin/header/navtop', $data);
+            echo view('admin/header/navleft', $data);
+            echo view('admin/home/newCategory', $data);
+            echo view('admin/header/footer', $data);
+        } else {
+            $session->setFlashdata('message','Please login to add a category.');
+            return redirect()->to(base_url('/admin/login'));
+            
+        }
+    }
+
+    public function addCategory($page = 'addCategory')
+    {
+        if (adminLoggedIn()) {
+
+        } else {
+            $session->setFlashdata('message','Please login to add a category.');
+            return redirect()->to(base_url('/admin/login'));
         }
     }
 }
