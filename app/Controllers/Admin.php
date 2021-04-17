@@ -197,4 +197,36 @@ class Admin extends BaseController
             return redirect()->to(base_url('/admin/login'));
         }
     }
+
+    public function viewCategories($page = 'viewCategories') {
+        $session = \Config\Services::session();
+		$data['title'] = 'Admin - View Categories';
+		$data['metaData'] = "";
+		$data['page'] = $page;
+		$data['cssFile'] = $page;
+		$data['uri'] = $this->request->uri;
+
+        $data['message'] = $session->getFlashdata('message');
+        $data['successMessage'] = $session->getFlashdata('successMessage');
+
+
+        if (adminLoggedIn()) {
+            $adminDB = new ModAdmin();
+            $data = [
+                'results' => $adminDB->paginate(20),
+                'pager' => $adminDB->pager];
+            
+            echo view('admin/header/header', $data);
+            echo view('admin/header/css', $data);
+            echo view('admin/header/navtop', $data);
+            echo view('admin/header/navleft', $data);
+            echo view('admin/home/viewCategories', $data);
+            echo view('admin/header/footer', $data);
+
+            
+        } else {
+            $session->setFlashdata('message','Please login to view all categories.');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
 }
