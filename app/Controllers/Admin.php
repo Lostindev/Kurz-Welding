@@ -127,6 +127,9 @@ class Admin extends BaseController
 		$data['uri'] = $this->request->uri;
 
         $session = \Config\Services::session();
+        $data['message'] = $session->getFlashdata('message');
+        $data['successMessage'] = $session->getFlashdata('successMessage');
+        
         if (adminLoggedIn()) {
             echo view('admin/header/header', $data);
             echo view('admin/header/css', $data);
@@ -138,12 +141,56 @@ class Admin extends BaseController
             $session->setFlashdata('message','Please login to add a category.');
             return redirect()->to(base_url('/admin/login'));
             
+            
         }
     }
 
     public function addCategory($page = 'addCategory')
     {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        $adminDB = new ModAdmin();
+        
+
         if (adminLoggedIn()) {
+            $dataUpload['cName'] = $request->getPost('categoryName');
+
+            if (!empty($dataUpload['cName'])) {
+                $path = realpath(APPPATH.'/img/categories/');
+                $config['upload_path'] = $path;
+                $config['allows_type'] = 'gif|png|jpg|jpeg';
+
+                $file = $request->getFile('cDp');
+                if (!empty($file) && $file->getSize() > 0) {
+                    $fileName = $file->getName();
+                    $file->move('/var/www/html/public/img/categories/', $fileName);
+                    $dataUpload['cDp'] = $fileName;
+                    $dataUpload['cDate'] = date('Y-m-d H:i:s');
+                    $dataUpload['adminId'] = $session->get('aId');
+                } else {
+                    echo 'failed';
+                }
+
+                $checkAlreadyThere = $adminDB->where('cName', $dataUpload['cName'])->findAll();
+                if (count($checkAlreadyThere) > 0 ){
+                    $session->setFlashdata('message','This Category already exists!');
+                    return redirect()->to(base_url('/admin/newCategory'));
+                } else {
+                    $addData = $adminDB->insert($dataUpload);
+                    if ($addData) {
+                        $session->setFlashdata('successMessage','You have successfully added a category.');
+                        return redirect()->to(base_url('/admin/newCategory'));
+                    } else {
+                        $session->setFlashdata('message','Something went wrong, please try again.');
+                        return redirect()->to(base_url('/admin/newCategory'));
+                    }
+                }
+
+
+            } else {
+                $session->setFlashdata('message','You need a title');
+                return redirect()->to(base_url('/admin/newCategory'));
+            }
 
         } else {
             $session->setFlashdata('message','Please login to add a category.');

@@ -5,11 +5,9 @@ class ModAdmin extends Model
 {
     protected $DBGroup = 'default';
 
-    protected $table = 'admin';
-    protected  $primaryKey = "AId";
+    protected $table = 'categories';
+    protected  $primaryKey = "aId";
     protected $returnType = 'array';
-    protected $useTimestamps = True;
-    protected $allowedFields = ['aEmail','aPassword'];
-    protected $createdField = 'aDate';
-    protected $updatedField ='clientUpdate';
+    protected $allowedFields = ['cName','cDp','cDate','adminId'];
+
 }
