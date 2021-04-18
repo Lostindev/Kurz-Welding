@@ -1,5 +1,6 @@
 <?php namespace App\Controllers;
 use App\Models\ModAdmin;
+use App\Models\ModLogin;
 use CodeIgniter\Controller;
 
 class Admin extends BaseController
@@ -49,8 +50,9 @@ class Admin extends BaseController
         $session = \Config\Services::session();
         $request = \Config\Services::request();
 
+
         if (!empty($data['aEmail']) && !empty($data['aPassword'])) {
-            $adminDB = new ModAdmin();
+            $adminDB = new ModLogin();
 
             $data['aEmail'] = $request->getPost('email');
             $data['aPassword'] = $request->getPost('password');
@@ -61,7 +63,7 @@ class Admin extends BaseController
                     $sessionData['aId'] = $allUsers[0]['aId'];
                     $sessionData['aName'] = $allUsers[0]['aName'];
                     $sessionData['aDate'] = $allUsers[0]['aDate'];
-                    $sessionData['aEmail'] = $allUsers[0]['Email'];
+                    $sessionData['aEmail'] = $allUsers[0]['aEmail'];
 
                     $session->set($sessionData);
                     if ($session->get('aId')) {
@@ -83,7 +85,7 @@ class Admin extends BaseController
             }
 
         } else {
-            $adminDB = new ModAdmin();
+            $adminDB = new ModLogin();
 
             $data['aEmail'] = $request->getPost('email');
             $data['aPassword'] = $request->getPost('password');
