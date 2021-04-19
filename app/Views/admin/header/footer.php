@@ -49,6 +49,14 @@
 <!-- AdminLTE for demo purposes -->
 <script src="/assets/adminlte/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="/assets/adminlte/dist/js/pages/dashboard.js"></script>
+<!--<script src="/assets/adminlte/dist/js/pages/dashboard.js"></script> -->
+
+
+<!--Custom Admin JS-->
+<script src="/js/admincustom.js"></script>
+<script type="text/javascript">
+  var surl = "<?php echo site_url()?>";
+  var burl = "<?php echo base_url() ?>";
+</script>
 </body>
 </html>

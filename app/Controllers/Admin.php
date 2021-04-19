@@ -242,7 +242,6 @@ class Admin extends BaseController
                 $adminDB = new ModAdmin();
                 $checkCategoryById = $adminDB->where('cId',$cId)->findAll();
                 $data['category'] = $checkCategoryById;
-                //print_r($checkCategoryById);
                 if (count($data['category']) == 1) {
                     echo view('admin/header/header', $data);
                     echo view('admin/header/css', $data);
@@ -326,6 +325,40 @@ class Admin extends BaseController
 
         else {
             $session->setFlashdata('message','Please login to update categories.');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
+
+    public function deleteCategory($cId) {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        
+        if (adminLoggedIn()) {
+
+            if (!empty($cId) && isset($cId)) {
+                $adminDB = new ModAdmin();
+                $result = $adminDB->where('cId',$cId)->delete();
+
+                if ($result) {
+  
+                    $session->setFlashdata('successMessage','Category successfully deleted.');
+                    $session->keepFlashdata('sucessMessage');
+                    return redirect()->to(base_url('/admin/viewCategories'));
+                } else {
+                    $session->setFlashdata('message','Something went wrong, please try again.');
+                    $session->keepFlashdata('message');
+                    return redirect()->to(base_url('/admin/viewCategories'));
+                }
+                
+            } else {
+                $session->setFlashdata('message','Something went wrong, please try again.');
+                $session->keepFlashdata('message');
+                return redirect()->to(base_url('/admin/viewCategories'));
+            }
+
+        } else {
+            $session->setFlashdata('message','Please login to delete categories.');
+            $session->keepFlashdata('message');
             return redirect()->to(base_url('/admin/login'));
         }
     }

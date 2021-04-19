@@ -45,7 +45,7 @@
                             </a>
                         </td>
                         <td>
-                            <a href="" class="btn btn-danger">
+                            <a href="<?php echo site_url('/admin/deleteCategory/'.$getResult['cId'])?>" class="btn btn-danger deleteCat" data-id="<?php echo $getResult['cId']; ?>" data-text="<?php echo $getResult['cId'] ;?>" >
                             Delete
                             </a>
                         </td>
