@@ -362,4 +362,64 @@ class Admin extends BaseController
             return redirect()->to(base_url('/admin/login'));
         }
     }
+
+    public function viewSubCategories($page = 'viewSubCategories') {
+        $session = \Config\Services::session();
+		$data['title'] = 'Admin - View Categories';
+		$data['metaData'] = "";
+		$data['page'] = $page;
+		$data['cssFile'] = $page;
+		$data['uri'] = $this->request->uri;
+    
+
+
+        if (adminLoggedIn()) {
+            $adminDB = new ModAdmin();
+            $data = [
+                'results' => $adminDB->paginate(20),
+                'pager' => $adminDB->pager];
+
+                $data['message'] = $session->getFlashdata('message');
+                $data['successMessage'] = $session->getFlashdata('successMessage');
+            
+            echo view('admin/header/header', $data);
+            echo view('admin/header/css', $data);
+            echo view('admin/header/navtop', $data);
+            echo view('admin/header/navleft', $data);
+            echo view('admin/home/viewSubCategories', $data);
+            echo view('admin/header/footer', $data);
+
+            
+        } else {
+            $session->setFlashdata('message','Please login to view all categories.');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
+
+    public function newSubCategory($page = 'newSubCategory')
+    {
+		$data['title'] = 'Admin - Add Sub Category';
+		$data['metaData'] = "";
+		$data['page'] = $page;
+		$data['cssFile'] = $page;
+		$data['uri'] = $this->request->uri;
+
+        $session = \Config\Services::session();
+        $data['message'] = $session->getFlashdata('message');
+        $data['successMessage'] = $session->getFlashdata('successMessage');
+        
+        if (adminLoggedIn()) {
+            echo view('admin/header/header', $data);
+            echo view('admin/header/css', $data);
+            echo view('admin/header/navtop', $data);
+            echo view('admin/header/navleft', $data);
+            echo view('admin/home/newSubCategory', $data);
+            echo view('admin/header/footer', $data);
+        } else {
+            $session->setFlashdata('message','Please login to add a category.');
+            return redirect()->to(base_url('/admin/login'));
+            
+            
+        }
+    }
 }
