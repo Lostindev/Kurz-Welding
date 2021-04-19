@@ -40,7 +40,7 @@
                             <?php echo $getResult['cDate']  ;?>
                         </td>
                         <td>
-                            <a href="" class="btn btn-info">
+                            <a href="<?php echo site_url('admin/editCategory/'. $getResult['cId']) ?>" class="btn btn-info">
                             Edit
                             </a>
                         </td>
