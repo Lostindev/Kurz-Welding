@@ -206,9 +206,7 @@ class Admin extends BaseController
 		$data['page'] = $page;
 		$data['cssFile'] = $page;
 		$data['uri'] = $this->request->uri;
-        $session->keepFlashdata('message');
-
-
+    
 
 
         if (adminLoggedIn()) {
@@ -246,7 +244,12 @@ class Admin extends BaseController
                 $data['category'] = $checkCategoryById;
                 //print_r($checkCategoryById);
                 if (count($data['category']) == 1) {
-                    echo 'found';
+                    echo view('admin/header/header', $data);
+                    echo view('admin/header/css', $data);
+                    echo view('admin/header/navtop', $data);
+                    echo view('admin/header/navleft', $data);
+                    echo view('admin/home/editCategory', $data);
+                    echo view('admin/header/footer', $data);
                 } else {
                     $session->setFlashdata('message','Category not found.');
                     $session->keepFlashdata('message');
@@ -269,5 +272,61 @@ class Admin extends BaseController
             return redirect()->to(base_url('/admin/login'));
         }
 
+    }
+
+    public function updateCategory($page = 'updateCategory') {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        $adminDB = new ModAdmin();
+
+        if (adminLoggedIn()) {
+            $data['cName'] = $request->getPost('categoryName');
+            $data['cId'] = $request->getPost('id');
+            $data['cDate'] = date('Y-m-d H:i:s');
+            $data['adminId'] = $session->get('aId');
+
+            if (!empty($data['cName']) && isset($data['cName'])) {
+
+                $file = $request->getFile('cDp');
+                if (!empty($file) && $file->getSize() > 0) {
+                    $fileName = $file->getName();
+                    $file->move('/var/www/html/public/img/categories/', $fileName);
+                    $data['cDp'] = $fileName;
+                    $oldImg = $request->getPost('old');
+                    if (file_exists('/var/www/html/public/img/categories/'.$oldImg)) {
+                        unlink('/var/www/html/public/img/categories/'.$oldImg);
+                    } else {
+
+                    }
+
+
+                } else {
+                    $cId = $request->getPost('id');
+                    $getCategory = $adminDB->where('cId',$cId)->findAll();
+                    $data['cDp'] = $getCategory[0]['cDp'];
+                }
+
+                $adminDB->where('cName',$data['cId'])->findAll();
+                $updateData = $adminDB->replace($data);
+
+                if ($updateData) {
+                    $session->setFlashdata('successMessage','You have successfully updated the category.');
+                    return redirect()->to(base_url('/admin/viewCategories'));
+                } else{
+                    $session->setFlashdata('message','Something went wrong, please try again.');
+                    return redirect()->to(base_url('/admin/viewCategories'));
+                }
+
+            } else {
+                $session->setFlashdata('message','Category name is required.');
+                return redirect()->to(base_url('/admin/viewCategories'));
+            }
+
+        }
+
+        else {
+            $session->setFlashdata('message','Please login to update categories.');
+            return redirect()->to(base_url('/admin/login'));
+        }
     }
 }
