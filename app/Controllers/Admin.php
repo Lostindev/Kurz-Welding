@@ -5,7 +5,6 @@ use CodeIgniter\Controller;
 
 class Admin extends BaseController
 {
-
 	public function index($page = 'index')
 	{
         $session = \Config\Services::session();
@@ -207,9 +206,9 @@ class Admin extends BaseController
 		$data['page'] = $page;
 		$data['cssFile'] = $page;
 		$data['uri'] = $this->request->uri;
+        $session->keepFlashdata('message');
 
-        $data['message'] = $session->getFlashdata('message');
-        $data['successMessage'] = $session->getFlashdata('successMessage');
+
 
 
         if (adminLoggedIn()) {
@@ -217,6 +216,9 @@ class Admin extends BaseController
             $data = [
                 'results' => $adminDB->paginate(20),
                 'pager' => $adminDB->pager];
+
+                $data['message'] = $session->getFlashdata('message');
+                $data['successMessage'] = $session->getFlashdata('successMessage');
             
             echo view('admin/header/header', $data);
             echo view('admin/header/css', $data);
@@ -230,5 +232,42 @@ class Admin extends BaseController
             $session->setFlashdata('message','Please login to view all categories.');
             return redirect()->to(base_url('/admin/login'));
         }
+    }
+
+    public function editCategory($cId = NULL, $page = 'editCategory') {
+        $session = \Config\Services::session();
+        $data['message'] = $session->getFlashdata('message');
+        $data['successMessage'] = $session->getFlashdata('successMessage');
+
+        if (adminLoggedIn()) {
+            if (!empty($cId) && isset($cId)) {
+                $adminDB = new ModAdmin();
+                $checkCategoryById = $adminDB->where('cId',$cId)->findAll();
+                $data['category'] = $checkCategoryById;
+                //print_r($checkCategoryById);
+                if (count($data['category']) == 1) {
+                    echo 'found';
+                } else {
+                    $session->setFlashdata('message','Category not found.');
+                    $session->keepFlashdata('message');
+                    return redirect()->to(base_url('/admin/viewCategories'));
+                }
+                
+
+
+            } else {
+                $session->setFlashdata('message','Something went wrong, please try again.');
+                return redirect()->to(base_url('/admin/viewCategories'));
+            }
+            
+        } 
+        
+        
+        
+        else {
+            $session->setFlashdata('message','Please login to edit categories.');
+            return redirect()->to(base_url('/admin/login'));
+        }
+
     }
 }
