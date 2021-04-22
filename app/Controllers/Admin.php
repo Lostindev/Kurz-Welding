@@ -1,6 +1,7 @@
 <?php namespace App\Controllers;
 use App\Models\ModAdmin;
 use App\Models\ModLogin;
+use App\Models\ModSub;
 use CodeIgniter\Controller;
 
 class Admin extends BaseController
@@ -375,10 +376,12 @@ class Admin extends BaseController
 
 
         if (adminLoggedIn()) {
-            $adminDB = new ModAdmin();
+            $adminDB = new ModSub();
+            $catDB = new ModAdmin();
             $data = [
                 'results' => $adminDB->paginate(20),
-                'pager' => $adminDB->pager];
+                'pager' => $adminDB->pager,
+                'categories' => $catDB->findAll()];
 
                 $data['message'] = $session->getFlashdata('message');
                 $data['successMessage'] = $session->getFlashdata('successMessage');
@@ -420,10 +423,68 @@ class Admin extends BaseController
             echo view('admin/home/newSubCategory', $data);
             echo view('admin/header/footer', $data);
         } else {
-            $session->setFlashdata('message','Please login to add a category.');
+            $session->setFlashdata('message','Please login to add a sub category.');
             return redirect()->to(base_url('/admin/login'));
             
             
+        }
+    }
+
+    public function addSubCategory($page = 'addSubCategory') {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        $adminDB = new ModSub();
+        
+
+        if (adminLoggedIn()) {
+            $dataUpload['scName'] = $request->getPost('subCategoryName');
+            $dataUpload['categoryId'] = $request->getPost('categoryId');
+
+            if (!empty($dataUpload['scName']) ) {
+
+                if ($dataUpload['categoryId'] != '0') {
+                    $config['allows_type'] = 'gif|png|jpg|jpeg';
+
+                    $file = $request->getFile('scDp');
+                    if (!empty($file) && $file->getSize() > 0) {
+                        $fileName = $file->getName();
+                        $file->move('/var/www/html/public/img/sub_categories/', $fileName);
+                        $dataUpload['scDp'] = $fileName;
+                        $dataUpload['scDate'] = date('Y-m-d H:i:s');
+                        $dataUpload['adminId'] = $session->get('aId');
+                    } else {
+                        $dataUpload['scDate'] = date('Y-m-d H:i:s');
+                        $dataUpload['adminId'] = $session->get('aId');
+                    }
+                    $arrayCheck = ['scName' => $dataUpload['scName'], 'categoryId' => $dataUpload['categoryId']];
+                    $checkAlreadyThere = $adminDB->where($arrayCheck)->findAll();
+                    if (count($checkAlreadyThere) > 0 ){
+                        $session->setFlashdata('message','This Sub Category already exists!');
+                        return redirect()->to(base_url('/admin/newSubCategory'));
+                    } else {
+                        $addData = $adminDB->insert($dataUpload);
+                        if ($addData) {
+                            $session->setFlashdata('successMessage','You have successfully added a category.');
+                            return redirect()->to(base_url('/admin/newSubCategory'));
+                        } else {
+                            $session->setFlashdata('message','Something went wrong, please try again.');
+                            return redirect()->to(base_url('/admin/newSubCategory'));
+                        }
+                    }
+                } else {
+                    $session->setFlashdata('message','Please select a main category.');
+                    return redirect()->to(base_url('/admin/newSubCategory'));
+                }
+
+
+            } else {
+                $session->setFlashdata('message','You need a Sub Category name.');
+                return redirect()->to(base_url('/admin/newSubCategory'));
+            }
+
+        } else {
+            $session->setFlashdata('message','Please login to add a Sub Category.');
+            return redirect()->to(base_url('/admin/login'));
         }
     }
 }

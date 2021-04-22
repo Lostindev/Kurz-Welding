@@ -23,33 +23,35 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Image</th>
-                <th>Date</th>
+
                 <?php if(count($results) > 0): ?>
                     <?php foreach ($results as $getResult):  ?>
+                        
                     <tr>
                         <td>
-                            <?php echo $getResult['cId']  ;?>
+                            <?php echo $getResult['scId']  ;?>
                         </td>
                         <td>
-                            <?php echo $getResult['cName']  ;?>
+                            <?php echo $getResult['scName']  ;?>
                         </td>
                         <td>
-                            <?php echo $getResult['cDp']  ;?>
+                            <?php echo $getResult['scDp']  ;?>
                         </td>
+                        
+
+
                         <td>
-                            <?php echo $getResult['cDate']  ;?>
-                        </td>
-                        <td>
-                            <a href="<?php echo site_url('admin/editCategory/'. $getResult['cId']) ?>" class="btn btn-info">
+                            <a href="<?php echo site_url('admin/editSubCategory/'. $getResult['scId']) ?>" class="btn btn-info">
                             Edit
                             </a>
                         </td>
                         <td>
-                            <a href="<?php echo site_url('/admin/deleteCategory/'.$getResult['cId'])?>" class="btn btn-danger deleteCat" data-id="<?php echo $getResult['cId']; ?>" data-text="<?php echo $getResult['cId'] ;?>" >
+                            <a href="<?php echo site_url('/admin/deleteSubCategory/'.$getResult['scId'])?>" class="btn btn-danger deleteCat" data-id="<?php echo $getResult['scId']; ?>" data-text="<?php echo $getResult['scId'] ;?>" >
                             Delete
                             </a>
                         </td>
                     </tr>
+                        
                     <?php endforeach; ?>
                 <?php endif; ?>
             </table>
