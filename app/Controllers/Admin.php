@@ -489,6 +489,35 @@ class Admin extends BaseController
     }
 
     public function editSubCategory($scId = NULL, $page = 'editSubCategory') {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        if (adminLoggedIn()) {
+            if (!empty($scId) && isset($scId)) {
+                $db = \Config\Database::connect();
+                $builder = $db->table('sub_categories');
+            
+                $checkSubById = $builder->where('scId',$scId)->get()->getResult();
+                $data['subCategory'] = $checkSubById;
+                if (count($data['subCategory']) == 1) {
+                    echo 'working';
+                } else {
+                    $session->setFlashdata('message','Sub category not found.');
+                    $session->keepFlashdata('message');
+                    return redirect()->to(base_url('/admin/viewSubCategories'));
+                }
+                
 
+
+            } else {
+                $session->setFlashdata('message','Something went wrong, please try again.');
+                return redirect()->to(base_url('/admin/viewSubCategories'));
+            }
+            
+        }   
+        
+        else {
+            $session->setFlashdata('message','Please login to edit sub categories.');
+            return redirect()->to(base_url('/admin/login'));
+        }
     }
 }
