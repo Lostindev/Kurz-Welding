@@ -40,7 +40,7 @@
                 <?php echo form_upload('cDp','',''); ?>
             </div>
             <div class="form-group">
-                <?php echo form_submit('Add Category','Add Category','class="btn btn-primary"'); ?>
+                <?php echo form_submit('Add Sub Category','Add Sub Category','class="btn btn-primary"'); ?>
             </div>
             
             <?php echo form_close()?>

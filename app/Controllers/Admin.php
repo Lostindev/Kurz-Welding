@@ -190,7 +190,7 @@ class Admin extends BaseController
 
 
             } else {
-                $session->setFlashdata('message','You need a title');
+                $session->setFlashdata('message','You need a category name.');
                 return redirect()->to(base_url('/admin/newCategory'));
             }
 
