@@ -493,13 +493,21 @@ class Admin extends BaseController
         $session = \Config\Services::session();
         if (adminLoggedIn()) {
             if (!empty($scId) && isset($scId)) {
-                $db = \Config\Database::connect();
-                $builder = $db->table('sub_categories');
+
+                $builder = new ModSub();
             
-                $checkSubById = $builder->where('scId',$scId)->get()->getResult();
+                $checkSubById = $builder->where('scId',$scId)->findAll();
                 $data['subCategory'] = $checkSubById;
                 if (count($data['subCategory']) == 1) {
-                    echo 'working';
+                    $adminDB = new ModAdmin();
+                    $data['categories'] = $adminDB->findAll();
+                    
+                    echo view('admin/header/header', $data);
+                    echo view('admin/header/css', $data);
+                    echo view('admin/header/navtop', $data);
+                    echo view('admin/header/navleft', $data);
+                    echo view('admin/home/editSubCategory', $data);
+                    echo view('admin/header/footer', $data);
                 } else {
                     $session->setFlashdata('message','Sub category not found.');
                     $session->keepFlashdata('message');
