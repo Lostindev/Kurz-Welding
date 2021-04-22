@@ -411,7 +411,7 @@ class Admin extends BaseController
         
         if (adminLoggedIn()) {
             $adminDB = new ModAdmin();
-            $data['categories'] = $adminDB->where('cStatus',"1")->findAll();
+            $data['categories'] = $adminDB->findAll();
             
             echo view('admin/header/header', $data);
             echo view('admin/header/css', $data);

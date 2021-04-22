@@ -23,15 +23,16 @@
                 <?php echo form_input('subCategoryName','',array('class'=>"form-control", 'placeholder'=>'Enter Sub Category Name')); ?>
             </div>
             <div class="form-group">
-            
-            <?php 
-            $categoryOptions = array();
-            foreach ($categories as $category) {
-                $categoryOptions[$category->cId] = $category['cName'];
-            }
-                echo form_dropdown('categoryId',$categoryOptions,'class="form-control');
-              ?>
-
+            <select class="form-select" aria-label="Default select example">
+            <option selected>Select Main Category</option>
+            <?php if(count($categories) > 0): ?>
+            <?php foreach ($categories as $category): ?>
+            <option value="<?php echo $category['cId']; ?>">
+            <?php echo $category['cName']; ?>
+            </option>
+            <?php endforeach; ?>
+            <?php endif; ?>
+            </select>
             </div>
 
 
