@@ -169,7 +169,8 @@ class Admin extends BaseController
                     $dataUpload['cDate'] = date('Y-m-d H:i:s');
                     $dataUpload['adminId'] = $session->get('aId');
                 } else {
-                    echo 'failed';
+                    $dataUpload['cDate'] = date('Y-m-d H:i:s');
+                    $dataUpload['adminId'] = $session->get('aId');
                 }
 
                 $checkAlreadyThere = $adminDB->where('cName', $dataUpload['cName'])->findAll();
@@ -398,7 +399,7 @@ class Admin extends BaseController
 
     public function newSubCategory($page = 'newSubCategory')
     {
-		$data['title'] = 'Admin - Add Sub Category';
+		$data['title'] = 'Admin - New Sub Category';
 		$data['metaData'] = "";
 		$data['page'] = $page;
 		$data['cssFile'] = $page;
@@ -409,6 +410,9 @@ class Admin extends BaseController
         $data['successMessage'] = $session->getFlashdata('successMessage');
         
         if (adminLoggedIn()) {
+            $adminDB = new ModAdmin();
+            $data['categories'] = $adminDB->where('cStatus',"1")->findAll();
+            
             echo view('admin/header/header', $data);
             echo view('admin/header/css', $data);
             echo view('admin/header/navtop', $data);
