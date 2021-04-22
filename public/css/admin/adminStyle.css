@@ -1,0 +1,22 @@
+.dataTable {
+    width:100%;
+}
+
+.dataTable td, .dataTable th {
+    border: 1px solid darkgray;
+    padding: 8px;
+  }
+
+  .dataRow {
+      padding-top: 25px;
+  }
+
+ .dataTable tr:hover {background-color: #ddd;}
+
+  .dataTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #007bff;
+    color: white;
+  }

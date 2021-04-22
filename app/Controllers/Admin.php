@@ -487,4 +487,8 @@ class Admin extends BaseController
             return redirect()->to(base_url('/admin/login'));
         }
     }
+
+    public function editSubCategory($scId = NULL, $page = 'editSubCategory') {
+
+    }
 }

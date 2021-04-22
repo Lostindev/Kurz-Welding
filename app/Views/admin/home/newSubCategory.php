@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center dataRow">
         <div class="col-md-6 col-md-offset-3">
         <h3>Create New Sub Category</h3>
         <?php if (isset($message)) : ?>

@@ -1,6 +1,6 @@
 <div class="content-wrapper">
-    <div class="row justify-content-center">
-        <div class="col-md-6 col-md-offset-3">
+    <div class="row justify-content-center dataRow">
+        <div class="col-md-10 col-md-offset-3">
 
         <?php if (isset($message)) : ?>
                             <div class=" alert alert-danger">
@@ -19,10 +19,13 @@
         <?php endif; ?>
 
             <h1>All Sub Categories</h1>
-            <table>
+            <table class="dataTable">
                 <th>ID</th>
                 <th>Name</th>
                 <th>Image</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                
 
                 <?php if(count($results) > 0): ?>
                     <?php foreach ($results as $getResult):  ?>
