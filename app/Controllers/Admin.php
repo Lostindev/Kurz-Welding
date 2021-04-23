@@ -373,7 +373,8 @@ class Admin extends BaseController
 		$data['cssFile'] = $page;
 		$data['uri'] = $this->request->uri;
     
-
+        $data['message'] = $session->getFlashdata('message');
+        $data['successMessage'] = $session->getFlashdata('successMessage');
 
         if (adminLoggedIn()) {
             $adminDB = new ModSub();
@@ -589,6 +590,40 @@ class Admin extends BaseController
 
         } else {
             $session->setFlashdata('message','Please login to add a Sub Category.');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
+
+    public function deleteSubCategory($scId) {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        
+        if (adminLoggedIn()) {
+
+            if (!empty($scId) && isset($scId)) {
+                $adminDB = new ModSub();
+                $result = $adminDB->where('scId',$scId)->delete();
+
+                if ($result) {
+  
+                    $session->setFlashdata('successMessage','Category successfully deleted.');
+                    $session->keepFlashdata('sucessMessage');
+                    return redirect()->to(base_url('/admin/viewSubCategories'));
+                } else {
+                    $session->setFlashdata('message','Something went wrong, please try again.');
+                    $session->keepFlashdata('message');
+                    return redirect()->to(base_url('/admin/viewSubCategories'));
+                }
+                
+            } else {
+                $session->setFlashdata('message','Something went wrong, please try again.');
+                $session->keepFlashdata('message');
+                return redirect()->to(base_url('/admin/viewSubCategories'));
+            }
+
+        } else {
+            $session->setFlashdata('message','Please login to delete categories.');
+            $session->keepFlashdata('message');
             return redirect()->to(base_url('/admin/login'));
         }
     }
