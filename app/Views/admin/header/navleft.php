@@ -35,7 +35,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-               <li class="nav-item">
+          <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
@@ -59,7 +59,7 @@
             </ul>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
@@ -78,6 +78,30 @@
                 <a href="/admin/viewSubCategories" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Sub-Categories</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Products
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/admin/newProduct" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>New Product</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/admin/viewProducts" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Products</p>
                 </a>
               </li>
             </ul>
