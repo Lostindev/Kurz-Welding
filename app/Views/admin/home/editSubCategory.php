@@ -18,7 +18,9 @@
                             </div>
         <?php endif; ?>
 
-            <?php echo form_open_multipart('/admin/editSubCategory','')?>
+            <?php echo form_open_multipart('/admin/updateSubCategory','')?>
+            <input name="id" type="hidden" value="<?php echo $subCategory[0]['scId'] ?>">
+            <input name="old" type="hidden" value="<?php echo $subCategory[0]['scDp'] ?>">
             <div class="form-group">
                 <?php echo form_input('subCategoryName',$subCategory[0]['scName'],array('class'=>"form-control", 'placeholder'=>'Enter Sub Category Name')); ?>
             </div>

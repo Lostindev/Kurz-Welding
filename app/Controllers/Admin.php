@@ -488,7 +488,7 @@ class Admin extends BaseController
         }
     }
 
-    public function editSubCategory($scId = NULL, $page = 'editSubCategory') {
+    public function editSubCategory($scId, $page = 'editSubCategory') {
         $request = \Config\Services::request();
         $session = \Config\Services::session();
         if (adminLoggedIn()) {
@@ -525,6 +525,70 @@ class Admin extends BaseController
         
         else {
             $session->setFlashdata('message','Please login to edit sub categories.');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
+
+    public function updateSubCategory($scId = NULL,$page = 'updateSubCategory') {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        $adminDB = new ModSub();
+        
+
+        if (adminLoggedIn()) {
+            $dataUpload['scName'] = $request->getPost('subCategoryName');
+            $dataUpload['categoryId'] = $request->getPost('categoryId');
+            $dataUpload['scId'] = $request->getPost('id');//sub category ID
+            $oldImg = $request->getPost('old');
+
+            if (!empty($dataUpload['scName']) ) {
+
+                if ($dataUpload['categoryId'] != '0') {
+                    $config['allows_type'] = 'gif|png|jpg|jpeg';
+
+                    $file = $request->getFile('scDp');
+                    if (!empty($file) && $file->getSize() > 0) {
+                        if (file_exists('/var/www/html/public/img/sub_categories/'.$oldImg)) {
+                            unlink('/var/www/html/public/img/sub_categories/'.$oldImg);
+                        } else {
+                        }
+                        $fileName = $file->getName();
+                        $file->move('/var/www/html/public/img/sub_categories/', $fileName);
+                        $dataUpload['scDp'] = $fileName;
+                        $dataUpload['scDate'] = date('Y-m-d H:i:s');
+                        $dataUpload['adminId'] = $session->get('aId');
+
+                    } else {
+                        $dataUpload['scDp'] = $oldImg;
+                        $dataUpload['scDate'] = date('Y-m-d H:i:s');
+                        $dataUpload['adminId'] = $session->get('aId');
+                    }
+                    $arrayCheck = ['scName' => $dataUpload['scName'], 'categoryId' => $dataUpload['categoryId']];
+                    $checkAlreadyThere = $adminDB->where($arrayCheck)->findAll();
+
+                        $adminDB->where('scId',$dataUpload['scId'])->findAll();
+                        $addData = $adminDB->replace($dataUpload);
+                        if ($addData) {
+                            $session->setFlashdata('successMessage','You have successfully updated your category.');
+                            return redirect()->to(base_url('/admin/viewSubCategories'));
+                        } else {
+                            $session->setFlashdata('message','Something went wrong, please try again.');
+                            return redirect()->to(base_url('/admin/viewSubCategories'));
+                        }
+                    
+                } else {
+                    $session->setFlashdata('message','Please select a main category.');
+                    return redirect()->to(base_url('/admin/viewSubCategories'));
+                }
+
+
+            } else {
+                $session->setFlashdata('message','You need a Sub Category name.');
+                return redirect()->to(base_url('/admin/viewSubCategories'));
+            }
+
+        } else {
+            $session->setFlashdata('message','Please login to add a Sub Category.');
             return redirect()->to(base_url('/admin/login'));
         }
     }

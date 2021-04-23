@@ -41,8 +41,6 @@
                             <?php echo $getResult['scDp']  ;?>
                         </td>
                         
-
-
                         <td>
                             <a href="<?php echo site_url('admin/editSubCategory/'. $getResult['scId']) ?>" class="btn btn-info">
                             Edit
