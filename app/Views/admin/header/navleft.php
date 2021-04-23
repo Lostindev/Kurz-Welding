@@ -61,7 +61,7 @@
 
           <li class="nav-item ">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
+              <i class="nav-icon fas fa-copy"></i>
               <p>
                 Sub Categories
                 <i class="fas fa-angle-left right"></i>
@@ -85,7 +85,7 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
+              <i class="nav-icon fas fa-th"></i>
               <p>
                 Products
                 <i class="fas fa-angle-left right"></i>
