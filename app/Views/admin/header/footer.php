@@ -71,7 +71,7 @@ $(document).ready(function() {
                 success:function(data)
                 {
                   console.log(data);
-                    var html = '<option value="">Select Sub Category</option>';
+                    var html = '<option value="0">Select Sub Category</option>';
 
                     for(var count = 0; count < data.length; count++)
                     {

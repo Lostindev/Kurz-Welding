@@ -663,7 +663,7 @@ class Admin extends BaseController
         }
     }
 
-    public function action() { //AJAX POPULATE DROPDOWNS
+    public function action() { //AJAX POPULATE DROPDOWNS ON PRODUCT PAGE
         if($this->request->getVar('action')) {
             $action = $this->request->getVar('action');
 
@@ -716,7 +716,7 @@ class Admin extends BaseController
                         $session->setFlashdata('message','This product already exists in this category.');
                         return redirect()->to(base_url('/admin/newProduct'));
                     } else {
-                        $addData = $adminDB->insert($dataUpload);
+                    $addData = $adminDB->insert($dataUpload);
                         if ($addData) {
                             $session->setFlashdata('successMessage','You have successfully added a product.');
                             return redirect()->to(base_url('/admin/newProduct'));
