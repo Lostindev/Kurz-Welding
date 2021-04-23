@@ -75,7 +75,7 @@ $(document).ready(function() {
 
                     for(var count = 0; count < data.length; count++)
                     {
-                        html += '<option value="'+data[count].category_id+'">'+data[count].scName+'</option>';
+                        html += '<option value="'+data[count].scId+'">'+data[count].scName+'</option>';
                     }
 
                     $('#subCategory').html(html);

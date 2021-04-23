@@ -46,7 +46,7 @@
 
 
             <div class="form-group">
-                <?php echo form_upload('scDp','',''); ?>
+                <?php echo form_upload('pDp','',''); ?>
             </div>
             <div class="form-group">
                 <?php echo form_submit('Add Product','Add Product','class="btn btn-primary"'); ?>

@@ -716,7 +716,7 @@ class Admin extends BaseController
                         $session->setFlashdata('message','This product already exists in this category.');
                         return redirect()->to(base_url('/admin/newProduct'));
                     } else {
-                        var_dump($dataUpload);
+                        $addData = $adminDB->insert($dataUpload);
                         if ($addData) {
                             $session->setFlashdata('successMessage','You have successfully added a product.');
                             return redirect()->to(base_url('/admin/newProduct'));
