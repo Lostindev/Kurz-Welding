@@ -39,7 +39,7 @@
             </div>
 
             <div class="form-group">
-                <select name="subCategory" id="subCategory" >
+                <select name="subCategory" id="subCategory" class="form-select" aria-label="Sub Category Select" >
                     <option value="0">Select Sub Category</option>
                 </select>
             </div>

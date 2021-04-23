@@ -1,7 +1,12 @@
 <?php namespace App\Controllers;
 use App\Models\ModAdmin;
+
 use App\Models\ModLogin;
+
 use App\Models\ModSub;
+
+use App\Models\ModProducts;
+
 use CodeIgniter\Controller;
 
 class Admin extends BaseController
@@ -658,7 +663,7 @@ class Admin extends BaseController
         }
     }
 
-    public function action() {
+    public function action() { //AJAX POPULATE DROPDOWNS
         if($this->request->getVar('action')) {
             $action = $this->request->getVar('action');
 
@@ -676,4 +681,66 @@ class Admin extends BaseController
 
         }
     }
+
+    public function addProduct($page = 'addProduct') {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        $adminDB = new ModProducts();
+        
+
+        if (adminLoggedIn()) {
+            $dataUpload['pName'] = $request->getPost('productName');
+            $dataUpload['pDescription'] = $request->getPost('productDescription');
+            $dataUpload['categoryId'] = $request->getPost('categoryId');
+            $dataUpload['subCatId'] = $request->getPost('subCategory');
+
+            if (!empty($dataUpload['pName']) ) {
+
+                if ($dataUpload['categoryId'] != '0') {
+                    $config['allows_type'] = 'gif|png|jpg|jpeg';
+
+                    $file = $request->getFile('pDp');
+                    if (!empty($file) && $file->getSize() > 0) {
+                        $fileName = $file->getName();
+                        $file->move('/var/www/html/public/img/products/', $fileName);
+                        $dataUpload['pDp'] = $fileName;
+                        $dataUpload['pDate'] = date('Y-m-d H:i:s');
+                        $dataUpload['adminId'] = $session->get('aId');
+                    } else {
+                        $dataUpload['pDate'] = date('Y-m-d H:i:s');
+                        $dataUpload['adminId'] = $session->get('aId');
+                    }
+                    $arrayCheck = ['pName' => $dataUpload['pName'], 'categoryId' => $dataUpload['categoryId']];
+                    $checkAlreadyThere = $adminDB->where($arrayCheck)->findAll();
+                    if (count($checkAlreadyThere) > 0 ){
+                        $session->setFlashdata('message','This product already exists in this category.');
+                        return redirect()->to(base_url('/admin/newProduct'));
+                    } else {
+                        var_dump($dataUpload);
+                        if ($addData) {
+                            $session->setFlashdata('successMessage','You have successfully added a product.');
+                            return redirect()->to(base_url('/admin/newProduct'));
+                        } else {
+                            $session->setFlashdata('message','Something went wrong, please try again.');
+                            return redirect()->to(base_url('/admin/newProduct'));
+                        }
+                    }
+                } else {
+                    $session->setFlashdata('message','Please select a main category.');
+                    return redirect()->to(base_url('/admin/newProduct'));
+                }
+
+
+            } else {
+                $session->setFlashdata('message','You need a product name.');
+                return redirect()->to(base_url('/admin/newProduct'));
+            }
+
+        } else {
+            $session->setFlashdata('message','Please login to add a product.');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
+
+
 }

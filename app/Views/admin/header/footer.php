@@ -80,7 +80,6 @@ $(document).ready(function() {
 
                     $('#subCategory').html(html);
                 }
-
             });
         }
         else {
