@@ -465,7 +465,7 @@ class Admin extends BaseController
                     } else {
                         $addData = $adminDB->insert($dataUpload);
                         if ($addData) {
-                            $session->setFlashdata('successMessage','You have successfully added a category.');
+                            $session->setFlashdata('successMessage','You have successfully added a sub category.');
                             return redirect()->to(base_url('/admin/newSubCategory'));
                         } else {
                             $session->setFlashdata('message','Something went wrong, please try again.');
@@ -625,6 +625,55 @@ class Admin extends BaseController
             $session->setFlashdata('message','Please login to delete categories.');
             $session->keepFlashdata('message');
             return redirect()->to(base_url('/admin/login'));
+        }
+    }
+
+    public function newProduct($page = 'newProduct')
+    {
+		$data['title'] = 'Admin - New Product';
+		$data['metaData'] = "";
+		$data['page'] = $page;
+		$data['cssFile'] = $page;
+		$data['uri'] = $this->request->uri;
+
+        $session = \Config\Services::session();
+        $data['message'] = $session->getFlashdata('message');
+        $data['successMessage'] = $session->getFlashdata('successMessage');
+        
+        if (adminLoggedIn()) {
+            $adminDB = new ModAdmin();
+            $data['categories'] = $adminDB->findAll();
+            
+            echo view('admin/header/header', $data);
+            echo view('admin/header/css', $data);
+            echo view('admin/header/navtop', $data);
+            echo view('admin/header/navleft', $data);
+            echo view('admin/home/newProduct', $data);
+            echo view('admin/header/footer', $data);
+        } else {
+            $session->setFlashdata('message','Please login to add a sub category.');
+            return redirect()->to(base_url('/admin/login'));
+            
+            
+        }
+    }
+
+    public function action() {
+        if($this->request->getVar('action')) {
+            $action = $this->request->getVar('action');
+
+            if($action == 'get_sub_cat')
+            {
+                $subDB = new ModSub();
+
+                $subCatData = $subDB->where('categoryId', $this->request->getVar('category_id'))->findAll();
+
+                echo json_encode($subCatData);
+            }
+        }
+
+        else {
+
         }
     }
 }

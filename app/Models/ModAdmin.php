@@ -6,7 +6,7 @@ class ModAdmin extends Model
     protected $DBGroup = 'default';
 
     protected $table = 'categories';
-    protected  $primaryKey = "aId";
+    protected  $primaryKey = "cId";
     protected $returnType = 'array';
     protected $allowedFields = ['cName','cDp','cDate','adminId'];
 
