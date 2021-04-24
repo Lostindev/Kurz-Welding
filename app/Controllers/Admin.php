@@ -742,5 +742,39 @@ class Admin extends BaseController
         }
     }
 
+   public function viewProducts($page = 'viewProducts') {
+        $session = \Config\Services::session();
+		$data['title'] = 'Admin - View Products';
+		$data['metaData'] = "";
+		$data['page'] = $page;
+		$data['cssFile'] = $page;
+		$data['uri'] = $this->request->uri;
+    
+        $data['message'] = $session->getFlashdata('message');
+        $data['successMessage'] = $session->getFlashdata('successMessage');
 
+        if (adminLoggedIn()) {
+            $adminDB = new ModProducts();
+            $subCatDB = new ModSub();
+            $data = [
+                'results' => $adminDB->paginate(20),
+                'pager' => $adminDB->pager,
+                'categories' => $subCatDB->findAll()];
+
+                $data['message'] = $session->getFlashdata('message');
+                $data['successMessage'] = $session->getFlashdata('successMessage');
+            
+            echo view('admin/header/header', $data);
+            echo view('admin/header/css', $data);
+            echo view('admin/header/navtop', $data);
+            echo view('admin/header/navleft', $data);
+            echo view('admin/home/viewProducts', $data);
+            echo view('admin/header/footer', $data);
+
+            
+        } else {
+            $session->setFlashdata('message','Please login to view all categories.');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
 }
