@@ -742,7 +742,8 @@ class Admin extends BaseController
         }
     }
 
-   public function viewProducts($page = 'viewProducts') {
+   public function viewProducts($page = 'viewProducts') 
+   {
         $session = \Config\Services::session();
 		$data['title'] = 'Admin - View Products';
 		$data['metaData'] = "";
@@ -811,4 +812,47 @@ class Admin extends BaseController
             return redirect()->to(base_url('/admin/login'));
         }
     }
+
+    public function editProduct($pId, $page = 'editProduct') {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        if (adminLoggedIn()) {
+            if (!empty($pId) && isset($pId)) {
+
+                $builder = new ModProducts();
+            
+                $checkProductById = $builder->where('pId',$pId)->findAll();
+                $data['product'] = $checkProductById;
+                if (count($data['product']) == 1) {
+                    $adminDB = new ModAdmin();
+                    $data['categories'] = $adminDB->findAll();
+                    
+                    echo view('admin/header/header', $data);
+                    echo view('admin/header/css', $data);
+                    echo view('admin/header/navtop', $data);
+                    echo view('admin/header/navleft', $data);
+                    echo view('admin/home/editProduct', $data);
+                    echo view('admin/header/footer', $data);
+
+                } else {
+                    $session->setFlashdata('message','Product not found.');
+                    $session->keepFlashdata('message');
+                    return redirect()->to(base_url('/admin/viewProducts'));
+                }
+                
+
+
+            } else {
+                $session->setFlashdata('message','Something went wrong, please try again.');
+                return redirect()->to(base_url('/admin/viewProducts'));
+            }
+            
+        }   
+        
+        else {
+            $session->setFlashdata('message','Please login to edit products.');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
+
 }
