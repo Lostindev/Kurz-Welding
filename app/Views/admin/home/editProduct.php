@@ -18,7 +18,7 @@
                             </div>
         <?php endif; ?>
 
-            <?php echo form_open_multipart('/admin/editProduct','')?>
+            <?php echo form_open_multipart('/admin/updateProduct','')?>
             <input type="hidden" name="pId" value="<?php echo $product[0]['pId']?>">
             <input type="hidden" name="oldImg" value="<?php echo $product[0]['pDp']?>">
             <div class="form-group">
@@ -29,7 +29,7 @@
             </div>
             <div class="form-group">
             <select name="categoryId" id="categoryId" class="form-select" aria-label="Category Select">
-            <option value="0" selected>Select Main Category</option>
+            <option value="<?php echo $product[0]['categoryId'] ?>" selected>Select Main Category</option>
             <?php if(count($categories) > 0): ?>
             <?php foreach ($categories as $category): ?>
             <option value="<?php echo $category['cId']; ?>">
@@ -42,7 +42,7 @@
 
             <div class="form-group">
                 <select name="subCategory" id="subCategory" class="form-select" aria-label="Sub Category Select" >
-                    <option value="0">Select Sub Category</option>
+                    <option value="<?php echo $product[0]['subCatId'] ?>">Select Sub Category</option>
                 </select>
             </div>
 

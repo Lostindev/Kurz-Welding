@@ -855,4 +855,65 @@ class Admin extends BaseController
         }
     }
 
+
+    public function updateProduct($page = 'updateProduct') {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        $adminDB = new ModProducts();
+        
+
+        if (adminLoggedIn()) {
+            $dataUpload['pName'] = $request->getPost('productName');
+            $dataUpload['pDescription'] = $request->getPost('productDescription');
+            $dataUpload['categoryId'] = $request->getPost('categoryId');
+            $dataUpload['subCatId'] = $request->getPost('subCategory');
+            $dataUpload['pId'] = $request->getPost('pId');
+
+            if (!empty($dataUpload['pName']) ) {
+
+                if ($dataUpload['categoryId'] != '0') {
+                    $config['allows_type'] = 'gif|png|jpg|jpeg';
+
+                    $file = $request->getFile('pDp');
+                    if (!empty($file) && $file->getSize() > 0) {
+                        $fileName = $file->getName();
+                        $file->move('/var/www/html/public/img/products/', $fileName);
+                        $dataUpload['pDp'] = $fileName;
+                        $dataUpload['pDate'] = date('Y-m-d H:i:s');
+                        $dataUpload['adminId'] = $session->get('aId');
+                    } else {
+                        $dataUpload['pDp'] = $request->getPost('oldImg');
+                        $dataUpload['pDate'] = date('Y-m-d H:i:s');
+                        $dataUpload['adminId'] = $session->get('aId');
+                    }
+                    $arrayCheck = ['pName' => $dataUpload['pName'], 'categoryId' => $dataUpload['categoryId']];
+                    $checkAlreadyThere = $adminDB->where($arrayCheck)->findAll();
+
+                    $adminDB->where('pId',$dataUpload['pId'])->findAll();
+
+                    $addData = $adminDB->replace($dataUpload);
+                        if ($addData) {
+                            $session->setFlashdata('successMessage','You have successfully updated your product.');
+                            return redirect()->to(base_url('/admin/viewProducts'));
+                        } else {
+                            $session->setFlashdata('message','Something went wrong, please try again.');
+                            return redirect()->to(base_url('/admin/viewProducts'));
+                        }
+                    
+                } else {
+                    $session->setFlashdata('message','Please select a main category.');
+                    return redirect()->to(base_url('/admin/viewProducts'));
+                }
+
+
+            } else {
+                $session->setFlashdata('message','You need a product name.');
+                return redirect()->to(base_url('/admin/newProduct'));
+            }
+
+        } else {
+            $session->setFlashdata('message','Please login to edit products.');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
 }
