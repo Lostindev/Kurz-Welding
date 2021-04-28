@@ -19,6 +19,8 @@
         <?php endif; ?>
 
             <?php echo form_open_multipart('/admin/editProduct','')?>
+            <input type="hidden" name="pId" value="<?php echo $product[0]['pId']?>">
+            <input type="hidden" name="oldImg" value="<?php echo $product[0]['pDp']?>">
             <div class="form-group">
                 <?php echo form_input('productName',$product[0]['pName'],array('class'=>"form-control", 'placeholder'=>'Enter Product Name')); ?>
             </div>
