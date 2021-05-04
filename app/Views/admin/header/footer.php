@@ -51,7 +51,7 @@
 <!--<script src="/assets/adminlte/dist/js/pages/dashboard.js"></script> -->
 
 
-<!--Custom Admin JS-->
+<!--Load Sub Category based on Main.-->
 
 <script type="text/javascript">
 $(function () {
@@ -87,16 +87,31 @@ $(document).ready(function() {
 
     });
 
-});
+    $('.add_spec').click(function () {
+    var sp_count = $('.sp_cn').length;
+    var items = "";
+    items +="<div class='form-group form_special rmov"+sp_count+"'>";
+    items +="<input type='text' name='sp_value' class='form-control sp_cn' placeholder='Enter Spec Value'>";
+    items +="<a href='javascript:void(0)' class='remove_spec' data-id="+sp_count+"><i class='far fa-minus-square'></i></a>";
+    items +="</div>";
+
+    if (sp_count <=5) {
+      $('.sp_items').append(items);
+    }
+
+    }); //End Function 
+
+    $('body').on('click',".remove_spec",function () {
+      var curnt = $(this).data('id');
+      $('.rmov'+curnt).remove()
+    });
+
+  });
 })
-
-
 </script>
 
-<script src="/js/admincustom.js"></script>
-<script type="text/javascript">
-  var surl = "<?php echo site_url()?>";
-  var burl = "<?php echo base_url() ?>";
-</script>
+<!-- NEW FUNTION DONT FORGET TO LABEL-->
+
+
 </body>
 </html>
