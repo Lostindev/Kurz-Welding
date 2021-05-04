@@ -7,6 +7,8 @@ use App\Models\ModSub;
 
 use App\Models\ModProducts;
 
+use App\Models\ModSpec;
+
 use CodeIgniter\Controller;
 
 class Admin extends BaseController
@@ -924,7 +926,7 @@ class Admin extends BaseController
 
     public function newSpec($page = 'newSpec')
     {
-		$data['title'] = 'Admin - New Spec';
+		$data['title'] = 'Admin - Create New Spec';
 		$data['metaData'] = "";
 		$data['page'] = $page;
 		$data['cssFile'] = $page;
@@ -945,10 +947,82 @@ class Admin extends BaseController
             echo view('admin/home/newSpec', $data);
             echo view('admin/header/footer', $data);
         } else {
-            $session->setFlashdata('message','Please login to add a sub category.');
+            $session->setFlashdata('message','Please login to add new specs.');
             return redirect()->to(base_url('/admin/login'));
             
             
+        }
+    }
+
+    public function addSpecs($page = 'addSpecs') {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        $adminDB = new ModProducts();
+        $specDB = new ModSpec();
+        
+
+        if (adminLoggedIn()) {
+            $dataUpload['spName'] = $request->getPost('sp_name');
+            $specValues = $request->getPost('sp_val');//array
+            $specValues = array_filter($specValues);
+            $dataUpload['productId'] = $request->getPost('productId');
+
+
+            if (!empty($dataUpload['spName']) && !empty($specValues) ) {
+
+                if ($dataUpload['productId'] != '0') {
+
+                    $arrayCheck = ['spName' => $dataUpload['spName'], 'productId' => $dataUpload['productId']];
+                    $checkAlreadyThere = $adminDB->where($arrayCheck)->findAll();
+
+                    $dataUpload['adminId'] = getAdminId();
+                    $dataUpload['spDate'] = date('Y-m-d H:i:s');
+
+                    if (count($checkAlreadyThere) > 0 ){
+                        $session->setFlashdata('message','These specs already exist for this product.');
+                        return redirect()->to(base_url('/admin/newSpec'));
+                    } else {
+
+                        $checkSpecName = $specDB->insert($dataUpload);
+                        $specId = $specDB->insert_id();
+                        if (is_numeric($specId)) {
+                            
+                            $spec_values = array();
+                            foreach ($specValues as $specVal) {
+                                $spec_values = array(
+                                    'specId'=>$specId,
+                                    'adminId'=>'',
+                                );
+                            }
+
+                        }
+
+                        //other
+
+                    $addData = $adminDB->insert($dataUpload);
+                        if ($addData) {
+                            $session->setFlashdata('successMessage','You have successfully added new specs.');
+                            return redirect()->to(base_url('/admin/newSpec'));
+                        } else {
+                            $session->setFlashdata('message','Something went wrong, please try again.');
+                            return redirect()->to(base_url('/admin/newSpec'));
+                        }
+                    }
+
+                } else {
+                    $session->setFlashdata('message','Please select a main category.');
+                    return redirect()->to(base_url('/admin/newSpec'));
+                }
+
+
+            } else {
+                $session->setFlashdata('message','You need a product name.');
+                return redirect()->to(base_url('/admin/newProduct'));
+            }
+
+        } else {
+            $session->setFlashdata('message','Please login to add a product.');
+            return redirect()->to(base_url('/admin/login'));
         }
     }
 }

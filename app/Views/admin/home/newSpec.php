@@ -1,7 +1,7 @@
 <div class="content-wrapper">
     <div class="row justify-content-center dataRow">
         <div class="col-md-6 col-md-offset-3">
-        <h3>Create New Product</h3>
+        <h3>Create New Specs</h3>
         <?php if (isset($message)) : ?>
                             <div class=" alert alert-danger">
                                 <div class="text-white">
@@ -18,7 +18,7 @@
                             </div>
         <?php endif; ?>
 
-            <?php echo form_open_multipart('/admin/addSpec','')?>
+            <?php echo form_open_multipart('/admin/addSpecs','')?>
 
             <div class="form-group">
             <select name="productId" id="productId" class="form-select" aria-label="Product Select">
@@ -39,7 +39,7 @@
             
             <div class="sp_items">
                 <div class="form-group">
-                <?php echo form_input('sp_value','',array('class'=>"form-control sp_cn", 'placeholder'=>'Enter Spec Value')); ?>
+                <?php echo form_input('sp_val','',array('class'=>"form-control sp_cn", 'placeholder'=>'Enter Spec Value')); ?>
                 <a href="javascript:void(0)" id="add_spec" class="add_spec"><i class="far fa-plus-square"></i></a>
                 </div>
             </div>
