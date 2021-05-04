@@ -921,4 +921,34 @@ class Admin extends BaseController
             return redirect()->to(base_url('/admin/login'));
         }
     }
+
+    public function newSpec($page = 'newSpec')
+    {
+		$data['title'] = 'Admin - New Spec';
+		$data['metaData'] = "";
+		$data['page'] = $page;
+		$data['cssFile'] = $page;
+		$data['uri'] = $this->request->uri;
+
+        $session = \Config\Services::session();
+        $data['message'] = $session->getFlashdata('message');
+        $data['successMessage'] = $session->getFlashdata('successMessage');
+        
+        if (adminLoggedIn()) {
+            $adminDB = new ModProducts();
+            $data['products'] = $adminDB->findAll();
+            
+            echo view('admin/header/header', $data);
+            echo view('admin/header/css', $data);
+            echo view('admin/header/navtop', $data);
+            echo view('admin/header/navleft', $data);
+            echo view('admin/home/newSpec', $data);
+            echo view('admin/header/footer', $data);
+        } else {
+            $session->setFlashdata('message','Please login to add a sub category.');
+            return redirect()->to(base_url('/admin/login'));
+            
+            
+        }
+    }
 }
