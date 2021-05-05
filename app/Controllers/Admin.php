@@ -9,6 +9,8 @@ use App\Models\ModProducts;
 
 use App\Models\ModSpec;
 
+use App\Models\ModSpecValues;
+
 use CodeIgniter\Controller;
 
 class Admin extends BaseController
@@ -960,20 +962,21 @@ class Admin extends BaseController
         $adminDB = new ModProducts();
         $specDB = new ModSpec();
         
+        
 
         if (adminLoggedIn()) {
             $dataUpload['spName'] = $request->getPost('sp_name');
             $specValues = $request->getPost('sp_val');//array
             $specValues = array_filter($specValues);
             $dataUpload['productId'] = $request->getPost('productId');
-
+ 
 
             if (!empty($dataUpload['spName']) && !empty($specValues) ) {
 
                 if ($dataUpload['productId'] != '0') {
 
                     $arrayCheck = ['spName' => $dataUpload['spName'], 'productId' => $dataUpload['productId']];
-                    $checkAlreadyThere = $adminDB->where($arrayCheck)->findAll();
+                    $checkAlreadyThere = $specDB->where($arrayCheck)->findAll();
 
                     $dataUpload['adminId'] = getAdminId();
                     $dataUpload['spDate'] = date('Y-m-d H:i:s');
@@ -984,40 +987,43 @@ class Admin extends BaseController
                     } else {
 
                         $checkSpecName = $specDB->insert($dataUpload);
-                        $specId = $specDB->insert_id();
-                        if (is_numeric($specId)) {
-                            
+                        $specId = $specDB->insertID();
+             
+                        if ($checkSpecName && is_numeric($specId)) {
+                            $specValueDB = new ModSpecValues();
                             $spec_values = array();
                             foreach ($specValues as $specVal) {
-                                $spec_values = array(
+                                $spec_values[] = array(
                                     'specId'=>$specId,
-                                    'adminId'=>'',
+                                    'adminId'=>$dataUpload['adminId'],
+                                    'spvDate'=>date('Y-m-d H:i:s'),
+                                    'spvName'=>$specVal,
                                 );
+                            } //foreach loop here
+                            //var_dump($spec_values);
+                            //die();
+                
+                            $specValStatus = $specValueDB->insertBatch($spec_values);
+
+                            if ($specValStatus) {
+                                $session->setFlashdata('successMessage','You have successfully added a new spec.');
+                                return redirect()->to(base_url('/admin/newSpec'));
+                            } else {
+                                $session->setFlashdata('message','Something went wrong, please try again.');
+                                return redirect()->to(base_url('/admin/newSpec'));
                             }
-
-                        }
-
-                        //other
-
-                    $addData = $adminDB->insert($dataUpload);
-                        if ($addData) {
-                            $session->setFlashdata('successMessage','You have successfully added new specs.');
-                            return redirect()->to(base_url('/admin/newSpec'));
-                        } else {
-                            $session->setFlashdata('message','Something went wrong, please try again.');
-                            return redirect()->to(base_url('/admin/newSpec'));
                         }
                     }
 
                 } else {
-                    $session->setFlashdata('message','Please select a main category.');
+                    $session->setFlashdata('message','Please select a product.');
                     return redirect()->to(base_url('/admin/newSpec'));
                 }
 
 
             } else {
-                $session->setFlashdata('message','You need a product name.');
-                return redirect()->to(base_url('/admin/newProduct'));
+                $session->setFlashdata('message','You need a spec name.');
+                return redirect()->to(base_url('/admin/newSpec'));
             }
 
         } else {

@@ -91,7 +91,7 @@ $(document).ready(function() {
     var sp_count = $('.sp_cn').length;
     var items = "";
     items +="<div class='form-group form_special rmov"+sp_count+"'>";
-    items +="<input type='text' name='sp_value' class='form-control sp_cn' placeholder='Enter Spec Value'>";
+    items +="<input type='text' name='sp_val[]' class='form-control sp_cn' placeholder='Enter Spec Value'>";
     items +="<a href='javascript:void(0)' class='remove_spec' data-id="+sp_count+"><i class='far fa-minus-square'></i></a>";
     items +="</div>";
 

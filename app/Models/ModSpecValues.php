@@ -1,13 +1,13 @@
 <?php namespace App\Models;
 use CodeIgniter\Model;
 
-class ModSpec extends Model
+class ModSpecValues extends Model
 {
     protected $DBGroup = 'default';
 
-    protected $table = 'specs';
+    protected $table = 'spec_values';
     protected  $primaryKey = "spId";
     protected $returnType = 'array';
-    protected $allowedFields = ['spName','spDate','adminId','productId'];
+    protected $allowedFields = ['spvName','spvDate','adminId','specId'];
 
 }

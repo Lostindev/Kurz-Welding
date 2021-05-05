@@ -39,7 +39,7 @@
             
             <div class="sp_items">
                 <div class="form-group">
-                <?php echo form_input('sp_val','',array('class'=>"form-control sp_cn", 'placeholder'=>'Enter Spec Value')); ?>
+                <?php echo form_input('sp_val[]','',array('class'=>"form-control sp_cn", 'placeholder'=>'Enter Spec Value')); ?>
                 <a href="javascript:void(0)" id="add_spec" class="add_spec"><i class="far fa-plus-square"></i></a>
                 </div>
             </div>
