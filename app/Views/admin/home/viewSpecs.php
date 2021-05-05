@@ -22,7 +22,6 @@
             <table class="dataTable">
                 <th>ID</th>
                 <th>Name</th>
-                <th>Product Id</th>
                 <th>Product name</th>
                 <th>Edit</th>
                 <th>Delete</th>
@@ -31,6 +30,7 @@
                 <?php if(count($results) > 0): ?>
                     <?php foreach ($results as $getResult):  ?>
                         <?php foreach ($products as $getProduct):  ?>
+                            <?php if($getProduct['pId'] == $getResult['productId']): ?>
                         
                     <tr>
                         <td>
@@ -40,30 +40,24 @@
                             <?php echo $getResult['spName']  ;?>
                         </td>
                         <td>
-                            <?php echo $getResult['productId']  ;?>
-                        </td>
-
-                        <td>
-                            <?php if($getProduct['pId'] == $getResult['productId']): ?>
                             <?php echo $getProduct['pName'];?>
-                            <?php endif; ?>
-
                         </td>
                         
                         <td>
-                            <a href="<?php echo site_url('admin/editProduct/'. $getResult['spId']) ?>" class="btn btn-info">
+                            <a href="<?php echo site_url('admin/editSpec/'. $getResult['spId']) ?>" class="btn btn-info">
                             Edit
                             </a>
                         </td>
                         <td>
-                            <a href="<?php echo site_url('/admin/deleteProduct/'.$getResult['spId'])?>" class="btn btn-danger deleteCat" data-id="<?php echo $getResult['spId']; ?>" data-text="<?php echo $getResult['spId'] ;?>" >
+                            <a href="<?php echo site_url('/admin/deleteSpec/'.$getResult['spId'])?>" class="btn btn-danger deleteCat" data-id="<?php echo $getResult['spId']; ?>" data-text="<?php echo $getResult['spId'] ;?>" >
                             Delete
                             </a>
                         </td>
                     </tr>
-                        
+                    <?php endif; ?>
                     <?php endforeach; ?>
                     <?php endforeach; ?>
+                    
                 <?php endif; ?>
                 
             </table>

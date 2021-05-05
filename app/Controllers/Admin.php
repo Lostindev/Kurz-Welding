@@ -1070,4 +1070,38 @@ class Admin extends BaseController
              return redirect()->to(base_url('/admin/login'));
          }
      }
+
+     public function deleteSpec($spId) {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        
+        if (adminLoggedIn()) {
+
+            if (!empty($spId) && isset($spId)) {
+                $adminDB = new ModSpec();
+                $result = $adminDB->where('spId',$spId)->delete();
+
+                if ($result) {
+  
+                    $session->setFlashdata('successMessage','Specs successfully deleted.');
+                    $session->keepFlashdata('sucessMessage');
+                    return redirect()->to(base_url('/admin/viewSpecs'));
+                } else {
+                    $session->setFlashdata('message','Something went wrong, please try again.');
+                    $session->keepFlashdata('message');
+                    return redirect()->to(base_url('/admin/viewSpecs'));
+                }
+                
+            } else {
+                $session->setFlashdata('message','Something went wrong, please try again.');
+                $session->keepFlashdata('message');
+                return redirect()->to(base_url('/admin/viewSpecs'));
+            }
+
+        } else {
+            $session->setFlashdata('message','Please login to delete specs.');
+            $session->keepFlashdata('message');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
 }
