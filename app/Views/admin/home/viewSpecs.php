@@ -22,7 +22,7 @@
             <table class="dataTable">
                 <th>ID</th>
                 <th>Name</th>
-                <th>Product name</th>
+                <th>Product</th>
                 <th>Edit</th>
                 <th>Delete</th>
                 
