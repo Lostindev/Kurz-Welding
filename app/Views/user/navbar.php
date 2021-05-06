@@ -388,3 +388,6 @@
             </div>
         </header>
          <!-- End Header -->
+
+        <!--Check Flashdata-->
+         <?php echo checkFlash(); ?>

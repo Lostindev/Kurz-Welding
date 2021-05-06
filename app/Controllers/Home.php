@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use App\Models\ModUsers;
+use CodeIgniter\Controller;
 
 class Home extends BaseController
 {
@@ -60,7 +61,9 @@ class Home extends BaseController
 		$checkEmail =  $usersDB->where('email',$data['email'])->findAll();
 
 		if (count($checkEmail) == 1) {
-			echo 'user already exists';
+			//Email is already registered.
+			$session->setFlashdata('message',$data['email'].' is already registered. Click forgot login to recover your acount.');
+			return redirect()->to(site_url('/'));
 		}
 
 		else {
@@ -68,9 +71,11 @@ class Home extends BaseController
 
 			if ($addUser) {
 				$session->setFlashdata('fetchData',$data);
+				$session->setFlashdata('SuccessMessage','Your account was succesfully created! Check your email when your ready to activate your account.');
 				return redirect()->to(site_url('/home/activationEmail'));
 			} else {
-				echo 'failed';
+				$session->setFlashdata('message','Something went wrong, please try again.');
+				return redirect()->to(site_url('/'));
 			}
 		}
 
@@ -101,9 +106,11 @@ class Home extends BaseController
 		$email->setMessage($emailMessage);
 
 		if ($email->send()) {
-			echo TRUE;
+			$session->setFlashdata('successMessage','Your account was succesfully created! Check your email when your ready to activate your account.');
+			return redirect()->to(site_url('/'));
 		} else {
-			echo FALSE;
+			$session->setFlashdata('message','Something went wrong, please try again.');
+			return redirect()->to(site_url('/'));
 		}
 	}
 
@@ -136,18 +143,22 @@ class Home extends BaseController
 				$activateUser = $usersDB->update();
 
 				if ($activateUser) {
-					echo 'User successfully activated';
+					$session->setFlashdata('SuccessMessage','Your account was succesfully activated, we\'re glad you\'re here!');
+					return redirect()->to(site_url('/'));
 				} else {
-					echo 'User could not be activated';
+					$session->setFlashdata('message','Something went wrong, please try again or request a new link.');
+					return redirect()->to(site_url('/'));
 				}
 
 			} else {
-				echo 'not available';
+				$session->setFlashdata('message','This account doesn\'t exist!');
+				return redirect()->to(site_url('/'));
 			}
 		}
 
 		else {
-			echo 'Check email and try again';
+			$session->setFlashdata('message','Please check your email and try again.');
+			return redirect()->to(site_url('/'));
 		}
 	}
 

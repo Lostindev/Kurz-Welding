@@ -22,4 +22,24 @@ function getAdminId() {
         return FALSE;
     }
 }
+
+function userLoggedIn() {
+    $session = \Config\Services::session();
+    $checkLoggedIn = $session->get('uId');
+    
+
+    if ($checkLoggedIn) {
+        return TRUE;
+    } else {
+        return FALSE;
+    }
+}
+
+function checkFlash() {
+    $session = \Config\Services::session();
+    $data['message'] = $session->get('message');
+    $data['successMessage'] = $session->get('successMessage');
+    
+    echo view('/user/flashdata',$data);
+}
 ?>

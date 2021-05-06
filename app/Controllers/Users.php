@@ -14,7 +14,14 @@ class Users extends BaseController
         $data['page'] = $page;
         $data['cssFile'] = $page;
         $data['uri'] = $this->request->uri;
-        echo 'working';
+        
+
+        if (userLoggedIn()) {
+            echo 'welcome '.$session->get('email');
+        } else {
+            $session->setFlashdata('message','You must be logged in to access this page.');
+            return redirect()->to(site_url('/'));
+        }
     }
    
     public function check_user($page = 'check-user') 
@@ -45,7 +52,8 @@ class Users extends BaseController
             switch ($user[0]['status']) {
                 case 0:
                 //User isn't activated
-                echo 'Not activated';
+                $session->setFlashdata('message','Your account has not been activated. Please click the activation link in your email.');
+				return redirect()->to(site_url('/'));
                 break;
 
                 case 1:
@@ -59,13 +67,16 @@ class Users extends BaseController
                         //Create Session
                         $session->set($activeUser);
                             if ($session->get('uId')) {
-                                echo 'ession is created';
+                                return redirect()->to('/users');
                             } else {
-                                echo 'session failed to create';
+                                $session->setFlashdata('message','Something went wrong, please try again.');
+                                return redirect()->to(site_url('/'));
                             }
 
                     } else {
                         //Password is not correct
+                        $session->setFlashdata('message','Please check your password and try again.');
+                        return redirect()->to(site_url('/'));
                     }
 
                 
@@ -73,14 +84,16 @@ class Users extends BaseController
 
                 case 2:
                 //User Doesn't Exist
-                echo 'user doesnt exist';
+                $session->setFlashdata('message','This account has been disabled.');
+				return redirect()->to(site_url('/'));
                 break;
             }
 
         } 
 
         else {
-            echo 'the email doesn\'t exist';
+            $session->setFlashdata('message','This email doesn\'t exist in our system!');
+            return redirect()->to(site_url('/'));
         }
         
     }   
