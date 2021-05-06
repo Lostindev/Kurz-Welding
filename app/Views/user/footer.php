@@ -5,7 +5,7 @@
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="widget widget-about">
                                 <a href="demo2.html" class="logo-footer mb-5">
-                                    <img src="images/demos/demo17/logo-footer.png" alt="logo-footer" width="308"
+                                    <img src="/theme/images/demos/demo17/logo-footer.png" alt="logo-footer" width="308"
                                         height="86" />
                                 </a>
                                 <div class="widget-body">
@@ -73,7 +73,7 @@
                             </div>
                             <div class="footer-info d-flex align-items-center justify-content-between">
                                 <figure class="payment">
-                                    <img src="images/demos/demo4/payment.png" alt="payment" width="135" height="24" />
+                                    <img src="/theme/images/demos/demo4/payment.png" alt="payment" width="135" height="24" />
                                 </figure>
                                 <div class="social-links">
                                     <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
@@ -291,7 +291,7 @@
         </div>
     </div>
 
-    <div class="newsletter-popup mfp-hide" id="newsletter-popup" style="background-image: url(images/newsletter-popup.jpg)">
+    <div class="newsletter-popup mfp-hide" id="newsletter-popup" style="background-image: url(/theme/images/newsletter-popup.jpg)">
         <div class="newsletter-content">
             <h4 class="text-uppercase text-dark">Up to <span class="text-primary">20% Off</span></h4>
             <h2 class="font-weight-semi-bold">Sign up to <span>RIODE</span></h2>
@@ -311,15 +311,15 @@
     </div>
     
     <!-- Plugins JS File -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/elevatezoom/jquery.elevatezoom.min.js"></script>
-    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="/theme/vendor/jquery/jquery.min.js"></script>
+    <script src="/theme/vendor/elevatezoom/jquery.elevatezoom.min.js"></script>
+    <script src="/theme/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
-    <script src="vendor/owl-carousel/owl.carousel.min.js"></script>
-    <script src="vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="vendor/isotope/isotope.pkgd.min.js"></script>
+    <script src="/theme/vendor/owl-carousel/owl.carousel.min.js"></script>
+    <script src="/theme/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="/theme/vendor/isotope/isotope.pkgd.min.js"></script>
     <!-- Main JS File -->
-    <script src="js/main.min.js"></script>
+    <script src="/theme/js/main.min.js"></script>
 
 
 

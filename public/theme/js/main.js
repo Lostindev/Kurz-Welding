@@ -1192,7 +1192,7 @@ window.Riode = {};
                 productClass: 'product-cart',
                 name: 'Daisy Shoes Sonia by Sonia-Blue',
                 nameLink: 'product.html',
-                imageSrc: 'images/cart/product-1.jpg',
+                imageSrc: '/theme/images/cart/product-1.jpg',
                 isPurchased: true
             }, function ( $box ) {
                 Riode.ratingTooltip( $box[ 0 ] );
@@ -2853,7 +2853,7 @@ window.Riode = {};
                 e.preventDefault();
                 Riode.popup( {
                     items: {
-                        src: "ajax/quickview.html"
+                        src: "/theme/ajax/quickview.html"
                     },
                     callbacks: {
                         ajaxContentAdded: function () {

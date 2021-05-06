@@ -90,7 +90,7 @@
                     </div>
                     <div class="header-center">
                         <a href="demo17.html" class="logo mr-lg-0 mr-3">
-                            <img src="images/demos/demo17/logo.png" alt="logo" width="308" height="86" />
+                            <img src="/theme/images/demos/demo17/logo.png" alt="logo" width="308" height="86" />
                         </a>
                         <!-- End Logo -->
                     </div>
@@ -124,7 +124,7 @@
                                     <div class="product product-cart">
                                         <figure class="product-media">
                                             <a href="product.html">
-                                                <img src="images/cart/product-1.jpg" alt="product" width="80"
+                                                <img src="/theme/images/cart/product-1.jpg" alt="product" width="80"
                                                     height="88" />
                                             </a>
                                             <button class="btn btn-link btn-close">
@@ -144,7 +144,7 @@
                                     <div class="product product-cart">
                                         <figure class="product-media">
                                             <a href="product.html">
-                                                <img src="images/cart/product-2.jpg" alt="product" width="80"
+                                                <img src="/theme/images/cart/product-2.jpg" alt="product" width="80"
                                                     height="88" />
                                             </a>
                                             <button class="btn btn-link btn-close">
@@ -242,7 +242,7 @@
                                             <div
                                                 class="col-6 col-sm-4 col-md-3 col-lg-4 menu-banner menu-banner1 banner banner-fixed">
                                                 <figure>
-                                                    <img src="images/menu/banner-1.jpg" alt="Menu banner" width="221"
+                                                    <img src="/theme/images/menu/banner-1.jpg" alt="Menu banner" width="221"
                                                         height="330" />
                                                 </figure>
                                                 <div class="banner-content y-50">
@@ -296,7 +296,7 @@
                                             <div
                                                 class="col-6 col-sm-4 col-md-3 col-lg-4 menu-banner menu-banner2 banner banner-fixed">
                                                 <figure>
-                                                    <img src="images/menu/banner-2.jpg" alt="Menu banner" width="221"
+                                                    <img src="/theme/images/menu/banner-2.jpg" alt="Menu banner" width="221"
                                                         height="330" />
                                                 </figure>
                                                 <div class="banner-content x-50 text-center">
