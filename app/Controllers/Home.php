@@ -1,6 +1,7 @@
 <?php
-
 namespace App\Controllers;
+
+use App\Models\ModUsers;
 
 class Home extends BaseController
 {
@@ -41,6 +42,8 @@ class Home extends BaseController
         $session = \Config\Services::session();
 		helper('text');
 
+		$usersDB = new ModUsers();
+
 		$data['title'] = 'Signup | Kurz Welding & Metal Art ';
 		$data['metaData'] = "";
 		$data['page'] = $page;
@@ -53,8 +56,50 @@ class Home extends BaseController
 		$data['link'] = random_string('alnum','20');;
 		$data['password'] = $request->getPost('register-password');
 
+		$checkEmail =  $usersDB->where('email',$data['email'])->findAll();
+
+		if (count($checkEmail) == 1) {
+			echo 'user already exists';
+		}
+
+		else {
+			$addUser = $usersDB->insert($data);
+
+			if ($addUser) {
+				$session->setFlashdata('fetchData',$data);
+				return redirect()->to(site_url('/home/activationEmail'));
+			} else {
+				echo 'failed';
+			}
+		}
+
+	}
+
+	public function activationEmail() {
+		$request = \Config\Services::request();
+        $session = \Config\Services::session();
+		$data = $session->getFlashdata('fetchData');
 
 
+		$userLink = site_url('home/activate-account/'.$data['link']);
+		$emailMessage = '<p>Hi! We\'re glad to have to join the community, get started by clicking the link below to activate your account:<br><br>
+		<a href="'.$userLink.'">Activate Account</a> ';
+
+		$to = $data['email'];
+		$subject = 'Kurz Metal Art - Account Activation';
+
+		$email = \Config\Services::email();
+		$email->setTo($to);
+		$email->setFrom('kurzweldingec2@gmail.com','Info');
+		//$email->setBCC('admin@pivotgrowth.io');
+		$email->setSubject($subject);
+		$email->setMessage($emailMessage);
+
+		if ($email->send()) {
+			echo TRUE;
+		} else {
+			echo FALSE;
+		}
 	}
 
 		public function login($page = 'login')
