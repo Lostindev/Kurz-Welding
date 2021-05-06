@@ -14,7 +14,6 @@
                         <figure>
                             <video playsinline autoplay muted loop
                             style="
-                                width: 100vw;
                                 height: 625px;"> 
                                     <source src="/img/home/cnc-metal-art-video.mp4" type="video/mp4">
                             </video>
