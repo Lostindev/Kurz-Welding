@@ -1104,4 +1104,107 @@ class Admin extends BaseController
             return redirect()->to(base_url('/admin/login'));
         }
     }
+
+    public function editSpec($spId, $page = 'editSpec') {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        if (adminLoggedIn()) {
+            if (!empty($spId) && isset($spId)) {
+
+                $builder = new ModSpec();
+            
+                $checkSpecById = $builder->where('spId',$spId)->findAll();
+                $data['spec'] = $checkSpecById;
+                if (count($data['spec']) == 1) {
+                    $adminDB = new ModProducts();
+                    $data['products'] = $adminDB->findAll();
+                    
+                    echo view('admin/header/header', $data);
+                    echo view('admin/header/css', $data);
+                    echo view('admin/header/navtop', $data);
+                    echo view('admin/header/navleft', $data);
+                    echo view('admin/home/editSpec', $data);
+                    echo view('admin/header/footer', $data);
+                } else {
+                    $session->setFlashdata('message','Sub category not found.');
+                    $session->keepFlashdata('message');
+                    return redirect()->to(base_url('/admin/viewSubCategories'));
+                }
+                
+
+
+            } else {
+                $session->setFlashdata('message','Something went wrong, please try again.');
+                return redirect()->to(base_url('/admin/viewSubCategories'));
+            }
+            
+        }   
+        
+        else {
+            $session->setFlashdata('message','Please login to edit sub categories.');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
+
+    public function updateSpec($page = 'updateSpec') {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        $adminDB = new ModProducts();
+        $specDB = new ModSpec();
+        
+        
+
+        if (adminLoggedIn()) {
+            $dataUpload['spName'] = $request->getPost('sp_name');
+            $dataUpload['productId'] = $request->getPost('productId');
+            $dataUpload['adminId'] = getAdminId();
+            $specId = $request->getPost('specId');
+            $dataUpload['spId'] = $specId;
+
+            if (!empty($dataUpload['spName']) && !empty($specId) ) {
+
+                if ($dataUpload['productId'] != '0') {
+
+                    $arrayCheck = ['spName' => $dataUpload['spName'], 'productId' => $dataUpload['productId']];
+                    $checkAlreadyThere = $specDB->where($arrayCheck)->findAll();
+
+
+
+                    if (count($checkAlreadyThere) > 0 ){
+                        $session->setFlashdata('message','These specs already exist for this product.');
+                        return redirect()->to(base_url('/admin/viewSpecs'));
+                    } else {
+                        $specDB->getWhere(['spId'=>$specId]);
+                        var_dump($dataUpload);
+                        $updateSpec = $specDB->replace($dataUpload);
+
+                        if ($updateSpec) {
+                            //$specValueDB = new ModSpecValues();
+
+                            $session->setFlashdata('successMessage','Spec successfully updated.');
+                            return redirect()->to(base_url('/admin/viewSpecs'));
+                
+                        } else {
+                            $session->setFlashdata('message','You can\'t add your spec name right now.');
+                            return redirect()->to(base_url('/admin/viewSpecs'));
+                        }
+                        
+                    }
+
+                } else {
+                    $session->setFlashdata('message','Please select a product.');
+                    return redirect()->to(base_url('/admin/viewSpecs'));
+                }
+
+
+            } else {
+                $session->setFlashdata('message','You need a spec name.');
+                return redirect()->to(base_url('/admin/viewSpecs'));
+            }
+
+        } else {
+            $session->setFlashdata('message','Please login to add a product.');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
 }
