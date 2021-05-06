@@ -1175,7 +1175,7 @@ class Admin extends BaseController
                         return redirect()->to(base_url('/admin/viewSpecs'));
                     } else {
                         $specDB->getWhere(['spId'=>$specId]);
-                        var_dump($dataUpload);
+                        //var_dump($dataUpload);
                         $updateSpec = $specDB->replace($dataUpload);
 
                         if ($updateSpec) {

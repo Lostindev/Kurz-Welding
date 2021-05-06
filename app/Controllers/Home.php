@@ -44,7 +44,8 @@ class Home extends BaseController
 
 		$usersDB = new ModUsers();
 
-		$data['title'] = 'Signup | Kurz Welding & Metal Art ';
+		//Dynamic Page Info
+		$data['title'] = 'Register | Kurz Welding & Metal Art ';
 		$data['metaData'] = "";
 		$data['page'] = $page;
 		$data['cssFile'] = $page;
@@ -75,7 +76,11 @@ class Home extends BaseController
 
 	}
 
-	public function activationEmail() {
+	
+	public function activationEmail() 
+	{ 
+		//Create email with activation and send, 
+		//DEV -need to make pretty | create account created check email popup.
 		$request = \Config\Services::request();
         $session = \Config\Services::session();
 		$data = $session->getFlashdata('fetchData');
@@ -101,6 +106,52 @@ class Home extends BaseController
 			echo FALSE;
 		}
 	}
+
+	public function activate_account($page = 'activate-account' )
+	{
+		$request = \Config\Services::request();
+		$session = \Config\Services::session();
+
+		//Dynamic Page Info
+		$data['title'] = 'Signup | Kurz Welding & Metal Art ';
+		$data['metaData'] = "";
+		$data['page'] = $page;
+		$data['cssFile'] = $page;
+		$data['uri'] = $this->request->uri;
+		$link = $data['uri']->getSegment(3);
+
+		if (!empty($link) && isset($link)) {
+			$usersDB = new ModUsers();
+
+			$checkLink = $usersDB->where('link',$link)->findAll();
+			$user = $checkLink;
+
+			if (count($user) == 1) {
+				$userData['link'] = $user[0]['link'].'ok';
+				$userData['status'] = 1;
+				$uId = $user[0]['uId'];
+
+				$usersDB->set('status',$userData['status']);
+				$usersDB->where('uId',$uId);
+				$activateUser = $usersDB->update();
+
+				if ($activateUser) {
+					echo 'User successfully activated';
+				} else {
+					echo 'User could not be activated';
+				}
+
+			} else {
+				echo 'not available';
+			}
+		}
+
+		else {
+			echo 'Check email and try again';
+		}
+	}
+
+
 
 		public function login($page = 'login')
 		{
