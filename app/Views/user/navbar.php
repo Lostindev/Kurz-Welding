@@ -379,9 +379,6 @@
                                 <li>
                                     <a href="about-us.html">About us</a>
                                 </li>
-                                <li>
-                                    <a href="https://d-themes.com/buynow/riodehtml">Buy Riode!</a>
-                                </li>
                             </ul>
                         </nav>
                     </div>

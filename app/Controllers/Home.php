@@ -153,15 +153,4 @@ class Home extends BaseController
 
 
 
-		public function login($page = 'login')
-		{
-			$request = \Config\Services::request();
-			$session = \Config\Services::session();
-			$data['title'] = 'Kurz Welding & Metal Art | Home';
-			$data['metaData'] = "";
-			$data['page'] = $page;
-			$data['cssFile'] = $page;
-			$data['uri'] = $this->request->uri;
-			echo 'working';
-		}
 }
