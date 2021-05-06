@@ -95,7 +95,7 @@
                         <!-- End Logo -->
                     </div>
                     <div class="header-right">
-                        <a class="login-link" href="ajax/login.html">
+                        <a class="login-link" href="/theme/ajax/login.html">
                             <i class="d-icon-user"></i>
                         </a>
                         <!-- End Login -->
