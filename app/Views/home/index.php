@@ -17,19 +17,19 @@
                         <div class="container slide-animate">
                             <div class="banner-content x-50 y-50 text-center pt-3">
                                 <h4 class="banner-subtitle mb-4 text-white text-uppercase font-weight-normal slide-animate"
-                                    data-animation-options="{'name': 'fadeInDown', 'duration': '1.2s'}">Create The
-                                    Perfect Work Space</h4>
+                                    data-animation-options="{'name': 'fadeInDown', 'duration': '1.2s'}">Create Your
+                                    Dream Decor</h4>
                                 <h3 class="banner-title mb-8 ls-l text-white slide-animate"
                                     data-animation-options="{'name': 'blurIn', 'duration': '1.2s', 'delay': '.6s'}">
-                                    Fashion <span class="text-uppercase text-primary">Dress & Tops</span> Collection
+                                    Custom <span class="text-uppercase text-primary">American Made</span> Metal Art
                                 </h3>
                                 <a href="demo17-shop.html"
                                     class="mb-3 mr-3 btn-md btn btn-outline btn-white slide-animate"
-                                    data-animation-options="{'name': 'fadeInUp', 'duration': '1.2s', 'delay': '1s'}">shop
-                                    men</a><a href="demo17-shop.html"
+                                    data-animation-options="{'name': 'fadeInUp', 'duration': '1.2s', 'delay': '1s'}">gallery
+                                    </a><a href="demo17-shop.html"
                                     class="mb-3 mr-3 btn-md btn btn-outline btn-white slide-animate"
-                                    data-animation-options="{'name': 'fadeInUp', 'duration': '1.3s', 'delay': '1.2s'}">shop
-                                    women</a><a href="demo17-shop.html"
+                                    data-animation-options="{'name': 'fadeInUp', 'duration': '1.3s', 'delay': '1.2s'}">custom 
+                                    design</a><a href="demo17-shop.html"
                                     class=" btn-md btn btn-outline btn-white slide-animate"
                                     data-animation-options="{'name': 'fadeInUp', 'duration': '1.4s', 'delay': '1.4s'}">shop
                                     all</a>
@@ -82,12 +82,12 @@
                                 style="background-color: #141414 ">
                                 <a href="#">
                                     <figure class="category-media">
-                                        <img src="/theme/images/demos/demo17/banner/1.jpg" alt="category" width="465"
+                                        <img src="/img/home/most-popular.jpg" alt="category" width="465"
                                             height="257" />
                                     </figure>
                                 </a>
                                 <div class="category-content d-flex x-50 text-center align-items-center appear-animate">
-                                    <h4 class="category-name text-center">For Men’s</h4>
+                                    <h4 class="category-name text-center">Most Popular</h4>
                                     <span class="category-count">
                                         <span>29</span> Products
                                     </span>
@@ -105,7 +105,7 @@
                                     </figure>
                                 </a>
                                 <div class="category-content d-flex align-items-center x-50 text-center appear-animate">
-                                    <h4 class="category-name text-center">For Women’s</h4>
+                                    <h4 class="category-name text-center">View Gallery</h4>
                                     <span class="category-count">
                                         <span>39</span> Products
                                     </span>
@@ -116,7 +116,7 @@
                         <div class="grid-item col-lg-6 height-x2">
                             <div class="intro-banner1 banner row gutter-no">
                                 <figure class="col-sm-6" style="background-color: #aba8a1">
-                                    <img src="/theme/images/demos/demo17/banner/3.jpg" alt="banner" width="465" height="534" />
+                                    <img src="/img/home/custom-design.jpg" alt="banner" width="465" height="534" />
                                 </figure>
                                 <div class="col-sm-6">
                                     <div class="banner-content  text-center pl-2 pr-2">
@@ -124,12 +124,12 @@
                                             data-animation-options="{
                                             'name': 'fadeInUpShorter',
                                             'delay': '.3s'
-                                        }">For Kids</h4>
+                                        }">Upload a</h4>
                                         <h3 class="banner-title ls-3 mb-2 text-white appear-animate"
                                             data-animation-options="{
                                             'name': 'fadeInUpShorter',
                                             'delay': '.4s'
-                                        }">New Arrivals</h3>
+                                        }">Custom Design</h3>
                                         <p class="text-grey appear-animate" data-animation-options="{
                                             'name': 'fadeInUpShorter',
                                             'delay': '.5s'
@@ -139,7 +139,7 @@
                                             data-animation-options="{
                                             'name': 'fadeInUpShorter',
                                             'delay': '.6s'
-                                        }">Shop now</a>
+                                        }">Start Now</a>
                                     </div>
                                 </div>
                             </div>
