@@ -53,6 +53,7 @@ class Users extends BaseController
                 case 0:
                 //User isn't activated
                 $session->setFlashdata('message','Your account has not been activated. Please click the activation link in your email.');
+                $session->keepFlashdata('item');
 				return redirect()->to(site_url('/'));
                 break;
 
@@ -97,6 +98,14 @@ class Users extends BaseController
         }
         
     }   
+
+    public function log_out() {
+        $session = \Config\Services::session();
+        $session->destroy();
+        $session->setFlashData('successMessage','You have successfully logged out.');
+        $session->keepFlashdata('successMessage');
+        return redirect()->to(site_url('/'));
+    }
 
 
 }//end of controller
