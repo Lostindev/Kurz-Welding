@@ -12,7 +12,12 @@
                 }">
                     <div class="intro-slide1 banner banner-fixed" style="background-color: #505052">
                         <figure>
-                            <img src="/theme/images/demos/demo17/slides/1.jpg" width="1903" height="625" alt="banner" />
+                            <video playsinline autoplay muted loop
+                            style="
+                                width: 100vw;
+                                height: 625px;"> 
+                                    <source src="/img/home/cnc-metal-art-video.mp4" type="video/mp4">
+                            </video>
                         </figure>
                         <div class="container slide-animate">
                             <div class="banner-content x-50 y-50 text-center pt-3">
@@ -21,7 +26,7 @@
                                     Dream Decor</h4>
                                 <h3 class="banner-title mb-8 ls-l text-white slide-animate"
                                     data-animation-options="{'name': 'blurIn', 'duration': '1.2s', 'delay': '.6s'}">
-                                    Custom <span class="text-uppercase text-primary">American Made</span> Metal Art
+                                    Custom <span class="text-uppercase text-primary">American Made</span> Plasma Art
                                 </h3>
                                 <a href="demo17-shop.html"
                                     class="mb-3 mr-3 btn-md btn btn-outline btn-white slide-animate"
@@ -100,7 +105,7 @@
                                 style="background-color: #524b45">
                                 <a href="#">
                                     <figure class="category-media">
-                                        <img src="/theme/images/demos/demo17/banner/2.jpg" alt="category" width="465"
+                                        <img src="/img/home/view-gallery.jpg" alt="category" width="465"
                                             height="257" />
                                     </figure>
                                 </a>
