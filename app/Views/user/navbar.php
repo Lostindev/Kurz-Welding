@@ -89,8 +89,8 @@
                         <!-- End Header Search -->
                     </div>
                     <div class="header-center">
-                        <a href="demo17.html" class="logo mr-lg-0 mr-3">
-                            <img src="/theme/images/demos/demo17/logo.png" alt="logo" width="308" height="86" />
+                        <a href="demo17.html" class="logo mr-1">
+                            <img src="/img/logo.png" alt="logo" height="86" />
                         </a>
                         <!-- End Logo -->
                     </div>
