@@ -17,7 +17,13 @@ class Users extends BaseController
         
 
         if (userLoggedIn()) {
-            echo 'welcome '.$session->get('email');
+            $data['email'] = $session->get('email');
+        
+            echo view('user/header', $data);
+            echo view('user/css', $data);
+            echo view('user/navbar', $data);
+            echo view('user/my-account', $data);
+            echo view('user/footer', $data);
         } else {
             $session->setFlashdata('message','You must be logged in to access this page.');
             return redirect()->to(site_url('/'));
@@ -106,6 +112,8 @@ class Users extends BaseController
         $session->keepFlashdata('successMessage');
         return redirect()->to(site_url('/'));
     }
+
+
 
 
 }//end of controller

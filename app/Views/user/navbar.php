@@ -89,7 +89,7 @@
                         <!-- End Header Search -->
                     </div>
                     <div class="header-center">
-                        <a href="demo17.html" class="logo mr-1">
+                        <a href="/" class="logo mr-1">
                             <img src="/img/logo.png" alt="logo" height="86" />
                         </a>
                         <!-- End Logo -->
@@ -217,7 +217,7 @@
                         <nav class="main-nav">
                             <ul class="menu">
                                 <li class="active">
-                                    <a href="demo17.html">Home</a>
+                                    <a href="/">Home</a>
                                 </li>
                                 <li>
                                     <a href="demo17-shop.html">Categories</a>
