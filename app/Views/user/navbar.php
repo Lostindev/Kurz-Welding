@@ -95,9 +95,22 @@
                         <!-- End Logo -->
                     </div>
                     <div class="header-right">
-                        <a class="login-link" href="/theme/ajax/login.html">
-                            <i class="d-icon-user"></i>
+                        <?php if(userLoggedIn()): ?>
+                            <a class="account-link" href="/users" style=" display: flex;
+                                align-items: center;
+                                margin-right: 3.2rem;
+                                padding-bottom: .2rem;
+                                margin-top: .5rem;">
+                            <i class="d-icon-user" style="font-size: 2.7rem;color:#36c"></i>
                         </a>
+
+                        <?php else:?>
+                            <a class="login-link" href="/theme/ajax/login.html">
+                            <i class="d-icon-user" ></i>
+                            </a>
+                        <?php endif; ?>
+
+
                         <!-- End Login -->
                         <a class="wishlist" href="wishlist.html">
                             <i class="d-icon-heart"></i>
