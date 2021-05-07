@@ -31,15 +31,15 @@
                     <div class="icon-box bg-primary icon-box-tiny text-center">
                         <div class="icon-box-content">
                             <h4 class="icon-box-title text-white">
-                                <i class="icon-box-icon d-icon-percent" style="font-size: 2.2rem;"></i>
-                                20% OFF Outdoor Fire Pits
+                            <i class="fas fa-plus-square" style="font-size: 2rem"></i>
+                               &nbsp New Products Added Weekly
                             </h4>
                         </div>
                     </div>
                     <div class="icon-box icon-box-tiny text-center">
                         <div class="icon-box-content">
                             <h4 class="icon-box-title text-white">
-                                <i class="fas fa-user"style="font-size: 2rem"></i>
+                                <i class="fas fa-user" style="font-size: 2rem"></i>
                                 &nbsp 15% OFF for New Users
                             </h4>
                         </div>

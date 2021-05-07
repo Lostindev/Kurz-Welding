@@ -152,7 +152,7 @@
                             <div class="intro-banner2 banner banner-fixed overlay-dark"
                                 style="background-color: #252525">
                                 <figure>
-                                    <img src="/theme/images/demos/demo17/banner/4.jpg" alt="banner" width="950" height="257" />
+                                    <img src="/img/home/custom-metal-pit-banner.jpg" alt="banner" width="950" height="257" />
                                 </figure>
                                 <div class="banner-content y-50">
                                     <div class="appear-animate" data-animation-options="{
@@ -161,13 +161,13 @@
                                     }">
                                         <h4 class="banner-subtitle text-uppercase text-white font-weight-normal">
                                             Flash Sale
-                                            50% Off</h4>
+                                            20% Off</h4>
                                         <h3 class="banner-title text-white appear-animate mb-3 font-weight-bold"
                                             data-animation-options="{
                                             'name': 'fadeInLeftShorter'
-                                        }">Classic Style <span class="text-secondary text-uppercase">ETT 02</span>
-                                            Gunmetal</h3>
-                                        <p class="text-grey font-primary">The Only Watches you’ll need...</p>
+                                        }">Custom Metal <span class="text-secondary text-uppercase">Fire Pit</span>
+                                            Designs</h3>
+                                        <p class="text-grey font-primary">The Warm Weather Companion you need...</p>
                                         <a href="demo17-shop.html" class="btn btn-primary btn-md ls-m">Shop now</a>
                                     </div>
                                 </div>
