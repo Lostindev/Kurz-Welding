@@ -212,10 +212,10 @@
                             }">
                             <a href="demo17-shop.html">
                                 <figure class="category-media">
-                                    <i class="d-icon-t-shirt2"></i>
+                                <i class="fas fa-fire-alt"></i>
                                 </figure>
                                 <div class="category-content">
-                                    <h4 class="category-name">Fashion</h4>
+                                    <h4 class="category-name">Most Popular</h4>
                                 </div>
                             </a>
                         </div>
@@ -225,10 +225,10 @@
                             }">
                             <a href="demo17-shop.html">
                                 <figure class="category-media">
-                                    <i class="d-icon-camera2"></i>
+                                <i class="fas fa-door-open"></i>
                                 </figure>
                                 <div class="category-content">
-                                    <h4 class="category-name">Electronics</h4>
+                                    <h4 class="category-name">Interior Decor</h4>
                                 </div>
                             </a>
                         </div>
@@ -238,10 +238,10 @@
                             }">
                             <a href="demo17-shop.html">
                                 <figure class="category-media">
-                                    <i class="d-icon-desktop"></i>
+                                    <i class="fas fa-tools"></i>
                                 </figure>
                                 <div class="category-content">
-                                    <h4 class="category-name">Computer</h4>
+                                    <h4 class="category-name">Garage & Workshop</h4>
                                 </div>
                             </a>
                         </div>
@@ -251,10 +251,10 @@
                             }">
                             <a href="demo17-shop.html">
                                 <figure class="category-media">
-                                    <i class="d-icon-backpack"></i>
+                                <i class="fab fa-contao"></i>
                                 </figure>
                                 <div class="category-content">
-                                    <h4 class="category-name">Bag &amp; Backpacks</h4>
+                                    <h4 class="category-name">Monogram</h4>
                                 </div>
                             </a>
                         </div>
@@ -264,10 +264,10 @@
                             }">
                             <a href="demo17-shop.html">
                                 <figure class="category-media">
-                                    <i class="d-icon-basketball1"></i>
+                                    <i class="fas fa-leaf"></i>
                                 </figure>
                                 <div class="category-content">
-                                    <h4 class="category-name">Sports</h4>
+                                    <h4 class="category-name">Outdoor &amp; Garden</h4>
                                 </div>
                             </a>
                         </div>
@@ -277,10 +277,10 @@
                             }">
                             <a href="demo17-shop.html">
                                 <figure class="category-media">
-                                    <i class="d-icon-babycare"></i>
+                                    <i class="fas fa-expand-arrows-alt"></i>
                                 </figure>
                                 <div class="category-content">
-                                    <h4 class="category-name">Toys &amp; Babycare</h4>
+                                    <h4 class="category-name">View All</h4>
                                 </div>
                             </a>
                         </div>

@@ -2,6 +2,9 @@
 namespace App\Controllers;
 
 use App\Models\ModUsers;
+
+use App\Models\ModAdmin;
+
 use CodeIgniter\Controller;
 
 class Home extends BaseController
@@ -13,6 +16,12 @@ class Home extends BaseController
 		$data['page'] = $page;
 		$data['cssFile'] = $page;
 		$data['uri'] = $this->request->uri;
+
+		$categoriesDB = new ModAdmin();
+
+		$data['getNumCategories'] = $categoriesDB->where('cstatus',1)->countAllResults();
+
+		$data['allCategories'] = $categoriesDB->getWhere(['cStatus'=>1],$data['getNumCategories'])->getResultArray();
 
 		echo view('user/header', $data);
 		echo view('user/css', $data);

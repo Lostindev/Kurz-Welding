@@ -1,4 +1,5 @@
 <?php
+use App\Models\ModAdmin;
 
 function adminLoggedIn() {
     $session = \Config\Services::session();
@@ -42,4 +43,14 @@ function checkFlash() {
     
     echo view('/user/flashdata',$data);
 }
+
+function fetchCategories() {
+    $categoriesDB = new ModAdmin();
+
+    $data['getNumCategories'] = $categoriesDB->where('cstatus',1)->countAllResults();
+
+    return $categoriesDB->getWhere(['cStatus'=>1],$data['getNumCategories'])->getResultArray();
+
+}
+
 ?>

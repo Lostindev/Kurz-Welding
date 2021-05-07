@@ -224,33 +224,21 @@
                                     <div class="megamenu">
                                         <div class="row">
                                             <div class="col-6 col-sm-4 col-md-3 col-lg-4">
-                                                <h4 class="menu-title">Variations 1</h4>
+                                                <h4 class="menu-title">Categories</h4>
+                                             
+                                                <?php if(count(fetchCategories()) > 0):?>
+                                                    <?php foreach(fetchCategories() as $category): 
+                                                       ?>
+                                                        
                                                 <ul>
-                                                    <li><a href="shop-banner-sidebar.html">Banner With Sidebar</a></li>
-                                                    <li><a href="shop-boxed-banner.html">Boxed Banner</a></li>
-                                                    <li><a href="shop-infinite-scroll.html">Infinite Ajaxscroll</a></li>
-                                                    <li><a href="shop-horizontal-filter.html">Horizontal Filter</a>
-                                                    </li>
-                                                    <li><a href="shop-navigation-filter.html">Navigation Filter<span
-                                                                class="tip tip-hot">Hot</span></a></li>
+                                                    <li><a href="#"><?php echo $category['cName']; ?></a></li>
 
-                                                    <li><a href="shop-off-canvas.html">Off-Canvas Filter</a></li>
-                                                    <li><a href="shop-right-sidebar.html">Right Toggle Sidebar</a></li>
                                                 </ul>
+                                                <?php endforeach;?>
+                                                <?php endif; ?>
                                             </div>
                                             <div class="col-6 col-sm-4 col-md-3 col-lg-4">
                                                 <h4 class="menu-title">Variations 2</h4>
-                                                <ul>
-
-                                                    <li><a href="shop-grid-3cols.html">3 Columns Mode<span
-                                                                class="tip tip-new">New</span></a></li>
-                                                    <li><a href="shop-grid-4cols.html">4 Columns Mode</a></li>
-                                                    <li><a href="shop-grid-5cols.html">5 Columns Mode</a></li>
-                                                    <li><a href="shop-grid-6cols.html">6 Columns Mode</a></li>
-                                                    <li><a href="shop-grid-7cols.html">7 Columns Mode</a></li>
-                                                    <li><a href="shop-grid-8cols.html">8 Columns Mode</a></li>
-                                                    <li><a href="shop-list.html">List Mode</a></li>
-                                                </ul>
                                             </div>
                                             <div
                                                 class="col-6 col-sm-4 col-md-3 col-lg-4 menu-banner menu-banner1 banner banner-fixed">
