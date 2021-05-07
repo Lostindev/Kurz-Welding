@@ -227,7 +227,9 @@
                                                 <h4 class="menu-title">Categories</h4>
                                              
                                                 <?php if(count(fetchCategories()) > 0):?>
+                                                    <?php $i=1; ?>
                                                     <?php foreach(fetchCategories() as $category): 
+                                                        if ($i++ == 8) break;
                                                        ?>
                                                         
                                                 <ul>
@@ -238,7 +240,16 @@
                                                 <?php endif; ?>
                                             </div>
                                             <div class="col-6 col-sm-4 col-md-3 col-lg-4">
-                                                <h4 class="menu-title">Variations 2</h4>
+                                                <h4 class="menu-title"></h4>
+                                                <?php if(count(fetchCategoriesTwo()) > 0):?>
+                                                    <?php $i=1; ?>
+                                                    <?php foreach(fetchCategoriesTwo() as $category): ?>
+                                                    
+                                                <ul>
+                                                    <li> <a href="#"><?php echo $category['cName']; ?></a></li>
+                                                </ul>
+                                                <?php endforeach;?>
+                                                <?php endif; ?>
                                             </div>
                                             <div
                                                 class="col-6 col-sm-4 col-md-3 col-lg-4 menu-banner menu-banner1 banner banner-fixed">

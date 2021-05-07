@@ -47,9 +47,21 @@ function checkFlash() {
 function fetchCategories() {
     $categoriesDB = new ModAdmin();
 
-    $data['getNumCategories'] = $categoriesDB->where('cstatus',1)->countAllResults();
+    $data['getNumCategories'] = $categoriesDB->where('cStatus',1)->countAllResults();
 
     return $categoriesDB->getWhere(['cStatus'=>1],$data['getNumCategories'])->getResultArray();
+
+}
+
+function fetchCategoriesTwo() {
+
+    $categoriesDB = new ModAdmin();
+
+    $data['getNumCategories'] = $categoriesDB->where('cStatus',1)->countAllResults();
+
+
+
+    return $categoriesDB->getWhere(['cStatus'=>1], 14, 7)->getResultArray();
 
 }
 
