@@ -19,9 +19,8 @@ class Home extends BaseController
 		$data['cssFile'] = $page;
 		$data['uri'] = $this->request->uri;
 
-		$categoriesDB = new ModAdmin();
-
 		//Fetch number of categories from database
+		$categoriesDB = new ModAdmin();
 		$data['getNumCategories'] = $categoriesDB->where('cstatus',1)->countAllResults();
 		$data['allCategories'] = $categoriesDB->getWhere(['cStatus'=>1],$data['getNumCategories'])->getResultArray();
 
