@@ -48,13 +48,13 @@
                             <div class="banner-content y-50">
                                 <h4 class="banner-subtitle mb-1 text-white text-uppercase font-weight-normal slide-animate"
                                     data-animation-options="{'name': 'fadeInLeftShorter', 'duration': '1.2s'}">New
-                                    Arrivals</h4>
+                                    Designs</h4>
                                 <h3 class="banner-title mb-2 ls-m text-white text-uppercase slide-animate"
                                     data-animation-options="{'name': 'fadeInLeftShorter', 'duration': '1.2s', 'delay': '.2s'}">
-                                    For Women’s fashion</h3>
+                                    For Interior Decor</h3>
                                 <p class="text-white ls-s slide-animate"
                                     data-animation-options="{'name': 'fadeInLeftShorter', 'duration': '1.2s', 'delay': '.4s'}">
-                                    Get Free Shipping on all orders over $75 </p>
+                                    Get Free Shipping on all orders over $99 </p>
                                 <a href="demo17-shop.html" class="btn btn-outline btn-white slide-animate"
                                     data-animation-options="{'name': 'fadeInLeftShorter', 'duration': '1s', 'delay': '.6s'}">shop
                                     now <i class="d-icon-arrow-right"></i></a>
@@ -68,9 +68,9 @@
                         <div class="container">
                             <div class="banner-content y-50 text-center slide-animate"
                                 data-animation-options="{'name': 'fadeIn', 'duration': '1.2s'}">
-                                <h4 class="banner-subtitle mb-2 text-white text-uppercase">For
-                                    Women’s</h4>
-                                <h3 class="banner-title ls-md text-white text-uppercase">Accessories Sale</h3>
+                                <h4 class="banner-subtitle mb-2 text-white text-uppercase">Special
+                                    Occasion</h4>
+                                <h3 class="banner-title ls-md text-white text-uppercase">Custom Designs</h3>
                                 <p class="text-white ls-md mb-8">Lorem ipsum dolor sit amet, consectetur adipiscing
                                     elit,<br />sed do eiusmod tempt dolore magna aliqua...</p>
                                 <a href="demo17-shop.html" class="btn btn-primary">shop now <i
