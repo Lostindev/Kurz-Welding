@@ -276,7 +276,7 @@
                                 <a href="about-us.html">Gallery</a>
                                 </li>
                                 <li>
-                                <a href="about-us.html">About Us</a>
+                                <a href="/home/about-us">About Us</a>
                                 </li>
                                 <li>
                                 <a href="about-us.html">Contact</a>
