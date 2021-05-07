@@ -287,7 +287,7 @@
                     </div>
                 </section>
                 <section class="product-wrapper container mt-10 pt-8 appear-animate">
-                    <h2 class="title title-simple text-center">Best Seller</h2>
+                    <h2 class="title title-simple text-center">Most Popular</h2>
                     <div class="row">
                         <div class="col-xl-5col col-lg-3 col-sm-4 col-6 mb-4">
                             <div class="product text-center">
@@ -663,8 +663,8 @@
                                             'duration': '1.4s',
                                             'delay': '.3s'
                                         }">
-                                            <h3 class="banner-title text-white text-uppercase">LookBook <span
-                                                    class="text-primary">2021</span></h3>
+                                            <h3 class="banner-title text-white text-uppercase">Designs that <span
+                                                    class="text-primary">inspire</span></h3>
                                             <p class="text-grey font-primary ">Lorem ipsum dolor sit amet,
                                                 consectetur adipiscing elit, sed do eiusmod tempor incid</p>
                                             <a href="demo17-shop.html" class="btn btn-md btn-outline btn-white">Shop
@@ -673,7 +673,7 @@
                                     </div>
                                 </div>
                                 <figure class="col-6" style="background-color: #a28778">
-                                    <img src="/theme/images/demos/demo17/banner/5.jpg" alt="banner" width="475" height="341" />
+                                    <img src="/img/home/collage.jpg" alt="banner" width="475" height="341" />
                                 </figure>
                             </div>
                         </div>
@@ -691,12 +691,11 @@
                                         'delay': '.3s'
                                     }">
                                         <h4 class="banner-subtitle text-white text-uppercase ls-md">
-                                            Flash Sale
-                                            <span class="text-secondary">50% Off</span></h4>
-                                        <h3 class="banner-title text-white font-weight-bold">Lifestyle
-                                            Collection</h3>
-                                        <p class="text-white ls-l text-uppercase mb-5">From <span
-                                                class="font-weight-bold">$16.00</span>
+                                            Introducing
+                                            <span class="text-secondary">new colors</span></h4>
+                                        <h3 class="banner-title text-white font-weight-bold">Teal, Gloss Black,</h3>
+                                        <p class="text-white ls-l text-uppercase mb-5">& <span
+                                                class="font-weight-bold">more</span>
                                         </p>
                                         <a href="demo17-shop.html" class="btn btn-primary btn-md">Shop now</a>
                                     </div>

@@ -279,7 +279,7 @@
                                 <a href="/home/about-us">About Us</a>
                                 </li>
                                 <li>
-                                <a href="about-us.html">Contact</a>
+                                <a href="/home/contact-us">Contact</a>
                                 </li>
                             </ul>
                         </nav>

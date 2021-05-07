@@ -186,5 +186,20 @@ class Home extends BaseController
 		echo view('user/footer', $data);
 	}
 
+	public function contact_us($page = 'contact-us')
+	{
+		$data['title'] = 'Kurz Welding & Metal Art | Home';
+		$data['metaData'] = "";
+		$data['page'] = $page;
+		$data['cssFile'] = $page;
+		$data['uri'] = $this->request->uri;
+
+		echo view('user/header', $data);
+		echo view('user/css', $data);
+		echo view('user/navbar', $data);
+		echo view('home/contact-us', $data);
+		echo view('user/footer', $data);
+	}
+
 
 }

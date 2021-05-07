@@ -4,7 +4,7 @@
 			<nav class="breadcrumb-nav">
 				<div class="container">
 					<ul class="breadcrumb">
-						<li><a href="demo1.html"><i class="d-icon-home"></i></a></li>
+						<li><a href="/"><i class="d-icon-home"></i></a></li>
 						<li>Account</li>
 					</ul>
 				</div>

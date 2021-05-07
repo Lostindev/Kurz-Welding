@@ -21,7 +21,7 @@
                             <div class="widget">
                                 <h4 class="widget-title">Account</h4>
                                 <ul class="widget-body">
-                                    <li><a href="account.html">My Account</a></li>
+                                    <li><a href="/users">My Account</a></li>
                                     <li><a href="#">Our Guarantees</a></li>
                                     <li><a href="#">Terms And Conditions</a></li>
                                     <li><a href="#">Privacy Policy</a></li>
@@ -36,10 +36,9 @@
                                 <ul class="widget-body">
                                     <li><a href="#">Shipping &amp; Delivery</a></li>
                                     <li><a href="#">Order Status</a></li>
-                                    <li><a href="#">Brand</a></li>
                                     <li><a href="#">Returns</a></li>
                                     <li><a href="#">Payment Options</a></li>
-                                    <li><a href="contact-us.html">Contact Us</a></li>
+                                    <li><a href="/home/contact-us">Contact Us</a></li>
                                 </ul>
                             </div>
                             <!-- End of Widget -->
@@ -48,12 +47,10 @@
                             <div class="widget">
                                 <h4 class="widget-title">About Us</h4>
                                 <ul class="widget-body">
-                                    <li><a href="about-us.html">About Us</a></li>
+                                    <li><a href="/home/about-us">About Us</a></li>
                                     <li><a href="#">Order History</a></li>
                                     <li><a href="#">Returns</a></li>
                                     <li><a href="#">Custom Service</a></li>
-                                    <li><a href="#">Terms &amp; Condition</a></li>
-                                    <li><a href="#">Site Map</a></li>
                                 </ul>
                             </div>
                             <!-- End of Widget -->
