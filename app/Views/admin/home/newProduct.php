@@ -23,6 +23,9 @@
                 <?php echo form_input('productName','',array('class'=>"form-control", 'placeholder'=>'Enter Product Name')); ?>
             </div>
             <div class="form-group">
+                <?php echo form_input('pPrice','',array('class'=>"form-control", 'placeholder'=>'Enter Product Price (49.99)')); ?>
+            </div>
+            <div class="form-group">
                 <?php echo form_textarea('productDescription','',array('class'=>"form-control", 'placeholder'=>'Enter Product Description (Optional)')); ?>
             </div>
             <div class="form-group">

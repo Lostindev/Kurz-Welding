@@ -697,6 +697,7 @@ class Admin extends BaseController
             $dataUpload['pDescription'] = $request->getPost('productDescription');
             $dataUpload['categoryId'] = $request->getPost('categoryId');
             $dataUpload['subCatId'] = $request->getPost('subCategory');
+            $dataUpload['pPrice'] = $request->getPost('pPrice');
 
             if (!empty($dataUpload['pName']) ) {
 
@@ -723,7 +724,7 @@ class Admin extends BaseController
                     $addData = $adminDB->insert($dataUpload);
                         if ($addData) {
                             $session->setFlashdata('successMessage','You have successfully added a product.');
-                            return redirect()->to(base_url('/admin/newProduct'));
+                            return redirect()->to(base_url('/admin/ViewProducts'));
                         } else {
                             $session->setFlashdata('message','Something went wrong, please try again.');
                             return redirect()->to(base_url('/admin/newProduct'));

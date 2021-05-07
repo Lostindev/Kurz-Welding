@@ -63,6 +63,7 @@ function fetchCategoriesTwo() {
 
     return $categoriesDB->getWhere(['cStatus'=>1], 14, 7)->getResultArray();
 
+
 }
 
 ?>

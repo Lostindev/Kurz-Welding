@@ -230,10 +230,9 @@
                                                     <?php foreach(fetchCategories() as $category): 
                                                         if ($i++ == 8) break;
                                                        ?>
-                                                        
+                   
                                                 <ul>
                                                     <li><a href="#"><?php echo $category['cName']; ?></a></li>
-
                                                 </ul>
                                                 <?php endforeach;?>
                                                 <?php endif; ?>

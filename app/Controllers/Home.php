@@ -5,6 +5,8 @@ use App\Models\ModUsers;
 
 use App\Models\ModAdmin;
 
+use App\Models\ModProducts;
+
 use CodeIgniter\Controller;
 
 class Home extends BaseController
@@ -19,9 +21,13 @@ class Home extends BaseController
 
 		$categoriesDB = new ModAdmin();
 
+		//Fetch number of categories from database
 		$data['getNumCategories'] = $categoriesDB->where('cstatus',1)->countAllResults();
-
 		$data['allCategories'] = $categoriesDB->getWhere(['cStatus'=>1],$data['getNumCategories'])->getResultArray();
+
+		//Get all Products
+		$productsDB = new ModProducts();
+		$data['allProducts'] = $productsDB->where('pStatus',1)->findAll();
 
 		echo view('user/header', $data);
 		echo view('user/css', $data);
