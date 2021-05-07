@@ -4,15 +4,15 @@
                     <div class="row">
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="widget widget-about">
-                                <a href="demo2.html" class="logo-footer mb-5">
+                                <!--<a href="demo2.html" class="logo-footer mb-5">
                                     <img src="/theme/images/demos/demo17/logo-footer.png" alt="logo-footer" width="308"
                                         height="86" />
-                                </a>
+                                </a>-->
                                 <div class="widget-body">
                                     <p class="ls-s">Fringilla urna porttitor rhoncus dolor purus<br />
                                         luctus venenatis lectus magna fringilla diam<br />
                                         maecenas ultricies mi eget mauris.</p>
-                                    <a href="mailto:mail@riode.com">Riode@example.com</a>
+                                    <a href="mailto:kurzwelding@gmail.com">kurzwelding@gmail.com</a>
                                 </div>
                             </div>
                             <!-- End of Widget -->
@@ -25,7 +25,6 @@
                                     <li><a href="#">Our Guarantees</a></li>
                                     <li><a href="#">Terms And Conditions</a></li>
                                     <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Intellectual Property Claims</a></li>
                                     <li><a href="#">Site Map</a></li>
                                 </ul>
                             </div>
@@ -87,7 +86,9 @@
             </div>
             <!-- End of FooterMiddle -->
             <div class="footer-bottom d-block text-center">
-                <p class="copyright">Riode eCommerce &copy; 2021. All Rights Reserved</p>
+            <div class="footer-copyright text-center py-3">Website Design by
+                <a target="_BLANK" style="color:mediumpurple;" href="https://pivotgrowth.io"> pivotgrowth.io</a>
+            </div>
             </div>
             <!-- End of FooterBottom -->
         </footer>
