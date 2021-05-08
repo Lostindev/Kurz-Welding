@@ -1,6 +1,7 @@
 <?php
 use App\Models\ModAdmin;
 
+use App\Models\ModProducts;
 function adminLoggedIn() {
     $session = \Config\Services::session();
     $checkLoggedIn = $session->get('aId');
@@ -59,11 +60,9 @@ function fetchCategoriesTwo() {
 
     $data['getNumCategories'] = $categoriesDB->where('cStatus',1)->countAllResults();
 
-
-
     return $categoriesDB->getWhere(['cStatus'=>1], 14, 7)->getResultArray();
-
-
 }
+
+
 
 ?>

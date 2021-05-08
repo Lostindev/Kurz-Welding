@@ -51,11 +51,23 @@ class Shop extends BaseController
     $productsDB = new ModProducts();
 	$data['allProducts'] = $productsDB->where('pStatus',1)->findAll();
 
-	echo view('user/header', $data);
-	echo view('user/css', $data);
-	echo view('user/navbar', $data);
-	echo view('products/index', $data);
-	echo view('user/footer', $data);
+    if (!empty($id)) {
+        $name = (str_replace('-', ' ', strtolower($id)));
+        $data['product'] = $productsDB->getWhere(['pStatus'=>1,'pName'=>$name],)->getResultArray();
+        if (count($data['product']) > 0) {
+            echo view('user/header', $data);
+            echo view('user/css', $data);
+            echo view('user/navbar', $data);
+            echo view('products/index', $data);
+            echo view('user/footer', $data);
+        } else {
+            echo 'data is not found in database';
+        }
+    }
+
+    else {
+        echo 'error';
+    }
     }
 
 
