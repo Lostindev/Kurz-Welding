@@ -72,7 +72,7 @@ function fetchCategoriesTwo() {
 
 function fetchSubCategories($categoryId) {
     $subDB = new ModSub();
-    return $subDB->getWhere(['categoryId'=>$categoryId],)->getResultArray();
+    return $subDB->getWhere(['categoryId'=>$categoryId,'scId >' => 0],)->getResultArray();
 
 }
 

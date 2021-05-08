@@ -35,16 +35,13 @@
 
                                                     <!--Check for sub categories-->
                                                     <?php $getSubCategories = fetchSubCategories($category['cId']); ?>
-                                                    
                                                     <?php if(count($getSubCategories) > 0):?>
-                                                        <?php foreach($getSubCategories as $subCategory):?>
                                                         <ul>
+                                                        <?php foreach($getSubCategories as $subCategory):?>
                                                             <li><a href="#"><?php echo $subCategory['scName']; ?></a></li>
-                                                        </ul>
                                                         <?php endforeach;?>
+                                                        </ul>
                                                     <?php endif; ?>
-
-
                                                 </li>
                                                 <?php endforeach;?>
                                             <?php endif; ?>
