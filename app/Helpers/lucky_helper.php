@@ -2,6 +2,11 @@
 use App\Models\ModAdmin;
 
 use App\Models\ModProducts;
+
+use App\Models\ModSpec;
+
+use App\Models\ModSpecValues;
+
 function adminLoggedIn() {
     $session = \Config\Services::session();
     $checkLoggedIn = $session->get('aId');
@@ -63,6 +68,18 @@ function fetchCategoriesTwo() {
     return $categoriesDB->getWhere(['cStatus'=>1], 14, 7)->getResultArray();
 }
 
+function getDimensions($productId) {
+    $session = \Config\Services::session();
 
+    $specDB = new ModSpec();
+    return $specDB->getWhere(['spStatus'=>1,'productId'=>$productId])->getResultArray();
+}
+
+function getDimensionValues($specId) {
+    $session = \Config\Services::session();
+
+    $specValueDB = new ModSpecValues();
+    return $specValueDB->getWhere(['spvStatus'=>1,'specId'=>$specId])->getResultArray();
+}
 
 ?>
