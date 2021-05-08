@@ -31,7 +31,7 @@ class Shop extends BaseController
 	echo view('user/header', $data);
 	echo view('user/css', $data);
 	echo view('user/navbar', $data);
-	echo view('home/index', $data);
+	echo view('shop/index', $data);
 	echo view('user/footer', $data);
     }
 

@@ -219,7 +219,7 @@
                                     <a href="/">Home</a>
                                 </li>
                                 <li>
-                                    <a href="demo17-shop.html">Categories</a>
+                                    <a href="/shop">Categories</a>
                                     <div class="megamenu">
                                         <div class="row">
                                             <div class="col-6 col-sm-4 col-md-3 col-lg-4">
