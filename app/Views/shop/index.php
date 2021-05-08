@@ -31,14 +31,17 @@
                                             <?php if(count($getCategories) > 0):?>
                                                 <?php foreach($getCategories as $category):?>
                                                 <li>
-                                                    <a href="#"><?php echo $category['cName']; ?></a>
+                                                    <?php $cUrl = (str_replace(' ', '-', strtolower($category['cName'])));?>
+                                                    <a href="<?php echo base_url('/'.'categories/'.$category['cId'].'/'.$cUrl); ?>"><?php echo $category['cName']; ?></a>
 
                                                     <!--Check for sub categories-->
                                                     <?php $getSubCategories = fetchSubCategories($category['cId']); ?>
                                                     <?php if(count($getSubCategories) > 0):?>
                                                         <ul>
                                                         <?php foreach($getSubCategories as $subCategory):?>
-                                                            <li><a href="#"><?php echo $subCategory['scName']; ?></a></li>
+                                                            <?php $cUrl = (str_replace(' ', '-', strtolower($category['cName'])));?>
+                                                            <?php $scUrl = (str_replace(' ', '-', strtolower($subCategory['scName'])));?>
+                                                            <li><a href="<?php echo base_url('/'.'categories/'.$category['cId'].'/'.$cUrl.'/'.$subCategory['scId'].'/'.$scUrl.'/'); ?>"><?php echo $subCategory['scName']; ?></a></li>
                                                         <?php endforeach;?>
                                                         </ul>
                                                     <?php endif; ?>
@@ -137,6 +140,7 @@
 								</div>
 							</nav>
 							<div class="row cols-2 cols-sm-3 product-wrapper">
+                            <?php loadStoreProducts($catId);?>
 								<div class="product-wrap">
 									<div class="product">
 										<figure class="product-media">

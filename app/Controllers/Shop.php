@@ -14,12 +14,14 @@ use App\Models\ModSub;
 class Shop extends BaseController
 {
     public function index($page = 'index') {
+    $session = \Config\Services::session();
+    $request = \Config\Services::request();
 	$data['title'] = 'Kurz Metal Art | Shop';
 	$data['metaData'] = "";
 	$data['page'] = $page;
 	$data['cssFile'] = $page;
-	$data['uri'] = $this->request->uri;
-
+	$data['uri'] = $request->uri;
+    $data['catId'] = $data['uri']->getSegment(2);
         
     //Fetch number of categories from database
     $categoriesDB = new ModAdmin();

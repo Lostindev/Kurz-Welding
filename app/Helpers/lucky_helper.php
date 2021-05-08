@@ -90,4 +90,17 @@ function getDimensionValues($specId) {
     return $specValueDB->getWhere(['spvStatus'=>1,'specId'=>$specId])->getResultArray();
 }
 
+function loadStoreProducts($categoryId) {
+    $session = \Config\Services::session();
+    $request = \Config\Services::request();
+    $productDB = new ModProducts();
+    if (!empty($categoryId)) {
+        //Find all products for category
+        return $productDB->getWhere(['categoryId'=>$categoryId])->getResultArray();
+    } else {
+        //Show all products in database
+        return $productDB->getWhere(['pStatus'=>1])->getResultArray();
+    }
+}
+
 ?>

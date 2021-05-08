@@ -49,6 +49,8 @@ $routes->get('/', 'Home::index');
  */
 
 $routes->add('shop/custom-metal-art/(:any)', 'Shop::productLookup/$1');
+$routes->add('shop', 'Shop::index');
+$routes->add('categories/(:any)', 'Shop::index');
 
 if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php'))
 {
