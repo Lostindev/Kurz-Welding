@@ -7,6 +7,8 @@ use App\Models\ModSpec;
 
 use App\Models\ModSpecValues;
 
+use App\Models\ModSub;
+
 function adminLoggedIn() {
     $session = \Config\Services::session();
     $checkLoggedIn = $session->get('aId');
@@ -66,6 +68,12 @@ function fetchCategoriesTwo() {
     $data['getNumCategories'] = $categoriesDB->where('cStatus',1)->countAllResults();
 
     return $categoriesDB->getWhere(['cStatus'=>1], 14, 7)->getResultArray();
+}
+
+function fetchSubCategories($categoryId) {
+    $subDB = new ModSub();
+    return $subDB->getWhere(['categoryId'=>$categoryId],)->getResultArray();
+
 }
 
 function getDimensions($productId) {

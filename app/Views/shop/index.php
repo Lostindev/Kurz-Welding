@@ -30,10 +30,24 @@
                                             <?php $getCategories = fetchCategories(); ?>
                                             <?php if(count($getCategories) > 0):?>
                                                 <?php foreach($getCategories as $category):?>
-                                                <?php //echo $category['cName']; ?>
-                                                <li><a href="#"><?php echo $category['cName']; ?></a></li>
+                                                <li>
+                                                    <a href="#"><?php echo $category['cName']; ?></a>
+
+                                                    <!--Check for sub categories-->
+                                                    <?php $getSubCategories = fetchSubCategories($category['cId']); ?>
+                                                    
+                                                    <?php if(count($getSubCategories) > 0):?>
+                                                        <?php foreach($getSubCategories as $subCategory):?>
+                                                        <ul>
+                                                            <li><a href="#"><?php echo $subCategory['scName']; ?></a></li>
+                                                        </ul>
+                                                        <?php endforeach;?>
+                                                    <?php endif; ?>
+
+
+                                                </li>
                                                 <?php endforeach;?>
-                                                <?php endif; ?>
+                                            <?php endif; ?>
 
 											<li>
 												<a href="#">Electronics</a>

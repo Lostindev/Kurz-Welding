@@ -9,6 +9,8 @@ use App\Models\ModProducts;
 
 use CodeIgniter\Controller;
 
+use App\Models\ModSub;
+
 class Shop extends BaseController
 {
     public function index($page = 'index') {
