@@ -274,7 +274,7 @@
                                 <a href="about-us.html">Custom Order</a>
                                 </li>
                                 <li>
-                                <a href="about-us.html">Gallery</a>
+                                <a href="/gallery">Gallery</a>
                                 </li>
                                 <li>
                                 <a href="/home/about-us">About Us</a>
