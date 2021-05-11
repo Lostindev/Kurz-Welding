@@ -1,13 +1,22 @@
 <main class="main">
 			<div class="page-header"
 				style="background-image: url('/theme/images/shop/page-header-back.jpg'); background-color: #3C63A4;">
-				<h1 class="page-title">Riode Shop</h1>
+				<h1 class="page-title">Shop</h1>
 				<ul class="breadcrumb">
 					<li><a href="demo1.html"><i class="d-icon-home"></i></a></li>
 					<li class="delimiter">/</li>
-					<li>Riode Shop</li>
+					<li>Shop</li>
 				</ul>
 			</div>
+			<nav class="breadcrumb-nav">
+                <div class="container">
+                    <ul class="breadcrumb">
+                        <li><a href="/"><i class="d-icon-home"></i></a></li>
+                        <li><a href="/" class="active">Home</a></li>
+                        <li>Shop</li>
+                    </ul>
+                </div>
+            </nav>
 			<!-- End PageHeader -->
 			<div class="page-content mb-10 pb-3">
 				<div class="container">
