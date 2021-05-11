@@ -1,15 +1,12 @@
 <?php namespace App\Controllers;
+
 use App\Models\ModAdmin;
-
 use App\Models\ModLogin;
-
 use App\Models\ModSub;
-
 use App\Models\ModProducts;
-
 use App\Models\ModSpec;
-
 use App\Models\ModSpecValues;
+use App\Models\ModGallery;
 
 use CodeIgniter\Controller;
 
@@ -1208,4 +1205,203 @@ class Admin extends BaseController
             return redirect()->to(base_url('/admin/login'));
         }
     }
-}
+
+    public function newGallery($page = 'newGallery')
+    {
+		$data['title'] = 'Admin - New Gallery Entry';
+		$data['metaData'] = "";
+		$data['page'] = $page;
+		$data['cssFile'] = $page;
+		$data['uri'] = $this->request->uri;
+
+        $session = \Config\Services::session();
+        $data['message'] = $session->getFlashdata('message');
+        $data['successMessage'] = $session->getFlashdata('successMessage');
+        
+        if (adminLoggedIn()) {
+            $adminDB = new ModAdmin();
+            $data['categories'] = $adminDB->findAll();
+            
+            echo view('admin/header/header', $data);
+            echo view('admin/header/css', $data);
+            echo view('admin/header/navtop', $data);
+            echo view('admin/header/navleft', $data);
+            echo view('admin/home/newGallery', $data);
+            echo view('admin/header/footer', $data);
+        } else {
+            $session->setFlashdata('message','Please login to add a sub category.');
+            return redirect()->to(base_url('/admin/login'));
+            
+            
+        }
+    }
+
+    public function addGallery($page = 'addGallery') {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        $adminDB = new ModGallery();
+        
+
+        if (adminLoggedIn()) {
+            $dataUpload['gName'] = $request->getPost('galleryName');
+            $dataUpload['gDescription'] = $request->getPost('galleryDescription');
+            $dataUpload['categoryName'] = $request->getPost('categoryName');
+            $dataUpload['gDp'] = $request->getPost('gDp');
+            $dataUpload['gDp2'] = $request->getPost('gDp2');
+            $dataUpload['gDp3'] = $request->getPost('gDp3');
+            $dataUpload['gDp4'] = $request->getPost('gDp4');
+
+            if (!empty($dataUpload['gName']) ) {
+
+                if ($dataUpload['categoryName'] != '0') {
+                    $config['allows_type'] = 'gif|png|jpg|jpeg';
+
+                    $file = $request->getFile('gDp');
+                    if (!empty($file) && $file->getSize() > 0) {
+                        //upload first image
+                        $fileName = $file->getName();
+                        $file->move('/var/www/html/public/img/gallery/', $fileName);
+
+                        //check for image 2
+                        $file2 = $request->getFile('gDp2');
+                        if (!empty($file2) && $file2->getSize() > 0) {
+                            $fileName2 = $file2->getName();
+                            $file2->move('/var/www/html/public/img/gallery/', $fileName2);
+                            $dataUpload['gDp2'] = $fileName2;
+                        } 
+                        
+                        //check for image 3
+                        $file3 = $request->getFile('gDp3');
+                        if (!empty($file3) && $file3->getSize() > 0) {
+                            $fileName3 = $file3->getName();
+                            $file3->move('/var/www/html/public/img/gallery/', $fileName3);
+                            $dataUpload['gDp3'] = $fileName3;
+                        } 
+
+                        //check for image 4
+                        $file4 = $request->getFile('gDp4');
+                        if (!empty($file4) && $file4->getSize() > 0) {
+                            $fileName4 = $file4->getName();
+                            $file4->move('/var/www/html/public/img/gallery/', $fileName4);
+                            $dataUpload['gDp4'] = $fileName4;
+                        } 
+                        
+
+                        $dataUpload['gDp'] = $fileName;
+                        $dataUpload['gDate'] = date('Y-m-d H:i:s');
+                        $dataUpload['adminId'] = $session->get('aId');
+                    } else {
+                        $dataUpload['gDate'] = date('Y-m-d H:i:s');
+                        $dataUpload['adminId'] = $session->get('aId');
+                    }
+                    $arrayCheck = ['gName' => $dataUpload['gName'], 'categoryName' => $dataUpload['categoryName']];
+                    $checkAlreadyThere = $adminDB->where($arrayCheck)->findAll();
+                    if (count($checkAlreadyThere) > 0 ){
+                        $session->setFlashdata('message','This product already exists in this category.');
+                        return redirect()->to(base_url('/admin/newGallery'));
+                    } else {
+                    $addData = $adminDB->insert($dataUpload);
+                        if ($addData) {
+                            $session->setFlashdata('successMessage','You have successfully added an entry.');
+                            return redirect()->to(base_url('/admin/viewGallery'));
+                        } else {
+                            $session->setFlashdata('message','Something went wrong, please try again.');
+                            return redirect()->to(base_url('/admin/newGallery'));
+                        }
+                    }
+                } else {
+                    $session->setFlashdata('message','Please select a main category.');
+                    return redirect()->to(base_url('/admin/newGallery'));
+                }
+
+
+            } else {
+                $session->setFlashdata('message','You need to enter a name.');
+                return redirect()->to(base_url('/admin/newGallery'));
+            }
+
+        } else {
+            $session->setFlashdata('message','Please login to add a gallery entry.');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
+
+    public function viewGallery($page = 'viewGallery') 
+    {
+         $session = \Config\Services::session();
+         $data['title'] = 'Admin - View Gallery';
+         $data['metaData'] = "";
+         $data['page'] = $page;
+         $data['cssFile'] = $page;
+         $data['uri'] = $this->request->uri;
+     
+         $data['message'] = $session->getFlashdata('message');
+         $data['successMessage'] = $session->getFlashdata('successMessage');
+ 
+         if (adminLoggedIn()) {
+             $adminDB = new ModGallery();
+             $subCatDB = new ModSub();
+             $data = [
+                 'results' => $adminDB->paginate(20),
+                 'pager' => $adminDB->pager,
+                 'categories' => $subCatDB->findAll()];
+ 
+                 $data['message'] = $session->getFlashdata('message');
+                 $data['successMessage'] = $session->getFlashdata('successMessage');
+             
+             echo view('admin/header/header', $data);
+             echo view('admin/header/css', $data);
+             echo view('admin/header/navtop', $data);
+             echo view('admin/header/navleft', $data);
+             echo view('admin/home/viewGallery', $data);
+             echo view('admin/header/footer', $data);
+ 
+             
+         } else {
+             $session->setFlashdata('message','Please login to view all gallery entries.');
+             return redirect()->to(base_url('/admin/login'));
+         }
+     }
+
+     public function editGallery($gId, $page = 'editGallery') {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        if (adminLoggedIn()) {
+            if (!empty($gId) && isset($gId)) {
+
+                $builder = new ModGallery();
+            
+                $checkGalleryById = $builder->where('gId',$gId)->findAll();
+                $data['gallery'] = $checkGalleryById;
+                if (count($data['gallery']) == 1) {
+                    $adminDB = new ModAdmin();
+                    $data['categories'] = $adminDB->findAll();
+                    
+                    echo view('admin/header/header', $data);
+                    echo view('admin/header/css', $data);
+                    echo view('admin/header/navtop', $data);
+                    echo view('admin/header/navleft', $data);
+                    echo view('admin/home/editGallery', $data);
+                    echo view('admin/header/footer', $data);
+
+                } else {
+                    $session->setFlashdata('message','Item not found.');
+                    $session->keepFlashdata('message');
+                    return redirect()->to(base_url('/admin/viewGallery'));
+                }
+                
+
+
+            } else {
+                $session->setFlashdata('message','Something went wrong, please try again.');
+                return redirect()->to(base_url('/admin/viewGallery'));
+            }
+            
+        }   
+        
+        else {
+            $session->setFlashdata('message','Please login to edit gallery items.');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
+} //end of controller

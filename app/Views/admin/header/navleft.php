@@ -131,6 +131,31 @@
             </ul>
           </li>
 
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+            <i class="nav-icon far fa-images"></i>
+              <p>
+                Gallery
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/admin/newGallery" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>New Gallery Entry</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/admin/viewGallery" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View All Gallery Entries</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+  
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
