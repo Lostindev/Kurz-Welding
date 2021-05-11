@@ -50,50 +50,6 @@
                                             <?php endif; ?>
 										</ul>
 									</div>
-									<div class="widget widget-collapsible">
-										<h3 class="widget-title">Filter by Price</h3>
-										<div class="widget-body mt-3">
-											<form action="#">
-												<div class="filter-price-slider"></div>
-
-												<div class="filter-actions">
-													<div class="filter-price-text mb-4">Price:
-														<span class="filter-price-range"></span>
-													</div>
-													<button type="submit"
-														class="btn btn-dark btn-filter btn-rounded">Filter</button>
-												</div>
-											</form><!-- End Filter Price Form -->
-										</div>
-									</div>
-									<div class="widget widget-collapsible">
-										<h3 class="widget-title">Size</h3>
-										<ul class="widget-body filter-items">
-											<li><a href="#">Extra Large</a></li>
-											<li><a href="#">Large</a></li>
-											<li><a href="#">Medium</a></li>
-											<li><a href="#">Small</a></li>
-										</ul>
-									</div>
-									<div class="widget widget-collapsible">
-										<h3 class="widget-title">Color</h3>
-										<ul class="widget-body filter-items">
-											<li><a href="#">Black</a></li>
-											<li><a href="#">Blue</a></li>
-											<li><a href="#">Green</a></li>
-											<li><a href="#">White</a></li>
-										</ul>
-									</div>
-									<div class="widget widget-collapsible">
-										<h3 class="widget-title">Brands</h3>
-										<ul class="widget-body filter-items">
-											<li><a href="#">Cinderella</a></li>
-											<li><a href="#">Comedy</a></li>
-											<li><a href="#">Rightcheck</a></li>
-											<li><a href="#">SkillStar</a></li>
-											<li><a href="#">SLS</a></li>
-										</ul>
-									</div>
 								</div>
 							</div>
 						</aside>
@@ -136,10 +92,11 @@
                             <?php $getProducts = loadStoreProducts($catId); ?>
                                 <?php if(count($getProducts) > 0):?>
                                 <?php foreach($getProducts as $product):?>
+                                <?php $pUrl = (str_replace(' ', '-', strtolower($product['pName']))); ?>
 								<div class="product-wrap">
 									<div class="product">
 										<figure class="product-media">
-											<a href="product.html">
+											<a href="<?php echo base_url('/shop/custom-metal-art/'.$pUrl) ; ?>">
 												<img src="<?php echo base_url('/img/products/'.$product['pDp']); ?>" alt="product" width="280" height="315">
 											</a>
 											<div class="product-label-group">
