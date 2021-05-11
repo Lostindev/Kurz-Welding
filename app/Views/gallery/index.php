@@ -13,125 +13,31 @@
                     <div class="posts grid post-grid row" data-grid-options="{
                         'layoutMode': 'fitRows'
                     }">
+                    <?php $getGallery = getGallery(); ?>
+                        <?php if(count($getGallery) > 0):?>
+                        <?php foreach($getGallery as $item):?>
+                        <?php $gUrl = (str_replace(' ', '-', strtolower($item['gName']))); ?>
                         <div class="grid-item col-sm-6 col-lg-4 lifestyle shopping winter-sale">
                             <article class="post post-mask gradient">
                                 <figure class="post-media overlay-zoom">
                                     <a href="post-single.html">
-                                        <img src="/theme/images/blog/mask/1.jpg" width="380" height="280" alt="post" />
+                                        <img src="<?php echo base_url('/img/gallery/'.$item['gDp']); ?>" width="380" height="280" alt="post" />
                                     </a>
                                 </figure>
                                 <div class="post-details">
                                     <div class="post-meta">
                                         on <a href="#" class="post-date">Jun 22, 2018</a>
-                                        | <a href="#" class="post-comment"><span>2</span> Comments</a>
                                     </div>
-                                    <h4 class="post-title"><a href="post-single.html">Explore Fashion Trending For Women
-                                            In Autumn
-                                            2020</a>
+                                    <h4 class="post-title"><a href="post-single.html"><?php echo $item['gName'];?></a>
                                     </h4>
                                     <a href="post-single.html" class="btn btn-link btn-underline btn-white">Read more<i
                                             class="d-icon-arrow-right"></i></a>
                                 </div>
                             </article>
                         </div>
-                        <div class="grid-item col-sm-6 col-lg-4 lifestyle sport">
-                            <article class="post post-mask gradient">
-                                <figure class="post-media overlay-zoom">
-                                    <a href="post-single.html">
-                                        <img src="/theme/images/blog/mask/2.jpg" width="380" height="250" alt="post" />
-                                    </a>
-                                </figure>
-                                <div class="post-details">
-                                    <div class="post-meta">
-                                        on <a href="#" class="post-date">Nov 6, 2019</a>
-                                        | <a href="#" class="post-comment"><span>7</span> Comments</a>
-                                    </div>
-                                    <h4 class="post-title"><a href="post-single.html">Complete Set Of Ski Tools</a>
-                                    </h4>
-                                    <a href="post-single.html" class="btn btn-link btn-underline btn-white">Read more<i
-                                            class="d-icon-arrow-right"></i></a>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="grid-item col-sm-6 col-lg-4 fashion lifestyle">
-                            <article class="post post-mask gradient">
-                                <figure class="post-media overlay-zoom">
-                                    <a href="post-single.html">
-                                        <img src="/theme/images/blog/mask/3.jpg" width="380" height="250" alt="post" />
-                                    </a>
-                                </figure>
-                                <div class="post-details">
-                                    <div class="post-meta">
-                                        on <a href="#" class="post-date">Nov 18, 2019</a>
-                                        | <a href="#" class="post-comment"><span>9</span> Comments</a>
-                                    </div>
-                                    <h4 class="post-title"><a href="post-single.html">Women's Trending Sunglasses And
-                                            Clothing</a>
-                                    </h4>
-                                    <a href="post-single.html" class="btn btn-link btn-underline btn-white">Read more<i
-                                            class="d-icon-arrow-right"></i></a>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="grid-item col-sm-6 col-lg-4 travel summer-sale">
-                            <article class="post post-mask gradient">
-                                <figure class="post-media overlay-zoom">
-                                    <a href="post-single.html">
-                                        <img src="/theme/images/blog/mask/4.jpg" width="380" height="250" alt="post" />
-                                    </a>
-                                </figure>
-                                <div class="post-details">
-                                    <div class="post-meta">
-                                        on <a href="#" class="post-date">Jun 6, 2019</a>
-                                        | <a href="#" class="post-comment"><span>3</span> Comments</a>
-                                    </div>
-                                    <h4 class="post-title"><a href="post-single.html">Women's Fashion Summer Dress</a>
-                                    </h4>
-                                    <a href="post-single.html" class="btn btn-link btn-underline btn-white">Read more<i
-                                            class="d-icon-arrow-right"></i></a>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="grid-item col-sm-6 col-lg-4 travel hobbies">
-                            <article class="post post-mask gradient">
-                                <figure class="post-media overlay-zoom">
-                                    <a href="post-single.html">
-                                        <img src="/theme/images/blog/mask/5.jpg" width="380" height="250" alt="post" />
-                                    </a>
-                                </figure>
-                                <div class="post-details">
-                                    <div class="post-meta">
-                                        on <a href="#" class="post-date">May 17, 2018</a>
-                                        | <a href="#" class="post-comment"><span>4</span> Comments</a>
-                                    </div>
-                                    <h4 class="post-title"><a href="post-single.html">Explore Fashion Ipad And
-                                            Accessories</a>
-                                    </h4>
-                                    <a href="post-single.html" class="btn btn-link btn-underline btn-white">Read more<i
-                                            class="d-icon-arrow-right"></i></a>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="grid-item col-sm-6 col-lg-4 hobbies">
-                            <article class="post post-mask gradient">
-                                <figure class="post-media overlay-zoom">
-                                    <a href="post-single.html">
-                                        <img src="/theme/images/blog/mask/6.jpg" width="380" height="250" alt="post" />
-                                    </a>
-                                </figure>
-                                <div class="post-details">
-                                    <div class="post-meta">
-                                        on <a href="#" class="post-date">Nov 22, 2020</a>
-                                        | <a href="#" class="post-comment"><span>9</span> Comments</a>
-                                    </div>
-                                    <h4 class="post-title"><a href="post-single.html">The Best Choice For Spending
-                                            Time</a>
-                                    </h4>
-                                    <a href="post-single.html" class="btn btn-link btn-underline btn-white">Read more<i
-                                            class="d-icon-arrow-right"></i></a>
-                                </div>
-                            </article>
-                        </div>
+                        <?php endforeach; ?>
+                        <?php endif; ?>
+
                     </div>
                     <ul class="pagination mt-5 justify-content-center">
                         <li class="page-item disabled">

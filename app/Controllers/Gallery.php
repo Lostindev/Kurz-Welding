@@ -10,6 +10,7 @@ use App\Models\ModProducts;
 use CodeIgniter\Controller;
 
 use App\Models\ModSub;
+use App\Models\ModGallery;
 
 class Gallery extends BaseController
 {

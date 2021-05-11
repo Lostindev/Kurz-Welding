@@ -1,12 +1,9 @@
 <?php
 use App\Models\ModAdmin;
-
 use App\Models\ModProducts;
-
 use App\Models\ModSpec;
-
+use App\Models\ModGallery;
 use App\Models\ModSpecValues;
-
 use App\Models\ModSub;
 
 function adminLoggedIn() {
@@ -101,6 +98,13 @@ function loadStoreProducts($categoryId) {
         //Show all products in database
         return $productDB->getWhere(['pStatus'=>1])->getResultArray();
     }
+}
+
+function getGallery() {
+    $session = \Config\Services::session();
+
+    $galleryDB = new ModGallery();
+    return $galleryDB->getWhere(['gStatus'=>1])->getResultArray();
 }
 
 ?>
