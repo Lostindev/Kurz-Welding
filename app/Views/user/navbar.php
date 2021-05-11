@@ -232,7 +232,8 @@
                                                        ?>
                    
                                                 <ul>
-                                                    <li><a href="#"><?php echo $category['cName']; ?></a></li>
+                                                    <?php $cUrl = (str_replace(' ', '-', strtolower($category['cName'])));?>
+                                                    <li><a href="<?php echo base_url('/'.'categories/'.$category['cId'].'/'.$cUrl); ?>"><?php echo $category['cName']; ?></a></li>
                                                 </ul>
                                                 <?php endforeach;?>
                                                 <?php endif; ?>
@@ -244,7 +245,8 @@
                                                     <?php foreach(fetchCategoriesTwo() as $category): ?>
                                                     
                                                 <ul>
-                                                    <li> <a href="#"><?php echo $category['cName']; ?></a></li>
+                                                    <?php $cUrl = (str_replace(' ', '-', strtolower($category['cName'])));?>
+                                                    <li> <a href="<?php echo base_url('/'.'categories/'.$category['cId'].'/'.$cUrl); ?>"><?php echo $category['cName']; ?></a></li>
                                                 </ul>
                                                 <?php endforeach;?>
                                                 <?php endif; ?>

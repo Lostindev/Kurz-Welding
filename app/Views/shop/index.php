@@ -48,14 +48,6 @@
                                                 </li>
                                                 <?php endforeach;?>
                                             <?php endif; ?>
-
-											<li>
-												<a href="#">Electronics</a>
-												<ul>
-													<li><a href="#">Computer</a></li>
-													<li><a href="#">Gaming & Accessosries</a></li>
-												</ul>
-											</li>
 										</ul>
 									</div>
 									<div class="widget widget-collapsible">
@@ -148,7 +140,7 @@
 									<div class="product">
 										<figure class="product-media">
 											<a href="product.html">
-												<img src="/theme/images/shop/1.jpg" alt="product" width="280" height="315">
+												<img src="<?php echo base_url('/img/products/'.$product['pDp']); ?>" alt="product" width="280" height="315">
 											</a>
 											<div class="product-label-group">
 												<label class="product-label label-new">new</label>
