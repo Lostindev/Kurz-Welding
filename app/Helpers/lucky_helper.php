@@ -99,8 +99,7 @@ function loadStoreProducts($categoryId) {
         return $productDB->getWhere(['categoryId'=>$categoryId])->getResultArray();
     } else {
         //Show all products in database
-        return $productDB->paginate(2);
-        
+        return $productDB->getWhere(['pStatus'=>1])->getResultArray();
     }
 }
 

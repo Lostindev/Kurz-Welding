@@ -184,7 +184,7 @@
 							</div>
 							<nav class="toolbox toolbox-pagination">
 								<p class="show-info">Showing <span>12 of 56</span> Products</p>
-                                <?php echo $pager->links();?>
+                                
 							</nav>
 						</div>
 					</div>

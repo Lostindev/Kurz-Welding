@@ -29,9 +29,6 @@ class Shop extends BaseController
 	$data['getNumCategories'] = $categoriesDB->where('cstatus',1)->countAllResults();
 	$data['allCategories'] = $categoriesDB->getWhere(['cStatus'=>1],$data['getNumCategories'])->getResultArray();
 
-    $productsDB = new ModProducts();
-    $data['getProducts'] = $productsDB->paginate(1);
-    $data['pager'] = $productsDB->pager;
 
 	echo view('user/header', $data);
 	echo view('user/css', $data);
