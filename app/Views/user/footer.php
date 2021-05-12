@@ -74,7 +74,7 @@
                                 <div class="social-links">
                                     <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
                                     <a href="#" class="social-link social-twitter fab fa-twitter"></a>
-                                    <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>
+                                    <a href="https://www.etsy.com/shop/KurzMetalArt" target="_BLANK" class="social-link social-linkedin fab fa-etsy"></a>
                                 </div>
                             </div>
                         </div>
@@ -292,8 +292,8 @@
     <div class="newsletter-popup mfp-hide" id="newsletter-popup" style="background-image: url(/theme/images/newsletter-popup.jpg)">
         <div class="newsletter-content">
             <h4 class="text-uppercase text-dark">Up to <span class="text-primary">20% Off</span></h4>
-            <h2 class="font-weight-semi-bold">Sign up to <span>RIODE</span></h2>
-            <p class="text-grey">Subscribe to the Riode eCommerce newsletter to receive timely updates from your favorite
+            <h2 class="font-weight-semi-bold">Sign up to <span>Kurz Metal Metal</span></h2>
+            <p class="text-grey">Subscribe to the weekly newsletter to receive timely updates from your favorite
                 products.</p>
             <form action="#" method="get" class="input-wrapper input-wrapper-inline input-wrapper-round">
                 <input type="email" class="form-control email" name="email" id="email2" placeholder="Email address here..."

@@ -1,6 +1,6 @@
 <main class="main">
 			<div class="page-header"
-				style="background-image: url('/theme/images/shop/page-header-back.jpg'); background-color: #3C63A4;">
+				style="background-image: url('/img/home/shop.jpg'); background-color: #3C63A4;">
 				<h1 class="page-title">Shop</h1>
 				<ul class="breadcrumb">
 					<li><a href="demo1.html"><i class="d-icon-home"></i></a></li>

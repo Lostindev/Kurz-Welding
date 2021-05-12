@@ -18,7 +18,7 @@
                         <div class="row align-items-center">
                             <div class="col-lg-4 mb-10 mb-lg-4">
                                 <h5 class="section-subtitle lh-2 ls-md font-weight-normal">01. What We Do</h5>
-                                <h3 class="section-title lh-1 font-weight-bold">Provide perfect and practical services
+                                <h3 class="section-title lh-1 font-weight-bold">Provide fast & practical services
                                 </h3>
                                 <p class="section-desc">Lorem quis bibendum auctar, nisi elit consequat ipsum, nec
                                     sagittis sem nibh id elit.</p>
@@ -27,8 +27,8 @@
                                 <div class="row">
                                     <div class="col-md-4 mb-4">
                                         <div class="counter text-center text-dark">
-                                            <span class="count-to" data-to="35" data-refresh-interval="50">0</span>
-                                            <h5 class="count-title font-weight-bold text-body ls-md">Business Year</h5>
+                                            <span class="count-to" data-to="35" data-refresh-interval="50">1+</span>
+                                            <h5 class="count-title font-weight-bold text-body ls-md">Business Years</h5>
                                             <p class="text-grey mb-0">Lorem ipsum dolor sit<br>amet, conctetur adipisci
                                                 elit. viverra erat orci.</p>
                                         </div>
@@ -67,12 +67,12 @@
                             </div>
                             <div class="col-md-5 mb-4">
                                 <h5 class="section-subtitle lh-2 ls-md font-weight-normal">02. Happy Customer</h5>
-                                <h3 class="section-title lh-1 font-weight-bold">Provide fashionable and<br>qualifed
+                                <h3 class="section-title lh-1 font-weight-bold">Provide custom and<br>quality
                                     products</h3>
                                 <p class="section-desc text-grey">
-                                    Already millions of people are very satisfied by thi.<br>
-                                    s page builder and the number is growing more and more. Technolog<br>
-                                    developing, requirements are increasing. Riode has brought.
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, id?<br>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, in?<br>
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                                 </p>
                                 <a href="#" class="btn btn-dark btn-link btn-underline ls-m">Visit Our Store<i
                                         class="d-icon-arrow-right"></i></a>
@@ -89,11 +89,11 @@
                                 <h5 class="section-subtitle lh-2 ls-md font-weight-normal mb-1">03. Our Store</h5>
                                 <h3 class="section-title lh-1 font-weight-bold">Expect Restless<br>Amazing Support</h3>
                                 <p class="section-desc text-grey">
-                                    Already millions of people are very satisfied by thi.<br>
-                                    s page builder and the number is growing more and more. Technolog<br>
-                                    developing, requirements are increasing. Riode has brought.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, id?<br>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, in?<br>
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                                 </p>
-                                <a href="#" class="btn btn-dark btn-link btn-underline ls-m">Get Our Store<i
+                                <a href="#" class="btn btn-dark btn-link btn-underline ls-m">Get Help Now<i
                                         class="d-icon-arrow-right"></i></a>
                             </div>
                             <div class="col-md-6 mb-4">
@@ -107,7 +107,7 @@
                 </section>
                 <!-- End Store-section -->
 
-                <section class="brand-section grey-section pt-10 pb-10 appear-animate">
+               <!-- <section class="brand-section grey-section pt-10 pb-10 appear-animate"> 
                     <div class="container mt-8 mb-10">
                         <h5 class="section-subtitle lh-2 ls-md font-weight-normal mb-1 text-center">04. Our Clients</h5>
                         <h3 class="section-title lh-1 font-weight-bold text-center mb-5">Popular Brands</h3>
@@ -155,71 +155,7 @@
                             </figure>
                         </div>
                     </div>
-                </section>
+                </section> --> 
 
-                <section class="team-section pt-8 mt-10 pb-10 mb-6 appear-animate">
-                    <div class="container">
-                        <h5 class="section-subtitle lh-2 ls-md font-weight-normal mb-1 text-center">04. Our Leaders</h5>
-                        <h3 class="section-title lh-1 font-weight-bold text-center mb-5">Meet our team</h3>
-                        <div class="row cols-sm-2 cols-md-4">
-                            <div class="member appear-animate" data-animation-options="{'name': 'fadeInLeftShorter'}">
-                                <figure class="banner-radius">
-                                    <img src="/theme/images/subpages/team1.jpg" alt="team member" width="280" height="280"
-                                        style="background-color: #EEE;">
-                                    <div class="overlay social-links">
-                                        <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
-                                        <a href="#" class="social-link social-twitter fab fa-twitter"></a>
-                                        <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>
-                                    </div>
-                                </figure>
-                                <h4 class="member-name">Tomasz Treflerzan</h4>
-                                <h5 class="member-job">Ceo / Founder</h5>
-                            </div>
-                            <div class="member appear-animate"
-                                data-animation-options="{'name': 'fadeInLeftShorter', 'delay': '.3s'}">
-                                <figure class="banner-radius">
-                                    <img src="/theme/images/subpages/team2.jpg" alt="team member" width="280" height="280"
-                                        style="background-color: #121A1F;">
-                                    <div class="overlay social-links">
-                                        <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
-                                        <a href="#" class="social-link social-twitter fab fa-twitter"></a>
-                                        <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>
-                                    </div>
-                                </figure>
-                                <h4 class="member-name">Dylan Chavez</h4>
-                                <h5 class="member-job">Support manager / founder</h5>
-                            </div>
-                            <div class="member appear-animate"
-                                data-animation-options="{'name': 'fadeInLeftShorter', 'delay': '.4s'}">
-                                <figure class="banner-radius">
-                                    <img src="/theme/images/subpages/team3.jpg" alt="team member" width="280" height="280"
-                                        style="background-color: #E8E7E3;">
-                                    <div class="overlay social-links">
-                                        <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
-                                        <a href="#" class="social-link social-twitter fab fa-twitter"></a>
-                                        <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>
-                                    </div>
-                                </figure>
-                                <h4 class="member-name">Viktoriia Demianenko</h4>
-                                <h5 class="member-job">Designer</h5>
-                            </div>
-                            <div class="member appear-animate"
-                                data-animation-options="{'name': 'fadeInLeftShorter', 'delay': '.5s'}">
-                                <figure class="banner-radius">
-                                    <img src="/theme/images/subpages/team4.jpg" alt="team member" width="280" height="280"
-                                        style="background-color: #465D7F;">
-                                    <div class="overlay social-links">
-                                        <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
-                                        <a href="#" class="social-link social-twitter fab fa-twitter"></a>
-                                        <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>
-                                    </div>
-                                </figure>
-                                <h4 class="member-name">Mikhail Hnatuk</h4>
-                                <h5 class="member-job">Support</h5>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- End Team Section -->
             </div>
         </main>
