@@ -27,13 +27,13 @@
                                     data-animation-options="{'name': 'blurIn', 'duration': '1.2s', 'delay': '.6s'}">
                                     Custom <span class="text-uppercase text-primary">American Made</span> Plasma Art
                                 </h3>
-                                <a href="demo17-shop.html"
+                                <a href="/gallery"
                                     class="mb-3 mr-3 btn-md btn btn-outline btn-white slide-animate"
                                     data-animation-options="{'name': 'fadeInUp', 'duration': '1.2s', 'delay': '1s'}">gallery
                                     </a><a href="demo17-shop.html"
                                     class="mb-3 mr-3 btn-md btn btn-outline btn-white slide-animate"
                                     data-animation-options="{'name': 'fadeInUp', 'duration': '1.3s', 'delay': '1.2s'}">custom 
-                                    design</a><a href="demo17-shop.html"
+                                    design</a><a href="/shop"
                                     class=" btn-md btn btn-outline btn-white slide-animate"
                                     data-animation-options="{'name': 'fadeInUp', 'duration': '1.4s', 'delay': '1.4s'}">shop
                                     all</a>
