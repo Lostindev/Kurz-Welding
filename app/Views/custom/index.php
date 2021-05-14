@@ -12,8 +12,7 @@
                 <div class="container">
                     <ul class="breadcrumb">
                         <li><a href="/"><i class="d-icon-home"></i></a></li>
-                        <li><a href="/" class="active">Home</a></li>
-                        <li>Gallery</li>
+                        <li>Custom</li>
                     </ul>
                 </div>
             </nav>
@@ -24,7 +23,7 @@
                     }">
 
                 <div class="col-12 text-center">
-                    <h2>Custom Order Request</h2>  
+                    <h2 style="padding-top:20px;padding-bottom:10px;">Custom Order Request</h2>  
                 </div>
                     
                     <form>

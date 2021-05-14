@@ -15,7 +15,7 @@
                             <video playsinline autoplay muted loop
                             style="
                                 height: 625px;"> 
-                                    <source src="/img/home/cnc-metal-art-video.mp4" type="video/mp4">
+                                <source src="/img/home/cnc-metal-art-video.mp4" type="video/mp4">
                             </video>
                         </figure>
                         <div class="container slide-animate">
@@ -30,7 +30,7 @@
                                 <a href="/gallery"
                                     class="mb-3 mr-3 btn-md btn btn-outline btn-white slide-animate"
                                     data-animation-options="{'name': 'fadeInUp', 'duration': '1.2s', 'delay': '1s'}">gallery
-                                    </a><a href="demo17-shop.html"
+                                    </a><a href="/custom"
                                     class="mb-3 mr-3 btn-md btn btn-outline btn-white slide-animate"
                                     data-animation-options="{'name': 'fadeInUp', 'duration': '1.3s', 'delay': '1.2s'}">custom 
                                     design</a><a href="/shop"
@@ -139,7 +139,7 @@
                                             'delay': '.5s'
                                         }">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                                             tempor incididunt ut labore et.</p>
-                                        <a href="demo17-shop.html" class="btn btn-primary btn-md ls-m appear-animate"
+                                        <a href="/custom" class="btn btn-primary btn-md ls-m appear-animate"
                                             data-animation-options="{
                                             'name': 'fadeInUpShorter',
                                             'delay': '.6s'
@@ -168,7 +168,7 @@
                                         }">Custom Metal <span class="text-secondary text-uppercase">Fire Pit</span>
                                             Designs</h3>
                                         <p class="text-grey font-primary">The Warm Weather Companion you need...</p>
-                                        <a href="demo17-shop.html" class="btn btn-primary btn-md ls-m">Shop now</a>
+                                        <a href="/shop" class="btn btn-primary btn-md ls-m">Shop now</a>
                                     </div>
                                 </div>
                             </div>
@@ -351,7 +351,7 @@
                                                     class="text-primary">inspire</span></h3>
                                             <p class="text-grey font-primary ">Lorem ipsum dolor sit amet,
                                                 consectetur adipiscing elit, sed do eiusmod tempor incid</p>
-                                            <a href="demo17-shop.html" class="btn btn-md btn-outline btn-white">Shop
+                                            <a href="/shop" class="btn btn-md btn-outline btn-white">Shop
                                                 now</a>
                                         </div>
                                     </div>
@@ -381,7 +381,7 @@
                                         <p class="text-white ls-l text-uppercase mb-5">& <span
                                                 class="font-weight-bold">more</span>
                                         </p>
-                                        <a href="demo17-shop.html" class="btn btn-primary btn-md">Shop now</a>
+                                        <a href="/shop" class="btn btn-primary btn-md">Shop now</a>
                                     </div>
                                 </div>
                             </div>
@@ -479,7 +479,7 @@
                                         <span class="ratings" style="width:60%"></span>
                                         <span class="tooltiptext tooltip-top"></span>
                                     </div>
-                                    <a href="demo17-product.html" class="rating-reviews">( 6 reviews )</a>
+                                    <a href="/shop" class="rating-reviews">( 6 reviews )</a>
                                 </div>
                             </div>
                         </div>
