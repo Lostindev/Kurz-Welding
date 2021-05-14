@@ -870,6 +870,7 @@ class Admin extends BaseController
             $dataUpload['categoryId'] = $request->getPost('categoryId');
             $dataUpload['subCatId'] = $request->getPost('subCategory');
             $dataUpload['pId'] = $request->getPost('pId');
+            $dataUpload['pPrice'] = $request->getPost('pPrice');
 
             if (!empty($dataUpload['pName']) ) {
 
