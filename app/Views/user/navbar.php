@@ -271,7 +271,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                <a href="about-us.html">Custom Order</a>
+                                <a href="/custom">Custom Order</a>
                                 </li>
                                 <li>
                                 <a href="/gallery">Gallery</a>
