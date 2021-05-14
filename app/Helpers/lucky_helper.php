@@ -99,10 +99,21 @@ function getDimensionValues($specId) {
 function loadStoreProducts($categoryId) {
     $session = \Config\Services::session();
     $request = \Config\Services::request();
+    $uri = $request->uri;
     $productDB = new ModProducts();
     if (!empty($categoryId)) {
-        //Find all products for category
-        return $productDB->getWhere(['categoryId'=>$categoryId])->getResultArray();
+
+        //Check for Sub Category
+        $subCatId = $uri->getSegment(4);
+
+        if (!empty($subCatId)) {
+            //Find all products for sub category and main
+            return $productDB->getWhere(['categoryId'=>$categoryId,'subCatId'=>$subCatId])->getResultArray();
+        } else {
+            //Find all products for category
+            return $productDB->getWhere(['categoryId'=>$categoryId])->getResultArray();
+        }
+        
     } else {
         //Show all products in database
         return $productDB->getWhere(['pStatus'=>1])->getResultArray();

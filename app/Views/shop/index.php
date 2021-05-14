@@ -97,7 +97,7 @@
 								</div>
 							</nav>
 							<div class="row cols-2 cols-sm-3 product-wrapper">
-                            <?php //?>
+                            <?php //load store products based on category?>
                             <?php $getProducts = loadStoreProducts($catId); ?>
                                 <?php if(count($getProducts) > 0):?>
                                 <?php foreach($getProducts as $product):?>
