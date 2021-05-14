@@ -2,6 +2,9 @@
 <div class="page-header"
 	style="background-image: url('/img/home/gallery.jpg'); background-color: #3C63A4;">
 	<h1 class="page-title">Custom Request</h1>
+    <?php if(userLoggedIn()):?>
+    <?php $userData = getUserInfo(); ?>
+    <?php endif; ?>
 	<ul class="breadcrumb">
 		<li><a href="/"><i class="d-icon-home"></i></a></li>
 		<li class="delimiter">/</li>
@@ -47,7 +50,7 @@
                             <div class="form-outline">
                             <!-- Email input -->
                                 <label class="form-label" for="form6Example5">Email</label>
-                                <input type="email" id="form6Example5" class="form-control" />
+                                <input type="email" value="<?php echo $userData[0]['email']; ?>" id="form6Example5" class="form-control" />
                             </div>
                             </div>
                             <div class="col-6">

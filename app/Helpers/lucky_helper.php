@@ -5,6 +5,7 @@ use App\Models\ModSpec;
 use App\Models\ModGallery;
 use App\Models\ModSpecValues;
 use App\Models\ModSub;
+use App\Models\ModUsers;
 
 function adminLoggedIn() {
     $session = \Config\Services::session();
@@ -39,6 +40,14 @@ function userLoggedIn() {
     } else {
         return FALSE;
     }
+}
+
+function getUserInfo() {
+    $session = \Config\Services::session();
+    $userDB = new ModUsers();
+    $checkLoggedIn = $session->get('uId');
+    
+    return $userDB->getWhere(['uId'=>$checkLoggedIn,])->getResultArray();
 }
 
 function checkFlash() {
