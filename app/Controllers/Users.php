@@ -223,12 +223,11 @@ class Users extends BaseController
                 $addUser = $billDB->insert($data);
     
                 if ($addUser) {
-                    $session->setFlashdata('fetchData',$data);
-                    $session->setFlashdata('SuccessMessage','Your account was succesfully created! Check your email when your ready to activate your account.');
-                    return redirect()->to(site_url('/users#address'));
+                    $session->setFlashdata('message','Your account was succesfully created! Check your email when your ready to activate your account.');
+                    return redirect()->to(site_url('/users'));
                 } else {
                     $session->setFlashdata('message','Something went wrong, please try again.');
-                    return redirect()->to(site_url('/users#address'));
+                    return redirect()->to(site_url('/users'));
                 }
             }
 

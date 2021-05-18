@@ -121,6 +121,7 @@
 											<?php $billingAddress = getBillingAddress(); ?>
 												<h5 class="card-title text-uppercase">Billing Address</h5>
 												<p>
+												<?php if (!empty($billingAddress)): ?>
 												<?php foreach($billingAddress as $bSpec)
 												{
 													echo $bSpec['bFirstName']; echo '&nbsp'.$bSpec['bLastName'].'<br>';
@@ -130,6 +131,9 @@
 													echo $bSpec['bCountry'].','; echo '&nbsp'.$bSpec['bZip'].'<br>';
 												}
 												?>
+												<?php else: ?>
+												You have not set up this type of address yet.
+												<?php endif; ?>
 												</p>
 												<a href="#" id="editBilling" class="btn btn-link btn-secondary btn-underline">Edit <i
 														class="far fa-edit"></i></a>
@@ -144,21 +148,22 @@
 									<span class="close">&times;</span>
 									<form action="/users/edit-billing" method="POST" class="form">
                                     <fieldset>
+								
                                         <legend>Edit Billing Address</legend>
                                         <label>First Name</label>
-                                        <input type="text" class="form-control" name="billing_first" required="">
+                                        <input type="text" value="<?php if (isset($bSpec['bFirstName'])) echo $bSpec['bFirstName']; ?>" class="form-control" name="billing_first" required="">
 
                                         <label>Last Name</label>
-                                        <input type="text" class="form-control" name="billing_last" required="">
+                                        <input type="text" value="<?php if (isset($bSpec['bLastName'])) echo $bSpec['bLastName']; ?>" class="form-control" name="billing_last" required="">
 
                                         <label>Company Name</label>
-                                        <input type="text" class="form-control" name="billing_company">
+                                        <input type="text" value="<?php if (isset($bSpec['bCompany'])) echo $bSpec['bCompany']; ?>" class="form-control" name="billing_company">
 
 										<label>Street Address</label>
-                                        <input type="text" class="form-control" name="billing_address">
+                                        <input type="text" value="<?php if (isset($bSpec['bAddress'])) echo $bSpec['bAddress']; ?>" class="form-control" name="billing_address">
 
 										<label>Apartment/Suite</label>
-                                        <input type="text" class="form-control" name="billing_apt">
+                                        <input type="text" value="<?php if (isset($bSpec['bApt'])) echo $bSpec['bApt']; ?>" class="form-control" name="billing_apt">
 
 										<div class="row">
 										<div class="col-6">
@@ -176,17 +181,17 @@
 
 										<div class="col-6">
 										<label>State/Province</label>
-                                        <input type="text" class="form-control" name="billing_state">
+                                        <input type="text" value="<?php if (isset($bSpec['bFirstName'])) echo $bSpec['bFirstName']; ?>" class="form-control" name="billing_state">
 										</div>
 
 										<div class="col-6">
 										<label>City</label>
-                                        <input type="text" class="form-control" name="billing_city">
+                                        <input type="text" value="<?php if (isset($bSpec['bCity'])) echo $bSpec['bCity']; ?>" class="form-control" name="billing_city">
 										</div>
 
 										<div class="col-6">
 										<label>Zip Code</label>
-                                        <input type="text" class="form-control" name="billing_zip">
+                                        <input type="text" value="<?php if (isset($bSpec['bZip'])) echo $bSpec['bZip']; ?>" class="form-control" name="billing_zip">
 										</div>
 
 										</row>
