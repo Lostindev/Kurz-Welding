@@ -1,9 +1,9 @@
 
 
   <footer class="main-footer">
-    <strong>Developed By <a style="color:mediumpurple;" href="https://pivotgrowth.io">pivotgrowth.io</a>.</strong>
+    <strong>Developed by <a style="color:mediumpurple;" href="https://pivotgrowth.io">pivotgrowth.io</a>.</strong>
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.1.0
+      <b>Version</b> 1.0
     </div>
   </footer>
 
