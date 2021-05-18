@@ -3,6 +3,7 @@ namespace App\Controllers;
 
 use App\Models\ModUsers;
 use App\Models\ModBilling;
+use App\Models\ModShipping;
 
 class Users extends BaseController
 {
@@ -224,6 +225,73 @@ class Users extends BaseController
     
                 if ($addUser) {
                     $session->setFlashdata('message','Your account was succesfully created! Check your email when your ready to activate your account.');
+                    return redirect()->to(site_url('/users'));
+                } else {
+                    $session->setFlashdata('message','Something went wrong, please try again.');
+                    return redirect()->to(site_url('/users'));
+                }
+            }
+
+        }
+
+        else {
+            //Didn't get any data
+                $session->setFlashdata('message','Something went wrong, please try again.');
+                return redirect()->to(site_url('/users')); 
+
+        }
+        
+    }
+
+
+    public function edit_shipping() {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+
+        $userDB = new ModUsers();
+        $shipDB = new ModShipping();
+        $checkLoggedIn = $session->get('uId');
+
+        $data['bFirstName'] = $request->getPost('billing_first');
+        $data['bLastName'] = $request->getPost('billing_last');
+        $data['bCompany'] = $request->getPost('billing_company');
+        $data['bAddress'] = $request->getPost('billing_address');
+        $data['bApt'] = $request->getPost('billing_apt');
+        $data['bZip'] = $request->getPost('billing_zip');
+        $data['bCity'] = $request->getPost('billing_city');
+        $data['bCountry'] = $request->getPost('billing_country');
+        $data['bState'] = $request->getPost('billing_state');
+        $data['userId'] = $checkLoggedIn;
+
+        //Make sure we are getting the data
+        if (!empty($data)) {
+
+            $checkBilling =  $shipDB->where('userId',$checkLoggedIn)->findAll();
+
+            if (count($checkBilling) == 1) {
+                //Update Billing Info
+                $shipDB->set('sFirstName',$data['sFirstName']);
+                $shipDB->set('sLastName',$data['sLastName']);
+                $shipDB->set('sCompany',$data['sCompany']);
+                $shipDB->set('sAddress',$data['sAddress']);
+                $shipDB->set('sApt',$data['sApt']);
+                $shipDB->set('sZip',$data['sZip']);
+                $shipDB->set('sCity',$data['sCity']);
+                $shipDB->set('sCountry',$data['sCountry']);
+                $shipDB->set('sState',$data['sState']);
+
+				$shipDB->where('userId',$checkLoggedIn);
+				$updateBilling = $shipDB->update();
+                $session->setFlashdata('message','Billing address successfully updated.');
+                return redirect()->to(site_url('/users#address')); 
+            }
+    
+            else {
+                //Create Billing Info
+                $addUser = $shipDB->insert($data);
+    
+                if ($addUser) {
+                    $session->setFlashdata('message','Your shipping information was successfully added!');
                     return redirect()->to(site_url('/users'));
                 } else {
                     $session->setFlashdata('message','Something went wrong, please try again.');

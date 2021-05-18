@@ -23,3 +23,23 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+
+
+
+
+
+
+
+
+// Get the modal
+var modal = document.getElementById("shippingModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("editShipping");
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+

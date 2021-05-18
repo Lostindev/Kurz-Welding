@@ -205,13 +205,89 @@
 										<div class="col-sm-6 mb-4">
 										<div class="card card-address">
 											<div class="card-body">
+											<?php $shippingAddress = getShippingAddress(); ?>
 												<h5 class="card-title text-uppercase">Shipping Address</h5>
-												<p>You have not set up this type of address yet.</p>
-												<a href="#" class="btn btn-link btn-secondary btn-underline">Edit <i
+												<p>
+												<?php if (!empty($shippingAddress)): ?>
+												<?php foreach($shippingAddress as $sSpec)
+												{
+													echo $sSpec['sFirstName']; echo '&nbsp'.$sSpec['sLastName'].'<br>';
+													echo $sSpec['sCompany'].'<br>';
+													echo $sSpec['sAddress'].'<br>';
+													echo $sSpec['sCity'].','; echo '&nbsp'.$sSpec['sState'].'<br>';
+													echo $sSpec['sCountry'].','; echo '&nbsp'.$sSpec['sZip'].'<br>';
+												}
+												?>
+												<?php else: ?>
+												You have not set up this type of address yet.
+												<?php endif; ?><br>
+												<a href="#" id="editShipping" class="btn btn-link btn-secondary btn-underline">Edit <i
 														class="far fa-edit"></i></a>
 											</div>
 										</div>
 									</div>
+
+									<!-- Modal Shipping -->
+									<div id="shippingModal" class="modal">
+
+										<!-- Modal content -->
+										<div class="modal-content">
+										<span class="close">&times;</span>
+										<form action="/users/edit-shipping" method="POST" class="form">
+										<fieldset>
+
+											<legend>Edit Shipping Address</legend>
+											<label>First Name</label>
+											<input type="text" value="<?php if (isset($sSpec['sFirstName'])) echo $sSpec['sFirstName']; ?>" class="form-control" name="shipping_first" required="">
+
+											<label>Last Name</label>
+											<input type="text" value="<?php if (isset($sSpec['sLastName'])) echo $sSpec['sLastName']; ?>" class="form-control" name="shipping_last" required="">
+
+											<label>Company Name</label>
+											<input type="text" value="<?php if (isset($sSpec['sCompany'])) echo $sSpec['sCompany']; ?>" class="form-control" name="shipping_company">
+
+											<label>Street Address</label>
+											<input type="text" value="<?php if (isset($sSpec['sAddress'])) echo $sSpec['sAddress']; ?>" class="form-control" name="shipping_address" required="">
+
+											<label>Apartment/Suite</label>
+											<input type="text" value="<?php if (isset($sSpec['sApt'])) echo $sSpec['sApt']; ?>" class="form-control" name="shipping_apt">
+
+											<div class="row">
+											<div class="col-6">
+											<label>Country</label>
+											<select class="form-control" name="billing_country">
+											<?php $country = getCountries(); ?>
+											<?php foreach($country as $row)
+											{
+												echo '<option value="'.$row.'">'.$row.'</option>';
+											}
+											?>
+												<option value="0">Select Country</option>
+											</select>
+											</div>
+
+											<div class="col-6">
+											<label>State/Province</label>
+											<input type="text" value="<?php if (isset($sSpec['bFirstName'])) echo $sSpec['bFirstName']; ?>" class="form-control" name="shipping_state" required="">
+											</div>
+
+											<div class="col-6">
+											<label>City</label>
+											<input type="text" value="<?php if (isset($sSpec['bCity'])) echo $sSpec['bCity']; ?>" class="form-control" name="shipping_city" required="">
+											</div>
+
+											<div class="col-6">
+											<label>Zip Code</label>
+											<input type="text" value="<?php if (isset($sSpec['bZip'])) echo $sSpec['bZip']; ?>" class="form-control" name="shipping_zip" required="">
+											</div>
+
+											</row>
+										</fieldset>
+										<br>
+										<button type="submit" class="btn btn-primary">SAVE CHANGES</button>
+										</form>
+										</div>
+									</div><!--End Modal 2-->
 								</div>
 							</div>
 							<div class="tab-pane" id="account">

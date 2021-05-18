@@ -8,6 +8,7 @@ use App\Models\ModSub;
 use App\Models\ModUsers;
 
 use App\Models\ModBilling;
+use App\Models\ModShipping;
 
 function adminLoggedIn() {
     $session = \Config\Services::session();
@@ -69,6 +70,14 @@ function getBillingAddress() {
     $uId = $session->get('uId');
     
     return $billDB->getWhere(['userId'=>$uId,])->getResultArray();
+}
+
+function getShippingAddress() {
+    $session = \Config\Services::session();
+    $shipDB = new ModShipping();
+    $uId = $session->get('uId');
+    
+    return $shipDB->getWhere(['userId'=>$uId,])->getResultArray();
 }
 
 function checkFlash() {
