@@ -135,28 +135,28 @@
 									<!-- Modal content -->
 									<div class="modal-content">
 									<span class="close">&times;</span>
-									<form action="/users/update-user" method="POST" class="form">
+									<form action="/users/edit-billing" method="POST" class="form">
                                     <fieldset>
                                         <legend>Edit Billing Address</legend>
                                         <label>First Name</label>
-                                        <input type="text" class="form-control" name="first_name" required="">
+                                        <input type="text" class="form-control" name="billing_first" required="">
 
                                         <label>Last Name</label>
-                                        <input type="text" class="form-control" name="last_name" required="">
+                                        <input type="text" class="form-control" name="billing_last" required="">
 
                                         <label>Company Name</label>
-                                        <input type="text" class="form-control" name="company_name">
+                                        <input type="text" class="form-control" name="billing_company">
 
 										<label>Street Address</label>
                                         <input type="text" class="form-control" name="billing_address">
 
 										<label>Apartment/Suite</label>
-                                        <input type="text" class="form-control" name="apartment_suite">
+                                        <input type="text" class="form-control" name="billing_apt">
 
 										<div class="row">
 										<div class="col-6">
 										<label>Country</label>
-                                        <select class="form-control" name="country">
+                                        <select class="form-control" name="billing_country">
 										<?php $country = getCountries(); ?>
 										<?php foreach($country as $row)
 										{
@@ -169,17 +169,17 @@
 
 										<div class="col-6">
 										<label>State/Province</label>
-                                        <input type="text" class="form-control" name="company_name">
+                                        <input type="text" class="form-control" name="billing_state">
 										</div>
 
 										<div class="col-6">
 										<label>City</label>
-                                        <input type="text" class="form-control" name="company_name">
+                                        <input type="text" class="form-control" name="billing_city">
 										</div>
 
 										<div class="col-6">
 										<label>Zip Code</label>
-                                        <input type="text" class="form-control" name="company_name">
+                                        <input type="text" class="form-control" name="billing_zip">
 										</div>
 
 										</row>

@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use App\Models\ModUsers;
+use App\Models\ModBilling;
 
 class Users extends BaseController
 {
@@ -171,6 +172,73 @@ class Users extends BaseController
                 $session->setFlashdata('message','Something went wrong, please try again.');
                 return redirect()->to(site_url('/users')); 
             }
+        }
+        
+    }
+
+    public function edit_billing() {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+
+        $userDB = new ModUsers();
+        $billDB = new ModBilling();
+        $checkLoggedIn = $session->get('uId');
+
+        $data['bFirstName'] = $request->getPost('billing_first');
+        $data['bLastName'] = $request->getPost('billing_last');
+        $data['bCompany'] = $request->getPost('billing_company');
+        $data['bAddress'] = $request->getPost('billing_address');
+        $data['bApt'] = $request->getPost('billing_apt');
+        $data['bZip'] = $request->getPost('billing_zip');
+        $data['bCity'] = $request->getPost('billing_city');
+        $data['bCountry'] = $request->getPost('billing_country');
+        $data['bState'] = $request->getPost('billing_state');
+        $data['userId'] = $checkLoggedIn;
+
+        //Make sure we are getting the data
+        if (!empty($data)) {
+
+            $checkBilling =  $billDB->where('userId',$checkLoggedIn)->findAll();
+
+            if (count($checkBilling) == 1) {
+                //Update Billing Info
+                $billDB->set('bFirstName',$data['bFirstName']);
+                $billDB->set('bLastName',$data['bLastName']);
+                $billDB->set('bCompany',$data['bCompany']);
+                $billDB->set('bAddress',$data['bAddress']);
+                $billDB->set('bApt',$data['bApt']);
+                $billDB->set('bZip',$data['bZip']);
+                $billDB->set('bCity',$data['bCity']);
+                $billDB->set('bCountry',$data['bCountry']);
+                $billDB->set('bState',$data['bState']);
+
+				$billDB->where('userId',$checkLoggedIn);
+				$updateBilling = $billDB->update();
+                $session->setFlashdata('message','Billing address successfully updated.');
+                return redirect()->to(site_url('/users#address')); 
+            }
+    
+            else {
+                //Create Billing Info
+                $addUser = $billDB->insert($data);
+    
+                if ($addUser) {
+                    $session->setFlashdata('fetchData',$data);
+                    $session->setFlashdata('SuccessMessage','Your account was succesfully created! Check your email when your ready to activate your account.');
+                    return redirect()->to(site_url('/users#address'));
+                } else {
+                    $session->setFlashdata('message','Something went wrong, please try again.');
+                    return redirect()->to(site_url('/users#address'));
+                }
+            }
+
+        }
+
+        else {
+            //Didn't get any data
+                $session->setFlashdata('message','Something went wrong, please try again.');
+                return redirect()->to(site_url('/users')); 
+
         }
         
     }
