@@ -146,10 +146,10 @@
             <!-- End Search Form -->
             <ul class="mobile-menu mmenu-anim">
                 <li>
-                    <a href="demo17.html">Home</a>
+                    <a href="/">Home</a>
                 </li>
                 <li>
-                    <a href="demo17-shop.html">Categories</a>
+                    <a href="/shop">Categories</a>
                     <ul>
                         <li>
                             <a href="#">
@@ -219,72 +219,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#">Pages</a>
-                    <ul>
-                        <li><a href="about-us.html">About</a></li>
-                        <li><a href="contact-us.html">Contact Us</a></li>
-                        <li><a href="account.html">Login</a></li>
-                        <li><a href="faq.html">FAQs</a></li>
-                        <li><a href="error-404.html">Error 404</a></li>
-                        <li><a href="coming-soon.html">Coming Soon</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="blog-classic.html">Blog</a>
-                    <ul>
-                        <li><a href="blog-classic.html">Classic</a></li>
-                        <li><a href="blog-listing.html">Listing</a></li>
-                        <li>
-                            <a href="#">Grid</a>
-                            <ul>
-                                <li><a href="blog-grid-2col.html">Grid 2 columns</a></li>
-                                <li><a href="blog-grid-3col.html">Grid 3 columns</a></li>
-                                <li><a href="blog-grid-4col.html">Grid 4 columns</a></li>
-                                <li><a href="blog-grid-sidebar.html">Grid sidebar</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Masonry</a>
-                            <ul>
-                                <li><a href="blog-masonry-2col.html">Masonry 2 columns</a></li>
-                                <li><a href="blog-masonry-3col.html">Masonry 3 columns</a></li>
-                                <li><a href="blog-masonry-4col.html">Masonry 4 columns</a></li>
-                                <li><a href="blog-masonry-sidebar.html">Masonry sidebar</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Mask</a>
-                            <ul>
-                                <li><a href="blog-mask-grid.html">Blog mask grid</a></li>
-                                <li><a href="blog-mask-masonry.html">Blog mask masonry</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="post-single.html">Single Post</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Elements</a>
-                    <ul>
-                        <li><a href="element-products.html">Products</a></li>
-                        <li><a href="element-typography.html">Typography</a></li>
-                        <li><a href="element-titles.html">Titles</a></li>
-                        <li><a href="element-categories.html">Product Category</a></li>
-                        <li><a href="element-buttons.html">Buttons</a></li>
-                        <li><a href="element-accordions.html">Accordions</a></li>
-                        <li><a href="element-alerts.html">Alert &amp; Notification</a></li>
-                        <li><a href="element-tabs.html">Tabs</a></li>
-                        <li><a href="element-testimonials.html">Testimonials</a></li>
-                        <li><a href="element-blog-posts.html">Blog Posts</a></li>
-                        <li><a href="element-instagrams.html">Instagrams</a></li>
-                        <li><a href="element-cta.html">Call to Action</a></li>
-                        <li><a href="element-icon-boxes.html">Icon Boxes</a></li>
-                        <li><a href="element-icons.html">Icons</a></li>
-                    </ul>
-                </li>
-                <li><a href="https://d-themes.com/buynow/riodehtml">Buy Riode!</a></li>
+
             </ul>
         </div>
     </div>
