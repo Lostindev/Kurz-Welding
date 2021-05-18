@@ -118,11 +118,18 @@
 									<div class="col-sm-6 mb-4">
 										<div class="card card-address">
 											<div class="card-body">
+											<?php $billingAddress = getBillingAddress(); ?>
 												<h5 class="card-title text-uppercase">Billing Address</h5>
-												<p>John Doe<br>
-                                                    Riode Company<br>
-                                                    Steven street<br>
-                                                    El Carjon, CA 92020
+												<p>
+												<?php foreach($billingAddress as $bSpec)
+												{
+													echo $bSpec['bFirstName']; echo '&nbsp'.$bSpec['bLastName'].'<br>';
+													echo $bSpec['bCompany'].'<br>';
+													echo $bSpec['bAddress'].'<br>';
+													echo $bSpec['bCity'].','; echo '&nbsp'.$bSpec['bState'].'<br>';
+													echo $bSpec['bCountry'].','; echo '&nbsp'.$bSpec['bZip'].'<br>';
+												}
+												?>
 												</p>
 												<a href="#" id="editBilling" class="btn btn-link btn-secondary btn-underline">Edit <i
 														class="far fa-edit"></i></a>

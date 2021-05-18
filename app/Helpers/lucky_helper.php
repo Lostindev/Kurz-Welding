@@ -7,6 +7,8 @@ use App\Models\ModSpecValues;
 use App\Models\ModSub;
 use App\Models\ModUsers;
 
+use App\Models\ModBilling;
+
 function adminLoggedIn() {
     $session = \Config\Services::session();
     $checkLoggedIn = $session->get('aId');
@@ -63,10 +65,10 @@ function updateBillingAddress() {
 
 function getBillingAddress() {
     $session = \Config\Services::session();
-    $userDB = new ModUsers();
+    $billDB = new ModBilling();
     $uId = $session->get('uId');
     
-    return $userDB->getWhere(['uId'=>$checkLoggedIn,])->getResultArray();
+    return $billDB->getWhere(['userId'=>$uId,])->getResultArray();
 }
 
 function checkFlash() {
