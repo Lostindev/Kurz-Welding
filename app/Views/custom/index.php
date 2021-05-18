@@ -34,13 +34,13 @@
                             <div class="col-6">
                             <div class="form-outline">
                                 <label class="form-label" for="form6Example1">First name</label>
-                                <input type="text" id="form6Example1" class="form-control" />
+                                <input type="text" value="<?php if (isset($userData[0]['firstName'])) echo $userData[0]['firstName']; ?>" id="form6Example1" class="form-control" />
                             </div>
                             </div>
                             <div class="col-6">
                             <div class="form-outline">
                                 <label class="form-label" for="form6Example2">Last name</label>
-                                <input type="text" id="form6Example2" class="form-control" />
+                                <input type="text" value="<?php if (isset($userData[0]['lastName'])) echo $userData[0]['lastName']; ?>" id="form6Example2" class="form-control" />
                             </div>
                             </div>
                         </div>
