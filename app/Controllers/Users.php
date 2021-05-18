@@ -252,15 +252,15 @@ class Users extends BaseController
         $shipDB = new ModShipping();
         $checkLoggedIn = $session->get('uId');
 
-        $data['bFirstName'] = $request->getPost('billing_first');
-        $data['bLastName'] = $request->getPost('billing_last');
-        $data['bCompany'] = $request->getPost('billing_company');
-        $data['bAddress'] = $request->getPost('billing_address');
-        $data['bApt'] = $request->getPost('billing_apt');
-        $data['bZip'] = $request->getPost('billing_zip');
-        $data['bCity'] = $request->getPost('billing_city');
-        $data['bCountry'] = $request->getPost('billing_country');
-        $data['bState'] = $request->getPost('billing_state');
+        $data['sFirstName'] = $request->getPost('shipping_first');
+        $data['sLastName'] = $request->getPost('shipping_last');
+        $data['sCompany'] = $request->getPost('shipping_company');
+        $data['sAddress'] = $request->getPost('shipping_address');
+        $data['sApt'] = $request->getPost('shipping_apt');
+        $data['sZip'] = $request->getPost('shipping_zip');
+        $data['sCity'] = $request->getPost('shipping_city');
+        $data['sCountry'] = $request->getPost('shipping_country');
+        $data['sState'] = $request->getPost('shipping_state');
         $data['userId'] = $checkLoggedIn;
 
         //Make sure we are getting the data
@@ -282,7 +282,7 @@ class Users extends BaseController
 
 				$shipDB->where('userId',$checkLoggedIn);
 				$updateBilling = $shipDB->update();
-                $session->setFlashdata('message','Billing address successfully updated.');
+                $session->setFlashdata('message','Shipping address successfully updated.');
                 return redirect()->to(site_url('/users#address')); 
             }
     

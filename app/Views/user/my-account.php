@@ -175,6 +175,9 @@
 											echo '<option value="'.$row.'">'.$row.'</option>';
 										}
 										?>
+											<?php if (isset($bSpec['bCountry'])):?>
+												<option selected value="<?php if (isset($bSpec['bCountry'])) echo $bSpec['bCountry']; ?>"><?php echo $bSpec['bCountry']; ?> </option>
+											<?php endif; ?>
 											<option value="0">Select Country</option>
 										</select>
 										</div>
@@ -255,30 +258,33 @@
 											<div class="row">
 											<div class="col-6">
 											<label>Country</label>
-											<select class="form-control" name="billing_country">
+											<select class="form-control" name="shipping_country">
 											<?php $country = getCountries(); ?>
 											<?php foreach($country as $row)
 											{
 												echo '<option value="'.$row.'">'.$row.'</option>';
 											}
-											?>
+											?>  
+											<?php if (isset($sSpec['sCountry'])):?>
+												<option selected value="<?php if (isset($sSpec['sCountry'])) echo $sSpec['sCountry']; ?>"><?php echo $sSpec['sCountry']; ?> </option>
+											<?php endif; ?>
 												<option value="0">Select Country</option>
 											</select>
 											</div>
 
 											<div class="col-6">
 											<label>State/Province</label>
-											<input type="text" value="<?php if (isset($sSpec['bFirstName'])) echo $sSpec['bFirstName']; ?>" class="form-control" name="shipping_state" required="">
+											<input type="text" value="<?php if (isset($sSpec['sFirstName'])) echo $sSpec['sFirstName']; ?>" class="form-control" name="shipping_state" required="">
 											</div>
 
 											<div class="col-6">
 											<label>City</label>
-											<input type="text" value="<?php if (isset($sSpec['bCity'])) echo $sSpec['bCity']; ?>" class="form-control" name="shipping_city" required="">
+											<input type="text" value="<?php if (isset($sSpec['sCity'])) echo $sSpec['sCity']; ?>" class="form-control" name="shipping_city" required="">
 											</div>
 
 											<div class="col-6">
 											<label>Zip Code</label>
-											<input type="text" value="<?php if (isset($sSpec['bZip'])) echo $sSpec['bZip']; ?>" class="form-control" name="shipping_zip" required="">
+											<input type="text" value="<?php if (isset($sSpec['sZip'])) echo $sSpec['sZip']; ?>" class="form-control" name="shipping_zip" required="">
 											</div>
 
 											</row>
