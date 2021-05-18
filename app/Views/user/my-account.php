@@ -38,7 +38,8 @@
 						<div class="tab-content col-lg-9 col-md-8">
 							<div class="tab-pane active" id="dashboard">
 								<p class="mb-0">
-									Hello <span>User</span> (not <span>User</span>? <a href="#"
+									Hello <span><?php if (isset($userData[0]['firstName'])) echo $userData[0]['firstName']; ?></span>
+									 (not <span><?php if (isset($userData[0]['firstName'])) echo $userData[0]['firstName']; ?></span>? <a href="/users/log-out"
 										class="text-primary">Log out</a>)
 								</p>
 								<p class="mb-8">
