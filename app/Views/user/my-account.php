@@ -1,5 +1,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.min.css">
-
+<?php if(userLoggedIn()):?>
+    <?php $userData = getUserInfo(); ?>
+    <?php endif; ?>
 <main class="main account">
 			<nav class="breadcrumb-nav">
 				<div class="container">
@@ -138,7 +140,7 @@
 								</div>
 							</div>
 							<div class="tab-pane" id="account">
-								<form action="#" class="form">
+								<form action="/users/update-user" method="POST" class="form">
 									<div class="row">
 										<div class="col-sm-6">
 											<label>First Name *</label>
@@ -150,13 +152,8 @@
 										</div>
 									</div>
 
-									<label>Display Name *</label>
-									<input type="text" class="form-control mb-0" name="display_name" required="">
-									<small class="d-block form-text mb-7">This will be how your name will be displayed
-										in the account section and in reviews</small>
-
 									<label>Email Address *</label>
-									<input type="email" class="form-control" name="email" required="">
+									<input type="email" class="form-control" value="<?php if (isset($userData[0]['email'])) echo $userData[0]['email']; ?>" name="email" required="">
                                     <fieldset>
                                         <legend>Password Change</legend>
                                         <label>Current password (leave blank to leave unchanged)</label>
@@ -168,7 +165,7 @@
                                         <label>Confirm new password</label>
                                         <input type="password" class="form-control" name="confirm_password">
                                     </fieldset>
-
+									<br>
 									<button type="submit" class="btn btn-primary">SAVE CHANGES</button>
 								</form>
 							</div>

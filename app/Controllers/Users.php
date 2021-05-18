@@ -105,6 +105,55 @@ class Users extends BaseController
         
     }   
 
+    public function update_user() {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+
+        $userDB = new ModUsers();
+        $checkLoggedIn = $session->get('uId');
+
+        $data['email'] = $request->getPost('email');
+        $data['firstName'] = $request->getPost('first_name');
+        $data['lastName'] = $request->getPost('last_name');
+        $old = $request->getPost('current_password');
+		$data['password'] = $request->getPost('new_password');
+        $confirm = $request->getPost('confirm_password');
+
+        //Check to see if user is updating password
+        if (!empty($old) && !empty($data['password'])) {
+
+            //Make sure they entered the correct password
+            $checkPass =  $userDB->getWhere(['uId'=>$checkLoggedIn,'password'=>$old])->getResultArray();
+
+            if (count($checkPass) == 1) {
+                //Password is right
+
+                //Verify Password Inputs
+                if ($data['password'] == $confirm) {
+                //Password Matches Correctly
+                $session->setFlashdata('message','Password successfully updated.');
+                return redirect()->to(site_url('/users')); 
+                }
+                else {
+                $session->setFlashdata('message','Please confirm the new password correctly.');
+                return redirect()->to(site_url('/users'));
+                }
+            }
+
+            else {
+                //Password is wrong
+                $session->setFlashdata('message',' Password is wrong, please try again.');
+                return redirect()->to(site_url('/users'));
+            }
+        }
+
+
+        else {
+            echo 'nopass';
+        }
+        
+    }
+
     public function log_out() {
         $session = \Config\Services::session();
         $session->destroy();
