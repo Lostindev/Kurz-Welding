@@ -254,6 +254,8 @@
     <!-- Main JS File -->
     <script src="/theme/js/main.min.js"></script>
 
+   
+    <script src="/js/userBPopup.js"></script>
 
 
 </body>

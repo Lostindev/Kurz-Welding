@@ -1,4 +1,5 @@
-<link rel="stylesheet" type="text/css" href="css/style.min.css">
+<link rel="stylesheet" type="text/css" href="/theme/css/style.min.css">
+<link rel="stylesheet" type="text/css" href="css/user/addressPopup.css">
 <?php if(userLoggedIn()):?>
     <?php $userData = getUserInfo(); ?>
     <?php endif; ?>
@@ -123,12 +124,49 @@
                                                     Steven street<br>
                                                     El Carjon, CA 92020
 												</p>
-												<a href="#" class="btn btn-link btn-secondary btn-underline">Edit <i
+												<a href="#" id="editBilling" class="btn btn-link btn-secondary btn-underline">Edit <i
 														class="far fa-edit"></i></a>
 											</div>
 										</div>
 									</div>
-									<div class="col-sm-6 mb-4">
+									<!-- The Modal -->
+									<div id="billingModal" class="modal">
+
+									<!-- Modal content -->
+									<div class="modal-content">
+									<span class="close">&times;</span>
+									<form action="/users/update-user" method="POST" class="form">
+										<div class="row">
+											<div class="col-sm-6">
+												<label>First Name *</label>
+												<input type="text" value="<?php if (isset($userData[0]['firstName'])) echo $userData[0]['firstName']; ?>" class="form-control" name="first_name" required="">
+											</div>
+											<div class="col-sm-6">
+												<label>Last Name *</label>
+												<input type="text" value="<?php if (isset($userData[0]['lastName'])) echo $userData[0]['lastName']; ?>" class="form-control" name="last_name" required="">
+											</div>
+										</div>
+
+										<label>Email Address *</label>
+										<input type="email" class="form-control" value="<?php if (isset($userData[0]['email'])) echo $userData[0]['email']; ?>" name="email" required="">
+										<fieldset>
+											<legend>Password Change</legend>
+											<label>Current password (leave blank to leave unchanged)</label>
+											<input type="password" class="form-control" name="current_password">
+
+											<label>New password (leave blank to leave unchanged)</label>
+											<input type="password" class="form-control" name="new_password">
+
+											<label>Confirm new password</label>
+											<input type="password" class="form-control" name="confirm_password">
+										</fieldset>
+										<br>
+										<button type="submit" class="btn btn-primary">SAVE CHANGES</button>
+									</form>
+									</div>
+
+									</div>
+										<div class="col-sm-6 mb-4">
 										<div class="card card-address">
 											<div class="card-body">
 												<h5 class="card-title text-uppercase">Shipping Address</h5>

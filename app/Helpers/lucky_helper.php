@@ -50,6 +50,20 @@ function getUserInfo() {
     return $userDB->getWhere(['uId'=>$checkLoggedIn,])->getResultArray();
 }
 
+function updateBillingAddress() {
+    $session = \Config\Services::session();
+    $userDB = new ModUsers();
+    $uId = $session->get('uId');
+}
+
+function getBillingAddress() {
+    $session = \Config\Services::session();
+    $userDB = new ModUsers();
+    $uId = $session->get('uId');
+    
+    return $userDB->getWhere(['uId'=>$checkLoggedIn,])->getResultArray();
+}
+
 function checkFlash() {
     $session = \Config\Services::session();
     $data['message'] = $session->get('message');
