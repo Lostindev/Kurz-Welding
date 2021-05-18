@@ -50,7 +50,7 @@
                             <div class="form-outline">
                             <!-- Email input -->
                                 <label class="form-label" for="form6Example5">Email</label>
-                                <input type="email" value="<?php echo $userData[0]['email']; ?>" id="form6Example5" class="form-control" />
+                                <input type="email" value="<?php if (isset($userData[0]['email'])) echo $userData[0]['email']; ?>" id="form6Example5" class="form-control" />
                             </div>
                             </div>
                             <div class="col-6">
