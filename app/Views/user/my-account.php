@@ -136,33 +136,57 @@
 									<div class="modal-content">
 									<span class="close">&times;</span>
 									<form action="/users/update-user" method="POST" class="form">
+                                    <fieldset>
+                                        <legend>Edit Billing Address</legend>
+                                        <label>First Name</label>
+                                        <input type="text" class="form-control" name="first_name" required="">
+
+                                        <label>Last Name</label>
+                                        <input type="text" class="form-control" name="last_name" required="">
+
+                                        <label>Company Name</label>
+                                        <input type="text" class="form-control" name="company_name">
+
+										<label>Street Address</label>
+                                        <input type="text" class="form-control" name="billing_address">
+
+										<label>Apartment/Suite</label>
+                                        <input type="text" class="form-control" name="apartment_suite">
+
 										<div class="row">
-											<div class="col-sm-6">
-												<label>First Name *</label>
-												<input type="text" value="<?php if (isset($userData[0]['firstName'])) echo $userData[0]['firstName']; ?>" class="form-control" name="first_name" required="">
-											</div>
-											<div class="col-sm-6">
-												<label>Last Name *</label>
-												<input type="text" value="<?php if (isset($userData[0]['lastName'])) echo $userData[0]['lastName']; ?>" class="form-control" name="last_name" required="">
-											</div>
+										<div class="col-6">
+										<label>Country</label>
+                                        <select class="form-control" name="country">
+										<?php $country = getCountries(); ?>
+										<?php foreach($country as $row)
+										{
+											echo '<option value="'.$row.'">'.$row.'</option>';
+										}
+										?>
+											<option value="0">Select Country</option>
+										</select>
 										</div>
 
-										<label>Email Address *</label>
-										<input type="email" class="form-control" value="<?php if (isset($userData[0]['email'])) echo $userData[0]['email']; ?>" name="email" required="">
-										<fieldset>
-											<legend>Password Change</legend>
-											<label>Current password (leave blank to leave unchanged)</label>
-											<input type="password" class="form-control" name="current_password">
+										<div class="col-6">
+										<label>State/Province</label>
+                                        <input type="text" class="form-control" name="company_name">
+										</div>
 
-											<label>New password (leave blank to leave unchanged)</label>
-											<input type="password" class="form-control" name="new_password">
+										<div class="col-6">
+										<label>City</label>
+                                        <input type="text" class="form-control" name="company_name">
+										</div>
 
-											<label>Confirm new password</label>
-											<input type="password" class="form-control" name="confirm_password">
-										</fieldset>
-										<br>
-										<button type="submit" class="btn btn-primary">SAVE CHANGES</button>
-									</form>
+										<div class="col-6">
+										<label>Zip Code</label>
+                                        <input type="text" class="form-control" name="company_name">
+										</div>
+
+										</row>
+                                    </fieldset>
+									<br>
+									<button type="submit" class="btn btn-primary">SAVE CHANGES</button>
+								</form>
 									</div>
 
 									</div>
