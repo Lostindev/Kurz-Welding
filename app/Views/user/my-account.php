@@ -144,11 +144,11 @@
 									<div class="row">
 										<div class="col-sm-6">
 											<label>First Name *</label>
-											<input type="text" class="form-control" name="first_name" required="">
+											<input type="text" value="<?php if (isset($userData[0]['firstName'])) echo $userData[0]['firstName']; ?>" class="form-control" name="first_name" required="">
 										</div>
 										<div class="col-sm-6">
 											<label>Last Name *</label>
-											<input type="text" class="form-control" name="last_name" required="">
+											<input type="text" value="<?php if (isset($userData[0]['lastName'])) echo $userData[0]['lastName']; ?>" class="form-control" name="last_name" required="">
 										</div>
 									</div>
 
