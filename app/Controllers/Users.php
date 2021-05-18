@@ -131,6 +131,14 @@ class Users extends BaseController
                 //Verify Password Inputs
                 if ($data['password'] == $confirm) {
                 //Password Matches Correctly
+                
+                //Update Password
+                $userDB->set('password',$data['password']);
+                $userDB->set('firstName',$data['firstName']);
+                $userDB->set('lastName',$data['lastName']);
+				$userDB->where('uId',$checkLoggedIn);
+				$activateUser = $userDB->update();
+
                 $session->setFlashdata('message','Password successfully updated.');
                 return redirect()->to(site_url('/users')); 
                 }
@@ -149,7 +157,20 @@ class Users extends BaseController
 
 
         else {
-            echo 'nopass';
+            //Update just user info
+            $userDB->set('firstName',$data['firstName']);
+            $userDB->set('lastName',$data['lastName']);
+            $userDB->set('email',$data['email']);
+            $userDB->where('uId',$checkLoggedIn);
+            $activateUser = $userDB->update();
+
+            if ($activateUser) {
+                $session->setFlashdata('message','Profile successfully updated.');
+                return redirect()->to(site_url('/users')); 
+            } else {
+                $session->setFlashdata('message','Something went wrong, please try again.');
+                return redirect()->to(site_url('/users')); 
+            }
         }
         
     }
