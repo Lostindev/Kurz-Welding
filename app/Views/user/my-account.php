@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="/theme/css/style.min.css">
+
 <link rel="stylesheet" type="text/css" href="css/user/addressPopup.css">
 <?php if(userLoggedIn()):?>
     <?php $userData = getUserInfo(); ?>
@@ -33,7 +33,7 @@
 								<a class="nav-link" href="#account">Account details</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="login.html">Logout</a>
+								<a class="nav-link" href="#logout">Logout</a>
 							</li>
 						</ul>
 						<div class="tab-content col-lg-9 col-md-8">
@@ -48,7 +48,7 @@
 										class="link-to-tab text-primary">recent orders</a>, manage your shipping and billing
 										addresses,<br>and edit your password and account details</a>.
 								</p>
-								<a href="shop.html" class="btn btn-dark btn-rounded">Go To Shop<i class="d-icon-arrow-right"></i></a>
+								<a href="/shop" class="btn btn-dark btn-rounded">Go To Shop<i class="d-icon-arrow-right"></i></a>
 							</div>
 							<div class="tab-pane" id="orders">
                                 <table class="order-table">
