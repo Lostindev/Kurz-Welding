@@ -8,6 +8,8 @@ use App\Models\ModSpec;
 use App\Models\ModSpecValues;
 use App\Models\ModGallery;
 
+use App\Models\ModCustomOrders;
+
 use CodeIgniter\Controller;
 
 class Admin extends BaseController
@@ -1138,7 +1140,7 @@ class Admin extends BaseController
             }
             
         }   
-        
+         
         else {
             $session->setFlashdata('message','Please login to edit sub categories.');
             return redirect()->to(base_url('/admin/login'));
@@ -1405,4 +1407,43 @@ class Admin extends BaseController
             return redirect()->to(base_url('/admin/login'));
         }
     }
+
+
+
+    public function viewCustomOrders($page = 'viewCustomOrders') 
+    {
+         $session = \Config\Services::session();
+         $data['title'] = 'Admin - View Gallery';
+         $data['metaData'] = "";
+         $data['page'] = $page;
+         $data['cssFile'] = $page;
+         $data['uri'] = $this->request->uri;
+     
+         $data['message'] = $session->getFlashdata('message');
+         $data['successMessage'] = $session->getFlashdata('successMessage');
+ 
+         if (adminLoggedIn()) {
+             $adminDB = new ModCustomOrders();
+             $subCatDB = new ModSub();
+             $data = [
+                 'results' => $adminDB->paginate(20),
+                 'pager' => $adminDB->pager,
+                 'categories' => $subCatDB->findAll()];
+ 
+                 $data['message'] = $session->getFlashdata('message');
+                 $data['successMessage'] = $session->getFlashdata('successMessage');
+             
+             echo view('admin/header/header', $data);
+             echo view('admin/header/css', $data);
+             echo view('admin/header/navtop', $data);
+             echo view('admin/header/navleft', $data);
+             echo view('admin/home/viewCustomOrders', $data);
+             echo view('admin/header/footer', $data);
+ 
+             
+         } else {
+             $session->setFlashdata('message','Please login to view all gallery entries.');
+             return redirect()->to(base_url('/admin/login'));
+         }
+     }
 } //end of controller
