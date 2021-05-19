@@ -29,18 +29,18 @@
                     <h2 style="padding-top:20px;padding-bottom:10px;">Custom Order Request</h2>  
                 </div>
                     
-                    <form>
+                    <form action="/custom/send-custom-order" method="POST">
                         <div class="row mb-4">
                             <div class="col-6">
                             <div class="form-outline">
                                 <label class="form-label" for="form6Example1">First name</label>
-                                <input type="text" value="<?php if (isset($userData[0]['firstName'])) echo $userData[0]['firstName']; ?>" id="form6Example1" class="form-control" />
+                                <input type="text" name="co_first" value="<?php if (isset($userData[0]['firstName'])) echo $userData[0]['firstName']; ?>" id="form6Example1" class="form-control" />
                             </div>
                             </div>
                             <div class="col-6">
                             <div class="form-outline">
                                 <label class="form-label" for="form6Example2">Last name</label>
-                                <input type="text" value="<?php if (isset($userData[0]['lastName'])) echo $userData[0]['lastName']; ?>" id="form6Example2" class="form-control" />
+                                <input type="text" name="co_last" value="<?php if (isset($userData[0]['lastName'])) echo $userData[0]['lastName']; ?>" id="form6Example2" class="form-control" />
                             </div>
                             </div>
                         </div>
@@ -50,14 +50,14 @@
                             <div class="form-outline">
                             <!-- Email input -->
                                 <label class="form-label" for="form6Example5">Email</label>
-                                <input type="email" value="<?php if (isset($userData[0]['email'])) echo $userData[0]['email']; ?>" id="form6Example5" class="form-control" />
+                                <input type="email" name="co_email" value="<?php if (isset($userData[0]['email'])) echo $userData[0]['email']; ?>" id="form6Example5" class="form-control" />
                             </div>
                             </div>
                             <div class="col-6">
                             <div class="form-outline">
                             <!-- Number input -->
                             <label class="form-label" for="form6Example6">Phone</label>
-                            <input type="number" id="form6Example6" class="form-control" />
+                            <input type="number" name="co_phone" id="form6Example6" class="form-control" />
                             </div>
                             </div>
                         </div>
