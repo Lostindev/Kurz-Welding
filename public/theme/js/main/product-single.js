@@ -170,7 +170,7 @@ function ProductSingle($el) {
                     nameLink: $product.find('.product-name > a').attr('href'),
                     imageSrc: $product.find('.product-image img').eq(0).attr('src'),
                     imageLink: $product.find('.product-name > a').attr('href'),
-                    price: $product.find('.product-variation-price').children('span').html(),
+                    price: $product.find('.product-price').children('span').html(),
                     count: $product.find('.quantity').val(),
                 });
             }

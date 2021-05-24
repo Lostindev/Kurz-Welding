@@ -64,7 +64,7 @@
 										<li><a href="#" class="active">Products</a></li>
 										<li>Detail</li>
 									</ul>
-
+<!-- Product Next/previous
 									<ul class="product-nav">
 										<li class="product-nav-prev">
 											<a href="#">
@@ -87,6 +87,7 @@
 											</a>
 										</li>
 									</ul>
+-->
 								</div>
 
 								<h1 class="product-name"><?php echo $product[0]['pName'];?></h1>
@@ -140,7 +141,7 @@
 									<?php endif; ?>
 								</div>
 								<div class="product-variation-price">
-									<span>$239.00</span>
+									<span>$79</span>
 								</div>
 
 								<hr class="product-divider">
@@ -152,10 +153,10 @@
 											<input class="quantity form-control" type="number" min="1" max="1000000">
 											<button class="quantity-plus d-icon-plus"></button>
 										</div>
-										<button
+										<a
 											class="btn-product btn-cart text-normal ls-normal font-weight-semi-bold"><i
 												class="d-icon-bag"></i>Add to
-											Cart</button>
+											Cart</a>
 									</div>
 								</div>
 
