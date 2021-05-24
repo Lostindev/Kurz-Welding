@@ -20,7 +20,7 @@
                 </div>
             </nav>
             <div class="page-content pb-10 mb-10">
-                <div class="container col-6 justify-content-center">
+                <div class="container col-md-6 justify-content-center">
                     <div class="posts grid post-grid row" data-grid-options="{
                         'layoutMode': 'fitRows'
                     }">
