@@ -110,7 +110,6 @@
 											</a>
 											<div class="product-label-group">
 												<label class="product-label label-new">new</label>
-												<label class="product-label label-sale">12% OFF</label>
 											</div>
 											<div class="product-action-vertical">
 												<a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
@@ -132,7 +131,7 @@
 												<a href="product.html"><?php echo $product['pName'];?></a>
 											</h3>
 											<div class="product-price">
-												<ins class="new-price">$53.99</ins><del class="old-price">$67.99</del>
+												<ins class="new-price">$<?php echo $product['pPrice'];?></ins><del class="old-price">$67.99</del>
 											</div>
 											<div class="ratings-container">
 												<div class="ratings-full">
