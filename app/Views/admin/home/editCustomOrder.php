@@ -23,12 +23,19 @@
             <input type="hidden" name="oldImg" value="<?php echo $product[0]['coDp']?>">
 
             <div class="form-group">
-                <?php echo form_textarea('productDescription',$product[0]['coMessage'],array('class'=>"form-control", 'placeholder'=>'Enter Product Description (Optional)')); ?>
+            <label class="form-label" for="co_message">Vison</label>
+                <textarea class="form-control" name="co_message" id="co_message" rows="4" readonly><?php echo $product[0]['coMessage']?></textarea>
             </div>
 
             <div class="form-group">
-                <select name="subCategory" id="subCategory" class="form-select" aria-label="Sub Category Select" >
-                    <option value="">Select Sub Category</option>
+                <label class="form-label" for="co_size">Size</label>
+                <input type="text" value="<?php echo $product[0]['coSize']?>" name="co_size" id="co_size" class="form-control" readonly />
+            </div>
+
+            <div class="form-group">
+            <label class="form-label" for="co_size">Status</label>
+                <select name="subCategory" id="subCategory" class="form-select col" aria-label="Sub Category Select" >
+                    <option value="">Status</option>
                 </select>
             </div>
 
@@ -44,8 +51,11 @@
         </div>
 
         <div class="col-md-3">
-        <label>Image 1:</label>
+            <label class="col-12">Image 1:<br></label>
             <img src="<?php echo site_url('/img/custom_orders/'.$product[0]['coDp'])?>" height="250px" class="img-responsive">
+            <br>
+            <label class="col-12">Image 2:</label>
+            <img src="<?php echo site_url('/img/custom_orders/'.$product[0]['coDp2'])?>" height="250px" class="img-responsive">
         </div>
     </div>
 </div>

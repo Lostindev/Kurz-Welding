@@ -55,6 +55,13 @@ class Custom extends BaseController
                 $file->move('/var/www/html/public/img/custom_orders/', $fileName);
                 $data['coDp'] = $fileName;
 
+                $file2 = $request->getFile('coDp2');
+                if (!empty($file2) && $file2->getSize() > 0) {
+                    $file2Name = $file2->getRandomName();
+                    $file2->move('/var/www/html/public/img/custom_orders/', $file2Name);
+                    $data['coDp2'] = $file2Name;
+                } else {}
+
                 //Create Custom Order
                 $addOrder = $coDB->insert($data);
     
