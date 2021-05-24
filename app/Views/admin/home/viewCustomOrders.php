@@ -60,8 +60,8 @@
 
                         
                         <td>
-                            <a href="<?php echo site_url('admin/editGallery/'. $getResult['coId']) ?>" class="btn btn-info">
-                            View All
+                            <a href="<?php echo site_url('admin/editCustomOrder/'. $getResult['coId']) ?>" class="btn btn-info">
+                            View
                             </a>
                         </td>
                         <td>
@@ -75,6 +75,7 @@
                 <?php endif; ?>
             </table>
             <?php echo $pager->links();?>
+
         </div>
     </div>
 </div>

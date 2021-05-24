@@ -74,6 +74,16 @@
                             <textarea class="form-control" name="co_message" id="co_message" rows="4"></textarea>
                         </div>
 
+                        <!-- Image Upload -->
+                        <div class="form-group col">
+                        <label class="form-label" for="co_message">Image 1:</label>
+                            <input type="file" name="coDp">
+                        </div><br>
+                        <div class="form-group col">
+                        <label class="form-label" for="co_message">Image 2:</label>
+                            <input type="file" name="coDp2">
+                        </div><br>
+
                         <!-- Submit button -->
                         <button type="submit" class="btn btn-primary btn-block mb-4">Place order</button>
                     </form>

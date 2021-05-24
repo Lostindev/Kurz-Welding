@@ -42,6 +42,8 @@ class Custom extends BaseController
         $data['coEmail'] = $request->getPost('co_email');
         $data['coMessage'] = $request->getPost('co_message');
         $data['coSize'] = $request->getPost('co_size');
+        $data['coDp'] = $request->getPost('coDp');
+        $data['coDp2'] = $request->getPost('coDp2');
         $data['coUser'] = userLoggedIn();
 
         //Make sure we are getting the data

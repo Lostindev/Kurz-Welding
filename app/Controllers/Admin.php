@@ -1446,4 +1446,46 @@ class Admin extends BaseController
              return redirect()->to(base_url('/admin/login'));
          }
      }
+
+     public function editCustomOrder($coId, $page = 'editOrder') {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        if (adminLoggedIn()) {
+            if (!empty($coId) && isset($coId)) {
+
+                $builder = new ModCustomOrders();
+            
+                $checkProductById = $builder->where('coId',$coId)->findAll();
+                $data['product'] = $checkProductById;
+                if (count($data['product']) == 1) {
+                    $adminDB = new ModAdmin();
+                    $data['categories'] = $adminDB->findAll();
+                    
+                    echo view('admin/header/header', $data);
+                    echo view('admin/header/css', $data);
+                    echo view('admin/header/navtop', $data);
+                    echo view('admin/header/navleft', $data);
+                    echo view('admin/home/editCustomOrder', $data);
+                    echo view('admin/header/footer', $data);
+
+                } else {
+                    $session->setFlashdata('message','Order not found.');
+                    $session->keepFlashdata('message');
+                    return redirect()->to(base_url('/admin/viewCustomOrders'));
+                }
+                
+
+
+            } else {
+                $session->setFlashdata('message','Something went wrong, please try again.');
+                return redirect()->to(base_url('/admin/viewProducts'));
+            }
+            
+        }   
+        
+        else {
+            $session->setFlashdata('message','Please login to edit products.');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
 } //end of controller
