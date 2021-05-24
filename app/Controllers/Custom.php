@@ -42,23 +42,49 @@ class Custom extends BaseController
         $data['coEmail'] = $request->getPost('co_email');
         $data['coMessage'] = $request->getPost('co_message');
         $data['coSize'] = $request->getPost('co_size');
-        $data['coDp'] = $request->getPost('coDp');
-        $data['coDp2'] = $request->getPost('coDp2');
         $data['coUser'] = userLoggedIn();
 
         //Make sure we are getting the data
         if (!empty($data)) {
 
+            $config['allows_type'] = 'gif|png|jpg|jpeg';
+
+            $file = $request->getFile('userFile');
+            if (!empty($file) && $file->getSize() > 0) {
+                $fileName = $file->getName();
+                $file->move('/var/www/html/public/img/custom_orders/', $fileName);
+                $data['coDp'] = $fileName;
+
                 //Create Custom Order
                 $addOrder = $coDB->insert($data);
     
                 if ($addOrder) {
-                    $session->setFlashdata('message','Your account was succesfully created! Check your email when your ready to activate your account.');
+                    $session->setFlashdata('message','Custom Order Started! Check your email to create an account and manage your orders!');
                     return redirect()->to(site_url('/custom'));
                 } else {
                     $session->setFlashdata('message','Something went wrong, please try again.');
                     return redirect()->to(site_url('/custom'));
                 }
+            } else {
+                $file = $request->getFile('userFile');
+                $fileName = $file->getName();
+                $file->move('/var/www/html/public/img/custom_orders/', $fileName);
+                $data['coDp'] = $fileName;
+
+                //Create Custom Order
+                $addOrder = $coDB->insert($data);
+    
+                if ($addOrder) {
+                    $session->setFlashdata('message','Custom Order Started! Check your email to create an account and manage your orders!');
+                    return redirect()->to(site_url('/custom'));
+                } else {
+                    $session->setFlashdata('message','Something went wrong, please try again.');
+                    return redirect()->to(site_url('/custom'));
+                }
+                $session->setFlashdata('message','You need to upload at least one image.');
+                return redirect()->to(site_url('/custom'));
+            }
+
             
         }
 

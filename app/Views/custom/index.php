@@ -28,8 +28,7 @@
                 <div class="col-12 text-center">
                     <h2 style="padding-top:20px;padding-bottom:10px;">Custom Order Request</h2>  
                 </div>
-                    
-                    <form action="/custom/send-custom-order" method="POST">
+                <?php echo form_open_multipart('/custom/send-custom-order','')?>
                         <div class="row mb-4">
                             <div class="col-6">
                             <div class="form-outline">
@@ -76,8 +75,8 @@
 
                         <!-- Image Upload -->
                         <div class="form-group col">
-                        <label class="form-label" for="co_message">Image 1:</label>
-                            <input type="file" name="coDp">
+                        <label class="form-label" for="userFile">Image 1:</label>
+                            <?php echo form_upload('userFile','',''); ?>
                         </div><br>
                         <div class="form-group col">
                         <label class="form-label" for="co_message">Image 2:</label>
@@ -86,7 +85,7 @@
 
                         <!-- Submit button -->
                         <button type="submit" class="btn btn-primary btn-block mb-4">Place order</button>
-                    </form>
+                        <?php echo form_close()?>
                 </div>
                     </div>
                 </div>
