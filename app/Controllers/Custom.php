@@ -33,28 +33,29 @@ class Custom extends BaseController
         $session = \Config\Services::session();
 
         $userDB = new ModUsers();
-        $cOrderDB = new ModCustomOrders();
+        $coDB = new ModCustomOrders();
         $checkLoggedIn = $session->get('uId');
 
         $data['coFirst'] = $request->getPost('co_first');
-        $data['coLast'] = $request->getPost('billing_last');
-        $data['coEmail'] = $request->getPost('billing_company');
-        $data['coPhone'] = $request->getPost('billing_address');
-        $data['coMessage'] = $request->getPost('billing_apt');
-        $data['userId'] = $checkLoggedIn;
+        $data['coLast'] = $request->getPost('co_last');
+        $data['coPhone'] = $request->getPost('co_phone');
+        $data['coEmail'] = $request->getPost('co_email');
+        $data['coMessage'] = $request->getPost('co_message');
+        $data['coSize'] = $request->getPost('co_size');
+        $data['coUser'] = userLoggedIn();
 
         //Make sure we are getting the data
         if (!empty($data)) {
 
                 //Create Custom Order
-                $addOrder = $cOrderDB->insert($data);
+                $addOrder = $coDB->insert($data);
     
                 if ($addOrder) {
                     $session->setFlashdata('message','Your account was succesfully created! Check your email when your ready to activate your account.');
-                    return redirect()->to(site_url('/users'));
+                    return redirect()->to(site_url('/custom'));
                 } else {
                     $session->setFlashdata('message','Something went wrong, please try again.');
-                    return redirect()->to(site_url('/users'));
+                    return redirect()->to(site_url('/custom'));
                 }
             
         }
@@ -62,7 +63,7 @@ class Custom extends BaseController
         else {
             //Didn't get any data
                 $session->setFlashdata('message','Something went wrong, please try again.');
-                return redirect()->to(site_url('/users')); 
+                return redirect()->to(site_url('/custom')); 
 
         }
         

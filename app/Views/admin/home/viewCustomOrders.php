@@ -21,11 +21,14 @@
             <h1>All Custom Orders</h1>
             <table class="dataTable">
                 <th>ID</th>
+                <th>Vision</th>
+                <th>Size</th>
                 <th>Full Name</th>
                 <th>Status</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th>Vision</th>
+                <th>Uploads</th>
+                <th>Update</th>
 
                 <?php if(count($results) > 0): ?>
                     <?php foreach ($results as $getResult):  ?>
@@ -35,7 +38,13 @@
                             <?php echo $getResult['coId']  ;?>
                         </td>
                         <td>
-                            <?php echo $getResult['coFirst']; echo $getResult['coLast']  ;?>
+                            <?php echo $getResult['coMessage']  ;?>
+                        </td>
+                        <td>
+                            <?php echo $getResult['coSize']  ;?>
+                        </td>
+                        <td>
+                            <?php echo $getResult['coFirst'].' '; echo $getResult['coLast']  ;?>
                         </td>
                         <td>
                             <?php echo $getResult['coStatus']  ;?>
@@ -46,20 +55,18 @@
                         <td>
                             <?php echo $getResult['coPhone']  ;?>
                         </td>
-                        <td>
-                            <?php echo $getResult['coMessage']  ;?>
-                        </td>
+
 
 
                         
                         <td>
-                            <a href="<?php echo site_url('admin/editGallery/'. $getResult['gId']) ?>" class="btn btn-info">
-                            Edit
+                            <a href="<?php echo site_url('admin/editGallery/'. $getResult['coId']) ?>" class="btn btn-info">
+                            View All
                             </a>
                         </td>
                         <td>
-                            <a href="<?php echo site_url('/admin/deleteGallery/'.$getResult['gId'])?>" class="btn btn-danger deleteCat" data-id="<?php echo $getResult['gId']; ?>" data-text="<?php echo $getResult['gId'] ;?>" >
-                            Delete
+                            <a href="<?php echo site_url('/admin/deleteGallery/'.$getResult['coId'])?>" class="btn btn-danger deleteCat" data-id="<?php echo $getResult['coId']; ?>" data-text="<?php echo $getResult['coId'] ;?>" >
+                            Update
                             </a>
                         </td>
                     </tr>

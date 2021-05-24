@@ -49,23 +49,29 @@
                             <div class="col-6">
                             <div class="form-outline">
                             <!-- Email input -->
-                                <label class="form-label" for="form6Example5">Email</label>
+                                <label class="form-label" for="co_email">Email</label>
                                 <input type="email" name="co_email" value="<?php if (isset($userData[0]['email'])) echo $userData[0]['email']; ?>" id="form6Example5" class="form-control" />
                             </div>
                             </div>
                             <div class="col-6">
                             <div class="form-outline">
                             <!-- Number input -->
-                            <label class="form-label" for="form6Example6">Phone</label>
-                            <input type="number" name="co_phone" id="form6Example6" class="form-control" />
+                            <label class="form-label" for="co_phone">Phone</label>
+                            <input type="number" name="co_phone" id="co_phone" class="form-control" />
                             </div>
                             </div>
                         </div>
 
+                        <!-- Size input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="co_size">Size</label>
+                            <input type="text" name="co_size" id="co_size" class="form-control" />
+                        </div>
+
                         <!-- Message input -->
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="form6Example7">Describe your vision</label>
-                            <textarea class="form-control" id="form6Example7" rows="4"></textarea>
+                            <label class="form-label" for="co_message">Describe your vision</label>
+                            <textarea class="form-control" name="co_message" id="co_message" rows="4"></textarea>
                         </div>
 
                         <!-- Submit button -->
