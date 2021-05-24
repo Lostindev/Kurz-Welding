@@ -51,7 +51,7 @@ class Custom extends BaseController
 
             $file = $request->getFile('userFile');
             if (!empty($file) && $file->getSize() > 0) {
-                $fileName = $file->getName();
+                $fileName = $file->getRandomName();
                 $file->move('/var/www/html/public/img/custom_orders/', $fileName);
                 $data['coDp'] = $fileName;
 
