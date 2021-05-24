@@ -152,72 +152,28 @@
                     <a href="/shop">Categories</a>
                     <ul>
                         <li>
-                            <a href="#">
-                                Variations 1
-                            </a>
-                            <ul>
-                                <li><a href="shop-banner-sidebar.html">Banner With Sidebar</a></li>
-                                <li><a href="shop-boxed-banner.html">Boxed Banner</a></li>
-                                <li><a href="shop-infinite-scroll.html">Infinite Ajaxscroll</a></li>
-                                <li><a href="shop-horizontal-filter.html">Horizontal Filter</a></li>
-                                <li><a href="shop-navigation-filter.html">Navigation Filter<span
-                                            class="tip tip-hot">Hot</span></a></li>
-
-                                <li><a href="shop-off-canvas.html">Off-Canvas Filter</a></li>
-                                <li><a href="shop-right-sidebar.html">Right Toggle Sidebar</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Variations 2
-                            </a>
-                            <ul>
-
-                                <li><a href="shop-grid-3cols.html">3 Columns Mode<span
-                                            class="tip tip-new">New</span></a></li>
-                                <li><a href="shop-grid-4cols.html">4 Columns Mode</a></li>
-                                <li><a href="shop-grid-5cols.html">5 Columns Mode</a></li>
-                                <li><a href="shop-grid-6cols.html">6 Columns Mode</a></li>
-                                <li><a href="shop-grid-7cols.html">7 Columns Mode</a></li>
-                                <li><a href="shop-grid-8cols.html">8 Columns Mode</a></li>
-                                <li><a href="shop-list.html">List Mode</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                        <?php if(count(fetchCategories()) > 0):?>
+                            <?php $i=1; ?>
+                            <?php foreach(fetchCategories() as $category): ?>
+                   
+                            <?php $cUrl = (str_replace(' ', '-', strtolower($category['cName'])));?>
+                            <a href="<?php echo base_url('/'.'categories/'.$category['cId'].'/'.$cUrl); ?>"><?php echo $category['cName']; ?></a>
+                            <?php endforeach;?>
+                        <?php endif; ?>
+                            </li></ul>
+                        
+                
+                <li>
+                    <a href="/custom">Custom Order</a>
                 </li>
                 <li>
-                    <a href="demo17-product.html">Products</a>
-                    <ul>
-                        <li>
-                            <a href="#">Product Pages</a>
-                            <ul>
-                                <li><a href="product-simple.html">Simple Product</a></li>
-                                <li><a href="product.html">Variable Product</a></li>
-                                <li><a href="product-sale.html">Sale Product</a></li>
-                                <li><a href="product-featured.html">Featured &amp; On Sale</a></li>
-
-                                <li><a href="product-left-sidebar.html">With Left Sidebar</a></li>
-                                <li><a href="product-right-sidebar.html">With Right Sidebar</a></li>
-                                <li><a href="product-sticky-cart.html">Add Cart Sticky<span
-                                            class="tip tip-hot">Hot</span></a></li>
-                                <li><a href="product-tabinside.html">Tab Inside</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Product Layouts</a>
-                            <ul>
-                                <li><a href="product-grid.html">Grid Images<span class="tip tip-new">New</span></a></li>
-                                <li><a href="product-masonry.html">Masonry</a></li>
-                                <li><a href="product-gallery.html">Gallery Type</a></li>
-                                <li><a href="product-full.html">Full Width Layout</a></li>
-                                <li><a href="product-sticky.html">Sticky Info</a></li>
-                                <li><a href="product-sticky-both.html">Left &amp; Right Sticky</a></li>
-                                <li><a href="product-horizontal.html">Horizontal Thumb</a></li>
-
-                                <li><a href="#">Build Your Own</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <a href="/gallery">Gallery</a>
+                </li>
+                <li>
+                    <a href="/home/about-us">About Us</a>
+                </li>
+                <li>
+                    <a href="/home/contact-us">Contact</a>
                 </li>
 
             </ul>
