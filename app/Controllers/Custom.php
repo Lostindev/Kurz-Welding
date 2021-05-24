@@ -28,7 +28,7 @@ class Custom extends BaseController
 		echo view('user/footer', $data);
     }
 
-	public function send_custom_order() {
+	public function send_custom_order() {// Verify & Upload to database 
         $request = \Config\Services::request();
         $session = \Config\Services::session();
 
@@ -66,21 +66,6 @@ class Custom extends BaseController
                     return redirect()->to(site_url('/custom'));
                 }
             } else {
-                $file = $request->getFile('userFile');
-                $fileName = $file->getName();
-                $file->move('/var/www/html/public/img/custom_orders/', $fileName);
-                $data['coDp'] = $fileName;
-
-                //Create Custom Order
-                $addOrder = $coDB->insert($data);
-    
-                if ($addOrder) {
-                    $session->setFlashdata('message','Custom Order Started! Check your email to create an account and manage your orders!');
-                    return redirect()->to(site_url('/custom'));
-                } else {
-                    $session->setFlashdata('message','Something went wrong, please try again.');
-                    return redirect()->to(site_url('/custom'));
-                }
                 $session->setFlashdata('message','You need to upload at least one image.');
                 return redirect()->to(site_url('/custom'));
             }

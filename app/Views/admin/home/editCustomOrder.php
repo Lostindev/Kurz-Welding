@@ -44,7 +44,8 @@
         </div>
 
         <div class="col-md-3">
-            <img src="<?php echo site_url('/img/products/'.$product[0]['coDp'])?>" height="250px" class="img-responsive">
+        <label>Image 1:</label>
+            <img src="<?php echo site_url('/img/custom_orders/'.$product[0]['coDp'])?>" height="250px" class="img-responsive">
         </div>
     </div>
 </div>
