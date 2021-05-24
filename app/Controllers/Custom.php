@@ -15,6 +15,7 @@ class Custom extends BaseController
 {
     public function index($page = 'custom-order') 
     {
+        $session = \Config\Services::session();
         $data['title'] = 'Kurz Welding & Metal Art | Home';
 		$data['metaData'] = "";
 		$data['page'] = $page;
@@ -42,7 +43,7 @@ class Custom extends BaseController
         $data['coEmail'] = $request->getPost('co_email');
         $data['coMessage'] = $request->getPost('co_message');
         $data['coSize'] = $request->getPost('co_size');
-        $data['coUser'] = userLoggedIn();
+        $data['coUser'] = $checkLoggedIn;
 
         //Make sure we are getting the data
         if (!empty($data)) {
@@ -63,6 +64,7 @@ class Custom extends BaseController
                 } else {}
 
                 //Create Custom Order
+                $data['coUser'] = $checkLoggedIn;
                 $addOrder = $coDB->insert($data);
     
                 if ($addOrder) {

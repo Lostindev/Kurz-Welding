@@ -4,7 +4,7 @@ if (isset($message)) : ?>
                                color: #004085;
                                 background-color: #cce5ff;
                                 border-color: #b8daff;margin-top:20px;" role="alert">
-                                <div class="text-white">
+                                <div class="text-black">
                                  <?php print_r($message); ?>
                                 </div>
                             </div>
