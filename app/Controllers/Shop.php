@@ -97,4 +97,19 @@ class Shop extends BaseController
             echo view('user/footer', $data);
     }
 
+    public function add_to_cart($pId = NULL) {
+        $session = \Config\Services::session();
+        $request = \Config\Services::request();
+
+       
+        if (!empty($pId) && isset($pId)) { 
+            echo 'yes';
+        } 
+
+
+        else {
+            echo 'no';
+        }
+    }
+
 }//end of controller

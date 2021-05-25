@@ -1,5 +1,19 @@
 <link rel="stylesheet" type="text/css" href="vendor/photoswipe/photoswipe.min.css">
 <link rel="stylesheet" type="text/css" href="vendor/photoswipe/default-skin/default-skin.min.css">
+<style>
+#btn-cart {
+	border: 0;
+    flex: 1;
+    min-width: 13rem;
+    font-size: 1.4rem;
+    border-radius: .3rem;
+    background-color: #26c;
+    color: #fff;
+    cursor: pointer;
+    max-width: 20.7rem;
+    height: 4.5rem;
+	}
+</style>
 <main class="main mt-6 single-product">
 			<div class="page-content mb-10 pb-6">
 				<div class="container">
@@ -109,12 +123,12 @@
 									<div class="select-box">
 										<select name="color" class="form-control">
 											<option value="" selected="selected">Choose an Option</option>
-											<option value="white">White</option>
-											<option value="black">Black</option>
-											<option value="brown">Brown</option>
+											<option value="white">Flat Black</option>
+											<option value="black">Gloss Black</option>
+											<option value="brown">White</option>
 											<option value="red">Red</option>
-											<option value="green">Green</option>
-											<option value="yellow">Yellow</option>
+											<option value="green">Teal</option>
+											<option value="yellow">Bronze</option>
 										</select>
 									</div>
 								</div>
@@ -153,8 +167,8 @@
 											<input class="quantity form-control" type="number" min="1" max="1000000">
 											<button class="quantity-plus d-icon-plus"></button>
 										</div>
-										<a
-											class="btn-product btn-cart text-normal ls-normal font-weight-semi-bold"><i
+										<a id="btn-cart" href="<?php echo '/shop/add-to-cart/'.$product[0]['pId']; ?>"
+											class="btn-product text-normal ls-normal font-weight-semi-bold"><i
 												class="d-icon-bag"></i>Add to
 											Cart</a>
 									</div>

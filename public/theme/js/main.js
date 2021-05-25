@@ -1186,18 +1186,7 @@ window.Riode = {};
 	 * @function initPurchasedMinipopup
 	 */
     Riode.initPurchasedMinipopup = function () {
-        setInterval( function () {
-            Riode.Minipopup.open( {
-                message: 'Someone Purchased',
-                productClass: 'product-cart',
-                name: 'Daisy Shoes Sonia by Sonia-Blue',
-                nameLink: 'product.html',
-                imageSrc: '/theme/images/cart/product-1.jpg',
-                isPurchased: true
-            }, function ( $box ) {
-                Riode.ratingTooltip( $box[ 0 ] );
-            } );
-        }, 60000 );
+
     }
 
 	/**
@@ -1646,7 +1635,7 @@ window.Riode = {};
                         imageLink: $product.find( '.product-name > a' ).attr( 'href' ),
                         price: $product.find( '.product-variation-price' ).length > 0 ? $product.find( '.product-variation-price' ).children( 'span' ).html() : $product.find('.product-price .price').html(),
                         count: $product.find( '.quantity' ).val(),
-                        actionTemplate: '<div class="action-group d-flex mt-3"><a href="cart.html" class="btn btn-sm btn-outline btn-primary btn-rounded mr-2">View Cart</a><a href="checkout.html" class="btn btn-sm btn-primary btn-rounded">Check Out</a></div>'
+                        actionTemplate: '<div class="action-group d-flex mt-3"><a href="/shop/cart" class="btn btn-sm btn-outline btn-primary btn-rounded mr-2">View Cart</a><a href="/shop/checkout" class="btn btn-sm btn-primary btn-rounded">Check Out</a></div>'
                     } );
                 }
             } );

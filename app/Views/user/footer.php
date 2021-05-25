@@ -195,10 +195,11 @@
     <script src="/theme/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <script src="/theme/vendor/isotope/isotope.pkgd.min.js"></script>
     <!-- Main JS File -->
-    <script src="/theme/js/main.min.js"></script>
+    <script src="/theme/js/main.js"></script>
 
    
     <script src="/js/userBPopup.js"></script>
+    <script src="/js/addCart.js"></script>
 
 
 </body>
