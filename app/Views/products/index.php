@@ -169,7 +169,7 @@
 										</div>
 										<a id="btn-cart" href="<?php echo '/shop/add-to-cart/'.$product[0]['pId']; ?>"
 											class="btn-product text-normal ls-normal font-weight-semi-bold"><i
-												class="d-icon-bag"></i>Add to
+												class="d-icon-bag"></i>&nbsp Add to
 											Cart</a>
 									</div>
 								</div>

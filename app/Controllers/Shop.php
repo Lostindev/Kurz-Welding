@@ -89,7 +89,7 @@ class Shop extends BaseController
             $data['getNumCategories'] = $categoriesDB->where('cstatus',1)->countAllResults();
             $data['allCategories'] = $categoriesDB->getWhere(['cStatus'=>1],$data['getNumCategories'])->getResultArray();
         
-        
+            var_dump($_SESSION['cart']);
             echo view('user/header', $data);
             echo view('user/css', $data);
             echo view('user/navbar', $data);
@@ -103,7 +103,24 @@ class Shop extends BaseController
 
        
         if (!empty($pId) && isset($pId)) { 
-            echo 'yes';
+            if (isset($_SESSION['cart'])) {
+
+            } else{
+                //Create Array
+                $_SESSION['cart'] = array();
+            }
+
+            //Add to cart
+
+            $cart = [
+                'pId'=>$pId,
+                'price'=>'price'
+            ];
+            array_push($_SESSION['cart'], $cart);
+
+            //Redirect to cart
+            $session->setFlashdata('successMessage','Product successfully added to cart!');
+			return redirect()->to(site_url('/shop/cart'));
         } 
 
 
