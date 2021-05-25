@@ -116,7 +116,7 @@ class Shop extends BaseController
                 'pId'=>$pId,
                 'price'=>'price'
             ];
-            array_push($_SESSION['cart'], $cart);
+            array_push($_SESSION['cart'], $pId);
 
             //Redirect to cart
             $session->setFlashdata('successMessage','Product successfully added to cart!');
@@ -127,6 +127,26 @@ class Shop extends BaseController
         else {
             echo 'no';
         }
+    }
+
+    public function debug() {
+        $session = \Config\Services::session();
+        $request = \Config\Services::request();
+
+        $productsDB = new ModProducts;
+        
+        $whereIn = implode(',',$_SESSION['cart']);
+
+        $sql = "SELECT * FROM products WHERE pId IN ($whereIn)";
+
+        $result = $productsDB->query($sql);
+
+        foreach ($result->getResult() as $row)
+        {
+            echo $row->pName;
+            echo $row->pId;
+        }
+
     }
 
 }//end of controller
