@@ -91,19 +91,28 @@ $(document).ready(function() {
     var sp_count = $('.sp_cn').length;
     var items = "";
     items +="<div class='form-group form_special rmov"+sp_count+"'>";
-    items +="<input type='text' name='sp_val[]' class='form-control sp_cn' placeholder='Enter Spec Value'>";
+    items +="<input type='text' name='sp_val[]' class='form-control col-md-12 sp_cn' placeholder='Enter Spec Value'>";
     items +="<a href='javascript:void(0)' class='remove_spec' data-id="+sp_count+"><i class='far fa-minus-square'></i></a>";
     items +="</div>";
 
-    if (sp_count <=5) {
+
+    var spp_count = $('.sp_p').length;
+    var pitems = "";
+    pitems +="<div class='form-group form_special rmop"+spp_count+"'>";
+    pitems +="<input type='text' name='sp_p[]' class='form-control col-md-3 sp_p' placeholder='Enter Price Addition'>";
+    pitems +="</div>";
+
+    if (spp_count <=5) {
       $('.sp_items').append(items);
+      $('.sp_items').append(pitems);
     }
 
     }); //End Function 
 
     $('body').on('click',".remove_spec",function () {
       var curnt = $(this).data('id');
-      $('.rmov'+curnt).remove()
+      $('.rmov'+curnt).remove();
+      $('.rmop'+curnt).remove()
     });
 
   });

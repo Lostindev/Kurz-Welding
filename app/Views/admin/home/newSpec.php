@@ -34,12 +34,13 @@
             </div>
 
             <div class="form-group">
-                <?php echo form_input('sp_name','',array('class'=>"form-control", 'placeholder'=>'Enter Spec Name')); ?>
+                <?php echo form_input('sp_name','Dimensions',array('class'=>"form-control",'readonly'=>'')); ?>
             </div>
             
             <div class="sp_items">
                 <div class="form-group">
-                <?php echo form_input('sp_val[]','',array('class'=>"form-control sp_cn", 'placeholder'=>'Enter Spec Value')); ?>
+                <?php echo form_input('sp_val[]','',array('class'=>"form-control col-md-12 sp_cn", 'placeholder'=>'Enter Spec Value')); ?><br>
+                <?php echo form_input('sp_p[]','',array('class'=>"form-control col-md-3 sp_p", 'placeholder'=>'Enter Price Addition')); ?>
                 <a href="javascript:void(0)" id="add_spec" class="add_spec"><i class="far fa-plus-square"></i></a>
                 </div>
             </div>

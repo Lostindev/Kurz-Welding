@@ -8,6 +8,6 @@ class ModSpecValues extends Model
     protected $table = 'spec_values';
     protected  $primaryKey = "spId";
     protected $returnType = 'array';
-    protected $allowedFields = ['spvName','spvDate','adminId','specId'];
+    protected $allowedFields = ['spvName','spvDate','adminId','specId','spvPrice'];
 
 }
