@@ -761,21 +761,7 @@
 
 
     Riode.initPurchasedMinipopup = function () {
-        if (Riode.byClass('product-single').length || Riode.byClass('main-content').length) {
-            setInterval(function () {
-                Riode.minipopup.open({
-                    message: 'Someone just purchased below.',
-                    productClass: ' product-list-sm',
-                    name: 'Daisy Bag Sonia by Sonia Rykiel',
-                    nameLink: 'product.html',
-                    imageSrc: 'images/cart/product-1.jpg',
-                    price: '$199',
-                    rating: 5
-                }, function ($box) {
-                    Riode.ratingTooltip($box[0]);
-                });
-            }, 60000);
-        }
+
     }
 
     Riode.initScrollTopButton = function () {
