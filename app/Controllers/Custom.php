@@ -43,7 +43,8 @@ class Custom extends BaseController
         $data['coEmail'] = $request->getPost('co_email');
         $data['coMessage'] = $request->getPost('co_message');
         $data['coSize'] = $request->getPost('co_size');
-        $data['coUser'] = $checkLoggedIn;
+
+
 
         //Make sure we are getting the data
         if (!empty($data)) {
@@ -64,12 +65,22 @@ class Custom extends BaseController
                 } else {}
 
                 //Create Custom Order
-                $data['coUser'] = $checkLoggedIn;
+                if ($checkLoggedIn > 0) {
+                    $data['coUser'] = $checkLoggedIn;
+                } else {
+                    $data['coUser'] = 0;
+                }
+                
                 $addOrder = $coDB->insert($data);
     
                 if ($addOrder) {
-                    $session->setFlashdata('message','Custom Order Started! Check your email to create an account and manage your orders!');
-                    return redirect()->to(site_url('/custom'));
+                    if ($checkLoggedIn > 0) {
+                        $session->setFlashdata('message','Custom Order Started! You can check your order status in the my account page.');
+                        return redirect()->to(site_url('/custom'));
+                    } else {
+                        $session->setFlashdata('message','Custom Order Started! Check your email to create an account and manage your orders!');
+                        return redirect()->to(site_url('/custom'));
+                    }
                 } else {
                     $session->setFlashdata('message','Something went wrong, please try again.');
                     return redirect()->to(site_url('/custom'));
