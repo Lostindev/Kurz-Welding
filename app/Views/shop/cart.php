@@ -1,8 +1,12 @@
-
+<style>
+.select-box select {
+    height:auto!important;
+}
+</style>
 <main class="main cart">
 			<div class="page-content pt-7 pb-10">
 				<div class="step-by pr-4 pl-4">
-                    <h3 class="title title-simple title-step active"><a href="cart.html">1. Shopping Cart</a></h3>
+                    <h3 class="title title-simple title-step active"><a href="/shop/cart">1. Shopping Cart</a></h3>
                     <h3 class="title title-simple title-step"><a href="checkout.html">2. Checkout</a></h3>
 					<h3 class="title title-simple title-step"><a href="order.html">3. Order Complete</a></h3>
 				</div>
@@ -20,18 +24,20 @@
 									</tr>
 								</thead>
 								<tbody>
+                                <?php $cart = loadCart() ;?>
+                                <?php foreach ($cart->getResult() as $row):?>
 									<tr>
 										<td class="product-thumbnail">
 											<figure>
 												<a href="product-simple.html">
-													<img src="/theme/images/products/product18.jpg" width="100" height="100"
+													<img src="<?php echo site_url('/img/products/'.$row->pDp)?>" width="100" height="100"
 														alt="product">
 												</a>
 											</figure>
 										</td>
 										<td class="product-name">
 											<div class="product-name-section">
-												<a href="/theme/product-simple.html">Converse Training Shoes</a>
+												<a href="/theme/product-simple.html"><?php echo $row->pName; ?></a>
 											</div>
 										</td>
 										<td class="product-subtotal">
@@ -54,6 +60,9 @@
 											</a>
 										</td>
 									</tr>
+                                    <?php endforeach; ?>
+
+
 									<tr>
 										<td class="product-thumbnail">
 											<figure>

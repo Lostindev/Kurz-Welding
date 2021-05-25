@@ -89,7 +89,6 @@ class Shop extends BaseController
             $data['getNumCategories'] = $categoriesDB->where('cstatus',1)->countAllResults();
             $data['allCategories'] = $categoriesDB->getWhere(['cStatus'=>1],$data['getNumCategories'])->getResultArray();
         
-            var_dump($_SESSION['cart']);
             echo view('user/header', $data);
             echo view('user/css', $data);
             echo view('user/navbar', $data);
