@@ -969,9 +969,12 @@ class Admin extends BaseController
             $dataUpload['spName'] = $request->getPost('sp_name');
             $specValues = $request->getPost('sp_val');//array
             $specValues = array_filter($specValues);
-            $dataUpload['productId'] = $request->getPost('productId');
- 
 
+            $specPrices = $request->getPost('sp_p'); //array
+            $specPrices = array_filter($specPrices);
+
+            $dataUpload['productId'] = $request->getPost('productId');
+            
             if (!empty($dataUpload['spName']) && !empty($specValues) ) {
 
                 if ($dataUpload['productId'] != '0') {
@@ -993,16 +996,15 @@ class Admin extends BaseController
                         if ($checkSpecName && is_numeric($specId)) {
                             $specValueDB = new ModSpecValues();
                             $spec_values = array();
-                            foreach ($specValues as $specVal) {
+                            foreach ($specValues as $specVal => $price) {
                                 $spec_values[] = array(
                                     'specId'=>$specId,
                                     'adminId'=>$dataUpload['adminId'],
                                     'spvDate'=>date('Y-m-d H:i:s'),
-                                    'spvName'=>$specVal,
+                                    'spvName'=>$price,
+                                    'spvPrice'=>$specPrices[$specVal]
                                 );
-                            } //foreach loop here
-                            //var_dump($spec_values);
-                            //die();
+                            } 
                 
                             $specValStatus = $specValueDB->insertBatch($spec_values);
 
