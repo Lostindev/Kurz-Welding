@@ -74,6 +74,27 @@ class Shop extends BaseController
     }
 
 
-
+    public function cart($page = 'cart') {
+            $session = \Config\Services::session();
+            $request = \Config\Services::request();
+        
+            $data['title'] = 'Kurz Metal Art | Shop';
+            $data['metaData'] = "";
+            $data['page'] = $page;
+            $data['cssFile'] = $page;
+            $data['uri'] = $request->uri;
+                
+            //Fetch number of categories from database
+            $categoriesDB = new ModAdmin();
+            $data['getNumCategories'] = $categoriesDB->where('cstatus',1)->countAllResults();
+            $data['allCategories'] = $categoriesDB->getWhere(['cStatus'=>1],$data['getNumCategories'])->getResultArray();
+        
+        
+            echo view('user/header', $data);
+            echo view('user/css', $data);
+            echo view('user/navbar', $data);
+            echo view('shop/cart', $data);
+            echo view('user/footer', $data);
+    }
 
 }//end of controller

@@ -161,7 +161,7 @@
                 // addCartProducts( product );
 
                 Riode.minipopup.open({
-                    message: 'Successfully added.<a href="cart.html" class="btn btn-link btn-sm btn-slide-right btn-infinite">View Cart<i class="la la-long-arrow-right"></i></a>',
+                    message: 'Successfully added.<a href="/shop/cart" class="btn btn-link btn-sm btn-slide-right btn-infinite">View Cart<i class="la la-long-arrow-right"></i></a>',
                     productClass: ' product-cart',
                     name: $product.find('.product-name').text(),
                     nameLink: $product.find('.product-name > a').attr('href'),

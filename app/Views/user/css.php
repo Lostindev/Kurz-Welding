@@ -8,3 +8,6 @@
     <!-- Main CSS File -->
     <link rel="stylesheet" type="text/css" href="/theme/css/demo17.min.css">
 
+        <!-- Main CSS File -->
+        <link rel="stylesheet" type="text/css" href="/css/home/index.css">
+
