@@ -216,7 +216,7 @@ class Users extends BaseController
 				$billDB->where('userId',$checkLoggedIn);
 				$updateBilling = $billDB->update();
                 $session->setFlashdata('message','Billing address successfully updated.');
-                return redirect()->to(site_url('/users#address')); 
+                return redirect()->to(site_url('/#address')); 
             }
     
             else {
@@ -224,7 +224,7 @@ class Users extends BaseController
                 $addUser = $billDB->insert($data);
     
                 if ($addUser) {
-                    $session->setFlashdata('message','Your account was succesfully created! Check your email when your ready to activate your account.');
+                    $session->setFlashdata('message','Your billing information was succesfully added.');
                     return redirect()->to(site_url('/users'));
                 } else {
                     $session->setFlashdata('message','Something went wrong, please try again.');

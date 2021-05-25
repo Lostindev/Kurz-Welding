@@ -32,8 +32,45 @@
 							<li class="nav-item">
 								<a class="nav-link" href="#account">Account details</a>
 							</li>
+							<style>
+							.tab-vertical .nav-linkk::after {
+								content: '';
+								display: block;
+								position: absolute;
+								right: 0;
+								width: 2px;
+								height: calc(100% - 6px);
+								top: 50%;
+								transform: translateY(-50%);
+								background-color: transparent;
+								z-index: 1;
+							}
+							.tab-vertical .nav-linkk {
+								position: relative;
+								margin-right: -2px;
+								padding-left: 2rem;
+								width: calc(100% + 2px);
+								border: 0;
+								text-align: left;
+							}
+							.nav-linkk {
+								display: block;
+								margin-bottom: -.1rem;
+								padding: 1.6rem .2rem;
+								font-size: 1.6rem;
+								font-weight: 700;
+								line-height: 1;
+								letter-spacing: 0;
+								text-align: center;
+								border-radius: 0;
+								border: 0;
+								transition: border .35s, color .35s, background-color .35s;
+							}
+							
+
+							</style>
 							<li class="nav-item">
-								<a class="nav-link" href="#logout">Logout</a>
+								<a class="nav-linkk" action="/users/log-out" href="/users/log-out">Logout</a>
 							</li>
 						</ul>
 						<div class="tab-content col-lg-9 col-md-8">
