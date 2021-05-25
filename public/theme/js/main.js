@@ -1746,7 +1746,16 @@ window.Riode = {};
 
         ProductSingle.prototype.variationMatch = function () {
             var self = this;
-            self.$priceWrap.find( 'span' ).text( '$' + ( Math.round( Math.random() * 50 ) + 200 ) + '.00' );
+
+            var e = document.getElementById("pre-price");
+            var oldPrice = e.textContent.replace('$','');
+            
+            var a = document.getElementById("sizeSelect");
+            var ab = a.value;
+            var sizePrice = parseInt(ab);
+            console.log(sizePrice);
+            
+            self.$priceWrap.find( 'span' ).text( '$' + ( Math.round(oldPrice) + sizePrice ) + '.00' );
             self.$priceWrap.slideDown();
             self.$clean.slideDown();
             self.$btnCart.removeAttr( 'disabled' );

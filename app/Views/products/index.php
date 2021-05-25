@@ -109,7 +109,7 @@
 									ID: <span class="product-sku"><?php echo $product[0]['pId'];?></span>
 									BRAND: <span class="product-brand"></span>
 								</div>
-								<div class="product-price">$<?php echo $product[0]['pPrice'];?></div>
+								<div id="pre-price" class="product-price">$<?php echo $product[0]['pPrice'];?></div>
 								<div class="ratings-container">
 									<div class="ratings-full">
 										<span class="ratings" style="width:80%"></span>
@@ -138,14 +138,13 @@
 									<?php if (count($loadDimensions) > 0): ?>
 									<div class="product-form-group">
 										<div class="select-box">
-											<select name="size" class="form-control">
+											<select id="sizeSelect" name="size" class="form-control">
 												<option value="" selected="selected"><?php echo $loadDimensions[0]['spName'] ?></option>
 												<?php $specValues = getDimensionValues($loadDimensions[0]['spId']); ?>
 												
 												<?php if (count($specValues) > 0): ?>
-												<?php //print_r($specValues); ?>
 												<?php foreach($specValues as $dimension):?>
-												<option value=""><?php echo $dimension['spvName'];?> </option>
+												<option value="<?php echo $dimension['spvPrice'];?>"><?php echo $dimension['spvName'].'&nbsp(+$'.$dimension['spvPrice'].')';?> </option>
 												<?php endforeach; ?>
 												<?php endif;?>
 											</select>
