@@ -1747,14 +1747,20 @@ window.Riode = {};
         ProductSingle.prototype.variationMatch = function () {
             var self = this;
 
+            //Get original base price
             var e = document.getElementById("pre-price");
             var oldPrice = e.textContent.replace('$','');
             
+            //Get addition price from select input
             var a = document.getElementById("sizeSelect");
             var ab = a.value;
             var sizePrice = parseInt(ab);
-            console.log(sizePrice);
             
+            //Get Variable Price & Pass to hidden input
+            var hidden = document.getElementById("var-price");
+            hidden.value = ( '$' + ( Math.round(oldPrice) + sizePrice ) + '.00' );
+
+            //set the new price on the frontend
             self.$priceWrap.find( 'span' ).text( '$' + ( Math.round(oldPrice) + sizePrice ) + '.00' );
             self.$priceWrap.slideDown();
             self.$clean.slideDown();

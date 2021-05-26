@@ -107,15 +107,19 @@ class Shop extends BaseController
             } else{
                 //Create Array
                 $_SESSION['cart'] = array();
+                $_SESSION['varPrice'] = array();
             }
 
-            //Add to cart
+            $prePrice = $request->getPost('var-price');
 
-            $cart = [
-                'pId'=>$pId,
-                'price'=>'price'
-            ];
+            $varPrice = str_replace("$","", $prePrice);
+            
+
+            //Add to cart
             array_push($_SESSION['cart'], $pId);
+
+            //Add Price Variation
+            array_push($_SESSION['varPrice'], $varPrice);
 
             //Redirect to cart
             $session->setFlashdata('successMessage','Product successfully added to cart!');
@@ -124,7 +128,9 @@ class Shop extends BaseController
 
 
         else {
-            echo 'no';
+            //Redirect to cart
+            $session->setFlashdata('message','Product not found.');
+            return redirect()->to(site_url('/shop/cart'));
         }
     }
 
@@ -134,7 +140,8 @@ class Shop extends BaseController
 
         $productsDB = new ModProducts;
         
-        echo view('shop/debug');
+        var_dump($_SESSION['cart']);
+        var_dump($_SESSION['varPrice']);
 
     }
 

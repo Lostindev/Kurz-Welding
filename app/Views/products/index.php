@@ -153,8 +153,10 @@
 									</div>
 									<?php endif; ?>
 								</div>
+								<form action="<?php echo '/shop/add-to-cart/'.$product[0]['pId']; ?>" method="POST">
 								<div class="product-variation-price">
 									<span>$79</span>
+									<input type="hidden" name="var-price" id="var-price"></input>
 								</div>
 
 								<hr class="product-divider">
@@ -166,12 +168,13 @@
 											<input class="quantity form-control" type="number" min="1" max="1000000">
 											<button class="quantity-plus d-icon-plus"></button>
 										</div>
-										<a id="btn-cart" href="<?php echo '/shop/add-to-cart/'.$product[0]['pId']; ?>"
+										<button type="submit" id="btn-cart" href=""
 											class="btn-product text-normal ls-normal font-weight-semi-bold"><i
 												class="d-icon-bag"></i>&nbsp Add to
-											Cart</a>
+											Cart</button>
 									</div>
 								</div>
+								</form>
 
 								<hr class="product-divider mb-3">
 
