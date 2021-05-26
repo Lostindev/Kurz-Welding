@@ -1,22 +1,33 @@
-<?php if (loadCart()): ?>
-                                <?php $cart = loadCart() ;?>
-                                <?php foreach ($cart->getResult() as $row):?>
+<table class="shop-table cart-table">
+								<thead>
+									<tr>
+										<th><span>Product</span></th>
+										<th></th>
+										<th><span>Price</span></th>
+										<th><span>quantity</span></th>
+										<th>Subtotal</th>
+									</tr>
+								</thead>
+								<tbody>
+								<?php if (loadCart2()): ?>
+                                <?php $cart = loadCart2() ;?>
+                                <?php foreach ($cart as $row):?>
 									<tr>
 										<td class="product-thumbnail">
 											<figure>
 												<a href="product-simple.html">
-													<img src="<?php echo site_url('/img/products/'.$row->pDp)?>" width="100" height="100"
+													<img src="<?php echo site_url('/img/products/'.$row[0]['pDp']);?>" width="100" height="100"
 														alt="product">
 												</a>
 											</figure>
 										</td>
 										<td class="product-name">
 											<div class="product-name-section">
-												<a href="/theme/product-simple.html"><?php echo $row->pName; ?></a>
+												<a href="/theme/product-simple.html"><?php echo $row[0]['pName']; ?></a>
 											</div>
 										</td>
 										<td class="product-subtotal">
-											<span class="amount">$129.99</span>
+											<span class="amount"><?php echo $row[0]['pName']; ?></span>
 										</td>
 										<td class="product-quantity">
 											<div class="input-group">
@@ -27,7 +38,7 @@
 											</div>
 										</td>
 										<td class="product-price">
-											<span class="amount">$129.99</span>
+											<span class="amount"><?php echo $row[0]['pPrice'][0]; ?></span>
 										</td>
 										<td class="product-close">
 											<a href="#" class="product-remove" title="Remove this product">
@@ -37,3 +48,5 @@
 									</tr>
                                     <?php endforeach; ?>
 									<?php endif; ?>
+								</tbody>
+							</table>

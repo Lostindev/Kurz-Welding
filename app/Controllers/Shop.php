@@ -138,7 +138,9 @@ class Shop extends BaseController
 
         $productsDB = new ModProducts;
         
-        var_dump(loadCartPrices());
+        var_dump(loadCart2());
+
+        echo view('shop/debug');
 
     } 
 

@@ -192,4 +192,24 @@ function loadCartPrices() {
     }
 }
 
+
+function loadCart2() {
+    $session = \Config\Services::session();
+    $request = \Config\Services::request();
+
+    $productsDB = new ModProducts;
+
+        $cart = loadCart()->getResult() ;
+        $loadCart = json_decode(json_encode($cart), true);
+        $price = $_SESSION['varPrice'];
+
+        $loadCart[0]['pPrice'] = $price;
+        $loadCart = [$loadCart];
+
+        return $loadCart;
+     
+    
+}
+
+
 ?>
