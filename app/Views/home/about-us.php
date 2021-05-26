@@ -9,8 +9,7 @@
             </nav>
             <div class="page-header pl-4 pr-4" style="background-image: url(/theme/images/page-header/about-us.jpg)">
                 <h1 class="page-title font-weight-bold lh-1 text-white text-capitalize">About Us</h1>
-                <p class="page-desc text-white mb-0">Lorem quis bibendum auctor, nisi elit consequat ipsum,<br> nec
-                    sagittis sem nibh id elit.</p>
+                <p class="page-desc text-white mb-0">We create custom art that brings your vision to reality.<br> Design your own one of a kind American Quality plasma art, <br>or browse our <a href="/shop">categories</a> for inspiration! </p>
             </div>
             <div class="page-content mt-10 pt-10">
                 <section class="about-section pb-10 appear-animate">
