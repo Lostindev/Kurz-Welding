@@ -1,6 +1,6 @@
 <main class="main">
 <div class="page-header"
-	style="background-image: url('/img/home/gallery.jpg'); background-color: #3C63A4;">
+	style="background-image: url('/img/home/custom.jpg'); background-color: #3C63A4;">
 	<h1 class="page-title">Custom Request</h1>
     <?php if(userLoggedIn()):?>
     <?php $userData = getUserInfo(); ?>
