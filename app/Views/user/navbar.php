@@ -4,7 +4,7 @@
     <div class="page-wrapper">
         <header class="header">
             <div class="header-top">
-                <div class="owl-carousel owl-theme row cols-xl-3 cols-md-2 cols-1 w-100" data-owl-options="{
+                <div class="owl-carousel owl-theme row cols-xl-3 cols-md-2 cols-1 w-100" id="nav-owl" data-owl-options="{
                     'items': 3,
                     'dots': false,
                     'loop': false,
@@ -28,7 +28,7 @@
                             </h4>
                         </div>
                     </div>
-                    <div class="icon-box bg-primary icon-box-tiny text-center">
+                    <div class="icon-box icon-box-tiny text-center">
                         <div class="icon-box-content">
                             <h4 class="icon-box-title text-white">
                             <i class="fas fa-plus-square" style="font-size: 2rem"></i>
