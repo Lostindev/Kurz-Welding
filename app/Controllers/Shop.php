@@ -140,8 +140,7 @@ class Shop extends BaseController
 
         $productsDB = new ModProducts;
         
-        var_dump($_SESSION['cart']);
-        var_dump($_SESSION['varPrice']);
+        var_dump(loadCartPrices());
 
     }
 

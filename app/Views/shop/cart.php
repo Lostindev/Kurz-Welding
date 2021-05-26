@@ -42,7 +42,7 @@
 											</div>
 										</td>
 										<td class="product-subtotal">
-											<span class="amount">$129.99</span>
+											<span class="amount"><?php echo $row->pName; ?></span>
 										</td>
 										<td class="product-quantity">
 											<div class="input-group">
@@ -53,7 +53,7 @@
 											</div>
 										</td>
 										<td class="product-price">
-											<span class="amount">$129.99</span>
+											<span class="amount"><?php echo loadCartPrices()?></span>
 										</td>
 										<td class="product-close">
 											<a href="#" class="product-remove" title="Remove this product">

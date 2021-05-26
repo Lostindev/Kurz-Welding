@@ -176,8 +176,20 @@ function loadCart() {
     else {
         echo 'You haven\'t added any products to your cart.<br><br>'; 
     }
-    
+}
 
+function loadCartPrices() {
+    $session = \Config\Services::session();
+    $request = \Config\Services::request();
+
+    if (!empty($_SESSION['varPrice'])) {
+        $result = $_SESSION['varPrice'];
+
+        foreach ($result as $price) {
+            return $price;
+        }
+        
+    }
 }
 
 ?>
