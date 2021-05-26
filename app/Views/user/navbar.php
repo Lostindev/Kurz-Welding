@@ -181,8 +181,8 @@
                                 </div>
                                 <!-- End of Cart Total -->
                                 <div class="cart-action">
-                                    <a href="cart.html" class="btn btn-dark btn-link">View Cart</a>
-                                    <a href="checkout.html" class="btn btn-dark"><span>Go To Checkout</span></a>
+                                    <a href="/shop/cart" class="btn btn-dark btn-link">View Cart</a>
+                                    <a href="/shop/checkout" class="btn btn-dark"><span>Go To Checkout</span></a>
                                 </div>
                                 <!-- End of Cart Action -->
                             </div>

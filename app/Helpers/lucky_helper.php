@@ -163,12 +163,21 @@ function loadCart() {
 
     $productsDB = new ModProducts;
     
-    $whereIn = implode(',',$_SESSION['cart']);
+    if (!empty($_SESSION['cart'])) {
+        $whereIn = implode(',',$_SESSION['cart']);
 
-    $sql = "SELECT * FROM products WHERE pId IN ($whereIn)";
 
-    $result = $productsDB->query($sql);
-    return $result;
+        $sql = "SELECT * FROM products WHERE pId IN ($whereIn)";
+
+        $result = $productsDB->query($sql);
+        return $result;
+    }
+
+    else {
+        echo 'You haven\'t added any products to your cart.<br><br>'; 
+    }
+    
+
 }
 
 ?>

@@ -24,6 +24,7 @@
 									</tr>
 								</thead>
 								<tbody>
+								<?php if (loadCart()): ?>
                                 <?php $cart = loadCart() ;?>
                                 <?php foreach ($cart->getResult() as $row):?>
 									<tr>
@@ -61,6 +62,7 @@
 										</td>
 									</tr>
                                     <?php endforeach; ?>
+									<?php endif; ?>
 
 
 									<tr>
