@@ -205,7 +205,7 @@ function loadCart2() {
 
         $loadCart[0]['pPrice'] = $price;
         $loadCart = [$loadCart];
-
+ 
         return $loadCart;
      
     

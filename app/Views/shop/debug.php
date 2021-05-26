@@ -12,6 +12,7 @@
 								<?php if (loadCart2()): ?>
                                 <?php $cart = loadCart2() ;?>
                                 <?php foreach ($cart as $row):?>
+									
 									<tr>
 										<td class="product-thumbnail">
 											<figure>

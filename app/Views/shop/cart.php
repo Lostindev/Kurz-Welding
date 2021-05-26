@@ -53,7 +53,7 @@
 											</div>
 										</td>
 										<td class="product-price">
-											<span class="amount">$50</span>
+											<span class="amount"></span>
 										</td>
 										<td class="product-close">
 											<a href="#" class="product-remove" title="Remove this product">
