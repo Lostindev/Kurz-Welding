@@ -102,13 +102,11 @@ class Shop extends BaseController
 
        
         if (!empty($pId) && isset($pId)) { 
-            if (isset($_SESSION['cart'])) {
-
-            } else{
+            if (empty($_SESSION['cart'])) {
                 //Create Array
                 $_SESSION['cart'] = array();
                 $_SESSION['varPrice'] = array();
-            }
+            } 
 
             $prePrice = $request->getPost('var-price');
 
@@ -142,6 +140,6 @@ class Shop extends BaseController
         
         var_dump(loadCartPrices());
 
-    }
+    } 
 
 }//end of controller
