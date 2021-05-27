@@ -40,11 +40,17 @@ class Shop extends BaseController
     }
 
     public function productLookup($id) {
+    $session = \Config\Services::session();
+    $request = \Config\Services::request();
 	$data['title'] = 'Kurz Metal Art | Shop';
 	$data['metaData'] = "";
 	$data['page'] = 'product';
 	$data['cssFile'] = 'product';
-	$data['uri'] = $this->request->uri;
+
+    $uri = $request->uri;
+    $data['uri'] = $uri->getSegment(1);
+    $data['catId'] = $uri->getSegment(2);
+    $data['uri2'] = '';
 
     //Fetch number of categories from database
     $categoriesDB = new ModAdmin();

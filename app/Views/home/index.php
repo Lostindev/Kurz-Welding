@@ -210,7 +210,7 @@
                                 'name': 'fadeInLeftShorter',
                                 'delay': '.7s'
                             }">
-                            <a href="demo17-shop.html">
+                            <a href="/categories/1/most-popular">
                                 <figure class="category-media">
                                 <i class="fas fa-fire-alt"></i>
                                 </figure>
@@ -223,7 +223,7 @@
                                 'name': 'fadeInLeftShorter',
                                 'delay': '.5s'
                             }">
-                            <a href="demo17-shop.html">
+                            <a href="/categories/2/interior-decor">
                                 <figure class="category-media">
                                 <i class="fas fa-door-open"></i>
                                 </figure>
@@ -366,7 +366,7 @@
                         }">
                             <div class="banner2 banner banner-fixed" style="background-color: #1c1c1e">
                                 <figure>
-                                    <img src="/theme/images/demos/demo17/banner/6.jpg" alt="banner" width="950" height="341" />
+                                    <img src="/img/home/colors.jpg" alt="banner" width="950" height="341" />
                                 </figure>
                                 <div class="banner-content y-50">
                                     <div class="appear-animate" data-animation-options="{
