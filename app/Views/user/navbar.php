@@ -89,7 +89,7 @@
                     </div>
                     <div class="header-center">
                         <a href="/" class="logo mr-1">
-                            <img src="/img/logo.png" alt="logo" height="86" />
+                            <img src="/img/logo.png" alt="logo"  />
                         </a>
                         <!-- End Logo -->
                     </div>
