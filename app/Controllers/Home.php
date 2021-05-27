@@ -21,11 +21,6 @@ class Home extends BaseController
 		$data['uri'] = $uri->getSegment(1);
 		$data['uri2'] = '';
 	
-
-		
-
-
-
 		//Fetch number of categories from database
 		$categoriesDB = new ModAdmin();
 		$data['getNumCategories'] = $categoriesDB->where('cstatus',1)->countAllResults();
@@ -193,9 +188,7 @@ class Home extends BaseController
 		$uri = $this->request->uri;
 		$data['uri'] = $uri->getSegment(1);
 
-
 		$data['uri2'] = $uri->getSegment(2);
-
 
 		echo view('user/header', $data);
 		echo view('user/css', $data);

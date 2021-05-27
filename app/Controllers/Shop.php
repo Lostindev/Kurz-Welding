@@ -84,7 +84,10 @@ class Shop extends BaseController
             $data['metaData'] = "";
             $data['page'] = $page;
             $data['cssFile'] = $page;
-            $data['uri'] = $request->uri;
+            $uri = $this->request->uri;
+            $data['uri'] = $uri->getSegment(1);
+
+            $data['uri2'] = '';
                 
             //Fetch number of categories from database
             $categoriesDB = new ModAdmin();

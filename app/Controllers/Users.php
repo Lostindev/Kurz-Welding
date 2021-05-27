@@ -15,12 +15,12 @@ class Users extends BaseController
         $data['metaData'] = "";
         $data['page'] = $page;
         $data['cssFile'] = $page;
-        $data['uri'] = $this->request->uri;
+        $uri = $this->request->uri;
+		$data['uri'] = $uri->getSegment(1);
+        $data['uri2'] = '';
         
-
         if (userLoggedIn()) {
             $data['email'] = $session->get('email');
-        
             echo view('user/header', $data);
             echo view('user/css', $data);
             echo view('user/navbar', $data);

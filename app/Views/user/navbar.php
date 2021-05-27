@@ -100,7 +100,7 @@
                                 margin-right: 3.2rem;
                                 padding-bottom: .2rem;
                                 margin-top: .5rem;">
-                            <i class="d-icon-user" style="font-size: 2.7rem;color:#36c"></i>
+                            <i class="d-icon-user" style="font-size: 2.7rem;color:#11a3bf"></i>
                         </a>
 
                         <?php else:?>
@@ -219,7 +219,7 @@
                                     <a href="/">Home</a>
                                 </li>
                                 <li <?php if($uri =="shop"){echo 'class="active"';}?>>
-                                    <a href="/shop">Categories</a>
+                                    <a href="/shop">Shop</a>
                                     <div class="megamenu">
                                         <div class="row">
                                             <div class="col-6 col-sm-4 col-md-3 col-lg-4">
