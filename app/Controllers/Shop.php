@@ -24,6 +24,7 @@ class Shop extends BaseController
 	$uri = $request->uri;
     $data['uri'] = $uri->getSegment(1);
     $data['catId'] = $uri->getSegment(2);
+    $data['uri2'] = '';
         
     //Fetch number of categories from database
     $categoriesDB = new ModAdmin();

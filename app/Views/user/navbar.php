@@ -276,10 +276,10 @@
                                 <li <?php if($uri =="gallery"){echo 'class="active"';}?>>
                                 <a href="/gallery">Gallery</a>
                                 </li>
-                                <li <?php //if($uri2 =="custom"){echo 'class="active"';}?>>
-                                <a href="/home/contact-us">About Us</a>
+                                <li <?php if($uri2 =="about-us"){echo 'class="active"';}?>>
+                                <a href="/home/about-us">About Us</a>
                                 </li>
-                                <li <?php //if($uri2 =="contact-us"){echo 'class="active"';}?>>
+                                <li <?php if($uri2 =="contact-us"){echo 'class="active"';}?>>
                                 <a href="/home/contact-us">Contact</a>
                                 </li>
                             </ul>

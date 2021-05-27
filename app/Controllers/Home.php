@@ -19,6 +19,7 @@ class Home extends BaseController
 		$data['cssFile'] = $page;
 		$uri = $this->request->uri;
 		$data['uri'] = $uri->getSegment(1);
+		$data['uri2'] = '';
 	
 
 		
@@ -188,7 +189,13 @@ class Home extends BaseController
 		$data['metaData'] = "";
 		$data['page'] = $page;
 		$data['cssFile'] = $page;
-		$data['uri'] = $this->request->uri;
+
+		$uri = $this->request->uri;
+		$data['uri'] = $uri->getSegment(1);
+
+
+		$data['uri2'] = $uri->getSegment(2);
+
 
 		echo view('user/header', $data);
 		echo view('user/css', $data);
@@ -203,7 +210,12 @@ class Home extends BaseController
 		$data['metaData'] = "";
 		$data['page'] = $page;
 		$data['cssFile'] = $page;
-		$data['uri'] = $this->request->uri;
+		
+		$uri = $this->request->uri;
+		$data['uri'] = $uri->getSegment(1);
+
+
+		$data['uri2'] = $uri->getSegment(2);
 
 		echo view('user/header', $data);
 		echo view('user/css', $data);
