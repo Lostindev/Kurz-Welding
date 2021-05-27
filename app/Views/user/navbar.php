@@ -215,10 +215,10 @@
                     <div class="header-center">
                         <nav class="main-nav">
                             <ul class="menu">
-                                <li class="active">
+                                <li <?php echo $uri; if($uri ==""){echo 'class="active"';}?>>
                                     <a href="/">Home</a>
                                 </li>
-                                <li>
+                                <li <?php if($uri =="shop"){echo 'class="active"';}?>>
                                     <a href="/shop">Categories</a>
                                     <div class="megamenu">
                                         <div class="row">
@@ -270,16 +270,16 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li>
+                                <li <?php if($uri =="custom"){echo 'class="active"';}?>>
                                 <a href="/custom">Custom Order</a>
                                 </li>
-                                <li>
+                                <li <?php if($uri =="gallery"){echo 'class="active"';}?>>
                                 <a href="/gallery">Gallery</a>
                                 </li>
-                                <li>
-                                <a href="/home/about-us">About Us</a>
+                                <li <?php //if($uri2 =="custom"){echo 'class="active"';}?>>
+                                <a href="/home/contact-us">About Us</a>
                                 </li>
-                                <li>
+                                <li <?php //if($uri2 =="contact-us"){echo 'class="active"';}?>>
                                 <a href="/home/contact-us">Contact</a>
                                 </li>
                             </ul>

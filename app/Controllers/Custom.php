@@ -20,7 +20,8 @@ class Custom extends BaseController
 		$data['metaData'] = "";
 		$data['page'] = $page;
 		$data['cssFile'] = $page;
-		$data['uri'] = $this->request->uri;
+        $uri = $this->request->uri;
+		$data['uri'] = $uri->getSegment(1);
 
 		echo view('user/header', $data);
 		echo view('user/css', $data);

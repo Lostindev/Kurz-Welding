@@ -22,7 +22,15 @@ class Gallery extends BaseController
         $data['metaData'] = "";
         $data['page'] = $page;
         $data['cssFile'] = $page;
-        $data['uri'] = $request->uri;
+        $uri = $this->request->uri;
+		$data['uri'] = $uri->getSegment(1);
+
+        if (!empty($uri->getSegment(2))) {
+			$data['uri2'] = $uri->getSegment(2);
+		} else {
+			$data['uri2'] = "";
+		}
+
         
 
         echo view('user/header', $data);
