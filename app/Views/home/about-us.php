@@ -17,33 +17,28 @@
                         <div class="row align-items-center">
                             <div class="col-lg-4 mb-10 mb-lg-4">
                                 <h5 class="section-subtitle lh-2 ls-md font-weight-normal">01. What We Do</h5>
-                                <h3 class="section-title lh-1 font-weight-bold">Provide fast & practical services
+                                <h3 class="section-title lh-1 font-weight-bold">Provide fast & unique services
                                 </h3>
-                                <p class="section-desc">Lorem quis bibendum auctar, nisi elit consequat ipsum, nec
-                                    sagittis sem nibh id elit.</p>
+                                <p class="section-desc">We take pride in making sure each and every one of our customers gets the high quality custom art they envisioned.</p>
                             </div>
                             <div class="col-lg-8 ">
                                 <div class="row">
                                     <div class="col-md-4 mb-4">
                                         <div class="counter text-center text-dark">
-                                            <span class="count-to" data-to="35" data-refresh-interval="50">1+</span>
-                                            <h5 class="count-title font-weight-bold text-body ls-md">Business Years</h5>
+                                            <h5 class="count-title font-weight-bold text-body ls-md">Custom Orders</h5>
+                                            <p class="text-grey mb-0">We believe everybody is special & people deserve a way to express that. Tell us your vision <a href="/custom"><u> here</u></a>.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-4">
+                                        <div class="counter text-center text-dark">
+                                            <h5 class="count-title font-weight-bold text-body ls-md">Fast Shipping</h5>
                                             <p class="text-grey mb-0">Lorem ipsum dolor sit<br>amet, conctetur adipisci
                                                 elit. viverra erat orci.</p>
                                         </div>
                                     </div>
                                     <div class="col-md-4 mb-4">
                                         <div class="counter text-center text-dark">
-                                            <span class="count-to" data-to="50" data-refresh-interval="50">0</span>
-                                            <h5 class="count-title font-weight-bold text-body ls-md">Design Brands</h5>
-                                            <p class="text-grey mb-0">Lorem ipsum dolor sit<br>amet, conctetur adipisci
-                                                elit. viverra erat orci.</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-4">
-                                        <div class="counter text-center text-dark">
-                                            <span class="count-to" data-to="130" data-refresh-interval="50">0</span>
-                                            <h5 class="count-title font-weight-bold text-body ls-md">Team Members</h5>
+                                            <h5 class="count-title font-weight-bold text-body ls-md">American Quality</h5>
                                             <p class="text-grey mb-0">Lorem ipsum dolor sit<br>amet, conctetur adipisci
                                                 elit. viverra erat orci.</p>
                                         </div>

@@ -16,7 +16,7 @@
 							<table class="shop-table cart-table">
 								<thead>
 									<tr>
-										<th><span>Product</span></th>
+										<th class="text-right"><span>Product</span></th>
 										<th></th>
 										<th><span>Price</span></th>
 										<th><span>quantity</span></th>
@@ -42,7 +42,7 @@
 											</div>
 										</td>
 										<td class="product-subtotal">
-											<span class="amount"><?php echo $row->pName; ?></span>
+											<span class="amount"><?php echo $row->pPrice; ?></span>
 										</td>
 										<td class="product-quantity">
 											<div class="input-group">
