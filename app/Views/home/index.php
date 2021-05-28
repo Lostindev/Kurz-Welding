@@ -137,8 +137,7 @@
                                         <p class="text-grey appear-animate" data-animation-options="{
                                             'name': 'fadeInUpShorter',
                                             'delay': '.5s'
-                                        }">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                            tempor incididunt ut labore et.</p>
+                                        }">Create your own custom metal art or yard sign. We offer a solution that all starts with your vision!</p>
                                         <a href="/custom" class="btn btn-primary btn-md ls-m appear-animate"
                                             data-animation-options="{
                                             'name': 'fadeInUpShorter',

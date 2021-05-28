@@ -27,23 +27,21 @@
                                         <div class="counter text-center text-dark">
                                         <i class="fas fa-file-import fa-3x"></i><br><br>
                                             <h5 class="count-title font-weight-bold text-body ls-md">Custom Orders</h5>
-                                            <p class="text-grey mb-0">We believe everybody is unique & that you deserve a way to express it. Tell us your vision <a href="/custom"><u> here</u></a>.</p>
+                                            <p class="text-grey mb-0">We believe everybody is unique <br> & that you deserve a way <br>to express it. Tell us your vision <a href="/custom"><u> here</u></a>.</p>
                                         </div>
                                     </div>
                                     <div class="col-md-4 mb-4">
                                         <div class="counter text-center text-dark">
                                         <i class="fas fa-shipping-fast fa-3x"></i><br><br>
                                             <h5 class="count-title font-weight-bold text-body ls-md">Fast Shipping</h5>
-                                            <p class="text-grey mb-0">Lorem ipsum dolor sit<br>amet, conctetur adipisci
-                                                elit. viverra erat orci.</p>
+                                            <p class="text-grey mb-0">We hate waiting too!<br>That's why we ensure to ship<br> out every order in a timeful manner.</p>
                                         </div>
                                     </div>
                                     <div class="col-md-4 mb-4">
                                         <div class="counter text-center text-dark">
                                         <i class="fas fa-flag-usa fa-3x "></i> <br><br>
                                             <h5 class="count-title font-weight-bold text-body ls-md">American Quality</h5>
-                                            <p class="text-grey mb-0">Lorem ipsum dolor sit<br>amet, conctetur adipisci
-                                                elit. viverra erat orci.</p>
+                                            <p class="text-grey mb-0">All of our CNC Plasma art<br> is manufactured right here in the <br>United States with high quality metals.</p>
                                         </div>
                                     </div>
                                 </div>
