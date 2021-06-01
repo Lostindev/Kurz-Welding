@@ -143,16 +143,5 @@ class Shop extends BaseController
         }
     }
 
-    public function debug() {
-        $session = \Config\Services::session();
-        $request = \Config\Services::request();
-
-        $productsDB = new ModProducts;
-        
-        var_dump(loadCart2());
-
-        echo view('shop/debug');
-
-    } 
 
 }//end of controller

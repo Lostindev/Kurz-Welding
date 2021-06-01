@@ -200,10 +200,12 @@ function loadCart2() {
     $productsDB = new ModProducts;
 
         $cart = loadCart()->getResult() ;
+        
         $loadCart = json_decode(json_encode($cart), true);
+
         $price = $_SESSION['varPrice'];
 
-        $loadCart[0]['pPrice'] = $price;
+        $loadCart['pPrice'] = $price;
         $loadCart = [$loadCart];
  
         return $loadCart;
