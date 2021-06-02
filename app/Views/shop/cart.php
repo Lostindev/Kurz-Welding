@@ -24,13 +24,13 @@
 									</tr>
 								</thead>
 								<tbody>
+								<?php  $session = \Config\Services::session();?>
 								<?php $a = -1 ?>
 								<?php if (loadCart()): ?>
                                 <?php $cart = loadCart() ;?>
                                 <?php foreach ($cart->getResult() as $row):?>
 								<?php $a++ ;?>
 									
-									<?php  $session = \Config\Services::session();?>
 									<tr>
 										<td class="product-thumbnail">
 											<figure>
@@ -46,7 +46,7 @@
 											</div>
 										</td>
 										<td class="product-subtotal">
-											<span class="amount"><?php echo $_SESSION['varPrice'][$a]; ?></span>
+											<span class="amount"><?php echo '$'.$_SESSION['varPrice'][$a]; ?></span>
 										</td>
 										<td class="product-quantity">
 											<div class="input-group">

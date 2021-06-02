@@ -120,9 +120,21 @@
                             <a href="#" class="cart-toggle label-block link">
                                 <div class="cart-label d-lg-show">
                                     <span class="cart-name">Shopping Cart:</span>
-                                    <span class="cart-price">$0.00</span>
+                                    <span class="cart-price">$<?php if(isset($_SESSION['varPrice'])):?>
+                                    <?php $sum = array_sum($_SESSION['varPrice']);?>
+                                    <?php echo $sum.'.00'; ?>
+                                    <?php else:?>
+                                    <?php echo "0.00";?></span>
+                                    <?php endif; ?>
+                                
+                                </span>
                                 </div>
-                                <i class="d-icon-bag"><span class="cart-count">2</span></i>
+                                <i class="d-icon-bag"><span class="cart-count"><?php if(isset($_SESSION['varPrice'])):?>
+                                    <?php echo count($_SESSION['varPrice']); ?>
+                                    <?php else:?>
+                                    <?php echo "0";?></span>
+                                    <?php endif; ?>
+                                </span></i>
                             </a>
                             <div class="cart-overlay"></div>
                             <!-- End Cart Toggle -->
@@ -133,10 +145,15 @@
                                             class="d-icon-arrow-right"></i><span class="sr-only">Cart</span></a>
                                 </div>
                                 <div class="products scrollable">
+                                <?php $a = -1 ?>
+								<?php if(isset($_SESSION['varPrice'])): ?>
+                                <?php $cart = loadCart() ;?>
+                                <?php foreach ($cart->getResult() as $row):?>
+								<?php $a++ ;?>
                                     <div class="product product-cart">
                                         <figure class="product-media">
                                             <a href="product.html">
-                                                <img src="/theme/images/cart/product-1.jpg" alt="product" width="80"
+                                                <img src="<?php echo site_url('/img/products/'.$row->pDp)?>" alt="product" width="80"
                                                     height="88" />
                                             </a>
                                             <button class="btn btn-link btn-close">
@@ -144,40 +161,26 @@
                                             </button>
                                         </figure>
                                         <div class="product-detail">
-                                            <a href="product.html" class="product-name">Riode White Trends</a>
+                                            <a href="product.html" class="product-name"><?php echo $row->pName; ?></a>
                                             <div class="price-box">
                                                 <span class="product-quantity">1</span>
-                                                <span class="product-price">$21.00</span>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <!-- End of Cart Product -->
-                                    <div class="product product-cart">
-                                        <figure class="product-media">
-                                            <a href="product.html">
-                                                <img src="/theme/images/cart/product-2.jpg" alt="product" width="80"
-                                                    height="88" />
-                                            </a>
-                                            <button class="btn btn-link btn-close">
-                                                <i class="fas fa-times"></i><span class="sr-only">Close</span>
-                                            </button>
-                                        </figure>
-                                        <div class="product-detail">
-                                            <a href="product.html" class="product-name">Dark Blue Women’s
-                                                Leomora Hat</a>
-                                            <div class="price-box">
-                                                <span class="product-quantity">1</span>
-                                                <span class="product-price">$118.00</span>
+                                                <span class="product-price"><?php echo '$'.$_SESSION['varPrice'][$a]; ?></span>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- End of Cart Product -->
+                                    <?php endforeach; ?>
+                                    <?php endif; ?>
+                                    
                                 </div>
                                 <!-- End of Products  -->
                                 <div class="cart-total">
                                     <label>Subtotal:</label>
-                                    <span class="price">$139.00</span>
+                                    <span class="price">$<?php if(isset($_SESSION['varPrice'])):?>
+                                        <?php echo array_sum($_SESSION['varPrice']);?>
+                                    <?php else:?>
+                                    <?php echo "0";?></span>
+                                    <?php endif; ?>
                                 </div>
                                 <!-- End of Cart Total -->
                                 <div class="cart-action">
