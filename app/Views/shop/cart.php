@@ -7,8 +7,8 @@
 			<div class="page-content pt-7 pb-10">
 				<div class="step-by pr-4 pl-4">
                     <h3 class="title title-simple title-step active"><a href="/shop/cart">1. Shopping Cart</a></h3>
-                    <h3 class="title title-simple title-step"><a href="checkout.html">2. Checkout</a></h3>
-					<h3 class="title title-simple title-step"><a href="order.html">3. Order Complete</a></h3>
+                    <h3 class="title title-simple title-step"><a href="/shop/checkout">2. Checkout</a></h3>
+					<h3 class="title title-simple title-step"><a href="/shop/order">3. Order Complete</a></h3>
 				</div>
 				<div class="container mt-7 mb-2">
 					<div class="row">
@@ -93,56 +93,8 @@
 												<p class="summary-subtotal-price">$426.99</p>
 											</td>												
 										</tr>
-										<tr class="sumnary-shipping shipping-row-last">
-											<td colspan="2">
-												<h4 class="summary-subtitle">Calculate Shipping</h4>
-												<ul>
-                                                    <li>
-                                                        <div class="custom-radio">
-                                                            <input type="radio" id="flat_rate" name="shipping" class="custom-control-input" checked>
-                                                            <label class="custom-control-label" for="flat_rate">Flat rate</label>
-                                                        </div>
-                                                    </li>
-													<li>
-														<div class="custom-radio">
-															<input type="radio" id="free-shipping" name="shipping" class="custom-control-input">
-															<label class="custom-control-label" for="free-shipping">Free
-																shipping</label>
-														</div>
-													</li>
-													
-													<li>
-														<div class="custom-radio">
-															<input type="radio" id="local_pickup" name="shipping" class="custom-control-input">
-															<label class="custom-control-label" for="local_pickup">Local pickup</label>
-														</div>
-													</li>
-												</ul>
-											</td>
-										</tr>
 									</table>
-									<div class="shipping-address">
-										<label>Shipping to <strong>CA.</strong></label>
-										<div class="select-box">
-											<select name="country" class="form-control">
-												<option value="us" selected>United States (US)</option>
-												<option value="uk"> United Kingdom</option>
-												<option value="fr">France</option>
-												<option value="aus">Austria</option>
-											</select>
-                                        </div>
-                                        <div class="select-box">
-											<select name="country" class="form-control">
-												<option value="us" selected>California</option>
-												<option value="uk">Alaska</option>
-												<option value="fr">Delaware</option>
-												<option value="aus">Hawaii</option>
-											</select>
-										</div>
-										<input type="text" class="form-control" name="code" placeholder="Town / City" />
-										<input type="text" class="form-control" name="code" placeholder="ZIP" />
-										<a href="#" class="btn btn-md btn-dark btn-rounded btn-outline">Update totals</a>
-									</div>
+
 									<table class="total">
 										<tr class="summary-subtotal">
 											<td>
@@ -153,7 +105,7 @@
 											</td>												
 										</tr>
 									</table>
-									<a href="checkout.html" class="btn btn-dark btn-rounded btn-checkout">Proceed to checkout</a>
+									<a href="/shop/checkout" class="btn btn-dark btn-rounded btn-checkout">Proceed to checkout</a>
 								</div>
 							</div>
 						</aside>

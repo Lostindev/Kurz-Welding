@@ -197,7 +197,7 @@ class Home extends BaseController
 		echo view('user/footer', $data);
 	}
 
-	public function contact_us($page = 'contact-us')
+	public function contact_us($page = 'contact-us') //Contact Us Page
 	{
 		$data['title'] = 'Kurz Welding & Metal Art | Home';
 		$data['metaData'] = "";
@@ -214,6 +214,26 @@ class Home extends BaseController
 		echo view('user/css', $data);
 		echo view('user/navbar', $data);
 		echo view('home/contact-us', $data);
+		echo view('user/footer', $data);
+	}
+
+	public function frequently_asked_questions($page = 'faq')
+	{
+		$data['title'] = 'Kurz Welding & Metal Art | Home';
+		$data['metaData'] = "";
+		$data['page'] = $page;
+		$data['cssFile'] = $page;
+		
+		$uri = $this->request->uri;
+		$data['uri'] = $uri->getSegment(1);
+
+
+		$data['uri2'] = $uri->getSegment(2);
+
+		echo view('user/header', $data);
+		echo view('user/css', $data);
+		echo view('user/navbar', $data);
+		echo view('home/faq', $data);
 		echo view('user/footer', $data);
 	}
 

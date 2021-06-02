@@ -16,8 +16,8 @@
                     <div class="container">
                         <div class="row align-items-center">
                             <div class="col-lg-4 mb-10 mb-lg-4">
-                                <h5 class="section-subtitle lh-2 ls-md font-weight-normal">01. What We Do</h5>
-                                <h3 class="section-title lh-1 font-weight-bold">Provide fast & unique services
+                                <h5 class="section-subtitle lh-2 ls-md font-weight-normal">01. Our Guarantees</h5>
+                                <h3 class="section-title lh-1 font-weight-bold">Provide Fast &<br> Unique services
                                 </h3>
                                 <p class="section-desc">We take pride in making sure each and every one of our customers gets the high quality custom art they envisioned.</p>
                             </div>
@@ -61,15 +61,15 @@
                                 </figure>
                             </div>
                             <div class="col-md-5 mb-4">
-                                <h5 class="section-subtitle lh-2 ls-md font-weight-normal">02. Happy Customer</h5>
-                                <h3 class="section-title lh-1 font-weight-bold">Provide custom and<br>quality
-                                    products</h3>
+                                <h5 class="section-subtitle lh-2 ls-md font-weight-normal">02. Our Foundation</h5>
+                                <h3 class="section-title lh-1 font-weight-bold">Provide Custom and<br>Quality
+                                    Products</h3>
                                 <p class="section-desc text-grey">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, id?<br>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, in?<br>
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                Kurz Metal Art is a family owned business located in Youngstown, Ohio. We are proud Americans who specialize in custom made metal signs, home decor, and metal artwork. <br><br> We will produce your “One of a Kind” design to your specifications. Have an idea, but not sure how it will look?<br> 
+                                No problem, we will help you through the design phase.<br>
+                                <br>We have built our name, Kurz Metal Art, on producing specialty signs and unique artwork. Our quality standard includes metal for at least a 16 gauge. No flimsy metal here. 
                                 </p>
-                                <a href="#" class="btn btn-dark btn-link btn-underline ls-m">Visit Our Store<i
+                                <a href="/shop" class="btn btn-dark btn-link btn-underline ls-m">Visit Our Store<i
                                         class="d-icon-arrow-right"></i></a>
                             </div>
                         </div>
@@ -81,19 +81,26 @@
                     <div class="container">
                         <div class="row align-items-center">
                             <div class="col-md-6 order-md-first mb-4">
-                                <h5 class="section-subtitle lh-2 ls-md font-weight-normal mb-1">03. Our Store</h5>
-                                <h3 class="section-title lh-1 font-weight-bold">Expect Restless<br>Amazing Support</h3>
+                                <h5 class="section-subtitle lh-2 ls-md font-weight-normal mb-1">03. One of a Kind</h5>
+                                <h3 class="section-title lh-1 font-weight-bold">Expect Personal & <br>Amazing Metal Art</h3>
                                 <p class="section-desc text-grey">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, id?<br>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, in?<br>
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                Signs are available for all holidays, leisure activities and special events. Also, we produce Fire Rings and Pit liners with logos burned into the walls.<br><br>
+
+                                <b>Holidays Signs include:</b> New Years, Valentine’s Day, Easter, St. Patrick’s, Mother’s Day, Father’s Day, Memorial Day, 4th of July, Halloween, Fall Harvest, Thanksgiving, Christmas. <br><br>
+
+                                <b>Specialty Signs include:</b> Scripture Verses, Motivational Sayings, Farm & Ranch, Weddings, New Home, Military, Memorials, Recovery, Anniversary, First Responders, schools, and mascots. <br><br>
+
+                                <b>Leisure Activity Signs include:</b> Sports, Hunting & Fishing, Camping, Bar & Grill, Man Cave, She Shed. <br><br>
+
+                                Please enjoy the store, <br>
+                                Kurz Metal Art <br>
                                 </p>
-                                <a href="#" class="btn btn-dark btn-link btn-underline ls-m">Get Help Now<i
+                                <a href="/custom" class="btn btn-dark btn-link btn-underline ls-m">Custom Orders<i
                                         class="d-icon-arrow-right"></i></a>
                             </div>
                             <div class="col-md-6 mb-4">
                                 <figure>
-                                    <img src="/theme/images/subpages/store.jpg" alt="Our Store" width="580" height="507"
+                                    <img src="/img/home/metal-art-bottom-about.jpg" alt="About our Custom Metal Art" width="580" height="507"
                                         class="banner-radius" style="background-color: #DEE6E8;" />
                                 </figure>
                             </div>

@@ -4,14 +4,12 @@
                     <div class="row">
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="widget widget-about">
-                                <!--<a href="demo2.html" class="logo-footer mb-5">
-                                    <img src="/theme/images/demos/demo17/logo-footer.png" alt="logo-footer" width="308"
+                                <a href="/" class="logo-footer mb-5">
+                                    <img src="/img/logo.png" alt="logo-footer" width="308"
                                         height="86" />
-                                </a>-->
+                                </a>
                                 <div class="widget-body">
-                                    <p class="ls-s">Fringilla urna porttitor rhoncus dolor purus<br />
-                                        luctus venenatis lectus magna fringilla diam<br />
-                                        maecenas ultricies mi eget mauris.</p>
+                                    <p class="ls-s">Kurz Metal Art is a family owned business located in Youngstown, Ohio.<br><br>
                                     <a href="mailto:kurzwelding@gmail.com">kurzwelding@gmail.com</a>
                                 </div>
                             </div>
@@ -22,7 +20,7 @@
                                 <h4 class="widget-title">Account</h4>
                                 <ul class="widget-body">
                                     <li><a href="/users">My Account</a></li>
-                                    <li><a href="#">Our Guarantees</a></li>
+                                    <li><a href="/home/about-us">Our Guarantees</a></li>
                                     <li><a href="#">Terms And Conditions</a></li>
                                     <li><a href="#">Privacy Policy</a></li>
                                     <li><a href="#">Site Map</a></li>
@@ -34,10 +32,9 @@
                             <div class="widget">
                                 <h4 class="widget-title">Get Help</h4>
                                 <ul class="widget-body">
-                                    <li><a href="#">Shipping &amp; Delivery</a></li>
-                                    <li><a href="#">Order Status</a></li>
-                                    <li><a href="#">Returns</a></li>
-                                    <li><a href="#">Payment Options</a></li>
+                                    <li><a href="/home/frequently-asked-questions">Shipping &amp; Delivery</a></li>
+                                    <li><a href="/users">Order Status</a></li>
+                                    <li><a href="/home/frequently-asked-questions">F.A.Q.</a></li>
                                     <li><a href="/home/contact-us">Contact Us</a></li>
                                 </ul>
                             </div>
@@ -48,9 +45,9 @@
                                 <h4 class="widget-title">About Us</h4>
                                 <ul class="widget-body">
                                     <li><a href="/home/about-us">About Us</a></li>
-                                    <li><a href="#">Order History</a></li>
-                                    <li><a href="#">Returns</a></li>
-                                    <li><a href="#">Custom Service</a></li>
+                                    <li><a href="/users">Order History</a></li>
+                                    <li><a href="/home/returns">Returns</a></li>
+                                    <li><a href="/custom">Start Custom Order</a></li>
                                 </ul>
                             </div>
                             <!-- End of Widget -->
@@ -72,8 +69,7 @@
                                     <img src="/theme/images/demos/demo4/payment.png" alt="payment" width="135" height="24" />
                                 </figure>
                                 <div class="social-links">
-                                    <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
-                                    <a href="#" class="social-link social-twitter fab fa-twitter"></a>
+                                    <a href="https://www.facebook.com/Kurz-Welding-Fabrication-101022675070967" target="_BLANK" class="social-link social-facebook fab fa-facebook-f"></a>
                                     <a href="https://www.etsy.com/shop/KurzMetalArt" target="_BLANK" class="social-link social-linkedin fab fa-etsy"></a>
                                 </div>
                             </div>
