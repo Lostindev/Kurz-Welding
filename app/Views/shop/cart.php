@@ -41,8 +41,8 @@
 											</figure>
 										</td>
 										<td class="product-name">
-											<div class="product-name-section">
-												<a href="/theme/product-simple.html"><?php echo $row->pName; ?></a>
+											<div style="white-space: normal;" class="product-name-section">
+												<a href="#"><?php echo $row->pName; ?></a>
 											</div>
 										</td>
 										<td class="product-subtotal">
