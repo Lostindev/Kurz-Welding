@@ -143,5 +143,48 @@ class Shop extends BaseController
         }
     }
 
+    
+        public function checkout($page = 'checkout') {
+        $session = \Config\Services::session();
+        $request = \Config\Services::request();
+        
+        $data['title'] = 'Kurz Metal Art | Shop';
+        $data['metaData'] = "";
+        $data['page'] = $page;
+        $data['cssFile'] = $page;
+        $uri = $request->uri;
+        $data['uri'] = $uri->getSegment(1);
+        $data['catId'] = $uri->getSegment(2);
+        $data['uri2'] = '';
+            
+        //Fetch number of categories from database
+        $categoriesDB = new ModAdmin();
+        $data['getNumCategories'] = $categoriesDB->where('cstatus',1)->countAllResults();
+        $data['allCategories'] = $categoriesDB->getWhere(['cStatus'=>1],$data['getNumCategories'])->getResultArray();
+    
+    
+        echo view('user/header', $data);
+        echo view('user/css', $data);
+        echo view('user/navbar', $data);
+        echo view('shop/checkout', $data);
+        echo view('user/footer', $data);
+        }
+
+        public function checkout_submit($page = 'checkout') {
+        $session = \Config\Services::session();
+        $request = \Config\Services::request();
+        
+        $data['title'] = 'Kurz Metal Art | Shop';
+        $data['metaData'] = "";
+        $data['page'] = $page;
+        $data['cssFile'] = $page;
+        $uri = $request->uri;
+        $data['uri'] = $uri->getSegment(1);
+        $data['catId'] = $uri->getSegment(2);
+        $data['uri2'] = '';
+
+        echo 'yes';
+        }
+
 
 }//end of controller
