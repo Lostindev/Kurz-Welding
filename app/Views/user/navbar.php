@@ -218,7 +218,8 @@
                     <div class="header-center">
                         <nav class="main-nav">
                             <ul class="menu">
-                                <li <?php echo $uri; if($uri ==""){echo 'class="active"';}?>>
+                                <li <?php if($uri ==""){echo 'class="active"';}?>
+                                <?php if($uri =="home"){echo 'class="active"';}?>>
                                     <a href="/">Home</a>
                                 </li>
                                 <li <?php if($uri =="shop"){echo 'class="active"';}?>>
