@@ -3,6 +3,7 @@
 <?php foreach($billingAddress as $bSpec): ?>
 <?php endforeach; ?>
 <?php endif;?>
+<script src="https://js.stripe.com/v3/"></script>
 
 <main class="main checkout">
 			<div class="page-content pt-7 pb-10 mb-10">
@@ -60,7 +61,7 @@
 							</div>
 						</div>
 					</div>
-					<form action="/shop/checkout-submit" class="form">
+					<form action="/shop/checkout-submit" id="payment-form" class="form">
 						<div class="row">
 							<div class="col-lg-7 mb-6 mb-lg-0 pr-lg-4">
 								<h3 class="title title-simple text-left text-uppercase">Billing Details</h3>
@@ -208,7 +209,39 @@
 												I have read and agree to the website <a href="#">terms and conditions </a>*
 											</label>
 										</div>
-										<button type="submit" class="btn btn-dark btn-rounded btn-order">Place Order</button>
+                                        <script>
+                                            var stripe = Stripe('pk_test_H0K7qzFR7eOZtiqp0Ul2y6PI');
+                                            var elements = stripe.elements();
+                                        </script>
+                                        <div id="card-element">
+                                            <!-- Elements will create input elements here -->
+                                        </div>
+
+                                        <!-- We'll put the error messages in this element -->
+                                        <div id="card-errors" role="alert"></div><br><br>
+
+                                        <button type="submit" class="btn btn-dark btn-rounded btn-order">Place Order</button>
+
+                                        <script>
+                                            var elements = stripe.elements();
+                                            var style = {
+                                            base: {
+                                                color: "#32325d",
+                                            }
+                                            };
+
+                                            var card = elements.create("card", { style: style });
+                                            card.mount("#card-element");
+
+                                            card.on('change', ({error}) => {
+                                            let displayError = document.getElementById('card-errors');
+                                            if (error) {
+                                                displayError.textContent = error.message;
+                                            } else {
+                                                displayError.textContent = '';
+                                            }
+                                            });
+                                        </script>
 									</div>
 								</div>
 							</aside>
