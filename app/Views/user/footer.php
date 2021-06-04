@@ -21,7 +21,7 @@
                                 <ul class="widget-body">
                                     <li><a href="/users">My Account</a></li>
                                     <li><a href="/home/about-us">Our Guarantees</a></li>
-                                    <li><a href="#">Terms And Conditions</a></li>
+                                    <li><a href="/home/terms-and-conditions">Terms And Conditions</a></li>
                                     <li><a href="#">Privacy Policy</a></li>
                                     <li><a href="#">Site Map</a></li>
                                 </ul>

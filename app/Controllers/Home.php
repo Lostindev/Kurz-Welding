@@ -237,5 +237,25 @@ class Home extends BaseController
 		echo view('user/footer', $data);
 	}
 
+	public function terms_and_conditions($page = 'terms')
+	{
+		$data['title'] = 'Kurz Welding & Metal Art | Terms & Conditions';
+		$data['metaData'] = "";
+		$data['page'] = $page;
+		$data['cssFile'] = $page;
+		
+		$uri = $this->request->uri;
+		$data['uri'] = $uri->getSegment(1);
+
+
+		$data['uri2'] = $uri->getSegment(2);
+
+		echo view('user/header', $data);
+		echo view('user/css', $data);
+		echo view('user/navbar', $data);
+		echo view('home/terms', $data);
+		echo view('user/footer', $data);
+	}
+
 
 }
