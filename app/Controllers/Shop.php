@@ -183,7 +183,7 @@ class Shop extends BaseController
         $data['catId'] = $uri->getSegment(2);
         $data['uri2'] = '';
 
-        echo 'yes';
+        echo "submitted";
         }
 
 

@@ -79,7 +79,9 @@
 								<input type="text" class="form-control" name="company-name" required="" value="<?php if (isset($bSpec['bCompany'])) echo $bSpec['bCompany']; ?>" />
 								<label>Country / Region *</label>
 								<div class="select-box">
-										<select name="country" class="form-control">
+										<select style="max-width: 100%;width:100%;    padding: 1rem 1.4rem .8rem;
+										font-size: 1.4rem;
+										color: #666;" name="country" class="form-control">
 											<option value="us" selected>United States (US)</option>
 											<option value="uk"> United Kingdom</option>
 											<option value="fr">France</option>
