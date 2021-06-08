@@ -196,6 +196,7 @@
    
     <script src="/js/userBPopup.js"></script>
     <script src="/js/addCart.js"></script>
+    <script src="/js/charge.js"></script>
 
 
 </body>

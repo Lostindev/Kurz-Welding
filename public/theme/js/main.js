@@ -1758,10 +1758,10 @@ window.Riode = {};
             
             //Get Variable Price & Pass to hidden input
             var hidden = document.getElementById("var-price");
-            hidden.value = ( '$' + ( Math.round(oldPrice) + sizePrice ) + '.00' );
+            hidden.value = ( '$' + ( Math.round(oldPrice) + sizePrice ) );
 
             //set the new price on the frontend
-            self.$priceWrap.find( 'span' ).text( '$' + ( Math.round(oldPrice) + sizePrice ) + '.00' );
+            self.$priceWrap.find( 'span' ).text( '$' + ( Math.round(oldPrice) + sizePrice ) );
             self.$priceWrap.slideDown();
             self.$clean.slideDown();
             self.$btnCart.removeAttr( 'disabled' );

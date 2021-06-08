@@ -90,7 +90,12 @@
 												<h4 class="summary-subtitle">Subtotal</h4>
 											</td>
 											<td>
-												<p class="summary-subtotal-price">$426.99</p>
+												<p class="summary-subtotal-price">$<?php if(isset($_SESSION['varPrice'])):?>
+                                    <?php $sum = array_sum($_SESSION['varPrice']);?>
+                                    <?php echo $sum; ?>
+                                    <?php else:?>
+                                    <?php echo "0.00";?></span>
+                                    <?php endif; ?></p>
 											</td>												
 										</tr>
 									</table>
@@ -101,7 +106,12 @@
 												<h4 class="summary-subtitle">Total</h4>
 											</td>
 											<td>
-												<p class="summary-total-price ls-s">$426.99</p>
+												<p class="summary-total-price ls-s">$<?php if(isset($_SESSION['varPrice'])):?>
+                                    <?php $sum = array_sum($_SESSION['varPrice']);?>
+                                    <?php echo $sum; ?>
+                                    <?php else:?>
+                                    <?php echo "0.00";?></span>
+                                    <?php endif; ?></p>
 											</td>												
 										</tr>
 									</table>

@@ -278,7 +278,7 @@ function ProductSingle($el) {
 
     ProductSingle.prototype.variationMatch = function () {
         var self = this;
-        self.$priceWrap.find('span').text('$' + (Math.round(Math.random() * 50) + 200) + '.00');
+        self.$priceWrap.find('span').text('$' + (Math.round(Math.random() * 50) + 200));
         self.$priceWrap.slideDown();
         self.$clean.slideDown();
         // self.$clean.css('display', 'inline-block');

@@ -128,7 +128,7 @@
 								</div>
 								<h2 class="title title-simple text-uppercase text-left">Additional Information</h2>
 								<label>Order Notes (Optional)</label>
-								<textarea class="form-control pb-2 pt-2 mb-0" cols="30" rows="5"
+								<textarea name="order-notes" class="form-control pb-2 pt-2 mb-0" cols="30" rows="5"
 									placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
 							</div>
 							<aside class="col-lg-5 sticky-sidebar-wrapper">
@@ -157,7 +157,12 @@
 													<td>
 														<h4 class="summary-subtitle">Subtotal</h4>
 													</td>
-													<td class="summary-subtotal-price pb-0 pt-0">$290.00
+													<td class="summary-subtotal-price pb-0 pt-0">$<?php if(isset($_SESSION['varPrice'])):?>
+													<?php $sum = array_sum($_SESSION['varPrice']);?>
+													<?php echo $sum; ?>
+													<?php else:?>
+													<?php echo "0.00";?></span>
+													<?php endif; ?>
 													</td>
 												</tr>
 												<tr class="sumnary-shipping shipping-row-last">
@@ -199,7 +204,12 @@
 														<h4 class="summary-subtitle">Total</h4>
 													</td>
 													<td class=" pt-0 pb-0">
-														<p class="summary-total-price ls-s text-primary">$290.00</p>
+														<p class="summary-total-price ls-s text-primary">$<?php if(isset($_SESSION['varPrice'])):?>
+														<?php $sum = array_sum($_SESSION['varPrice']);?>
+														<?php echo $sum; ?>
+														<?php else:?>
+														<?php echo "0.00";?></span>
+														<?php endif; ?></p>
 													</td>
 												</tr>
 											</tbody>
@@ -222,7 +232,7 @@
                                         <!-- We'll put the error messages in this element -->
                                         <div id="card-errors" role="alert"></div><br><br>
 
-                                        <button type="submit" class="btn btn-dark btn-rounded btn-order">Place Order</button>
+                                        <button  class="btn btn-dark btn-rounded btn-order">Place Order</button>
 
                                         <script>
                                             var elements = stripe.elements();
