@@ -106,7 +106,7 @@
 									<div class="product">
 										<figure class="product-media">
 											<a href="<?php echo base_url('/shop/custom-metal-art/'.$pUrl) ; ?>">
-												<img src="<?php echo base_url('/img/products/'.$product['pDp']); ?>" alt="product" width="280" height="315">
+												<img style="height:200px;width:auto;margin:auto;" src="<?php echo base_url('/img/products/'.$product['pDp']); ?>" alt="product" width="280" height="315">
 											</a>
 											<div class="product-label-group">
 												<label class="product-label label-new">new</label>

@@ -59,6 +59,8 @@
                         </div>
                     </div>
                 </section>
+
+                <section class="space-section"></section> <!--Padding Section-->
                 <!-- End About Section-->
             </div>
         </main>

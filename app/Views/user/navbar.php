@@ -111,7 +111,7 @@
 
 
                         <!-- End Login -->
-                        <a class="wishlist" href="wishlist.html">
+                        <a class="wishlist" href="#">
                             <i class="d-icon-heart"></i>
                         </a>
                         <span class="divider"></span>
@@ -258,15 +258,15 @@
                                             <div
                                                 class="col-6 col-sm-4 col-md-3 col-lg-4 menu-banner menu-banner1 banner banner-fixed">
                                                 <figure>
-                                                    <img src="/theme/images/menu/banner-1.jpg" alt="Menu banner" width="221"
+                                                    <img src="/img/home/banner-shop.jpg" alt="Menu banner" width="221"
                                                         height="330" />
                                                 </figure>
                                                 <div class="banner-content y-50">
                                                     <h4 class="banner-subtitle font-weight-bold text-primary ls-m">Sale.
                                                     </h4>
-                                                    <h3 class="banner-title font-weight-bold"><span
+                                                    <h3 class="text-white banner-title font-weight-bold"><span
                                                             class="text-uppercase">Up to</span>70% Off</h3>
-                                                    <a href="demo17-shop.html" class="btn btn-link btn-underline">shop
+                                                    <a href="/shop" class="btn btn-link btn-underline">shop
                                                         now<i class="d-icon-arrow-right"></i></a>
                                                 </div>
                                             </div>
