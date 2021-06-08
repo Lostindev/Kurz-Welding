@@ -28,7 +28,13 @@ class Home extends BaseController
 
 		//Get all Products
 		$productsDB = new ModProducts();
-		$data['allProducts'] = $productsDB->where('pStatus',1)->findAll();
+		$data['allProducts'] = $productsDB->where('pStatus',1)
+								->orderBy('pId', 'RANDOM')
+								->findAll();
+
+		$data['popularProducts'] = $productsDB->where('categoryId',1)
+								->orderBy('pId', 'DESC')
+								->findAll();								
 
 		echo view('user/header', $data);
 		echo view('user/css', $data);

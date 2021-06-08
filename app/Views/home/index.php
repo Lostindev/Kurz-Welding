@@ -288,9 +288,9 @@
                 <section class="product-wrapper container mt-10 pt-8 appear-animate">
                     <h2 class="title title-simple text-center">Most Popular</h2>
                         <div class="row">
-                        <?php if(isset($allProducts)): ?>
+                        <?php if(isset($popularProducts)): ?>
                         <?php $i=1; ?>
-                        <?php foreach($allProducts as $product): 
+                        <?php foreach($popularProducts as $product): 
                             if ($i++ == 11) break;
                         ?>
                         <?php $pUrl = (str_replace(' ', '-', strtolower($product['pName']))); ?>
@@ -320,10 +320,10 @@
                                         </div>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
-                                                <span class="ratings" style="width:80%"></span>
+                                                <span class="ratings" style="width:100%"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="<?php echo base_url('/shop/custom-metal-art/'.$product['pName']) ?>" class="rating-reviews">( 6 reviews )</a>
+                                            <a href="https://www.etsy.com/shop/KurzMetalArt?ref=simple-shop-header-name&listing_id=922619598#reviews" target="_BLANK" class="rating-reviews">( 3+ reviews )</a>
                                         </div>
                                     </div>
                                 </div>
@@ -406,7 +406,7 @@
                     <div class="col-12 text-right">
                         <h1 class="banner-title appear-animate font-weight-bold" data-animation-options="{
                             'name': 'fadeInRightShorter',
-                            'delay': '1.2s'
+                            'delay': '1s'
                         }" style="animation-duration: 1.2s;color:#49bdce;"><i>Special Occasion Signs</i></h1>
                         <p class=" text-right mr-3 col-6 text-black appear-animate font-weight-bold" data-animation-options="{
                                         'name': 'fadeInRightShorter',
@@ -461,7 +461,7 @@
                                             class="d-icon-heart"></i></a>
                                 </div>
                                 <div class="product-action">
-                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                    <a href="<?php echo base_url('/shop/custom-metal-art/'.$pfUrl) ; ?>" class="btn-product" title="Quick View">View</a>
                                 </div>
                             </figure>
                             <div class="product-details">
@@ -469,14 +469,14 @@
                                     <a href="demo17-product.html"><?php echo $productFeatured['pName']; ?></a>
                                 </h3>
                                 <div class="product-price">
-                                    <span class="price">$35.00</span>
+                                    <span class="price"><?php echo '$'.$productFeatured['pPrice']; ?></span>
                                 </div>
                                 <div class="ratings-container">
                                     <div class="ratings-full">
                                         <span class="ratings" style="width:100%"></span>
                                         <span class="tooltiptext tooltip-top"></span>
                                     </div>
-                                    <a href="demo17-product.html" class="rating-reviews">( 6 reviews )</a>
+                                    <a href="https://www.etsy.com/shop/KurzMetalArt?ref=simple-shop-header-name&listing_id=922619598#reviews" target="_BLANK" class="rating-reviews">( 3+ reviews )</a>
                                 </div>
                             </div>
                         </div>
