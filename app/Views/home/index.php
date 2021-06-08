@@ -386,6 +386,37 @@
                         </div>
                     </div>
                 </section>
+
+                <section class="space-section"></section> <!--Padding Section-->
+                <section class="text-section">
+                <div style="margin:auto;" class="container justify-content-center row">
+                    <div class="col-12 text-left">
+                        <h1 class="banner-title appear-animate font-weight-bold" data-animation-options="{
+                                        'name': 'fadeInLeftShorter',
+                                        'delay': '.7s'
+                                    }" style="animation-duration: 1.2s;color:#0088aa;"><i>Quality Custom Metal Art</i></h1>
+                        </h1>
+                        <p class="col-lg-6 ml-3 text-black appear-animate font-weight-bold" data-animation-options="{
+                                        'name': 'fadeInLeftShorter',
+                                        'delay': '.85s'
+                                    }" style="animation-duration: 1.4s;"><i>KurzMetalArt is a proud manufacturer of American quality plasma art. We have a simple design process as well as a wide selection of CNC metal art in our inventory. Our team loves what we do and we are always working on new designs. Get started with a custom yard sign or custom metal sign order <a style="color:#0088aa" href="/custom">here.</a> Not too sure what you want yet? Check out our gallery for inspiration. </i></p><br><br>
+                        </h1>
+                    </div>
+
+                    <div class="col-12 text-right">
+                        <h1 class="banner-title appear-animate font-weight-bold" data-animation-options="{
+                            'name': 'fadeInRightShorter',
+                            'delay': '1.2s'
+                        }" style="animation-duration: 1.2s;color:#49bdce;"><i>Special Occasion Signs</i></h1>
+                        <p class=" text-right mr-3 col-6 text-black appear-animate font-weight-bold" data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'delay': '.85s'
+                                    }" style="animation-duration: 1.4s;margin-left:50%;">A special occasion should be just that, SPECIAL! Make the memory last with a high quality piece of art. Custom monogram signs are really popular for weddings, Father's Day, Mother's Day, and anniversarys. Another popular choice is custom holiday signs.
+                                    We offer Custom Christmas Signs, Custom Valentine's Day Signs, Custom Birthday Gifts, Memorial Day, 4th of July &  much more!</p><br><br>
+                    </div>
+                </div>
+                </section>
+
                 <section class="product-wrapper container mt-9 pt-4 appear-animate">
                     <h2 class="title title-simple text-center">Featured Products</h2>
                     <div class="owl-carousel owl-theme row owl-nav-full cols-xl-5 cols-lg-4 cols-sm-3 cols-2"
@@ -455,36 +486,6 @@
                     </div>
                 </section>
 
-                <section class="space-section"></section> <!--Padding Section-->
-
-                <section class="text-section">
-                <div style="margin:auto;" class="container justify-content-center row">
-                    <div class="col-12 text-left">
-                        <h1 class="banner-title appear-animate font-weight-bold" data-animation-options="{
-                                        'name': 'fadeInLeftShorter',
-                                        'delay': '.7s'
-                                    }" style="animation-duration: 1.2s;color:#0088aa;"><i>Quality Custom Metal Art</i></h1>
-                        </h1>
-                        <p class="col-lg-6 ml-3 text-black appear-animate font-weight-bold" data-animation-options="{
-                                        'name': 'fadeInLeftShorter',
-                                        'delay': '.85s'
-                                    }" style="animation-duration: 1.4s;"><i>KurzMetalArt is a proud manufacturer of American quality plasma art. We have a simple design process as well as a wide selection of CNC metal art in our inventory. Our team loves what we do and we are always working on new designs. Get started with a custom yard sign or custom metal sign order <a style="color:#0088aa" href="/custom">here.</a> </i></p><br><br>
-                        </h1>
-                    </div>
-
-                    <div class="col-12 text-right">
-                        <h1 class="banner-title appear-animate font-weight-bold" data-animation-options="{
-                            'name': 'fadeInRightShorter',
-                            'delay': '1.2s'
-                        }" style="animation-duration: 1.2s;color:#49bdce;"><i>Special Occasion Signs</i></h1>
-                        <p class=" text-right mr-3 col-6 text-black appear-animate font-weight-bold" data-animation-options="{
-                                        'name': 'fadeInRightShorter',
-                                        'delay': '.85s'
-                                    }" style="animation-duration: 1.4s;margin-left:50%;">A special occasion should be just that, SPECIAL! Monogram art is really popular for weddings, Father's Day, Mother's Day, and anniversarys. Another popular choice is custom holiday signs. <br>
-                                    We offer Custom Christmas Signs, Custom Valentine's Day Signs, Custom Birthday Gifts, Memorial Day, 4th of July &  much more!</p><br><br>
-                    </div>
-                </div>
-                </section>
 
                 <section class="space-section"></section> <!--Padding Section-->
             </div>

@@ -186,7 +186,7 @@ class Home extends BaseController
 		$data['cssFile'] = $page;
 
 		$uri = $this->request->uri;
-		$data['uri'] = $uri->getSegment(1);
+		$data['uri'] = 'no'; //this is to prevent 'Home Nav' showing as active
 
 		$data['uri2'] = $uri->getSegment(2);
 
@@ -205,7 +205,7 @@ class Home extends BaseController
 		$data['cssFile'] = $page;
 		
 		$uri = $this->request->uri;
-		$data['uri'] = $uri->getSegment(1);
+		$data['uri'] = 'no'; //this is to prevent the 'Home Nav' from being active
 
 
 		$data['uri2'] = $uri->getSegment(2);

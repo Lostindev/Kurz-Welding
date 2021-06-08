@@ -119,8 +119,7 @@
 													title="Add to wishlist"><i class="d-icon-heart"></i></a>
 											</div>
 											<div class="product-action">
-												<a href="#" class="btn-product btn-quickview" title="Quick View">Quick
-													View</a>
+												<a href="<?php echo base_url('/shop/custom-metal-art/'.$pUrl) ; ?>" class="btn-product" title="Quick View">View</a>
 											</div>
 										</figure>
 										<div class="product-details">
