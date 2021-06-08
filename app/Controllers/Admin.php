@@ -928,14 +928,17 @@ class Admin extends BaseController
                         $file2Name = $file2->getName();
                         $file2->move('/var/www/html/public/img/products/', $file2Name);
                         $dataUpload['pDp2'] = $file2Name;
-
-                    } 
+                    } else {
+                        $dataUpload['pDp2'] = $request->getPost('oldImg2');
+                    }
 
                     $file3 = $request->getFile('pDp3');
                     if (!empty($file3) && $file3->getSize() > 0) {
                         $file3Name = $file3->getName();
                         $file3->move('/var/www/html/public/img/products/', $file3Name);
                         $dataUpload['pDp3'] = $file3Name;
+                    } else {
+                        $dataUpload['pDp3'] = $request->getPost('oldImg3');
                     }
 
                     $file4 = $request->getFile('pDp4');
@@ -943,7 +946,9 @@ class Admin extends BaseController
                         $file4Name = $file4->getName();
                         $file4->move('/var/www/html/public/img/products/', $file4Name);
                         $dataUpload['pDp4'] = $file4Name;
-                    } 
+                    } else {
+                        $dataUpload['pDp4'] = $request->getPost('oldImg4');
+                    }
 
                     $arrayCheck = ['pName' => $dataUpload['pName'], 'categoryId' => $dataUpload['categoryId']];
                     $checkAlreadyThere = $adminDB->where($arrayCheck)->findAll();

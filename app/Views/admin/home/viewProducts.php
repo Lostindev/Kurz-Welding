@@ -36,10 +36,14 @@
                             <?php echo $getResult['pId']  ;?>
                         </td>
                         <td>
-                            <?php echo $getResult['pName']  ;?>
+                            <div style="height:50px; overflow:hidden">
+                                <?php echo $getResult['pName']  ;?>
+                            </div>
                         </td>
                         <td>
-                            <?php echo $getResult['pDescription']  ;?>
+                            <div style="height:50px; overflow:hidden">
+                                <?php echo $getResult['pDescription']  ;?>
+                            </div>
                         </td>
                         <td>
                             <?php echo $getResult['pDp']  ;?>

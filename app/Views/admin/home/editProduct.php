@@ -21,6 +21,9 @@
             <?php echo form_open_multipart('/admin/updateProduct','')?>
             <input type="hidden" name="pId" value="<?php echo $product[0]['pId']?>">
             <input type="hidden" name="oldImg" value="<?php echo $product[0]['pDp']?>">
+            <input type="hidden" name="oldImg2" value="<?php echo $product[0]['pDp2']?>">
+            <input type="hidden" name="oldImg3" value="<?php echo $product[0]['pDp3']?>">
+            <input type="hidden" name="oldImg4" value="<?php echo $product[0]['pDp4']?>">
             <div class="form-group">
                 <?php echo form_input('productName',$product[0]['pName'],array('class'=>"form-control", 'placeholder'=>'Enter Product Name')); ?>
             </div>
