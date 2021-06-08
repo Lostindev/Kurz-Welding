@@ -274,7 +274,7 @@
                                 'name': 'fadeInRightShorter',
                                 'delay': '.7s'
                             }">
-                            <a href="demo17-shop.html">
+                            <a href="/shop">
                                 <figure class="category-media">
                                     <i class="fas fa-expand-arrows-alt"></i>
                                 </figure>

@@ -266,7 +266,7 @@
                                                     </h4>
                                                     <h3 class="text-white banner-title font-weight-bold"><span
                                                             class="text-uppercase">Up to</span>70% Off</h3>
-                                                    <a href="/shop" class="btn btn-link btn-underline">shop
+                                                    <a style="color:#0088aa" href="/shop" class="btn btn-link btn-underline">shop
                                                         now<i class="d-icon-arrow-right"></i></a>
                                                 </div>
                                             </div>
