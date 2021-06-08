@@ -1,6 +1,10 @@
 
-.content-wrapper {
-  max-width:99vw!important;
+.content-wrapper .row{
+  padding-left:0!important;
+  padding-right:0!important;
+  margin-right: 0;
+  margin-left: 0;
+
 }
 
 .dataTable {
