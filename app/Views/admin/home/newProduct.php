@@ -48,8 +48,26 @@
             </div>
 
 
-            <div class="form-group">
+            <div class="form-group row">
+                <div class="col-6">
+                <label>Image 1:</label>
                 <?php echo form_upload('pDp','',''); ?>
+                </div>
+                <div class="col-6">
+                <label>Image 2:</label>
+                <?php echo form_upload('pDp2','',''); ?>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-6">
+                    <label>Image 3:</label>
+                    <?php echo form_upload('pDp3','',''); ?>
+                    </div>
+                    <div class="col-6">
+                    <label>Image 4:</label>
+                    <?php echo form_upload('pDp4','',''); ?>
+                </div>
             </div>
             <div class="form-group">
                 <?php echo form_submit('Add Product','Add Product','class="btn btn-primary"'); ?>

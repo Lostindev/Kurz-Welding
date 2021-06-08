@@ -714,6 +714,32 @@ class Admin extends BaseController
                         $dataUpload['pDate'] = date('Y-m-d H:i:s');
                         $dataUpload['adminId'] = $session->get('aId');
                     }
+
+                    $file2 = $request->getFile('pDp2');
+                    if (!empty($file2) && $file2->getSize() > 0) {
+                        $file2Name = $file2->getName();
+                        $file2->move('/var/www/html/public/img/products/', $file2Name);
+                        $dataUpload['pDp2'] = $file2Name;
+
+                        $file3 = $request->getFile('pDp3');
+                        if (!empty($file3) && $file3->getSize() > 0) {
+                            $file3Name = $file3->getName();
+                            $file3->move('/var/www/html/public/img/products/', $file3Name);
+                            $dataUpload['pDp3'] = $file3Name;
+
+                            $file4 = $request->getFile('pDp4');
+                            if (!empty($file4) && $file4->getSize() > 0) {
+                                $file4Name = $file4->getName();
+                                $file4->move('/var/www/html/public/img/products/', $file4Name);
+                                $dataUpload['pDp4'] = $file3Name;
+                            } 
+                        } 
+
+                    } else {
+
+                    }
+
+
                     $arrayCheck = ['pName' => $dataUpload['pName'], 'categoryId' => $dataUpload['categoryId']];
                     $checkAlreadyThere = $adminDB->where($arrayCheck)->findAll();
                     if (count($checkAlreadyThere) > 0 ){
@@ -896,6 +922,29 @@ class Admin extends BaseController
                         $dataUpload['pDate'] = date('Y-m-d H:i:s');
                         $dataUpload['adminId'] = $session->get('aId');
                     }
+
+                    $file2 = $request->getFile('pDp2');
+                    if (!empty($file2) && $file2->getSize() > 0) {
+                        $file2Name = $file2->getName();
+                        $file2->move('/var/www/html/public/img/products/', $file2Name);
+                        $dataUpload['pDp2'] = $file2Name;
+
+                    } 
+
+                    $file3 = $request->getFile('pDp3');
+                    if (!empty($file3) && $file3->getSize() > 0) {
+                        $file3Name = $file3->getName();
+                        $file3->move('/var/www/html/public/img/products/', $file3Name);
+                        $dataUpload['pDp3'] = $file3Name;
+                    }
+
+                    $file4 = $request->getFile('pDp4');
+                    if (!empty($file4) && $file4->getSize() > 0) {
+                        $file4Name = $file4->getName();
+                        $file4->move('/var/www/html/public/img/products/', $file4Name);
+                        $dataUpload['pDp4'] = $file4Name;
+                    } 
+
                     $arrayCheck = ['pName' => $dataUpload['pName'], 'categoryId' => $dataUpload['categoryId']];
                     $checkAlreadyThere = $adminDB->where($arrayCheck)->findAll();
 
