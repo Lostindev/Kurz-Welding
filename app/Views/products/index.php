@@ -24,43 +24,56 @@
 								<div class="product-single-carousel owl-carousel owl-theme owl-nav-inner row cols-1">
 									<figure class="product-image">
 										<img src="<?php echo site_url('/img/products/'.$product[0]['pDp'])?>"
-											data-zoom-image="images/product/product-1-1-800x900.jpg"
-											alt="Women's Brown Leather Backpacks" width="800" height="900">
+											data-zoom-image="<?php echo site_url('/img/products/'.$product[0]['pDp'])?>"
+											alt="<?php echo $product[0]['pDp'];?>" width="800" height="900">
 									</figure>
-									<figure class="product-image">
-										<img src="/theme/images/product/product-1-2-580x652.jpg"
-											data-zoom-image="images/product/product-1-2-800x900.jpg"
-											alt="Women's Brown Leather Backpacks" width="800" height="900">
-									</figure>
-									<figure class="product-image">
-										<img src="/theme/images/product/product-1-3-580x652.jpg"
-											data-zoom-image="images/product/product-1-3-800x900.jpg"
-											alt="Women's Brown Leather Backpacks" width="800" height="900">
-									</figure>
-									<figure class="product-image">
-										<img src="/theme/images/product/product-1-4-580x652.jpg"
-											data-zoom-image="images/product/product-1-4-800x900.jpg"
-											alt="Women's Brown Leather Backpacks" width="800" height="900">
-									</figure>
+									<?php if (isset($product[0]['pDp2'])) :?>
+										<figure class="product-image">
+											<img src="<?php echo site_url('/img/products/'.$product[0]['pDp2'])?>"
+											data-zoom-image="<?php echo site_url('/img/products/'.$product[0]['pDp2'])?>"
+											alt="<?php echo $product[0]['pDp2'];?>" width="800" height="900">
+										</figure>
+									<?php endif; ?>
+									<?php if (isset($product[0]['pDp3'])) :?>
+										<figure class="product-image">
+											<img src="<?php echo site_url('/img/products/'.$product[0]['pDp3'])?>"
+											data-zoom-image="<?php echo site_url('/img/products/'.$product[0]['pDp3'])?>"
+											alt="<?php echo $product[0]['pDp3'];?>" width="800" height="900">
+										</figure>
+									<?php endif; ?>
+									<?php if (isset($product[0]['pDp4'])) :?>
+										<figure class="product-image">
+											<img src="<?php echo site_url('/img/products/'.$product[0]['pDp4'])?>"
+											data-zoom-image="<?php echo site_url('/img/products/'.$product[0]['pDp4'])?>"
+											alt="<?php echo $product[0]['pDp4'];?>" width="800" height="900">
+										</figure>
+									<?php endif; ?>
 								</div>
 								<div class="product-thumbs-wrap">
 									<div class="product-thumbs">
+										<!--Load all thumbnails if they exists-->
 										<div class="product-thumb active">
 											<img src="<?php echo site_url('/img/products/'.$product[0]['pDp'])?>" alt="product thumbnail"
 												width="109" height="122">
 										</div>
+										<?php if (isset($product[0]['pDp2'])) :?>
 										<div class="product-thumb">
-											<img src="/theme/images/product/product-1-2-109x122.jpg" alt="product thumbnail"
+											<img src="<?php echo site_url('/img/products/'.$product[0]['pDp2'])?>" alt="product thumbnail"
 												width="109" height="122">
 										</div>
+										<?php endif; ?>
+										<?php if (isset($product[0]['pDp3'])) :?>
 										<div class="product-thumb">
-											<img src="/theme/images/product/product-1-3-109x122.jpg" alt="product thumbnail"
+											<img src="<?php echo site_url('/img/products/'.$product[0]['pDp3'])?>" alt="product thumbnail"
 												width="109" height="122">
 										</div>
+										<?php endif; ?>
+										<?php if (isset($product[0]['pDp4'])) :?>
 										<div class="product-thumb">
-											<img src="/theme/images/product/product-1-4-109x122.jpg" alt="product thumbnail"
+											<img src="<?php echo site_url('/img/products/'.$product[0]['pDp4'])?>" alt="product thumbnail"
 												width="109" height="122">
 										</div>
+										<?php endif; ?>
 									</div>
 									<button class="thumb-up disabled"><i class="fas fa-chevron-left"></i></button>
 									<button class="thumb-down disabled"><i class="fas fa-chevron-right"></i></button>

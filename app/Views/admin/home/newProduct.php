@@ -20,7 +20,7 @@
 
             <?php echo form_open_multipart('/admin/addProduct','')?>
             <div class="form-group">
-                <?php echo form_input('productName','',array('class'=>"form-control", 'placeholder'=>'Enter Product Name')); ?>
+                <?php echo form_input('productName','',array('class'=>"form-control", 'placeholder'=>'Enter Product Name (No dashes ---)')); ?>
             </div>
             <div class="form-group">
                 <?php echo form_input('pPrice','',array('class'=>"form-control", 'placeholder'=>'Enter Product Price (49.99)')); ?>
