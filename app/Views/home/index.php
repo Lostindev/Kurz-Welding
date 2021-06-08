@@ -235,7 +235,7 @@
                                 'name': 'fadeInLeftShorter',
                                 'delay': '.3s'
                             }">
-                            <a href="demo17-shop.html">
+                            <a href="/categories/3/garage-&-workshop">
                                 <figure class="category-media">
                                     <i class="fas fa-tools"></i>
                                 </figure>
@@ -248,7 +248,7 @@
                                 'name': 'fadeInRightShorter',
                                 'delay': '.3s'
                             }">
-                            <a href="demo17-shop.html">
+                            <a href="/categories/6/monogram">
                                 <figure class="category-media">
                                 <i class="fab fa-contao"></i>
                                 </figure>
@@ -261,7 +261,7 @@
                                 'name': 'fadeInRightShorter',
                                 'delay': '.5s'
                             }">
-                            <a href="demo17-shop.html">
+                            <a href="/categories/4/outdoor-&-garden">
                                 <figure class="category-media">
                                     <i class="fas fa-leaf"></i>
                                 </figure>
@@ -348,8 +348,8 @@
                                         }">
                                             <h3 class="banner-title text-white text-uppercase">Designs that <span
                                                     class="text-primary">inspire</span></h3>
-                                            <p class="text-grey font-primary ">Lorem ipsum dolor sit amet,
-                                                consectetur adipiscing elit, sed do eiusmod tempor incid</p>
+                                            <p class="text-grey font-primary ">Custom metal art
+                                                that not only looks good, but lasts years.</p>
                                             <a href="/shop" class="btn btn-md btn-outline btn-white">Shop
                                                 now</a>
                                         </div>
@@ -580,40 +580,7 @@
                         </div>
                     </div>
                 </section>
-                <section class="brands-list container mt-10 pt-3 mb-10 pb-6 appear-animate">
-                    <h2 class="title title-simple text-center">Our Clients and Partners</h2>
-                    <div class="owl-carousel owl-theme row brand-carousel cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2 gutter-no"
-                        data-owl-options="{
-                        'items': 7,
-                        'dots': false,
-                        'autoplay': true,
-                        'loop': true,
-                        'responsive': {
-                            '0': {
-                                'items': 2
-                            },
-                            '576': {
-                                'items': 3
-                            },
-                            '768': {
-                                'items': 4
-                            },
-                            '992': {
-                                'items': 5
-                            },
-                            '1200': {
-                                'items': 6
-                            }
-                        }
-                    }">
-                        <img src="/theme/images/brands/1.png" alt="brand" width="180" height="100" />
-                        <img src="/theme/images/brands/2.png" alt="brand" width="180" height="100" />
-                        <img src="/theme/images/brands/3.png" alt="brand" width="180" height="100" />
-                        <img src="/theme/images/brands/4.png" alt="brand" width="180" height="100" />
-                        <img src="/theme/images/brands/5.png" alt="brand" width="180" height="100" />
-                        <img src="/theme/images/brands/6.png" alt="brand" width="180" height="100" />
-                    </div>
-                </section>
+
             </div>
         </main>
         <!-- End Main -->
