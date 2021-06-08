@@ -298,8 +298,7 @@
                                 <div class="product text-center">
                                     <figure class="product-media">
                                         <a href="<?php echo base_url('/shop/custom-metal-art/'.$pUrl) ; ?>">
-                                            <img src="<?php echo base_url('/img/products/'.$product['pDp']); ?>" alt="product" width="280"
-                                                height="315">
+                                            <img style="height:200px;width:auto;margin:auto;" src="<?php echo base_url('/img/products/'.$product['pDp']); ?>" alt="product">
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
@@ -412,11 +411,14 @@
                             }
                         }
                     }">
+                        <?php if(isset($allProducts)): ?>
+                        <?php //$i=1; ?>
+                        <?php foreach($allProducts as $productFeatured):?>
+                        <?php $pfUrl = (str_replace(' ', '-', strtolower($productFeatured['pName']))); ?>
                         <div class="product text-center">
                             <figure class="product-media">
-                                <a href="demo17-product.html">
-                                    <img src="/theme/images/demos/demo17/products/6.jpg" alt="product" width="280"
-                                        height="315">
+                                <a href="<?php echo base_url('/shop/custom-metal-art/'.$pfUrl) ; ?>">
+                                    <img style="height:200px;width:auto;margin:auto;" src="<?php echo base_url('/img/products/'.$productFeatured['pDp']); ?>" alt="product">
                                 </a>
                                 <div class="product-label-group">
                                     <label class="product-label label-sale">27% off</label>
@@ -433,7 +435,7 @@
                             </figure>
                             <div class="product-details">
                                 <h3 class="product-name">
-                                    <a href="demo17-product.html">Awesome Computer Bag</a>
+                                    <a href="demo17-product.html"><?php echo $productFeatured['pName']; ?></a>
                                 </h3>
                                 <div class="product-price">
                                     <span class="price">$35.00</span>
@@ -447,140 +449,44 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="product text-center">
-                            <figure class="product-media">
-                                <a href="demo17-product.html">
-                                    <img src="/theme/images/demos/demo17/products/9.jpg" alt="product" width="280"
-                                        height="315">
-                                </a>
-                                <div class="product-label-group">
-                                    <label class="product-label label-new">new</label>
-                                </div>
-                                <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
-                                        data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i
-                                            class="d-icon-heart"></i></a>
-                                </div>
-                                <div class="product-action">
-                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <h3 class="product-name">
-                                    <a href="demo17-product.html">Brown Leather Shoes</a>
-                                </h3>
-                                <div class="product-price">
-                                    <span class="price">$35.00</span>
-                                </div>
-                                <div class="ratings-container">
-                                    <div class="ratings-full">
-                                        <span class="ratings" style="width:60%"></span>
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div>
-                                    <a href="/shop" class="rating-reviews">( 6 reviews )</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product text-center">
-                            <figure class="product-media">
-                                <a href="demo17-product.html">
-                                    <img src="/theme/images/demos/demo17/products/10.jpg" alt="product" width="280"
-                                        height="315">
-                                </a>
-                                <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
-                                        data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i
-                                            class="d-icon-heart"></i></a>
-                                </div>
-                                <div class="product-action">
-                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <h3 class="product-name">
-                                    <a href="demo17-product.html">Smart Riode Men Shoes</a>
-                                </h3>
-                                <div class="product-price">
-                                    <span class="price">$35.00</span>
-                                </div>
-                                <div class="ratings-container">
-                                    <div class="ratings-full">
-                                        <span class="ratings" style="width:100%"></span>
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div>
-                                    <a href="demo17-product.html" class="rating-reviews">( 6 reviews )</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product text-center">
-                            <figure class="product-media">
-                                <a href="demo17-product.html">
-                                    <img src="/theme/images/demos/demo17/products/11.jpg" alt="product" width="280"
-                                        height="315">
-                                </a>
-                                <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
-                                        data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i
-                                            class="d-icon-heart"></i></a>
-                                </div>
-                                <div class="product-action">
-                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <h3 class="product-name">
-                                    <a href="demo17-product.html">Brown leather backpacks</a>
-                                </h3>
-                                <div class="product-price">
-                                    <span class="price">$35.00</span>
-                                </div>
-                                <div class="ratings-container">
-                                    <div class="ratings-full">
-                                        <span class="ratings" style="width:80%"></span>
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div>
-                                    <a href="demo17-product.html" class="rating-reviews">( 6 reviews )</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product text-center">
-                            <figure class="product-media">
-                                <a href="demo17-product.html">
-                                    <img src="/theme/images/demos/demo17/products/12.jpg" alt="product" width="280"
-                                        height="315">
-                                </a>
-                                <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
-                                        data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
-                                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i
-                                            class="d-icon-heart"></i></a>
-                                </div>
-                                <div class="product-action">
-                                    <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <h3 class="product-name">
-                                    <a href="demo17-product.html">Beyond Riode Original Hood</a>
-                                </h3>
-                                <div class="product-price">
-                                    <span class="price">$35.00</span>
-                                </div>
-                                <div class="ratings-container">
-                                    <div class="ratings-full">
-                                        <span class="ratings" style="width:20%"></span>
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div>
-                                    <a href="demo17-product.html" class="rating-reviews">( 6 reviews )</a>
-                                </div>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
+                        <?php endif;?>
+ 
                     </div>
                 </section>
 
+                <section class="space-section"></section> <!--Padding Section-->
+
+                <section class="text-section">
+                <div style="margin:auto;" class="container justify-content-center row">
+                    <div class="col-12 text-left">
+                        <h1 class="banner-title appear-animate font-weight-bold" data-animation-options="{
+                                        'name': 'fadeInLeftShorter',
+                                        'delay': '.7s'
+                                    }" style="animation-duration: 1.2s;color:#0088aa;"><i>Quality Custom Metal Art</i></h1>
+                        </h1>
+                        <p class="col-lg-6 ml-3 text-black appear-animate font-weight-bold" data-animation-options="{
+                                        'name': 'fadeInLeftShorter',
+                                        'delay': '.85s'
+                                    }" style="animation-duration: 1.4s;"><i>KurzMetalArt is a proud manufacturer of American quality plasma art. We have a simple design process as well as a wide selection of CNC metal art in our inventory. Our team loves what we do and we are always working on new designs. Get started with a custom yard sign or custom metal sign order <a style="color:#0088aa" href="/custom">here.</a> </i></p><br><br>
+                        </h1>
+                    </div>
+
+                    <div class="col-12 text-right">
+                        <h1 class="banner-title appear-animate font-weight-bold" data-animation-options="{
+                            'name': 'fadeInRightShorter',
+                            'delay': '1.2s'
+                        }" style="animation-duration: 1.2s;color:#49bdce;"><i>Special Occasion Signs</i></h1>
+                        <p class=" text-right mr-3 col-6 text-black appear-animate font-weight-bold" data-animation-options="{
+                                        'name': 'fadeInRightShorter',
+                                        'delay': '.85s'
+                                    }" style="animation-duration: 1.4s;margin-left:50%;">A special occasion should be just that, SPECIAL! Monogram art is really popular for weddings, Father's Day, Mother's Day, and anniversarys. Another popular choice is custom holiday signs. <br>
+                                    We offer Custom Christmas Signs, Custom Valentine's Day Signs, Custom Birthday Gifts, Memorial Day, 4th of July &  much more!</p><br><br>
+                    </div>
+                </div>
+                </section>
+
+                <section class="space-section"></section> <!--Padding Section-->
             </div>
         </main>
         <!-- End Main -->
