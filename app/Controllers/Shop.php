@@ -150,6 +150,35 @@ class Shop extends BaseController
         require '/var/www/html/public/vendor/init.php';
     
         \Stripe\Stripe::setApiKey('sk_test_hI7hDHpEKvi0AxBTs76xQIFg');
+
+        $stripe = new \Stripe\StripeClient(
+            'sk_test_hI7hDHpEKvi0AxBTs76xQIFg'
+          );
+
+          $YOUR_DOMAIN = 'https://3.15.181.4/';
+
+          $checkout_session = \Stripe\Checkout\Session::create([
+            'payment_method_types' => ['card'],
+            'line_items' => [[
+              'price_data' => [
+                'currency' => 'usd',
+                'unit_amount' => 2000,
+                'product_data' => [
+                  'name' => 'Stubborn Attachments',
+                  'images' => ["https://i.imgur.com/EHyR2nP.png"],
+                ],
+              ],
+              'quantity' => 1,
+            ]],
+            'mode' => 'payment',
+            'success_url' => $YOUR_DOMAIN . '/success.html',
+            'cancel_url' => $YOUR_DOMAIN . '/cancel.html',
+          ]);
+
+          $data['stripeId'] = json_encode(['id' => $checkout_session->id]);
+
+
+          
         
         $data['title'] = 'Kurz Metal Art | Shop';
         $data['metaData'] = "";
@@ -198,13 +227,7 @@ class Shop extends BaseController
             'sk_test_hI7hDHpEKvi0AxBTs76xQIFg'
           );
 
-        //create stripe charge
-        $stripe->charges->create([
-            'amount' => $_SESSION['varPrice'][0].'00',
-            'currency' => 'usd',
-            'source' => 'tok_amex',
-            'description' => 'My First Test Charge (created for API docs)',
-          ]);
+
         
         $data['title'] = 'Kurz Metal Art | Shop';
         $data['metaData'] = "";
@@ -215,38 +238,17 @@ class Shop extends BaseController
         $data['catId'] = $uri->getSegment(2);
         $data['uri2'] = '';
 
-        echo $token;
+        var_dump($_POST);
         echo "submitted";
+
         }
 
-        public function debug() {
-        require '/var/www/html/public/vendor/init.php';
-    
-        \Stripe\Stripe::setApiKey('sk_test_hI7hDHpEKvi0AxBTs76xQIFg');
 
-        header('Content-Type: application/json');
 
-        $YOUR_DOMAIN = 'http://localhost:4242';
-
-        $checkout_session = \Stripe\Checkout\Session::create([
-        'payment_method_types' => ['card'],
-        'line_items' => [[
-            'price_data' => [
-            'currency' => 'usd',
-            'unit_amount' => $_SESSION['varPrice'][1],
-            'product_data' => [
-                'name' => 'Stubborn Attachments',
-                'images' => ["https://i.imgur.com/EHyR2nP.png"],
-            ],
-            ],
-            'quantity' => 1,
-        ]],
-        'mode' => 'payment',
-        'success_url' => $YOUR_DOMAIN . '/success.html',
-        'cancel_url' => $YOUR_DOMAIN . '/cancel.html',
-        ]);
-        echo $_SESSION['varPrice'][0];
-        echo json_encode(['id' => $checkout_session->id]);
+        public function create_checkout_session() {
+            $session = \Config\Services::session();
+            $request = \Config\Services::request();
+            checkoutSesh();
         }
 
 
