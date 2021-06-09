@@ -195,15 +195,5 @@ class Shop extends BaseController
         }
 
 
-        public function create_checkout_session() {
-            $session = \Config\Services::session();
-            $request = \Config\Services::request();
-            
-            require '/var/www/html/public/vendor/init.php';
-            
-            echo view('stripe');
- 
-        }
-
 
 }//end of controller

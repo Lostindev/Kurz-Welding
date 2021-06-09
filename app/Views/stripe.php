@@ -14,7 +14,18 @@
                 'unit_amount' => 2000,
             ],
             'quantity' => 1,
-            ]],
+        ],
+        [
+            'price_data' => [
+                'currency' => 'usd',
+                'product_data' => [
+                'name' => 'Product 2',
+                ],
+                'unit_amount' => 4500,
+            ],
+            'quantity' => 1,
+            ]
+        ],
             'mode' => 'payment',
             'success_url' => 'https://example.com/success',
             'cancel_url' => 'https://example.com/cancel',
