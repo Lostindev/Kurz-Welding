@@ -1,27 +1,26 @@
 <?php
     
-        
+        $ciSession = \Config\Services::session();
+
+        if(isset($_SESSION['varPrice'])) {
+          $sum = array_sum($_SESSION['varPrice']);
+          $stripeCharge = $sum.'00';
+        };
+
         \Stripe\Stripe::setApiKey('sk_test_hI7hDHpEKvi0AxBTs76xQIFg');
-    
+        
+
+        
         $session = \Stripe\Checkout\Session::create([
             'payment_method_types' => ['card'],
-            'line_items' => [[
-            'price_data' => [
-                'currency' => 'usd',
-                'product_data' => [
-                'name' => 'T-shirt',
-                ],
-                'unit_amount' => 2000,
-            ],
-            'quantity' => 1,
-        ],
+            'line_items' => [
         [
             'price_data' => [
                 'currency' => 'usd',
                 'product_data' => [
-                'name' => 'Product 2',
+                'name' => 'Test 6/9',
                 ],
-                'unit_amount' => 4500,
+                'unit_amount' => $stripeCharge,
             ],
             'quantity' => 1,
             ]
