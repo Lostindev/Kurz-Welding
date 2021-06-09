@@ -114,7 +114,7 @@ class Home extends BaseController
 
 
 		$userLink = site_url('home/activate-account/'.$data['link']);
-		$emailMessage = '<p>Hi! We\'re glad to have to join the community, get started by clicking the link below to activate your account:<br><br>
+		$emailMessage = '<p>Hi! We\'re glad to have you join the community, get started by clicking the link below to activate your account:<br><br>
 		<a href="'.$userLink.'">Activate Account</a> ';
 
 		$to = $data['email'];

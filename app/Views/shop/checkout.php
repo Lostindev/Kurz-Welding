@@ -76,7 +76,7 @@
 									</div>
 								</div>
 								<label>Company Name (Optional)</label>
-								<input type="text" class="form-control" name="company-name" required="" value="<?php if (isset($bSpec['bCompany'])) echo $bSpec['bCompany']; ?>" />
+								<input type="text" class="form-control" name="company-name" value="<?php if (isset($bSpec['bCompany'])) echo $bSpec['bCompany']; ?>" />
 								<label>Country / Region *</label>
 								<div class="select-box">
 										<select style="max-width: 100%;width:100%;    padding: 1rem 1.4rem .8rem;
@@ -91,22 +91,22 @@
 								<label>Street Address *</label>
 								<input type="text" class="form-control" name="address1" required=""
 									value="<?php if (isset($bSpec['bAddress'])) echo $bSpec['bAddress']; ?>" placeholder="House number and street name" />
-								<input type="text" class="form-control" name="address2" required="" value="<?php if (isset($bSpec['bApt'])) echo $bSpec['bApt']; ?>"
+								<input type="text" class="form-control" name="address2" value="<?php if (isset($bSpec['bApt'])) echo $bSpec['bApt']; ?>"
 									placeholder="Apartment, suite, unit, etc. (optional)" />
 								<div class="row">
 									<div class="col-xs-6">
 										<label>Town / City *</label>
-										<input type="text" class="form-control" name="city" required="" />
+										<input type="text" class="form-control" name="city" required="" value="<?php if (isset($bSpec['bCity'])) echo $bSpec['bCity']; ?>" />
 									</div>
 									<div class="col-xs-6">
 										<label>State *</label>
-										<input type="text" class="form-control" name="state" required="" />
+										<input type="text" class="form-control" name="state" required="" value="<?php if (isset($bSpec['bState'])) echo $bSpec['bState']; ?>" />
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-xs-6">
 										<label>ZIP *</label>
-										<input type="text" class="form-control" name="zip" required="" />
+										<input type="text" class="form-control" name="zip" required="" value="<?php if (isset($bSpec['bZip'])) echo $bSpec['bZip']; ?>" />
 									</div>
 									<div class="col-xs-6">
 										<label>Phone *</label>
@@ -144,12 +144,12 @@
 											</thead>
 											<tbody>
 												<tr>
-													<td class="product-name">Fashionable Overnight Bag <span
+													<td class="product-name">Cart Item  <span
 															class="product-quantity">×&nbsp;1</span></td>
 													<td class="product-total text-body">$110.00</td>
 												</tr>
 												<tr>
-													<td class="product-name">Mackintosh Poket backpack <span
+													<td class="product-name">Cart mySQLi Object<span
 															class="product-quantity">×&nbsp;1</span></td>
 													<td class="product-total text-body">$180.00</td>
 												</tr>
