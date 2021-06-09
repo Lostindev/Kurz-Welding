@@ -66,6 +66,12 @@ class Shop extends BaseController
         $name = (str_replace('-', ' ', strtolower($id)));
         $data['product'] = $productsDB->getWhere(['pStatus'=>1,'pName'=>$name],)->getResultArray();
         if (count($data['product']) > 0) {
+
+            //Get all Products
+		    $productsDB = new ModProducts();
+		    $data['allProducts'] = $productsDB->where('pStatus',1)
+				->orderBy('pId', 'RANDOM')
+				->findAll();
             echo view('user/header', $data);
             echo view('user/css', $data);
             echo view('user/navbar', $data);

@@ -17,10 +17,9 @@
 								<thead>
 									<tr>
 										<th class="text-right"><span>Product</span></th>
-										<th></th>
-										<th><span>Price</span></th>
-										<th><span>quantity</span></th>
-										<th>Subtotal</th>
+										<th class="text-left"></th>
+										<th class="text-left"><span>Price</span></th>
+										<th class="text-right">Remove</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -47,14 +46,6 @@
 										</td>
 										<td class="product-subtotal">
 											<span class="amount"><?php echo '$'.$_SESSION['varPrice'][$a]; ?></span>
-										</td>
-										<td class="product-quantity">
-											<div class="input-group">
-												<button class="quantity-minus d-icon-minus"></button>
-												<input class="quantity form-control" type="number" min="1"
-													max="1000000">
-												<button class="quantity-plus d-icon-plus"></button>
-											</div>
 										</td>
 										<td class="product-price">
 											<span class="amount"></span>

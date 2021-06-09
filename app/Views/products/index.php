@@ -228,10 +228,16 @@
 								}
 							}
 						}">
+						<?php if(isset($allProducts)): ?>
+                        <?php $i=1; ?>
+                        <?php foreach($allProducts as $product): 
+                            if ($i++ == 5) break;
+                        ?>
+                        <?php $pUrl = (str_replace(' ', '-', strtolower($product['pName']))); ?>
 							<div class="product">
 								<figure class="product-media">
-									<a href="product.html">
-										<img src="/theme/images/product/featured1.jpg" alt="product" width="280" height="315">
+									<a href="<?php echo base_url('/shop/custom-metal-art/'.$pUrl) ; ?>">
+										<img src="<?php echo base_url('/img/products/'.$product['pDp']); ?>" alt="product" style="height:230px;width:330px;">
 									</a>
 									<div class="product-label-group">
 										<label class="product-label label-new">new</label>
@@ -249,136 +255,28 @@
 								</figure>
 								<div class="product-details">
 									<div class="product-cat">
-										<a href="shop-grid-3col.html">Clothing</a>
+										<a href="/shop">Clothing</a>
 									</div>
 									<h3 class="product-name">
-										<a href="product.html">Solid Pattern in Summer Dress</a>
+										<a href="<?php echo base_url('/shop/custom-metal-art/'.$product['pName']) ?>"><?php echo $product['pName']; ?></a>
 									</h3>
 									<div class="product-price">
-										<span class="price">$140.00</span>
+										<span class="price">$<?php echo $product['pPrice'] ?></span>
 									</div>
 									<div class="ratings-container">
 										<div class="ratings-full">
 											<span class="ratings" style="width:100%"></span>
 											<span class="tooltiptext tooltip-top"></span>
 										</div>
-										<a href="#" class="rating-reviews">( <span class="review-count">12</span>
+										<a href="#" class="rating-reviews">( <span class="review-count">3+</span>
 											reviews
 											)</a>
 									</div>
 								</div>
 							</div>
-							<div class="product">
-								<figure class="product-media">
-									<a href="product.html">
-										<img src="/theme/images/product/featured2.jpg" alt="product" width="280" height="315">
-									</a>
-									<div class="product-label-group">
-										<label class="product-label label-sale">27% off</label>
-									</div>
-									<div class="product-action-vertical">
-										<a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
-											data-target="#addCartModal" title="Add to cart"><i
-												class="d-icon-bag"></i></a>
-										<a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i
-												class="d-icon-heart"></i></a>
-									</div>
-									<div class="product-action">
-										<a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-									</div>
-								</figure>
-								<div class="product-details">
-									<div class="product-cat">
-										<a href="shop-grid-3col.html">Bags & Backpacks</a>
-									</div>
-									<h3 class="product-name">
-										<a href="product.html">Mackintosh Poket Backpack</a>
-									</h3>
-									<div class="product-price">
-										<ins class="new-price">$125.99</ins><del class="old-price">$160.99</del>
-									</div>
-									<div class="ratings-container">
-										<div class="ratings-full">
-											<span class="ratings" style="width:60%"></span>
-											<span class="tooltiptext tooltip-top"></span>
-										</div>
-										<a href="#" class="rating-reviews">( <span class="review-count">6</span> reviews
-											)</a>
-									</div>
-								</div>
-							</div>
-							<div class="product">
-								<figure class="product-media">
-									<a href="product.html">
-										<img src="/theme/images/product/featured3.jpg" alt="product" width="280" height="315">
-									</a>
-									<div class="product-action-vertical">
-										<a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
-											data-target="#addCartModal" title="Add to cart"><i
-												class="d-icon-bag"></i></a>
-										<a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i
-												class="d-icon-heart"></i></a>
-									</div>
-									<div class="product-action">
-										<a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-									</div>
-								</figure>
-								<div class="product-details">
-									<div class="product-cat">
-										<a href="shop-grid-3col.html">Clothing</a>
-									</div>
-									<h3 class="product-name">
-										<a href="product.html">Fashionable Orginal Trucker</a>
-									</h3>
-									<div class="product-price">
-										<span class="price">$78.64</span>
-									</div>
-									<div class="ratings-container">
-										<div class="ratings-full">
-											<span class="ratings" style="width:40%"></span>
-											<span class="tooltiptext tooltip-top"></span>
-										</div>
-										<a href="#" class="rating-reviews">( <span class="review-count">2</span> reviews
-											)</a>
-									</div>
-								</div>
-							</div>
-							<div class="product">
-								<figure class="product-media">
-									<a href="product.html">
-										<img src="/theme/images/product/featured4.jpg" alt="product" width="280" height="315">
-									</a>
-									<div class="product-action-vertical">
-										<a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
-											data-target="#addCartModal" title="Add to cart"><i
-												class="d-icon-bag"></i></a>
-										<a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i
-												class="d-icon-heart"></i></a>
-									</div>
-									<div class="product-action">
-										<a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-									</div>
-								</figure>
-								<div class="product-details">
-									<div class="product-cat">
-										<a href="shop-grid-3col.html">Clothing</a>
-									</div>
-									<h3 class="product-name">
-										<a href="product.html">Women Red Fur Overcoat</a>
-									</h3>
-									<div class="product-price">
-										<span class="price">$184.00</span>
-									</div>
-									<div class="ratings-container">
-										<div class="ratings-full">
-											<span class="ratings" style="width:80%"></span>
-											<span class="tooltiptext tooltip-top"></span>
-										</div>
-										<a href="#" class="rating-reviews">( <span class="review-count">6</span> reviews
-											)</a>
-									</div>
-								</div>
-							</div>
+							<?php endforeach;?>
+                       		<?php endif; ?>
+
 						</div>
 					</section>
 				</div>
