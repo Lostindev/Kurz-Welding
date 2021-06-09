@@ -61,7 +61,7 @@
 							</div>
 						</div>
 					</div>
-					
+					<form action="/shop/checkout-submit" method="POST" id="payment-form" class="form">
 						<div class="row">
 							<div class="col-lg-7 mb-6 mb-lg-0 pr-lg-4">
 								<h3 class="title title-simple text-left text-uppercase">Billing Details</h3>
@@ -222,7 +222,7 @@
 											</label>
 										</div>
 
-                                        <button  class="btn btn-dark btn-rounded btn-order" id="checkout-button">Place Order</button>
+                                        <button class="btn btn-dark btn-rounded btn-order" id="checkout-button">Place Order</button>
 												
 									</div>
 								</div>
