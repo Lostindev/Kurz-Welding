@@ -300,6 +300,9 @@
                                         <a href="<?php echo base_url('/shop/custom-metal-art/'.$pUrl) ; ?>">
                                             <img style="height:200px;width:auto;margin:auto;" src="<?php echo base_url('/img/products/'.$product['pDp']); ?>" alt="product">
                                         </a>
+                                        <div class="product-label-group">
+                                            <label class="product-label label-sale">25% off</label>
+                                        </div>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
                                                 data-target="#addCartModal" title="Add to cart"><i
@@ -452,7 +455,7 @@
                                     <img style="height:200px;width:auto;margin:auto;" src="<?php echo base_url('/img/products/'.$productFeatured['pDp']); ?>" alt="product">
                                 </a>
                                 <div class="product-label-group">
-                                    <label class="product-label label-sale">27% off</label>
+                                    <label class="product-label label-sale">25% off</label>
                                 </div>
                                 <div class="product-action-vertical">
                                     <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"

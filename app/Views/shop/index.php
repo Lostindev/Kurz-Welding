@@ -109,7 +109,7 @@
 												<img style="height:200px;width:auto;margin:auto;" src="<?php echo base_url('/img/products/'.$product['pDp']); ?>" alt="product" width="280" height="315">
 											</a>
 											<div class="product-label-group">
-												<label class="product-label label-new">new</label>
+												<label class="product-label label-sale">25% off</label>
 											</div>
 											<div class="product-action-vertical">
 												<a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
@@ -124,20 +124,21 @@
 										</figure>
 										<div class="product-details">
 											<div class="product-cat">
-												<a href="shop-grid-3col.html">Bags & Backpacks</a>
+												<a href="#">Custom Metal Art</a>
 											</div>
 											<h3 class="product-name">
-												<a href="product.html"><?php echo $product['pName'];?></a>
+												<a href="<?php echo base_url('/shop/custom-metal-art/'.$pUrl) ; ?>"><?php echo $product['pName'];?></a>
 											</h3>
 											<div class="product-price">
-												<ins class="new-price">$<?php echo $product['pPrice'];?></ins><del class="old-price">$67.99</del>
+											<?php  $lightPrice =  $product['pPrice']*1.25  ?>
+												<ins class="new-price">$<?php echo $product['pPrice'];?></ins><del class="old-price">$<?php echo $lightPrice ?></del>
 											</div>
 											<div class="ratings-container">
 												<div class="ratings-full">
-													<span class="ratings" style="width:60%"></span>
+													<span class="ratings" style="width:100%"></span>
 													<span class="tooltiptext tooltip-top"></span>
 												</div>
-												<a href="product.html" class="rating-reviews">( 16 reviews )</a>
+												<a href="#" class="rating-reviews">( 3+ reviews )</a>
 											</div>
 										</div>
 									</div>

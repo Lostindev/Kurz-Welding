@@ -240,8 +240,8 @@
 										<img src="<?php echo base_url('/img/products/'.$product['pDp']); ?>" alt="product" style="height:230px;width:330px;">
 									</a>
 									<div class="product-label-group">
-										<label class="product-label label-new">new</label>
-									</div>
+                                    	<label class="product-label label-sale">25% off</label>
+                                	</div>
 									<div class="product-action-vertical">
 										<a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
 											data-target="#addCartModal" title="Add to cart"><i
