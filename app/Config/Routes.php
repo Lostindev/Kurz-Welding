@@ -34,6 +34,9 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+$routes->get("stripe", "StripeController::stripe");
+$routes->post("payment", "StripeController::payment");
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -15,6 +15,14 @@
  */
 defined('APP_NAMESPACE') || define('APP_NAMESPACE', 'App');
 
+//...
+
+defined("STRIPE_KEY") || define('STRIPE_KEY', "pk_test_MaQhP2b8XqG9R7PTL6VUmipt");
+defined("STRIPE_SECRET") || define('STRIPE_SECRET', "sk_test_MtVxg0tJfCGJXQY8xZlu69Ie");
+
+//...
+
+
 /*
  | --------------------------------------------------------------------------
  | Composer Path
