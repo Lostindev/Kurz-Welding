@@ -10,25 +10,29 @@
         \Stripe\Stripe::setApiKey('sk_test_hI7hDHpEKvi0AxBTs76xQIFg');
         
 
+            $session = \Stripe\Checkout\Session::create([
+              'payment_method_types' => ['card'],
+              'line_items' => [
+          [
+              'price_data' => [
+                  'currency' => 'usd',
+                  'product_data' => [
+                  'name' => 'Kurz Metal Art Order',
+                  ],
+                  'unit_amount' => $stripeCharge,
+              ],
+              'quantity' => 1,
+              ]
+          ],
+              'mode' => 'payment',
+              'success_url' => 'http://3.15.181.4/shop/success',
+              'cancel_url' => 'http://3.15.181.4/shop/success',
+          ]
         
-        $session = \Stripe\Checkout\Session::create([
-            'payment_method_types' => ['card'],
-            'line_items' => [
-        [
-            'price_data' => [
-                'currency' => 'usd',
-                'product_data' => [
-                'name' => 'Test 6/9',
-                ],
-                'unit_amount' => $stripeCharge,
-            ],
-            'quantity' => 1,
-            ]
-        ],
-            'mode' => 'payment',
-            'success_url' => 'https://example.com/success',
-            'cancel_url' => 'https://example.com/cancel',
-        ]);
+        );
+        
+        
+
  ?>
 
 
