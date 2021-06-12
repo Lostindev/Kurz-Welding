@@ -17,8 +17,7 @@
                                 </div>
                             </div>
         <?php endif; ?>
-
-            <?php echo form_open_multipart('/admin/addProduct','')?>
+            <form enctype="multipart/form-data" action="/admin/addProduct" method="POST">
             <div class="form-group">
                 <?php echo form_input('productName','',array('class'=>"form-control", 'placeholder'=>'Enter Product Name (No dashes ---)')); ?>
             </div>
