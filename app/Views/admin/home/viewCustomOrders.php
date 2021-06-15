@@ -65,8 +65,8 @@
                             </a>
                         </td>
                         <td>
-                            <a href="<?php echo site_url('/admin/deleteGallery/'.$getResult['coId'])?>" class="btn btn-danger deleteCat" data-id="<?php echo $getResult['coId']; ?>" data-text="<?php echo $getResult['coId'] ;?>" >
-                            Update
+                            <a href="<?php echo site_url('/admin/deleteCustomOrder/'.$getResult['coId'])?>" class="btn btn-danger deleteCat" data-id="<?php echo $getResult['coId']; ?>" data-text="<?php echo $getResult['coId'] ;?>" >
+                            Delete
                             </a>
                         </td>
                     </tr>

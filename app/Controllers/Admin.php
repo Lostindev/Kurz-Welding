@@ -1540,4 +1540,38 @@ class Admin extends BaseController
             return redirect()->to(base_url('/admin/login'));
         }
     }
+
+    public function deleteCustomOrder($coId) {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        
+        if (adminLoggedIn()) {
+
+            if (!empty($coId) && isset($coId)) {
+                $adminDB = new ModCustomOrders();
+                $result = $adminDB->where('coId',$coId)->delete();
+
+                if ($result) {
+  
+                    $session->setFlashdata('successMessage','Custom order successfully deleted.');
+                    $session->keepFlashdata('sucessMessage');
+                    return redirect()->to(base_url('/admin/viewCustomOrders'));
+                } else {
+                    $session->setFlashdata('message','Something went wrong, please try again.');
+                    $session->keepFlashdata('message');
+                    return redirect()->to(base_url('/admin/viewCustomOrders'));
+                }
+                
+            } else {
+                $session->setFlashdata('message','Something went wrong, please try again.');
+                $session->keepFlashdata('message');
+                return redirect()->to(base_url('/admin/viewCustomOrders'));
+            }
+
+        } else {
+            $session->setFlashdata('message','Please login to delete custom orders.');
+            $session->keepFlashdata('message');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
 } //end of controller
