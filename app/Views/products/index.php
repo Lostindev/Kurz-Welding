@@ -116,7 +116,7 @@
 									</ul>
 -->
 								</div>
-
+								<?php $loadDimensions = getDimensions($product[0]['pId']); ?>
 								<h1 class="product-name"><?php echo $product[0]['pName'];?></h1>
 								<div class="product-meta">
 									ID: <span class="product-sku"><?php echo $product[0]['pId'];?></span>
@@ -130,6 +130,7 @@
 									</div>
 									<a href="#product-tab-reviews" class="link-to-tab rating-reviews">( 11 reviews )</a>
 								</div>
+								<form action="<?php echo '/shop/add-to-cart/'.$product[0]['pId']; ?>" method="POST">
 								<p class="product-short-desc"><?php echo $product[0]['pDescription'];?></p>
 								<div class="product-form product-variations product-color">
 									<label>Color:</label>
@@ -140,18 +141,18 @@
 											<option value="black">Gloss Black</option>
 											<option value="brown">White</option>
 											<option value="red">Red</option>
-											<option value="green">Teal</option>
-											<option value="yellow">Bronze</option>
+											<option value="teal">Teal</option>
+											<option value="bronze">Bronze</option>
 										</select>
 									</div>
 								</div>
 								<div class="product-form product-variations product-size">
 									<label>Size:</label>
-									<?php $loadDimensions = getDimensions($product[0]['pId']); ?>
+							
 									<?php if (count($loadDimensions) > 0): ?>
 									<div class="product-form-group">
 										<div class="select-box">
-											<select id="sizeSelect" name="size" class="form-control">
+											<select id="sizeSelect" name="sizeSelect" class="form-control">
 												<option value="" selected="selected"><?php echo $loadDimensions[0]['spName'] ?></option>
 												<?php $specValues = getDimensionValues($loadDimensions[0]['spId']); ?>
 												
@@ -166,7 +167,6 @@
 									</div>
 									<?php endif; ?>
 								</div>
-								<form action="<?php echo '/shop/add-to-cart/'.$product[0]['pId']; ?>" method="POST">
 								<div class="product-variation-price">
 									<span>$79</span>
 									<input type="hidden" name="var-price" id="var-price"></input>

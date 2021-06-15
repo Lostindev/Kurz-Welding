@@ -2,7 +2,7 @@
 
 require '/var/www/html/public/vendor/init.php';
         
-\Stripe\Stripe::setApiKey('sk_test_hI7hDHpEKvi0AxBTs76xQIFg');
+\Stripe\Stripe::setApiKey('sk_test_51J0Z2pGou0fkx6yrG69qBHLG7NeP7Sa0wTBZrosjFvX4cSsr7NHAJWk9992PQqNe8tqkXwg4j6y857BOZesTGPEy00uhyVVe2i');
 
   header('Content-Type: application/json');
   
@@ -22,8 +22,8 @@ require '/var/www/html/public/vendor/init.php';
       'quantity' => 1,
     ]],
     'mode' => 'payment',
-    'success_url' => $YOUR_DOMAIN . '/success.html',
-    'cancel_url' => $YOUR_DOMAIN . '/cancel.html',
+    'success_url' => $YOUR_DOMAIN . '/shop/success',
+    'cancel_url' => $YOUR_DOMAIN . '/shop/cancel',
   ]);
   
   echo json_encode(['id' => $checkout_session->id]);

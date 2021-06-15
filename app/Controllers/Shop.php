@@ -7,9 +7,14 @@ use App\Models\ModAdmin;
 
 use App\Models\ModProducts;
 
+use App\Models\ModSub;
+
+use App\Models\ModSpec;
+
+use App\Models\ModSpecValues;
+
 use CodeIgniter\Controller;
 
-use App\Models\ModSub;
 
 class Shop extends BaseController
 {
@@ -116,25 +121,44 @@ class Shop extends BaseController
     public function add_to_cart($pId = NULL) {
         $session = \Config\Services::session();
         $request = \Config\Services::request();
-
        
         if (!empty($pId) && isset($pId)) { 
             if (empty($_SESSION['cart'])) {
                 //Create Array
                 $_SESSION['cart'] = array();
                 $_SESSION['varPrice'] = array();
+                $_SESSION['varColor'] = array();
+                $_SESSION['varDimensions'] = array();
             } 
 
-            $prePrice = $request->getPost('var-price');
+            $specDB = new ModSpec();
+            $valuesDB = new ModSpecValues();
 
+            //Set new price
+            $prePrice = $request->getPost('var-price');
             $varPrice = str_replace("$","", $prePrice);
-            
+
+            //Get the color selection
+            $varColor = $request->getPost('color');
+
+            //Get Dimensions
+            $varSize = $request->getPost('sizeSelect');
 
             //Add to cart
             array_push($_SESSION['cart'], $pId);
 
             //Add Price Variation
             array_push($_SESSION['varPrice'], $varPrice);
+
+            //Add Color to Cart
+            array_push($_SESSION['varColor'], $varColor);
+
+            //Add Dimensions to cart
+            $getSpec = $specDB->getWhere(['productId'=>$pId])->getResultArray();
+
+            $newSize = $valuesDB->getWhere(['specId'=>$getSpec[0]['spId'],'spvPrice'=>$varSize])->getResultArray();
+
+            array_push($_SESSION['varDimensions'], $newSize[0]['spvName']);
 
             //Redirect to cart
             $session->setFlashdata('successMessage','Product successfully added to cart!');
@@ -197,7 +221,6 @@ class Shop extends BaseController
         require '/var/www/html/public/vendor/init.php';
             
         return view('stripe');
-
         }
 
         public function addOrderDb() {
@@ -207,7 +230,7 @@ class Shop extends BaseController
             require_once '/var/www/html/public/vendor/init.php';
             // Set your secret key. Remember to switch to your live secret key in production.
             // See your keys here: https://dashboard.stripe.com/apikeys
-            \Stripe\Stripe::setApiKey('sk_test_hI7hDHpEKvi0AxBTs76xQIFg');
+            \Stripe\Stripe::setApiKey('sk_test_51J0Z2pGou0fkx6yrG69qBHLG7NeP7Sa0wTBZrosjFvX4cSsr7NHAJWk9992PQqNe8tqkXwg4j6y857BOZesTGPEy00uhyVVe2i');
 
             // If you are testing your webhook locally with the Stripe CLI you
             // can find the endpoint's secret by running `stripe listen`
