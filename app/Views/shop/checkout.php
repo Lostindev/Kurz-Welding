@@ -201,16 +201,19 @@
 												</tr>
 											</thead>
 											<tbody>
+												<?php  $session = \Config\Services::session();?>
+												<?php $a = -1 ?>
+												<?php if (loadCart()): ?>
+												<?php $cart = loadCart() ;?>
+												<?php foreach ($cart->getResult() as $row):?>
+												<?php $a++ ;?>
 												<tr>
-													<td class="product-name">Cart Item  <span
+													<td class="product-name"><?php echo $_SESSION['varColor'][$a].'&nbsp'; echo $row->pName; echo ',&nbsp'.$_SESSION['varDimensions'][$a];  ?> <span
 															class="product-quantity">×&nbsp;1</span></td>
-													<td class="product-total text-body">$110.00</td>
+													<td class="product-total text-body"><?php echo '$'.$_SESSION['varPrice'][$a]; ?></td>
 												</tr>
-												<tr>
-													<td class="product-name">Cart mySQLi Object<span
-															class="product-quantity">×&nbsp;1</span></td>
-													<td class="product-total text-body">$180.00</td>
-												</tr>
+												<?php endforeach; ?>
+												<?php endif; ?>
 												<tr class="summary-subtotal">
 													<td>
 														<h4 class="summary-subtitle">Subtotal</h4>
@@ -223,6 +226,7 @@
 													<?php endif; ?>
 													</td>
 												</tr>
+												<!-- Shipping calculator 
 												<tr class="sumnary-shipping shipping-row-last">
 													<td colspan="2">
 														<h4 class="summary-subtitle">Calculate Shipping</h4>
@@ -257,6 +261,7 @@
 														</ul>
 													</td>
 												</tr>
+													-->
 												<tr class="summary-total">
 													<td class="pb-0">
 														<h4 class="summary-subtitle">Total</h4>
