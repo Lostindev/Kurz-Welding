@@ -18,6 +18,8 @@
 									<tr>
 										<th class="text-right"><span>Product</span></th>
 										<th class="text-left"></th>
+										<th class="text-left"><span>Size</span></th>
+										<th class="text-left"><span>Color</span></th>
 										<th class="text-left"><span>Price</span></th>
 										<th class="text-right">Remove</th>
 									</tr>
@@ -42,6 +44,16 @@
 										<td class="product-name">
 											<div style="white-space: normal;" class="product-name-section">
 												<a href="#"><?php echo $row->pName; ?></a>
+											</div>
+										</td>
+										<td class="product-size">
+											<div style="white-space: normal;" class="product-size-section">
+												<a href="#"><?php echo $_SESSION['varDimensions'][$a]; ?></a>
+											</div>
+										</td>
+										<td class="product-color">
+											<div style="white-space: normal;" class="product-color-section">
+												<a href="#"><?php echo $_SESSION['varColor'][$a]; ?></a>
 											</div>
 										</td>
 										<td class="product-subtotal">

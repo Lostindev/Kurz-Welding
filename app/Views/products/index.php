@@ -137,12 +137,12 @@
 									<div class="select-box">
 										<select name="color" class="form-control">
 											<option value="" selected="selected">Choose an Option</option>
-											<option value="white">Flat Black</option>
-											<option value="black">Gloss Black</option>
-											<option value="brown">White</option>
-											<option value="red">Red</option>
-											<option value="teal">Teal</option>
-											<option value="bronze">Bronze</option>
+											<option value="Flat Black">Flat Black</option>
+											<option value="Gloss Black">Gloss Black</option>
+											<option value="White">White</option>
+											<option value="Red">Red</option>
+											<option value="Teal">Teal</option>
+											<option value="Bronze">Bronze</option>
 										</select>
 									</div>
 								</div>
