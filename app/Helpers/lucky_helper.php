@@ -226,7 +226,13 @@ function getUserOrders($uId) {
 
     if (userLoggedIn()) {
         $ordersDB = new ModOrders();
-        return $ordersDB->getWhere(['userId'=>$uId])->getResultArray();
+        $orders = $ordersDB->getWhere(['userId'=>$uId])->getResultArray();
+
+        if (isset($orders)) {
+            return $ordersDB->getWhere(['userId'=>$uId])->getResultArray();
+        } else {
+            return false;
+        }
     } else {
         echo 'You need to be logged in!';
     }

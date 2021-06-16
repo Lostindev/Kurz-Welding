@@ -101,6 +101,11 @@
                                     <tbody class="text-center">
 										<?php $userId = $_SESSION['uId']; ?>
 										<?php $getOrders = getUserOrders($userId); ?>
+										<?php if ($getOrders == FALSE): ?>
+										
+											<p>You have no orders.</p>
+							
+										<?php else: ?>
 										<?php foreach ($getOrders as $row): ?>
                                         <tr>
                                             <td class="order-number"><a href="#"><?php echo $row['tempId'] ?></a></td>
@@ -113,14 +118,15 @@
                                             <td class="order-action"><a href="#" class="btn btn-primary btn-link btn-underline">View</a></td>
                                         </tr>
 										<?php endforeach; ?>
+										<?php endif;?>
 										
                                     </tbody>
                                 </table>
 							</div>
-							<div class="tab-pane" id="downloads">
+							<!--gone<div class="tab-pane" id="downloads">
 								<p class="mb-4 text-body">No downloads available yet.</p>
 								<a href="#" class="btn btn-primary btn-link btn-underline">Browser Products<i class="d-icon-arrow-right"></i></a>
-							</div>
+							</div>-->
 							<div class="tab-pane" id="address">
 								<p class="mb-2">The following addresses will be used on the checkout page by default.
 								</p>
@@ -245,7 +251,7 @@
 
 										<!-- Modal content -->
 										<div class="modal-content">
-										<span class="close">&times;</span>
+										<span class="close close2">&times;</span>
 										<form action="/users/edit-shipping" method="POST" class="form">
 										<fieldset>
 
@@ -341,3 +347,32 @@
 				</div>
 			</div>
 		</main>
+
+		<script type="text/javascript">
+			// Get the <span> element that closes the modal
+			var span2 = document.getElementsByClassName("close2");
+
+			// Get the modal
+			var shippingModal = document.getElementById("shippingModal");
+
+			// When the user clicks on <span> (x), close the modal
+				span2.onclick = function() {
+				shippingModal.style.display = "none";
+				}
+
+			// Get the button that opens the modal
+			var shippingBtn = document.getElementById("editShipping");
+
+			// When the user clicks on the button, open the modal
+			shippingBtn.onclick = function() {
+			shippingModal.style.display = "block";
+			}
+
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function(event) {
+			if (event.target == shippingModal) {
+				shippingModal.style.display = "none";
+				
+			}
+			}
+</script>
