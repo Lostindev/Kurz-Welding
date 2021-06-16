@@ -203,9 +203,11 @@ class Shop extends BaseController
         public function checkout_submit($page = 'checkout') {
         $session = \Config\Services::session();
         $request = \Config\Services::request();
+        helper('text');
 
+        //get billing info
         $billingFirst = $request->getPost('first-name');
-        $billingFirst = $request->getPost('last-name');
+        $billingLast = $request->getPost('last-name');
         $billingCompany = $request->getPost('company');
         $billingCountry = $request->getPost('country');
         $billingAddress = $request->getPost('address1');
@@ -216,16 +218,55 @@ class Shop extends BaseController
         $billingPhone = $request->getPost('phone');
         $billingEmail = $request->getPost('email-address'); 
         $billingNotes = $request->getPost('order-notes'); 
-        $token = $request->getPost('stripeToken'); 
+        //$token = $request->getPost('stripeToken'); 
+
+
+        //get shipping info if different from billing
+        if (isset($_POST['different-address'])) {
+            $shippingFirst = $request->getPost('shipping-first');
+            $shippingLast = $request->getPost('shipping-last');
+            $shippingCompany = $request->getPost('shipping-company');
+            $shippingCountry = $request->getPost('shipping-country');
+            $shippingAddress = $request->getPost('shipping-address1');
+            $shippingApt = $request->getPost('shipping-address2');
+            $shippingCity = $request->getPost('shipping-city');
+            $shippingState = $request->getPost('shipping-state'); 
+            $shippingZip = $request->getPost('shipping-zip'); 
+            $shippingPhone = $request->getPost('shipping-phone');
+        } else { //set shipping address to same as billing 
+            $shippingFirst = $request->getPost('billing-first');
+            $shippingLast = $request->getPost('billing-last');
+            $shippingCompany = $request->getPost('billing-company');
+            $shippingCountry = $request->getPost('billing-country');
+            $shippingAddress = $request->getPost('billing-address1');
+            $shippingApt = $request->getPost('billing-address2');
+            $shippingCity = $request->getPost('billing-city');
+            $shippingState = $request->getPost('billing-state'); 
+            $shippingZip = $request->getPost('billing-zip'); 
+            $shippingPhone = $request->getPost('billing-phone');
+        }
+
+        $status = 'unpaid'; //set the unpaid status until we get stripe webhook
+        $tempId = random_string('alnum', 21); //generate a random id for temporary reference
+
+        //insert into database here:
+
+
+        //push the temp id to array so we can find the order in database to update payment status
+        //array_push($_SESSION['checkoutId'], $tempId);
+
+        
 
         require '/var/www/html/public/vendor/init.php';
-            
+        
+        die(); 
         return view('stripe');
         }
 
         public function addOrderDb() {
-
-            $orderDb = new OrdersDb();
+            $session = \Config\Services::session();
+            $request = \Config\Services::request();
+            //$orderDb = new OrdersDb();
 
             require_once '/var/www/html/public/vendor/init.php';
             // Set your secret key. Remember to switch to your live secret key in production.
@@ -235,7 +276,7 @@ class Shop extends BaseController
             // If you are testing your webhook locally with the Stripe CLI you
             // can find the endpoint's secret by running `stripe listen`
             // Otherwise, find your endpoint's secret in your webhook settings in the Developer Dashboard
-            $endpoint_secret = 'whsec_...';
+            $endpoint_secret = 'whsec_6ULwftIRzfFmRxNBfZhiwYnFXp8CGCjw';
 
             $payload = @file_get_contents('php://input');
             $sig_header = $_SERVER['HTTP_STRIPE_SIGNATURE'];
@@ -255,12 +296,36 @@ class Shop extends BaseController
                 exit();
             }
 
+            $id = $event->data->object->id;
+            $amount = $event->data->object->amount_captured;
+            $currency = $event->data->object->currency;
+            $cus_email = $event->data->object->receipt_email;
+            $status = $event->data->object->status;
+
             // Handle the event
             switch ($event->type) {
                 case 'payment_intent.succeeded':
                     $paymentIntent = $event->data->object; // contains a \Stripe\PaymentIntent
                     handlePaymentIntentSucceeded($paymentIntent);
                     break;
+
+                    case 'charge.succeeded':
+                        unset(
+                            $_SESSION['cart'],
+                            $_SESSION['varDimensions'],
+                            $_SESSION['varPrice'],
+                            $_SESSION['varColor']
+                    );
+                        break;
+
+                    case 'charge.failed':
+                        $paymentIntent = $event->data->object; // contains a \Stripe\PaymentIntent
+                        handlePaymentIntentSucceeded($paymentIntent);
+                    break;
+
+
+
+
                 case 'payment_method.attached':
                     $paymentMethod = $event->data->object; // contains a \Stripe\PaymentMethod
                     handlePaymentMethodAttached($paymentMethod);
