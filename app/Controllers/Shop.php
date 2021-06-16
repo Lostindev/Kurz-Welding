@@ -227,7 +227,7 @@ class Shop extends BaseController
         if (isset($_POST['different-address'])) {
             $dataUpload['shippingFirst'] = $request->getPost('shipping-first');
             $dataUpload['shippingLast'] = $request->getPost('shipping-last');
-            $dataUpload['shippingCompany'] = $request->getPost('shipping-company');
+            $dataUpload['shippingCompany'] = $request->getPost('company-name');
             $dataUpload['shippingCountry'] = $request->getPost('shipping-country');
             $dataUpload['shippingAddress'] = $request->getPost('shipping-address1');
             $dataUpload['shippingApt'] = $request->getPost('shipping-address2');

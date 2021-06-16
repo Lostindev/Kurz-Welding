@@ -3,6 +3,11 @@
 <?php foreach($billingAddress as $bSpec): ?>
 <?php endforeach; ?>
 <?php endif;?>
+<?php $shippingAddress = getShippingAddress(); ?>
+<?php if (!empty($shippingAddress)): ?>
+<?php foreach($shippingAddress as $sSpec): ?>
+<?php endforeach; ?>
+<?php endif;?>
 <script src="https://js.stripe.com/v3/"></script>
 
 <main class="main checkout">
@@ -122,11 +127,6 @@
 								</div>
 								<label>Email Address *</label>
 								<input type="text" class="form-control" name="email-address" required="" />
-								<div class="form-checkbox mb-0">
-									<input type="checkbox" class="custom-checkbox" id="create-account"
-										name="create-account">
-									<label class="form-control-label ls-s" for="create-account">Create an account?</label>
-								</div>
 								<div class="form-checkbox mb-6">
 									<input type="checkbox" class="custom-checkbox shipping-diff" id="different-address"
 										name="different-address">
@@ -143,15 +143,15 @@
 								<div class="row">
 									<div class="col-xs-6">
 										<label>First Name *</label>
-										<input type="text" class="form-control" name="shipping-first" required="" value="<?php if (isset($bSpec['bFirstName'])) echo $bSpec['bFirstName']; ?>" />
+										<input type="text" class="form-control" name="shipping-first" value="<?php if (isset($sSpec['shippingFirstName'])) echo $sSpec['bFirstName']; ?>" />
 									</div>
 									<div class="col-xs-6">
 										<label>Last Name *</label>
-										<input type="text" class="form-control" name="shipping-last" required="" value="<?php if (isset($bSpec['bLastName'])) echo $bSpec['bLastName']; ?>" />
+										<input type="text" class="form-control" name="shipping-last" value="<?php if (isset($sSpec['shippingLastName'])) echo $sSpec['shippingLastName']; ?>" />
 									</div>
 								</div>
 								<label>Company Name (Optional)</label>
-								<input type="text" class="form-control" name="shipping-company" value="<?php if (isset($bSpec['bCompany'])) echo $bSpec['bCompany']; ?>" />
+								<input type="text" class="form-control" name="shipping-company" value="<?php if (isset($sSpec['shippingCompany'])) echo $sSpec['shippingCompany']; ?>" />
 								<label>Country / Region *</label>
 								<div class="select-box">
 										<select style="max-width: 100%;width:100%;    padding: 1rem 1.4rem .8rem;
@@ -164,28 +164,24 @@
 										</select>
 									</div>
 								<label>Street Address *</label>
-								<input type="text" class="form-control" name="shipping-address1" required=""
-									value="<?php if (isset($bSpec['bAddress'])) echo $bSpec['bAddress']; ?>" placeholder="House number and street name" />
-								<input type="text" class="form-control" name="shipping-address2" value="<?php if (isset($bSpec['bApt'])) echo $bSpec['bApt']; ?>"
+								<input type="text" class="form-control" name="shipping-address1" 
+									value="<?php if (isset($shippingSpec['shippingAddress'])) echo $shippingSpec['shippingAddress']; ?>" placeholder="House number and street name" />
+								<input type="text" class="form-control" name="shipping-address2" value="<?php if (isset($shippingSpec['shippingApt'])) echo $shippingSpec['shippingApt']; ?>"
 									placeholder="Apartment, suite, unit, etc. (optional)" />
 								<div class="row">
 									<div class="col-xs-6">
 										<label>Town / City *</label>
-										<input type="text" class="form-control" name="shipping-city" required="" value="<?php if (isset($bSpec['bCity'])) echo $bSpec['bCity']; ?>" />
+										<input type="text" class="form-control" name="shipping-city" value="<?php if (isset($sSpec['shippingCity'])) echo $sSpec['shippingCity']; ?>" />
 									</div>
 									<div class="col-xs-6">
 										<label>State *</label>
-										<input type="text" class="form-control" name="shipping-state" required="" value="<?php if (isset($bSpec['bState'])) echo $bSpec['bState']; ?>" />
+										<input type="text" class="form-control" name="shipping-state"  value="<?php if (isset($sSpec['shippingState'])) echo $sSpec['shippingState']; ?>" />
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-xs-6">
 										<label>ZIP *</label>
-										<input type="text" class="form-control" name="shipping-zip" required="" value="<?php if (isset($bSpec['bZip'])) echo $bSpec['bZip']; ?>" />
-									</div>
-									<div class="col-xs-6">
-										<label>Phone *</label>
-										<input type="text" class="form-control" name="shipping-phone" required="" />
+										<input type="text" class="form-control" name="shipping-zip"  value="<?php if (isset($sSpec['shippingZip'])) echo $sSpec['shippingZip']; ?>" />
 									</div>
 								</div>
 							</div>
