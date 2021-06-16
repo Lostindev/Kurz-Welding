@@ -10,7 +10,7 @@
 				<div class="step-by pr-4 pl-4">
 					<h3 class="title title-simple title-step"><a href="/shop/cart">1. Shopping Cart</a></h3>
 					<h3 class="title title-simple title-step active"><a href="/shop/checkout">2. Checkout</a></h3>
-					<h3 class="title title-simple title-step"><a href="order.html">3. Order Complete</a></h3>
+					<h3 class="title title-simple title-step"><a href="#">3. Order Complete</a></h3>
 				</div>
 				<div class="container mt-7">
 				<?php if(userLoggedIn()): ?>
@@ -143,20 +143,20 @@
 								<div class="row">
 									<div class="col-xs-6">
 										<label>First Name *</label>
-										<input type="text" class="form-control" name="first-name" required="" value="<?php if (isset($bSpec['bFirstName'])) echo $bSpec['bFirstName']; ?>" />
+										<input type="text" class="form-control" name="shipping-first" required="" value="<?php if (isset($bSpec['bFirstName'])) echo $bSpec['bFirstName']; ?>" />
 									</div>
 									<div class="col-xs-6">
 										<label>Last Name *</label>
-										<input type="text" class="form-control" name="last-name" required="" value="<?php if (isset($bSpec['bLastName'])) echo $bSpec['bLastName']; ?>" />
+										<input type="text" class="form-control" name="shipping-last" required="" value="<?php if (isset($bSpec['bLastName'])) echo $bSpec['bLastName']; ?>" />
 									</div>
 								</div>
 								<label>Company Name (Optional)</label>
-								<input type="text" class="form-control" name="company-name" value="<?php if (isset($bSpec['bCompany'])) echo $bSpec['bCompany']; ?>" />
+								<input type="text" class="form-control" name="shipping-company" value="<?php if (isset($bSpec['bCompany'])) echo $bSpec['bCompany']; ?>" />
 								<label>Country / Region *</label>
 								<div class="select-box">
 										<select style="max-width: 100%;width:100%;    padding: 1rem 1.4rem .8rem;
 										font-size: 1.4rem;
-										color: #666;" name="country" class="form-control">
+										color: #666;" name="shipping-country" class="form-control">
 											<option value="us" selected>United States (US)</option>
 											<option value="uk"> United Kingdom</option>
 											<option value="fr">France</option>
@@ -164,28 +164,28 @@
 										</select>
 									</div>
 								<label>Street Address *</label>
-								<input type="text" class="form-control" name="address1" required=""
+								<input type="text" class="form-control" name="shipping-address1" required=""
 									value="<?php if (isset($bSpec['bAddress'])) echo $bSpec['bAddress']; ?>" placeholder="House number and street name" />
-								<input type="text" class="form-control" name="address2" value="<?php if (isset($bSpec['bApt'])) echo $bSpec['bApt']; ?>"
+								<input type="text" class="form-control" name="shipping-address2" value="<?php if (isset($bSpec['bApt'])) echo $bSpec['bApt']; ?>"
 									placeholder="Apartment, suite, unit, etc. (optional)" />
 								<div class="row">
 									<div class="col-xs-6">
 										<label>Town / City *</label>
-										<input type="text" class="form-control" name="city" required="" value="<?php if (isset($bSpec['bCity'])) echo $bSpec['bCity']; ?>" />
+										<input type="text" class="form-control" name="shipping-city" required="" value="<?php if (isset($bSpec['bCity'])) echo $bSpec['bCity']; ?>" />
 									</div>
 									<div class="col-xs-6">
 										<label>State *</label>
-										<input type="text" class="form-control" name="state" required="" value="<?php if (isset($bSpec['bState'])) echo $bSpec['bState']; ?>" />
+										<input type="text" class="form-control" name="shipping-state" required="" value="<?php if (isset($bSpec['bState'])) echo $bSpec['bState']; ?>" />
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-xs-6">
 										<label>ZIP *</label>
-										<input type="text" class="form-control" name="zip" required="" value="<?php if (isset($bSpec['bZip'])) echo $bSpec['bZip']; ?>" />
+										<input type="text" class="form-control" name="shipping-zip" required="" value="<?php if (isset($bSpec['bZip'])) echo $bSpec['bZip']; ?>" />
 									</div>
 									<div class="col-xs-6">
 										<label>Phone *</label>
-										<input type="text" class="form-control" name="phone" required="" />
+										<input type="text" class="form-control" name="shipping-phone" required="" />
 									</div>
 								</div>
 							</div>
@@ -274,7 +274,7 @@
 										</table>
 										<div class="form-checkbox mt-4 mb-5">
 											<input type="checkbox" class="custom-checkbox" id="terms-condition"
-												name="terms-condition" />
+												name="terms-condition" required />
 											<label class="form-control-label" for="terms-condition">
 												I have read and agree to the website <a href="#">terms and conditions </a>*
 											</label>

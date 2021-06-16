@@ -251,7 +251,7 @@ class Shop extends BaseController
         }
 
         $dataUpload['oStatus'] = 'unpaid'; //set the unpaid status until we get stripe webhook
-        $dataUpload['tempId'] = random_string('alnum','20'); //generate a random id for temporary reference
+        $dataUpload['tempId'] = random_string('numeric','20'); //generate a random id for temporary reference
 
             //insert into database here:
             $addData = $ordersDB->insert($dataUpload);
@@ -269,7 +269,7 @@ class Shop extends BaseController
             }
         }
 
-        public function addOrderDb() {
+        public function addOrderDb() { //Stripe Webhook
             $request = \Config\Services::request();
             $orderDB = new ModOrders();
 
@@ -373,7 +373,12 @@ class Shop extends BaseController
             $categoriesDB = new ModAdmin();
             $data['getNumCategories'] = $categoriesDB->where('cstatus',1)->countAllResults();
             $data['allCategories'] = $categoriesDB->getWhere(['cStatus'=>1],$data['getNumCategories'])->getResultArray();
-        
+            
+            $session->remove('cart');
+            $session->remove('varPrice');
+            $session->remove('varColor');
+            $session->remove('varDimensions');
+
         
             echo view('user/header', $data);
             echo view('user/css', $data);
