@@ -222,7 +222,7 @@ class Shop extends BaseController
         $dataUpload['billingPhone'] = $request->getPost('phone');
         $dataUpload['billingEmail'] = $request->getPost('email-address'); 
         $dataUpload['billingNotes'] = $request->getPost('order-notes'); 
-        //$token = $request->getPost('stripeToken'); 
+        //$token = $request->getPost('stripeToken');
 
 
         //get shipping info if different from billing
@@ -238,9 +238,9 @@ class Shop extends BaseController
             $dataUpload['shippingZip'] = $request->getPost('shipping-zip'); 
             $dataUpload['shippingPhone'] = $request->getPost('shipping-phone');
         } else { //set shipping address to same as billing 
-            $dataUpload['shippingFirst'] = $request->getPost('first-name');
-            $dataUpload['shippingLast'] = $request->getPost('last-name');
-            $dataUpload['shippingCompany'] = $request->getPost('company');
+            $dataUpload['shippingFirst'] = $dataUpload['billingFirst'];
+            $dataUpload['shippingLast'] = $dataUpload['billingLast'];
+            $dataUpload['shippingCompany'] = $dataUpload['billingCompany'];
             $dataUpload['shippingCountry'] = $request->getPost('country');
             $dataUpload['shippingAddress'] = $request->getPost('address1');
             $dataUpload['shippingApt'] = $request->getPost('address2');
@@ -355,5 +355,31 @@ class Shop extends BaseController
         }
 
 
+
+        public function order_success($page = 'checkout') {// Order Complete Page
+            $session = \Config\Services::session();
+            $request = \Config\Services::request();
+            
+            $data['title'] = 'Kurz Metal Art | Shop';
+            $data['metaData'] = "";
+            $data['page'] = $page;
+            $data['cssFile'] = $page;
+            $uri = $request->uri;
+            $data['uri'] = $uri->getSegment(1);
+            $data['catId'] = $uri->getSegment(2);
+            $data['uri2'] = '';
+                
+            //Fetch number of categories from database
+            $categoriesDB = new ModAdmin();
+            $data['getNumCategories'] = $categoriesDB->where('cstatus',1)->countAllResults();
+            $data['allCategories'] = $categoriesDB->getWhere(['cStatus'=>1],$data['getNumCategories'])->getResultArray();
+        
+        
+            echo view('user/header', $data);
+            echo view('user/css', $data);
+            echo view('user/navbar', $data);
+            echo view('shop/order', $data);
+            echo view('user/footer', $data);
+            }
 
 }//end of controller
