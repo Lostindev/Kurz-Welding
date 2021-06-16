@@ -98,49 +98,22 @@
                                             <th class="pr-2">Actions</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody class="text-center">
+										<?php $userId = $_SESSION['uId']; ?>
+										<?php $getOrders = getUserOrders($userId); ?>
+										<?php foreach ($getOrders as $row): ?>
                                         <tr>
-                                            <td class="order-number"><a href="#">#3596</a></td>
-                                            <td class="order-date"><time>February 24, 2021</time></td>
-                                            <td class="order-status"><span>On hold</span></td>
-                                            <td class="order-total"><span>$900.00 for 5 items</span></td>
+                                            <td class="order-number"><a href="#"><?php echo $row['tempId'] ?></a></td>
+                                            <td class="order-date"><time><?php echo $row['oDate'] ?></time></td>
+                                            <td class="order-status"><span><?php echo $row['oStatus'] ?></span></td>
+											<?php $products = $row['oProducts'] ?>
+        									<?php $order_array = explode(";", $products); ?>
+        									<?php $result = count($order_array);?>
+                                            <td class="order-total"><span>$<?php echo $row['oPrice'] ?> for <?php echo $result ; ?> items</span></td>
                                             <td class="order-action"><a href="#" class="btn btn-primary btn-link btn-underline">View</a></td>
                                         </tr>
-                                        <tr>
-                                            <td class="order-number"><a href="#">#3593</a></td>
-                                            <td class="order-date"><time>February 21, 2021</time></td>
-                                            <td class="order-status"><span>On hold</span></td>
-                                            <td class="order-total"><span>$290.00 for 2 items</span></td>
-                                            <td class="order-action"><a href="#" class="btn btn-primary btn-link btn-underline">View</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="order-number"><a href="#">#2547</a></td>
-                                            <td class="order-date"><time>January 4, 2021</time></td>
-                                            <td class="order-status"><span>On hold</span></td>
-                                            <td class="order-total"><span>$480.00 for 8 items</span></td>
-                                            <td class="order-action"><a href="#" class="btn btn-primary btn-link btn-underline">View</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="order-number"><a href="#">#2549</a></td>
-                                            <td class="order-date"><time>January 19, 2021</time></td>
-                                            <td class="order-status"><span>On hold</span></td>
-                                            <td class="order-total"><span>$680.00 for 5 items</span></td>
-                                            <td class="order-action"><a href="#" class="btn btn-primary btn-link btn-underline">View</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="order-number"><a href="#">#4523</a></td>
-                                            <td class="order-date"><time>Jun 6, 2021</time></td>
-                                            <td class="order-status"><span>On hold</span></td>
-                                            <td class="order-total"><span>$564.00 for 3 items</span></td>
-                                            <td class="order-action"><a href="#" class="btn btn-primary btn-link btn-underline">View</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="order-number"><a href="#">#4526</a></td>
-                                            <td class="order-date"><time>Jun 19, 2021</time></td>
-                                            <td class="order-status"><span>On hold</span></td>
-                                            <td class="order-total"><span>$123.00 for 8 items</span></td>
-                                            <td class="order-action"><a href="#" class="btn btn-primary btn-link btn-underline">View</a></td>
-                                        </tr>
+										<?php endforeach; ?>
+										
                                     </tbody>
                                 </table>
 							</div>

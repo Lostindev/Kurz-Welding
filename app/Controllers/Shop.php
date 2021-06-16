@@ -301,7 +301,7 @@ class Shop extends BaseController
         $dataUpload['oDate'] = date('Y-m-d'); //Set Current date
         $dataUpload['oStatus'] = 'unpaid'; //set the unpaid status until we get stripe webhook
         $dataUpload['tempId'] = random_string('numeric','9'); //generate a random id for temporary reference
-
+        $dataUpload['oPrice'] = array_sum($_SESSION['varPrice']);
         if (userLoggedIn()) {
             $b = $session->get('uId');
             $dataUpload['userId'] = $b; //Set User Id

@@ -220,3 +220,15 @@ function getOrderDetails($tempId) {
     $ordersDB = new ModOrders();
     return $ordersDB->getWhere(['tempId'=>$tempId])->getResultArray();
 }
+
+function getUserOrders($uId) {
+    $session = \Config\Services::session();
+
+    if (userLoggedIn()) {
+        $ordersDB = new ModOrders();
+        return $ordersDB->getWhere(['userId'=>$uId])->getResultArray();
+    } else {
+        echo 'You need to be logged in!';
+    }
+
+}
