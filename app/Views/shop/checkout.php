@@ -280,7 +280,7 @@
 											</label>
 										</div>
 
-                                        <button class="btn btn-dark btn-rounded btn-order" id="checkout-button">Place Order</button>
+                                        <button type="submit" class="btn btn-dark btn-rounded btn-order" id="checkout-button">Place Order</button>
 												
 									</div>
 								</div>

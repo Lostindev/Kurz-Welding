@@ -13,6 +13,8 @@ use App\Models\ModSpec;
 
 use App\Models\ModSpecValues;
 
+use App\Models\ModOrders;
+
 use CodeIgniter\Controller;
 
 
@@ -200,67 +202,71 @@ class Shop extends BaseController
         echo view('user/footer', $data);
         }
 
+
         public function checkout_submit($page = 'checkout') {
         $session = \Config\Services::session();
         $request = \Config\Services::request();
         helper('text');
+        $ordersDB = new ModOrders();
 
         //get billing info
-        $billingFirst = $request->getPost('first-name');
-        $billingLast = $request->getPost('last-name');
-        $billingCompany = $request->getPost('company');
-        $billingCountry = $request->getPost('country');
-        $billingAddress = $request->getPost('address1');
-        $billingApt = $request->getPost('address2');
-        $billingCity = $request->getPost('city');
-        $billingState = $request->getPost('state'); 
-        $billingZip = $request->getPost('zip'); 
-        $billingPhone = $request->getPost('phone');
-        $billingEmail = $request->getPost('email-address'); 
-        $billingNotes = $request->getPost('order-notes'); 
+        $dataUpload['billingFirst'] = $request->getPost('first-name');
+        $dataUpload['billingLast'] = $request->getPost('last-name');
+        $dataUpload['billingCompany'] = $request->getPost('company');
+        $dataUpload['billingCountry'] = $request->getPost('country');
+        $dataUpload['billingAddress'] = $request->getPost('address1');
+        $dataUpload['billingApt'] = $request->getPost('address2');
+        $dataUpload['billingCity'] = $request->getPost('city');
+        $dataUpload['billingState'] = $request->getPost('state'); 
+        $dataUpload['billingZip'] = $request->getPost('zip'); 
+        $dataUpload['billingPhone'] = $request->getPost('phone');
+        $dataUpload['billingEmail'] = $request->getPost('email-address'); 
+        $dataUpload['billingNotes'] = $request->getPost('order-notes'); 
         //$token = $request->getPost('stripeToken'); 
 
 
         //get shipping info if different from billing
         if (isset($_POST['different-address'])) {
-            $shippingFirst = $request->getPost('shipping-first');
-            $shippingLast = $request->getPost('shipping-last');
-            $shippingCompany = $request->getPost('shipping-company');
-            $shippingCountry = $request->getPost('shipping-country');
-            $shippingAddress = $request->getPost('shipping-address1');
-            $shippingApt = $request->getPost('shipping-address2');
-            $shippingCity = $request->getPost('shipping-city');
-            $shippingState = $request->getPost('shipping-state'); 
-            $shippingZip = $request->getPost('shipping-zip'); 
-            $shippingPhone = $request->getPost('shipping-phone');
+            $dataUpload['shippingFirst'] = $request->getPost('shipping-first');
+            $dataUpload['shippingLast'] = $request->getPost('shipping-last');
+            $dataUpload['shippingCompany'] = $request->getPost('shipping-company');
+            $dataUpload['shippingCountry'] = $request->getPost('shipping-country');
+            $dataUpload['shippingAddress'] = $request->getPost('shipping-address1');
+            $dataUpload['shippingApt'] = $request->getPost('shipping-address2');
+            $dataUpload['shippingCity'] = $request->getPost('shipping-city');
+            $dataUpload['shippingState'] = $request->getPost('shipping-state'); 
+            $dataUpload['shippingZip'] = $request->getPost('shipping-zip'); 
+            $dataUpload['shippingPhone'] = $request->getPost('shipping-phone');
         } else { //set shipping address to same as billing 
-            $shippingFirst = $request->getPost('billing-first');
-            $shippingLast = $request->getPost('billing-last');
-            $shippingCompany = $request->getPost('billing-company');
-            $shippingCountry = $request->getPost('billing-country');
-            $shippingAddress = $request->getPost('billing-address1');
-            $shippingApt = $request->getPost('billing-address2');
-            $shippingCity = $request->getPost('billing-city');
-            $shippingState = $request->getPost('billing-state'); 
-            $shippingZip = $request->getPost('billing-zip'); 
-            $shippingPhone = $request->getPost('billing-phone');
+            $dataUpload['shippingFirst'] = $request->getPost('first-name');
+            $dataUpload['shippingLast'] = $request->getPost('last-name');
+            $dataUpload['shippingCompany'] = $request->getPost('company');
+            $dataUpload['shippingCountry'] = $request->getPost('country');
+            $dataUpload['shippingAddress'] = $request->getPost('address1');
+            $dataUpload['shippingApt'] = $request->getPost('address2');
+            $dataUpload['shippingCity'] = $request->getPost('city');
+            $dataUpload['shippingState'] = $request->getPost('state'); 
+            $dataUpload['shippingZip'] = $request->getPost('zip'); 
+            $dataUpload['shippingPhone'] = $request->getPost('phone');
         }
 
-        $status = 'unpaid'; //set the unpaid status until we get stripe webhook
-        $tempId = random_string('alnum', 21); //generate a random id for temporary reference
+        $dataUpload['oStatus'] = 'unpaid'; //set the unpaid status until we get stripe webhook
+        $dataUpload['tempId'] = random_string('alnum','20'); //generate a random id for temporary reference
 
-        //insert into database here:
+            //insert into database here:
+            $addData = $ordersDB->insert($dataUpload);
+            if ($addData) {
+                //push the temp id to array so we can find the order in database to update payment status
 
+                $_SESSION['checkoutId'] = array();
+                array_push($_SESSION['checkoutId'], $dataUpload['tempId']);
 
-        //push the temp id to array so we can find the order in database to update payment status
-        //array_push($_SESSION['checkoutId'], $tempId);
-
-        
-
-        require '/var/www/html/public/vendor/init.php';
-        
-        die(); 
-        return view('stripe');
+                require '/var/www/html/public/vendor/init.php';
+                return view('stripe');
+            } else {
+                $session->setFlashdata('message','Something went wrong, please try again.');
+                return redirect()->to(base_url('/'));
+            }
         }
 
         public function addOrderDb() {
@@ -276,7 +282,7 @@ class Shop extends BaseController
             // If you are testing your webhook locally with the Stripe CLI you
             // can find the endpoint's secret by running `stripe listen`
             // Otherwise, find your endpoint's secret in your webhook settings in the Developer Dashboard
-            $endpoint_secret = 'whsec_6ULwftIRzfFmRxNBfZhiwYnFXp8CGCjw';
+            $endpoint_secret = 'whsec_mEm8nrRK2xP18Unv10eocp1FCPIBOF1Q';
 
             $payload = @file_get_contents('php://input');
             $sig_header = $_SERVER['HTTP_STRIPE_SIGNATURE'];

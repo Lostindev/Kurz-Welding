@@ -77,7 +77,7 @@ class Home extends BaseController
 		$data['email'] = $request->getPost('register-email');
 		$data['password'] = $request->getPost('register-password');
 		$data['date'] = date('Y-m-d H:i:s');
-		$data['link'] = random_string('alnum','20');;
+		$data['link'] = random_string('alnum','20');
 		$data['password'] = $request->getPost('register-password');
 
 		$checkEmail =  $usersDB->where('email',$data['email'])->findAll();
