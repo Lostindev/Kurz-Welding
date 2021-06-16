@@ -270,9 +270,8 @@ class Shop extends BaseController
         }
 
         public function addOrderDb() {
-            $session = \Config\Services::session();
             $request = \Config\Services::request();
-            //$orderDb = new OrdersDb();
+            $orderDB = new ModOrders();
 
             require_once '/var/www/html/public/vendor/init.php';
             // Set your secret key. Remember to switch to your live secret key in production.
@@ -316,12 +315,23 @@ class Shop extends BaseController
                     break;
 
                     case 'charge.succeeded':
-                        unset(
-                            $_SESSION['cart'],
-                            $_SESSION['varDimensions'],
-                            $_SESSION['varPrice'],
-                            $_SESSION['varColor']
-                    );
+                        $session = \Config\Services::session();
+                        $session->destroy();
+
+                        $dataUpload['billingFirst'] = '12345';
+                        $dataUpload['billingLast'] = '12345';
+                        $dataUpload['billingCompany'] = '12345';
+                        $dataUpload['billingCountry'] = '12345';
+                        $dataUpload['billingAddress'] ='12345' ;
+                        $dataUpload['billingApt'] = '12345' ;
+                        $dataUpload['billingCity'] = '12345' ;
+                        $dataUpload['billingState'] = '12345' ; 
+                        $dataUpload['billingZip'] = '12345' ; 
+                        $dataUpload['billingPhone'] = '12345';
+                        $dataUpload['billingEmail'] = '12345'; 
+                        $dataUpload['billingNotes'] = '12345';
+
+                        $ordersDB->insert($dataUpload);
                         break;
 
                     case 'charge.failed':
