@@ -266,17 +266,24 @@
 							</tbody>
 						</table>
 					</div>
+                    <?php $getInfo = getOrderDetails($_SESSION['checkoutId'][0]) ?>
+                    <?php foreach ($getInfo as $row): ?>
 					<h2 class="title title-simple text-left pt-10 mb-2">Billing Address</h2>
 					<div class="address-info pb-8 mb-6">
 						<p class="address-detail pb-2">
-							John Doe<br>
-							Riode Company<br>
-							Steven street<br>
-							El Carjon, CA 92020<br>
-							123456789
+							<?php echo $row['billingFirst']; echo '&nbsp'.$row['billingLast']; ?><br>
+							<?php if(isset($row['billingCompany'])) {
+                                echo $row['billingCompany'].'<br>';
+                            } else {
+                                echo '<br>';
+                            };?>
+							<?php echo $row['billingAddress'] ;?> <br>
+                            <?php echo $row['billingCity'].', '; echo $row['billingState']; echo ' '.$row['billingZip']?><br>
+							<?php echo $row['billingPhone'] ;?>
 						</p>
-						<p class="email">mail@riode.com</p>
+						<p class="email"><?php echo $row['billingEmail'] ;?></p>
 					</div>
+                    <?php endforeach; ?>
 
 					<a href="/shop" class="btn btn-icon-left btn-dark btn-back btn-rounded btn-md mb-4"><i class="d-icon-arrow-left"></i> Back to List</a>
 				</div>

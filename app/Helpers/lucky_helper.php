@@ -6,7 +6,7 @@ use App\Models\ModGallery;
 use App\Models\ModSpecValues;
 use App\Models\ModSub;
 use App\Models\ModUsers;
-
+use App\Models\ModOrders;
 use App\Models\ModBilling;
 use App\Models\ModShipping;
 
@@ -211,4 +211,12 @@ function loadCart2() {
         return $loadCart;
      
     
+}
+
+
+function getOrderDetails($tempId) {
+    $session = \Config\Services::session();
+
+    $ordersDB = new ModOrders();
+    return $ordersDB->getWhere(['tempId'=>$tempId])->getResultArray();
 }

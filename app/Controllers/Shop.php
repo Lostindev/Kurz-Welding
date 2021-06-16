@@ -323,7 +323,7 @@ class Shop extends BaseController
 
                 //push 
                 $_SESSION['tempPrice'] = array();
-                array_push($_SESSION['tempPrice'], $_SESSION['varPrice']);
+                array_push($_SESSION['tempPrice'], array_sum($_SESSION['varPrice']));
 
                 //Run stripe checkout Page
                 require '/var/www/html/public/vendor/init.php';
@@ -461,7 +461,9 @@ class Shop extends BaseController
 
                 echo str_replace(";","<br>",$products);
                 echo $_SESSION['checkoutId'][0];
-                echo $_SESSION['tempDate'][0];
+                echo array_sum($_SESSION['tempPrice'][0]);
+
+
             }
 
 }//end of controller
