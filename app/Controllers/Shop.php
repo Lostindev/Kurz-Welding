@@ -298,9 +298,16 @@ class Shop extends BaseController
                 $dataUpload['oProducts'] = $hidden0;
             }
         }  
-        $dataUpload['oDate'] = date('Y-m-d');
+        $dataUpload['oDate'] = date('Y-m-d'); //Set Current date
         $dataUpload['oStatus'] = 'unpaid'; //set the unpaid status until we get stripe webhook
         $dataUpload['tempId'] = random_string('numeric','9'); //generate a random id for temporary reference
+
+        if (userLoggedIn()) {
+            $b = $session->get('uId');
+            $dataUpload['userId'] = $b; //Set User Id
+        } else {
+            $dataUpload['userId'] = '0'; //Set Guest Order
+        }
 
             //insert into database here:
             $addData = $ordersDB->insert($dataUpload);
@@ -321,7 +328,7 @@ class Shop extends BaseController
                 $_SESSION['tempEmail'] = array();
                 array_push($_SESSION['tempEmail'], $dataUpload['billingEmail']);
 
-                //push 
+                //push total price to temp array for order page 
                 $_SESSION['tempPrice'] = array();
                 array_push($_SESSION['tempPrice'], array_sum($_SESSION['varPrice']));
 
@@ -451,19 +458,6 @@ class Shop extends BaseController
             echo view('user/navbar', $data);
             echo view('shop/order', $data);
             echo view('user/footer', $data);
-            }
-
-            public function debug() { //MAKE SURE TO REMOVE, THIS IS TO DEMONSTRATE MULTIPLE DATABASE PRODUCTS FROM ONE CELL
-                $b = 'white, sign 14x60;';
-                $c = 'green, yard post 13x3;';
-
-                $products = implode($_SESSION['tempOrder']);
-
-                echo str_replace(";","<br>",$products);
-                echo $_SESSION['checkoutId'][0];
-                echo array_sum($_SESSION['tempPrice'][0]);
-
-
             }
 
 }//end of controller
