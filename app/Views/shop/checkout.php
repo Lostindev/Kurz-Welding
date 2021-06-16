@@ -208,7 +208,8 @@
 												<?php foreach ($cart->getResult() as $row):?>
 												<?php $a++ ;?>
 												<tr>
-													<td class="product-name"><?php echo $_SESSION['varColor'][$a].'&nbsp'; echo $row->pName; echo ',&nbsp'.$_SESSION['varDimensions'][$a];  ?> <span
+													<input type="hidden" name="<?php echo 'pHidden'.$a; ?>" value="<?php echo $_SESSION['varColor'][$a].', '; echo $row->pName; echo ' '.$_SESSION['varDimensions'][$a].';';  ?>"> 
+													<td class="product-name"><?php echo $_SESSION['varColor'][$a].', '; echo $row->pName; echo ', '.$_SESSION['varDimensions'][$a]; ?> <span
 															class="product-quantity">×&nbsp;1</span></td>
 													<td class="product-total text-body"><?php echo '$'.$_SESSION['varPrice'][$a]; ?></td>
 												</tr>

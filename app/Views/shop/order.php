@@ -6,7 +6,7 @@
     border-radius: 1rem;
 },
 </style>
-
+<?php  $session = \Config\Services::session();?>
 <style>
 .order .order-results {
     display: flex;
@@ -170,7 +170,11 @@
 					<div class="order-results">
 						<div class="overview-item">
 							<span>Order number:</span>
-							<strong>4935</strong>
+							<strong>
+                            <?php if(isset($_SESSION['checkoutId'])):?>
+								<?php echo $_SESSION['checkoutId'][0]; ?>
+                            <?php endif; ?>
+                            </strong>
 						</div>
 						<div class="overview-item">
 							<span>Status:</span>
@@ -178,19 +182,32 @@
 						</div>
 						<div class="overview-item">
 							<span>Date:</span>
-							<strong>November 20, 2020</strong>
+							<strong>
+                            <?php if(isset($_SESSION['tempDate'])):?>
+								<?php echo $_SESSION['tempDate'][0]; ?>
+                            <?php endif; ?>
+                            </strong>
 						</div>
 						<div class="overview-item">
 							<span>Email:</span>
-							<strong>12345@gmail.com</strong>
+							<strong>
+                            <?php if(isset($_SESSION['tempEmail'])):?>
+								<?php echo $_SESSION['tempEmail'][0]; ?>
+                            <?php endif; ?>
+                        </strong>
 						</div>
 						<div class="overview-item">
 							<span>Total:</span>
-							<strong>$312.00</strong>
+							<strong>
+                                <?php if(isset($_SESSION['tempPrice'])):?>
+                                <?php $sum = array_sum($_SESSION['tempPrice']);?>
+								<?php echo '$'.$sum; ?>
+                                <?php endif; ?>
+                            </strong>
 						</div>
 						<div class="overview-item">
 							<span>Payment method:</span>
-							<strong>Cash on delivery</strong>
+							<strong>Credit Card</strong>
 						</div>
 					</div>
 
@@ -207,25 +224,20 @@
 							</thead>
 							<tbody>
 								<tr>
-									<td class="product-name">Beige knitted shoes <span> <i class="fas fa-times"></i>
-											1</span></td>
-									<td class="product-price">$84.00</td>
+									<td class="product-name"><?php 
+                                    $products = implode($_SESSION['tempOrder']);
+                                    echo str_replace(";","<br><br>",$products); ?></td>
 								</tr>
-								<tr>
-									<td class="product-name">Best dark blue pedestrian <span><i
-												class="fas fa-times"></i> 1</span></td>
-									<td class="product-price">$76.00</td>
-								</tr>
-								<tr>
-									<td class="product-name">Women's fashion handing <span><i class="fas fa-times"></i>
-											2</span></td>
-									<td class="product-price">$152.00</td>
-								</tr>
+
 								<tr class="summary-subtotal">
 									<td>
 										<h4 class="summary-subtitle">Subtotal:</h4>
 									</td>
-									<td class="summary-subtotal-price">$312.00</td>
+									<td class="summary-subtotal-price">                 
+                                <?php if(isset($_SESSION['tempPrice'])):?>
+                                <?php $sum = array_sum($_SESSION['tempPrice']);?>
+								<?php echo '$'.$sum; ?>
+                                <?php endif; ?></td>
 								</tr>
 								<tr class="summary-subtotal">
 									<td>
@@ -237,14 +249,18 @@
 									<td>
 										<h4 class="summary-subtitle">Payment method:</h4>
 									</td>
-									<td class="summary-subtotal-price">Cash on delivery</td>
+									<td class="summary-subtotal-price">Stripe Checkout</td>
 								</tr>
 								<tr class="summary-subtotal">
 									<td>
 										<h4 class="summary-subtitle">Total:</h4>
 									</td>
 									<td>
-										<p class="summary-total-price">$312.00</p>
+										<p class="summary-total-price">                              
+                                <?php if(isset($_SESSION['tempPrice'])):?>
+                                <?php $sum = array_sum($_SESSION['tempPrice']);?>
+								<?php echo '$'.$sum; ?>
+                                <?php endif; ?></td></p>
 									</td>
 								</tr>
 							</tbody>

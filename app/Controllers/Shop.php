@@ -194,14 +194,12 @@ class Shop extends BaseController
         $data['getNumCategories'] = $categoriesDB->where('cstatus',1)->countAllResults();
         $data['allCategories'] = $categoriesDB->getWhere(['cStatus'=>1],$data['getNumCategories'])->getResultArray();
     
-    
         echo view('user/header', $data);
         echo view('user/css', $data);
         echo view('user/navbar', $data);
         echo view('shop/checkout', $data);
         echo view('user/footer', $data);
         }
-
 
         public function checkout_submit($page = 'checkout') {
         $session = \Config\Services::session();
@@ -250,17 +248,84 @@ class Shop extends BaseController
             $dataUpload['shippingPhone'] = $request->getPost('phone');
         }
 
+        //Big code to get all products (Up to 10)
+        if (isset($_POST['pHidden0'])) {
+            $hidden0 = $_POST['pHidden0'];
+            if (isset($_POST['pHidden1'])) { //check if item 2 exists
+                $hidden1 = $_POST['pHidden1'];
+                if (isset($_POST['pHidden2'])) { //check if item 3 exits
+                    $hidden2 = $_POST['pHidden2'];
+                    if (isset($_POST['pHidden3'])) { //check if item 4 exits
+                        $hidden3 = $_POST['pHidden3'];
+                        if (isset($_POST['pHidden4'])) { //check if item 5 exits
+                            $hidden4 = $_POST['pHidden4'];
+                            if (isset($_POST['pHidden5'])) { //check if item 6 exits
+                                $hidden5 = $_POST['pHidden5'];
+                                if (isset($_POST['pHidden6'])) { //check if item 7 exits
+                                    $hidden6 = $_POST['pHidden6'];
+                                    if (isset($_POST['pHidden7'])) { //check if item 8 exits
+                                        $hidden7 = $_POST['pHidden7'];
+                                        if (isset($_POST['pHidden8'])) { //check if item 9 exits
+                                            $hidden8 = $_POST['pHidden8'];
+                                            if (isset($_POST['pHidden9'])) { //check if item 10 exits
+                                                $hidden9 = $_POST['pHidden9'];
+                                                $dataUpload['oProducts'] = $hidden0.=$hidden1.=$hidden2.=$hidden3.=$hidden4.=$hidden5.=$hidden6.=$hidden7.=$hidden8.=$hidden9;
+                                            } else { //Only nine products.
+                                                $dataUpload['oProducts'] = $hidden0.=$hidden1.=$hidden2.=$hidden3.=$hidden4.=$hidden5.=$hidden6.=$hidden7.=$hidden8;
+                                            } 
+                                        } else { //Only eight products.
+                                            $dataUpload['oProducts'] = $hidden0.=$hidden1.=$hidden2.=$hidden3.=$hidden4.=$hidden5.=$hidden6.=$hidden7;
+                                        }
+                                    } else { //Only seven products.
+                                        $dataUpload['oProducts'] = $hidden0.=$hidden1.=$hidden2.=$hidden3.=$hidden4.=$hidden5.=$hidden6;
+                                    }
+                                } else { //Only six products.
+                                    $dataUpload['oProducts'] = $hidden0.=$hidden1.=$hidden2.=$hidden3.=$hidden4.=$hidden5;
+                                }
+                            } else { //Only five products.
+                                $dataUpload['oProducts'] = $hidden0.=$hidden1.=$hidden2.=$hidden3.=$hidden4;
+                            }
+                        } else { //Only four products.
+                            $dataUpload['oProducts'] = $hidden0.=$hidden1.=$hidden2.=$hidden3;
+                        }
+                    } else { //Only three products.
+                        $dataUpload['oProducts'] = $hidden0.=$hidden1.=$hidden2;
+                    }
+                } else { //Only two products.
+                    $dataUpload['oProducts'] = $hidden0.=$hidden1;
+                }
+            } else { //Only one product.
+                $dataUpload['oProducts'] = $hidden0;
+            }
+        }  
+        $dataUpload['oDate'] = date('Y-m-d');
         $dataUpload['oStatus'] = 'unpaid'; //set the unpaid status until we get stripe webhook
-        $dataUpload['tempId'] = random_string('numeric','20'); //generate a random id for temporary reference
+        $dataUpload['tempId'] = random_string('numeric','9'); //generate a random id for temporary reference
 
             //insert into database here:
             $addData = $ordersDB->insert($dataUpload);
             if ($addData) {
                 //push the temp id to array so we can find the order in database to update payment status
-
                 $_SESSION['checkoutId'] = array();
                 array_push($_SESSION['checkoutId'], $dataUpload['tempId']);
 
+                //push products to temp array for order page
+                $_SESSION['tempOrder'] = array();
+                array_push($_SESSION['tempOrder'], $dataUpload['oProducts']);
+
+                //push date to temp array for order page
+                $_SESSION['tempDate'] = array();
+                array_push($_SESSION['tempDate'], $dataUpload['oDate']);
+
+                //push billing email to temp array for order page
+                $_SESSION['tempEmail'] = array();
+                array_push($_SESSION['tempEmail'], $dataUpload['billingEmail']);
+
+                //push 
+                $_SESSION['tempPrice'] = array();
+                array_push($_SESSION['tempPrice'], $_SESSION['varPrice']);
+
+                //Run stripe checkout Page
                 require '/var/www/html/public/vendor/init.php';
                 return view('stripe');
             } else {
@@ -373,6 +438,7 @@ class Shop extends BaseController
             $categoriesDB = new ModAdmin();
             $data['getNumCategories'] = $categoriesDB->where('cstatus',1)->countAllResults();
             $data['allCategories'] = $categoriesDB->getWhere(['cStatus'=>1],$data['getNumCategories'])->getResultArray();
+
             
             $session->remove('cart');
             $session->remove('varPrice');
@@ -385,6 +451,17 @@ class Shop extends BaseController
             echo view('user/navbar', $data);
             echo view('shop/order', $data);
             echo view('user/footer', $data);
+            }
+
+            public function debug() { //MAKE SURE TO REMOVE, THIS IS TO DEMONSTRATE MULTIPLE DATABASE PRODUCTS FROM ONE CELL
+                $b = 'white, sign 14x60;';
+                $c = 'green, yard post 13x3;';
+
+                $products = implode($_SESSION['tempOrder']);
+
+                echo str_replace(";","<br>",$products);
+                echo $_SESSION['checkoutId'][0];
+                echo $_SESSION['tempDate'][0];
             }
 
 }//end of controller
