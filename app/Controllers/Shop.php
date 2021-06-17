@@ -401,7 +401,7 @@ class Shop extends BaseController
             $id = $event->data->object->id;
             $amount = $event->data->object->amount_captured;
             $currency = $event->data->object->currency;
-            $cus_email = $event->data->object->receipt_email;
+            $cus_email = $event->data->object->email;
             $status = $event->data->object->status;
 
             // Handle the event
