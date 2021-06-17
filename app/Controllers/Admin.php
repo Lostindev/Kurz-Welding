@@ -1574,4 +1574,38 @@ class Admin extends BaseController
             return redirect()->to(base_url('/admin/login'));
         }
     }
+
+    public function deleteGallery($gId) {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        
+        if (adminLoggedIn()) {
+
+            if (!empty($gId) && isset($gId)) {
+                $adminDB = new ModGallery();
+                $result = $adminDB->where('gId',$gId)->delete();
+
+                if ($result) {
+  
+                    $session->setFlashdata('successMessage','Gallery item successfully deleted.');
+                    $session->keepFlashdata('sucessMessage');
+                    return redirect()->to(base_url('/admin/viewGallery'));
+                } else {
+                    $session->setFlashdata('message','Something went wrong, please try again.');
+                    $session->keepFlashdata('message');
+                    return redirect()->to(base_url('/admin/viewGallery'));
+                }
+                
+            } else {
+                $session->setFlashdata('message','Something went wrong, please try again.');
+                $session->keepFlashdata('message');
+                return redirect()->to(base_url('/admin/viewGallery'));
+            }
+
+        } else {
+            $session->setFlashdata('message','Please login to delete gallery items.');
+            $session->keepFlashdata('message');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
 } //end of controller
