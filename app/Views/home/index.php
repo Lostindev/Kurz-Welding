@@ -40,6 +40,7 @@
                             </div>
                         </div>
                     </div>
+                    <!--Other Sliders 
                     <div class="intro-slide2 banner banner-fixed" style="background-color: #9e9e9e">
                         <figure>
                             <img src="/theme/images/demos/demo17/slides/2.jpg" width="1903" height="625" alt="banner" />
@@ -78,6 +79,7 @@
                             </div>
                         </div>
                     </div>
+            -->
                 </section>
                 <section class="intro-banners">
                     <div class="grid row">
