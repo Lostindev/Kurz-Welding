@@ -25,8 +25,8 @@
               ]
           ],
               'mode' => 'payment',
-              'success_url' => 'http://3.15.181.4/shop/order-success',
-              'cancel_url' => 'http://3.15.181.4/shop/order-cancel',
+              'success_url' => 'http://kurzmetalart.com/shop/order-success',
+              'cancel_url' => 'http://kurzmetalart.com/shop/order-cancel',
           ]
         
         );

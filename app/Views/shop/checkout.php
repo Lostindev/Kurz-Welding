@@ -205,7 +205,7 @@
 												<?php $a++ ;?>
 												<tr>
 													<input type="hidden" name="<?php echo 'pHidden'.$a; ?>" value="<?php echo $_SESSION['varColor'][$a].', '; echo $row->pName; echo ' '.$_SESSION['varDimensions'][$a].';';  ?>"> 
-													<td class="product-name"><?php echo $_SESSION['varColor'][$a].', '; echo $row->pName; echo ', '.$_SESSION['varDimensions'][$a]; ?> <span
+													<td style="white-space: inherit!important;"class="product-name"><?php echo $_SESSION['varColor'][$a].', '; echo $row->pName; echo ', '.$_SESSION['varDimensions'][$a]; ?> <span
 															class="product-quantity">×&nbsp;1</span></td>
 													<td class="product-total text-body"><?php echo '$'.$_SESSION['varPrice'][$a]; ?></td>
 												</tr>
@@ -264,9 +264,9 @@
 														<h4 class="summary-subtitle">Total</h4>
 													</td>
 													<td class=" pt-0 pb-0">
-														<p class="summary-total-price ls-s text-primary">$<?php if(isset($_SESSION['varPrice'])):?>
+														<p class="summary-total-price ls-s text-primary"><?php if(isset($_SESSION['varPrice'])):?>
 														<?php $sum = array_sum($_SESSION['varPrice']);?>
-														<?php echo $sum; ?>
+														<?php echo '$'.$sum; ?>
 														<?php else:?>
 														<?php echo "0.00";?></span>
 														<?php endif; ?></p>

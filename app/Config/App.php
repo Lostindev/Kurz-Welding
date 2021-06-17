@@ -23,7 +23,7 @@ class App extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $baseURL = 'http://3.15.181.4/';
+	public $baseURL = 'http://kurzmetalart.com/';
 
 	/**
 	 * --------------------------------------------------------------------------

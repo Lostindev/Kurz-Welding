@@ -299,7 +299,7 @@ class Shop extends BaseController
             }
         }  
         $dataUpload['oDate'] = date('Y-m-d'); //Set Current date
-        $dataUpload['oStatus'] = 'unpaid'; //set the unpaid status until we get stripe webhook
+        $dataUpload['oStatus'] = 'Processing'; //set the processing status until they are done with stripe
         $dataUpload['tempId'] = random_string('numeric','9'); //generate a random id for temporary reference
         $dataUpload['oPrice'] = array_sum($_SESSION['varPrice']);
         if (userLoggedIn()) {
@@ -343,7 +343,6 @@ class Shop extends BaseController
 
         public function addOrderDb() { //Stripe Webhook
             $request = \Config\Services::request();
-            $orderDB = new ModOrders();
 
             require_once '/var/www/html/public/vendor/init.php';
             // Set your secret key. Remember to switch to your live secret key in production.
@@ -387,21 +386,15 @@ class Shop extends BaseController
                     break;
 
                     case 'charge.succeeded':
+                        $ordersDB = new ModOrders();
                         $session = \Config\Services::session();
-                        $session->destroy();
-
-                        $dataUpload['billingFirst'] = '12345';
-                        $dataUpload['billingLast'] = '12345';
-                        $dataUpload['billingCompany'] = '12345';
-                        $dataUpload['billingCountry'] = '12345';
-                        $dataUpload['billingAddress'] ='12345' ;
-                        $dataUpload['billingApt'] = '12345' ;
-                        $dataUpload['billingCity'] = '12345' ;
-                        $dataUpload['billingState'] = '12345' ; 
-                        $dataUpload['billingZip'] = '12345' ; 
-                        $dataUpload['billingPhone'] = '12345';
-                        $dataUpload['billingEmail'] = '12345'; 
-                        $dataUpload['billingNotes'] = '12345';
+                        
+                        
+                        $dataUpload['stripeId'] = $id;
+                        $dataUpload['stripeAmount'] = $amount;
+                        $dataUpload['stripeCurrency'] = $currency;
+                        $dataUpload['stripeEmail'] = $cus_email;
+                        $dataUpload['stripeStatus'] = $status;
 
                         $ordersDB->insert($dataUpload);
                         break;
@@ -458,6 +451,15 @@ class Shop extends BaseController
             echo view('user/navbar', $data);
             echo view('shop/order', $data);
             echo view('user/footer', $data);
+            }
+
+            public function debug() {
+                $ordersDB = new ModOrders();
+                $getInfo = getOrderDetails($_SESSION['checkoutId'][0]);
+
+              
+                echo $row['billingFirst'];
+
             }
 
 }//end of controller
