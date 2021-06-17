@@ -20,11 +20,49 @@
                 </div>
             </nav>
             <div class="page-content pb-10 mb-10">
-                <div class="container col-md-6 justify-content-center">
+                <div class="container row justify-content-center" style="margin-right:auto!important;margin-left:auto!important;">
+                <div class="col-md-6"><br><br>
+                <h4 class="ls-m font-weight-bold">Custom Metal Art Design Process</h4>
+                    <p>Kurz Metal Art specializes in custom metal work.<br><br>
+                    We can accomplish almost anything you can think of!
+                    With state-of-the-art plasma cutting technology that consistently produces clean, accurate lines, our friendly and skilled custom metal art sales team will assist you in bringing your idea to reality.<br><br> Our metal art is also manufactured with a high-quality metal printing method that brings bright images to life.<br>
+After that, each component is powder coated for further durability and can be used both indoors and out. </p><br><br> <!--new content-->
+
+                    <h4 class="ls-m font-weight-bold">What to expect - the process</h4>
+                    <h5>Quote</h5>
+                        <ol>
+                            <li>You will receive a quote from a member of our sales team after submitting the form.</li>
+                            <li>You may not receive an immediate response due to the high volume of personalized inquiries.</li>
+                            <li>Kurz Metal Art will communicate that we can do this for you.</li>
+                         </ol><br>
+
+                        <h5>Invoice</h5>
+                        <ol>
+                            <li>We will send you an invoice for payment once you have approved the quote.</li>
+                            <li>Once payment is received, the order is routed to a custom designer who will begin processing the order.</li>
+                        </ol><br>
+
+                        <h5>Mockup</h5>
+                        <ol>
+                            <li>During this process, you will receive two mockups.</li>
+                            <li>You must respond to mockups within 24 hours of submission, or we will assume no changes are required and proceed with the order.</li>
+                            <li>Mockups are typically delivered within 2-4 days of purchase.</li>
+                            <li>We'll send you the first mockup for your feedback and approval.</li>
+                            <li>If changes are required, we will send the second mockup for approval.</li>
+                            <li>The piece is put into production once it has been approved.</li>
+                        </ol><br>
+
+                        <h5>Production</h5>
+                        <ul>
+                            <li>The average production time is 1-2 weeks.</li>
+                            <li>Your piece is carefully packaged and shipped once it has been approved! Once your package enters the mail stream, you will receive an email with tracking information.</li>
+                        </ul>
+                 </div>
+                <div class="col-md-6">
                     <div class="posts grid post-grid row" data-grid-options="{
                         'layoutMode': 'fitRows'
                     }">
-
+                
                 <div class="col-12 text-center">
                     <h2 style="padding-top:20px;padding-bottom:10px;">Custom Order Request</h2>  
                 </div>
@@ -86,7 +124,9 @@
                         <!-- Submit button -->
                         <button type="submit" class="btn btn-primary btn-block mb-4">Place order</button>
                         <?php echo form_close()?>
+
                 </div>
+                </div><!--end container -->
                     </div>
                 </div>
             </div>

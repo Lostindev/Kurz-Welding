@@ -111,9 +111,6 @@
 
 
                         <!-- End Login -->
-                        <a class="wishlist" href="#">
-                            <i class="d-icon-heart"></i>
-                        </a>
                         <span class="divider"></span>
                         <!-- End Divider -->
                         <div class="dropdown cart-dropdown type2 cart-offcanvas mr-0 mr-lg-2">
