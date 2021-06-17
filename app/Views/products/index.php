@@ -179,6 +179,11 @@
 											class="btn-product text-normal ls-normal font-weight-semi-bold"><i
 												class="d-icon-bag"></i>&nbsp Add to
 											Cart</button>
+											<div style="padding-top:5px" class="social-links mr-4">
+										<a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
+										<a href="#" class="social-link social-twitter fab fa-twitter"></a>
+										<a href="#" class="social-link social-pinterest fab fa-pinterest-p"></a>
+									</div>
 									</div>
 								</div>
 								</form>
@@ -186,12 +191,7 @@
 								<hr class="product-divider mb-3">
 
 								<div class="product-footer">
-									<div class="social-links mr-4">
-										<a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
-										<a href="#" class="social-link social-twitter fab fa-twitter"></a>
-										<a href="#" class="social-link social-pinterest fab fa-pinterest-p"></a>
-									</div>
-									<span class="divider d-lg-show"></span>
+								
 								</div>
 							</div>
 						</div>
