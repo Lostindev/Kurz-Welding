@@ -166,6 +166,9 @@
 									</div>
 									<?php endif; ?>
 								</div>
+								<div class="form-group">
+										<textarea name="oCustom" cols="40" rows="10" class="form-control" placeholder="Enter custom details. (Applies to customizable products)"></textarea>
+									</div>
 								<div class="product-variation-price">
 									<span>$79</span>
 									<input type="hidden" name="var-price" id="var-price"></input>
@@ -247,7 +250,7 @@
 								</figure>
 								<div class="product-details">
 									<div class="product-cat">
-										<a href="/shop">Clothing</a>
+										<a href="/shop">Custom Metal Art</a>
 									</div>
 									<h3 class="product-name">
 										<a href="<?php echo base_url('/shop/custom-metal-art/'.$product['pName']) ?>"><?php echo $product['pName']; ?></a>

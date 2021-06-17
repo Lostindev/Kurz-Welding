@@ -205,6 +205,7 @@
 												<?php $a++ ;?>
 												<tr>
 													<input type="hidden" name="<?php echo 'pHidden'.$a; ?>" value="<?php echo $_SESSION['varColor'][$a].', '; echo $row->pName; echo ' '.$_SESSION['varDimensions'][$a].';';  ?>"> 
+													<input type="hidden" name="<?php echo 'cHidden'.$a; ?>" value="<?php echo $_SESSION['varCustom'][$a].';';  ?>"> 
 													<td style="white-space: inherit!important;"class="product-name"><?php echo $_SESSION['varColor'][$a].', '; echo $row->pName; echo ', '.$_SESSION['varDimensions'][$a]; ?> <span
 															class="product-quantity">×&nbsp;1</span></td>
 													<td class="product-total text-body"><?php echo '$'.$_SESSION['varPrice'][$a]; ?></td>

@@ -131,6 +131,7 @@ class Shop extends BaseController
                 $_SESSION['varPrice'] = array();
                 $_SESSION['varColor'] = array();
                 $_SESSION['varDimensions'] = array();
+                $_SESSION['varCustom'] = array();
             } 
 
             $specDB = new ModSpec();
@@ -146,6 +147,10 @@ class Shop extends BaseController
             //Get Dimensions
             $varSize = $request->getPost('sizeSelect');
 
+            //Get Custom Field input
+            $oCustom = $request->getPost('oCustom');
+            array_push($_SESSION['varCustom'], $oCustom);
+            
             //Add to cart
             array_push($_SESSION['cart'], $pId);
 
@@ -251,57 +256,78 @@ class Shop extends BaseController
         //Big code to get all products (Up to 10)
         if (isset($_POST['pHidden0'])) {
             $hidden0 = $_POST['pHidden0'];
+            $custom0 = $_POST['cHidden0'];
             if (isset($_POST['pHidden1'])) { //check if item 2 exists
                 $hidden1 = $_POST['pHidden1'];
+                $custom1 = $_POST['cHidden1'];
                 if (isset($_POST['pHidden2'])) { //check if item 3 exits
                     $hidden2 = $_POST['pHidden2'];
+                    $custom2 = $_POST['cHidden2'];
                     if (isset($_POST['pHidden3'])) { //check if item 4 exits
                         $hidden3 = $_POST['pHidden3'];
+                        $custom3 = $_POST['cHidden3'];
                         if (isset($_POST['pHidden4'])) { //check if item 5 exits
                             $hidden4 = $_POST['pHidden4'];
+                            $custom4 = $_POST['cHidden4'];
                             if (isset($_POST['pHidden5'])) { //check if item 6 exits
                                 $hidden5 = $_POST['pHidden5'];
+                                $custom5 = $_POST['cHidden5'];
                                 if (isset($_POST['pHidden6'])) { //check if item 7 exits
                                     $hidden6 = $_POST['pHidden6'];
+                                    $custom6 = $_POST['cHidden6'];
                                     if (isset($_POST['pHidden7'])) { //check if item 8 exits
                                         $hidden7 = $_POST['pHidden7'];
+                                        $custom7 = $_POST['cHidden7'];
                                         if (isset($_POST['pHidden8'])) { //check if item 9 exits
                                             $hidden8 = $_POST['pHidden8'];
+                                            $custom8 = $_POST['cHidden8'];
                                             if (isset($_POST['pHidden9'])) { //check if item 10 exits
                                                 $hidden9 = $_POST['pHidden9'];
+                                                $custom9 = $_POST['cHidden9'];
                                                 $dataUpload['oProducts'] = $hidden0.=$hidden1.=$hidden2.=$hidden3.=$hidden4.=$hidden5.=$hidden6.=$hidden7.=$hidden8.=$hidden9;
+                                                $dataUpload['oCustom'] = $custom0.=$custom1.=$custom2.=$custom3.=$custom4.=$custom5.=$custom6.=$custom7.=$custom8.=$custom9;
                                             } else { //Only nine products.
                                                 $dataUpload['oProducts'] = $hidden0.=$hidden1.=$hidden2.=$hidden3.=$hidden4.=$hidden5.=$hidden6.=$hidden7.=$hidden8;
+                                                $dataUpload['oCustom'] = $custom0.=$custom1.=$custom2.=$custom3.=$custom4.=$custom5.=$custom6.=$custom7.=$custom8;
                                             } 
                                         } else { //Only eight products.
                                             $dataUpload['oProducts'] = $hidden0.=$hidden1.=$hidden2.=$hidden3.=$hidden4.=$hidden5.=$hidden6.=$hidden7;
+                                            $dataUpload['oCustom'] = $custom0.=$custom1.=$custom2.=$custom3.=$custom4.=$custom5.=$custom6.=$custom7;
                                         }
                                     } else { //Only seven products.
                                         $dataUpload['oProducts'] = $hidden0.=$hidden1.=$hidden2.=$hidden3.=$hidden4.=$hidden5.=$hidden6;
+                                        $dataUpload['oCustom'] = $custom0.=$custom1.=$custom2.=$custom3.=$custom4.=$custom5.=$custom6;
                                     }
                                 } else { //Only six products.
                                     $dataUpload['oProducts'] = $hidden0.=$hidden1.=$hidden2.=$hidden3.=$hidden4.=$hidden5;
+                                    $dataUpload['oCustom'] = $custom0.=$custom1.=$custom2.=$custom3.=$custom4.=$custom5;
                                 }
                             } else { //Only five products.
                                 $dataUpload['oProducts'] = $hidden0.=$hidden1.=$hidden2.=$hidden3.=$hidden4;
+                                $dataUpload['oCustom'] = $custom0.=$custom1.=$custom2.=$custom3.=$custom4;
                             }
                         } else { //Only four products.
                             $dataUpload['oProducts'] = $hidden0.=$hidden1.=$hidden2.=$hidden3;
+                            $dataUpload['oCustom'] = $custom0.=$custom1.=$custom2.=$custom3;
                         }
                     } else { //Only three products.
                         $dataUpload['oProducts'] = $hidden0.=$hidden1.=$hidden2;
+                        $dataUpload['oCustom'] = $custom0.=$custom1.=$custom2;
                     }
                 } else { //Only two products.
                     $dataUpload['oProducts'] = $hidden0.=$hidden1;
+                    $dataUpload['oCustom'] = $custom0.=$custom1;
                 }
             } else { //Only one product.
                 $dataUpload['oProducts'] = $hidden0;
+                $dataUpload['oCustom'] = $custom0;
             }
         }  
         $dataUpload['oDate'] = date('Y-m-d'); //Set Current date
         $dataUpload['oStatus'] = 'Processing'; //set the processing status until they are done with stripe
         $dataUpload['tempId'] = random_string('numeric','9'); //generate a random id for temporary reference
         $dataUpload['oPrice'] = array_sum($_SESSION['varPrice']);
+
         if (userLoggedIn()) {
             $b = $session->get('uId');
             $dataUpload['userId'] = $b; //Set User Id
@@ -400,8 +426,17 @@ class Shop extends BaseController
                         break;
 
                     case 'charge.failed':
-                        $paymentIntent = $event->data->object; // contains a \Stripe\PaymentIntent
-                        handlePaymentIntentSucceeded($paymentIntent);
+                        $ordersDB = new ModOrders();
+                        $session = \Config\Services::session();
+                        
+                        
+                        $dataUpload['stripeId'] = $id;
+                        $dataUpload['stripeAmount'] = $amount;
+                        $dataUpload['stripeCurrency'] = $currency;
+                        $dataUpload['stripeEmail'] = $cus_email;
+                        $dataUpload['stripeStatus'] = $status;
+
+                        $ordersDB->insert($dataUpload);
                     break;
 
 
@@ -444,6 +479,7 @@ class Shop extends BaseController
             $session->remove('varPrice');
             $session->remove('varColor');
             $session->remove('varDimensions');
+            $session->remove('varCustom');
 
         
             echo view('user/header', $data);
@@ -458,7 +494,7 @@ class Shop extends BaseController
                 $getInfo = getOrderDetails($_SESSION['checkoutId'][0]);
 
               
-                echo $row['billingFirst'];
+                echo $_SESSION['varCustom'][0];
 
             }
 
