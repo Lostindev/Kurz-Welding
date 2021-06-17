@@ -23,9 +23,9 @@
 							<li class="nav-item">
 								<a class="nav-link" href="#orders">Orders</a>
 							</li>
-							<li class="nav-item">
+							<!--<li class="nav-item">
 								<a class="nav-link" href="#downloads">Downloads</a>
-							</li>
+							</li>-->
 							<li class="nav-item">
 								<a class="nav-link" href="#address">Address</a>
 							</li>

@@ -56,7 +56,7 @@
                         <div class="row align-items-center">
                             <div class="col-md-7 mb-4">
                                 <figure>
-                                    <img src="/theme/images/subpages/customer.jpg" alt="Happy Customer" width="580"
+                                    <img src="/img/home/ohio-state-abous.jpg" alt="Metal Art Custom Ohio State Football " width="580"
                                         height="507" class="banner-radius" style="background-color: #BDD0DE;" />
                                 </figure>
                             </div>
