@@ -120,15 +120,14 @@
 								<h1 class="product-name"><?php echo $product[0]['pName'];?></h1>
 								<div class="product-meta">
 									ID: <span class="product-sku"><?php echo $product[0]['pId'];?></span>
-									BRAND: <span class="product-brand"></span>
 								</div>
 								<div id="pre-price" class="product-price">$<?php echo $product[0]['pPrice'];?></div>
 								<div class="ratings-container">
 									<div class="ratings-full">
-										<span class="ratings" style="width:80%"></span>
+										<span class="ratings" style="width:100%"></span>
 										<span class="tooltiptext tooltip-top"></span>
 									</div>
-									<a href="#product-tab-reviews" class="link-to-tab rating-reviews">( 11 reviews )</a>
+									<a href="#product-tab-reviews" class="link-to-tab rating-reviews">( 3+ reviews )</a>
 								</div>
 								<form action="<?php echo '/shop/add-to-cart/'.$product[0]['pId']; ?>" method="POST">
 								<p class="product-short-desc"><?php echo $product[0]['pDescription'];?></p>
@@ -176,11 +175,6 @@
 
 								<div class="product-form product-qty">
 									<div class="product-form-group">
-										<div class="input-group mr-2">
-											<button class="quantity-minus d-icon-minus"></button>
-											<input class="quantity form-control" type="number" min="1" max="1000000">
-											<button class="quantity-plus d-icon-plus"></button>
-										</div>
 										<button type="submit" id="btn-cart" href=""
 											class="btn-product text-normal ls-normal font-weight-semi-bold"><i
 												class="d-icon-bag"></i>&nbsp Add to
@@ -198,8 +192,6 @@
 										<a href="#" class="social-link social-pinterest fab fa-pinterest-p"></a>
 									</div>
 									<span class="divider d-lg-show"></span>
-									<a href="#" class="btn-product btn-wishlist mr-6"><i class="d-icon-heart"></i>Add to
-										wishlist</a>
 								</div>
 							</div>
 						</div>

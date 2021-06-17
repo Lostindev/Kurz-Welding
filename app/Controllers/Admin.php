@@ -1541,6 +1541,44 @@ class Admin extends BaseController
         }
     }
 
+    public function updateCustomOrder($coId) {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        $adminDB = new ModCustomOrders();
+        
+
+        if (adminLoggedIn()) {
+            $data['coId'] = $request->getPost('coId');
+            $data['coStatus'] = $request->getPost('statusSelect');
+            $data['coFirst'] = $request->getPost('co_first');
+            $data['coLast'] = $request->getPost('co_last');
+            $data['coPhone'] = $request->getPost('co_phone');
+            $data['coEmail'] = $request->getPost('co_email');
+            $data['coMessage'] = $request->getPost('co_message');
+            $data['coSize'] = $request->getPost('co_size');
+            $data['coDp'] = $request->getPost('oldImg');
+            $data['coDp2'] = $request->getPost('co_dp2');
+            $data['coTracking'] = $request->getPost('co_tracking');
+
+                    $adminDB->where('coId',$coId);
+
+                    $addData = $adminDB->replace($data);
+                        if ($addData) {
+                            $session->setFlashdata('successMessage','You have successfully updated the custom order.');
+                            return redirect()->to(base_url('/admin/viewCustomOrders'));
+                        } else {
+                            $session->setFlashdata('message','Something went wrong, please try again.');
+                            return redirect()->to(base_url('/admin/viewCustomOrders'));
+                        }
+                    
+
+
+        } else {
+            $session->setFlashdata('message','Please login to edit products.');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
+
     public function deleteCustomOrder($coId) {
         $request = \Config\Services::request();
         $session = \Config\Services::session();

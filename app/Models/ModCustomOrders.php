@@ -8,6 +8,6 @@ class ModCustomOrders extends Model
     protected $table = 'custom_orders';
     protected  $primaryKey = "coId";
     protected $returnType = 'array';
-    protected $allowedFields = ['coFirst','coLast','coEmail','coPhone','coSize','coMessage','coDp','coDp2','coUser'];
+    protected $allowedFields = ['coFirst','coLast','coEmail','coPhone','coSize','coMessage','coDp','coDp2','coUser','coStatus','coId'];
 
 }

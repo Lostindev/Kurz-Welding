@@ -63,7 +63,7 @@ After that, each component is powder coated for further durability and can be us
                         'layoutMode': 'fitRows'
                     }">
                 
-                <div class="col-12 text-center">
+                <div class="col-12 text-center"><br><br>
                     <h2 style="padding-top:20px;padding-bottom:10px;">Custom Order Request</h2>  
                 </div>
                 <?php echo form_open_multipart('/custom/send-custom-order','')?>

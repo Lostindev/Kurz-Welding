@@ -77,10 +77,10 @@ class Custom extends BaseController
     
                 if ($addOrder) {
                     if ($checkLoggedIn > 0) {
-                        $session->setFlashdata('message','Custom Order Started! You can check your order status in the my account page.');
+                        $session->setFlashdata('message','Custom Order Started. Please check your email regulary for updates.');
                         return redirect()->to(site_url('/custom'));
                     } else {
-                        $session->setFlashdata('message','Custom Order Started! Check your email to create an account and manage your orders!');
+                        $session->setFlashdata('message','Custom Order Started. Please check your email regulary for updates.');
                         return redirect()->to(site_url('/custom'));
                     }
                 } else {

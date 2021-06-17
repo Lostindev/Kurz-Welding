@@ -17,10 +17,17 @@
                                 </div>
                             </div>
         <?php endif; ?>
-
-            <?php echo form_open_multipart('/admin/updateProduct','')?>
-            <input type="hidden" name="pId" value="<?php echo $product[0]['coId']?>">
+            <?php echo form_open_multipart(site_url('/admin/updateCustomOrder/'.$product[0]['coId']),'')?>
+            <input type="hidden" name="coId" value="<?php echo $product[0]['coId']?>">
             <input type="hidden" name="oldImg" value="<?php echo $product[0]['coDp']?>">
+            <input type="hidden" name="co_first" value="<?php echo $product[0]['coFirst']?>">
+            <input type="hidden" name="co_last" value="<?php echo $product[0]['coLast']?>">
+            <input type="hidden" name="co_phone" value="<?php echo $product[0]['coPhone']?>">
+            <input type="hidden" name="co_email" value="<?php echo $product[0]['coEmail']?>">
+            <input type="hidden" name="co_size" value="<?php echo $product[0]['coSize']?>">
+            <input type="hidden" name="co_dp2" value="<?php echo $product[0]['coDp2']?>">
+            <input type="hidden" name="co_user" value="<?php echo $product[0]['coUser']?>">
+            <input type="hidden" name="co_message" value="<?php echo $product[0]['coMessage']?>">
 
             <div class="form-group">
             <label class="form-label" for="co_message">Vison</label>
@@ -34,15 +41,21 @@
 
             <div class="form-group">
             <label class="form-label" for="co_size">Status</label>
-                <select name="subCategory" id="subCategory" class="form-select col" aria-label="Sub Category Select" >
-                    <option value="">Status</option>
+                <select name="statusSelect" id="statusSelect" class="form-select col" aria-label="Sub Category Select" >
+                    <option value="Quote">Quote</option>
+                    <option value="Invoice">Invoice</option>
+                    <option value="Mockup-1">Mockup 1</option>
+                    <option value="Mockup-2">Mockup 2</option>
+                    <option value="Production">Production</option>
+                    <option value="Shipped">Shipped</option>
                 </select>
             </div>
 
-
             <div class="form-group">
-                <?php echo form_upload('coDp','',''); ?>
+                <label class="form-label" for="co_tracking">Tracking #</label>
+                <input type="text" value="<?php  if(isset($product[0]['coTracking'])){ echo $product[0]['coTracking'];}?>" name="co_tracking" id="co_tracking" class="form-control" />
             </div>
+
             <div class="form-group">
                 <?php echo form_submit('Update Order','Update Order','class="btn btn-primary"'); ?>
             </div>
