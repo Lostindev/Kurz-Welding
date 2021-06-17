@@ -138,7 +138,7 @@
 													<span class="ratings" style="width:100%"></span>
 													<span class="tooltiptext tooltip-top"></span>
 												</div>
-												<a href="#" class="rating-reviews">( 3+ reviews )</a>
+												<a href="#" class="rating-reviews">( 4+ reviews )</a>
 											</div>
 										</div>
 									</div>

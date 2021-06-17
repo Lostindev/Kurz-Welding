@@ -328,7 +328,7 @@
                                                 <span class="ratings" style="width:100%"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="https://www.etsy.com/shop/KurzMetalArt?ref=simple-shop-header-name&listing_id=922619598#reviews" target="_BLANK" class="rating-reviews">( 3+ reviews )</a>
+                                            <a href="https://www.etsy.com/shop/KurzMetalArt?ref=simple-shop-header-name&listing_id=922619598#reviews" target="_BLANK" class="rating-reviews">( 4+ reviews )</a>
                                         </div>
                                     </div>
                                 </div>
@@ -480,7 +480,7 @@
                                         <span class="ratings" style="width:100%"></span>
                                         <span class="tooltiptext tooltip-top"></span>
                                     </div>
-                                    <a href="https://www.etsy.com/shop/KurzMetalArt?ref=simple-shop-header-name&listing_id=922619598#reviews" target="_BLANK" class="rating-reviews">( 3+ reviews )</a>
+                                    <a href="https://www.etsy.com/shop/KurzMetalArt?ref=simple-shop-header-name&listing_id=922619598#reviews" target="_BLANK" class="rating-reviews">( 4+ reviews )</a>
                                 </div>
                             </div>
                         </div>

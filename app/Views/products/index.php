@@ -127,7 +127,7 @@
 										<span class="ratings" style="width:100%"></span>
 										<span class="tooltiptext tooltip-top"></span>
 									</div>
-									<a href="#product-tab-reviews" class="link-to-tab rating-reviews">( 3+ reviews )</a>
+									<a href="#product-tab-reviews" class="link-to-tab rating-reviews">( 4+ reviews )</a>
 								</div>
 								<form action="<?php echo '/shop/add-to-cart/'.$product[0]['pId']; ?>" method="POST">
 								<p class="product-short-desc"><?php echo $product[0]['pDescription'];?></p>
@@ -260,7 +260,7 @@
 											<span class="ratings" style="width:100%"></span>
 											<span class="tooltiptext tooltip-top"></span>
 										</div>
-										<a href="#" class="rating-reviews">( <span class="review-count">3+</span>
+										<a href="#" class="rating-reviews">( <span class="review-count">4+</span>
 											reviews
 											)</a>
 									</div>
