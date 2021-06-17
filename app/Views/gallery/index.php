@@ -29,17 +29,17 @@
                         <div class="grid-item col-sm-6 col-lg-4 lifestyle shopping winter-sale">
                             <article class="post post-mask gradient">
                                 <figure class="post-media overlay-zoom">
-                                    <a href="post-single.html">
+                                    <a href="#">
                                         <img src="<?php echo base_url('/img/gallery/'.$item['gDp']); ?>" width="380" height="280" alt="post" />
                                     </a>
                                 </figure>
                                 <div class="post-details">
                                     <div class="post-meta">
-                                        on <a href="#" class="post-date">Jun 22, 2018</a>
+                                        on <a href="#" class="post-date"><?php echo $item['gDate'];?></a>
                                     </div>
-                                    <h4 class="post-title"><a href="post-single.html"><?php echo $item['gName'];?></a>
+                                    <h4 class="post-title"><a href="#"><?php echo $item['gName'];?></a>
                                     </h4>
-                                    <a href="post-single.html" class="btn btn-link btn-underline btn-white">Read more<i
+                                    <a href="#" class="btn btn-link btn-underline btn-white">Read more<i
                                             class="d-icon-arrow-right"></i></a>
                                 </div>
                             </article>

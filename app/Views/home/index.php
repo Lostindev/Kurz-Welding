@@ -414,8 +414,7 @@
                         <p class=" text-right mr-3 col-6 text-black appear-animate font-weight-bold" data-animation-options="{
                                         'name': 'fadeInRightShorter',
                                         'delay': '.85s'
-                                    }" style="animation-duration: 1.4s;margin-left:50%;">A special occasion should be just that, SPECIAL! Make the memory last with a high quality piece of art. Custom monogram signs are really popular for weddings, Father's Day, Mother's Day, and anniversarys. Another popular choice is custom holiday signs.
-                                    We offer Custom Christmas Signs, Custom Valentine's Day Signs, Custom Birthday Gifts, Memorial Day, 4th of July &  much more!</p><br><br>
+                                    }" style="animation-duration: 1.4s;margin-left:50%;">A special occasion should be just that, a special occasion! Make the memory last by purchasing a high-quality piece of art. Weddings, Father's Day, Mother's Day, and anniversaries are all popular occasions for custom monogram signs. Custom holiday signs are another popular option. Custom Christmas Signs, Custom Valentine's Day Signs, Custom Birthday Gifts, Memorial Day, 4th of July, and much more are available!</p><br><br>
                     </div>
                 </div>
                 </section>
