@@ -259,10 +259,10 @@
                                                         height="330" />
                                                 </figure>
                                                 <div class="banner-content y-50">
-                                                    <h4 class="banner-subtitle font-weight-bold text-primary ls-m">Sale.
+                                                    <h4 class="banner-subtitle font-weight-bold text-primary ls-m">Shop
                                                     </h4>
                                                     <h3 class="text-white banner-title font-weight-bold"><span
-                                                            class="text-uppercase">Up to</span>70% Off</h3>
+                                                            class="text-uppercase"></span>All Styles</h3>
                                                     <a style="color:#0088aa" href="/shop" class="btn btn-link btn-underline">shop
                                                         now<i class="d-icon-arrow-right"></i></a>
                                                 </div>

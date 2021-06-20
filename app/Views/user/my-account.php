@@ -95,7 +95,7 @@
                                             <th>Date</th>
                                             <th>Status</th>
                                             <th>Total</th>
-                                            <th class="pr-2">Actions</th>
+                                            <!--<th class="pr-2">Actions</th>-->
                                         </tr>
                                     </thead>
                                     <tbody class="text-center">
@@ -114,8 +114,8 @@
 											<?php $products = $row['oProducts'] ?>
         									<?php $order_array = explode(";", $products); ?>
         									<?php $result = count($order_array);?>
-                                            <td class="order-total"><span>$<?php echo $row['oPrice'] ?> for <?php echo $result ; ?> items</span></td>
-                                            <td class="order-action"><a href="#" class="btn btn-primary btn-link btn-underline">View</a></td>
+                                            <td class="order-total"><span>$<?php echo $row['oPrice'] ?></span></td>
+                                            <!--<td class="order-action"><a href="#" class="btn btn-primary btn-link btn-underline">View</a></td>-->
                                         </tr>
 										<?php endforeach; ?>
 										<?php endif;?>
