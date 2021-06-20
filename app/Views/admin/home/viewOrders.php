@@ -36,7 +36,7 @@
                     <tr>
                         <td>
                             
-                            <?php if (isset($getResult['stripeId'])) echo $getResult['stripeId']; else echo $getResult['oId']  ;?>
+                            <?php if (isset($getResult['stripeId'])) echo $getResult['stripeId']; else echo $getResult['tempId']  ;?>
                         </td>
                         <td>
                             <?php if (isset($getResult['oPrice'])) echo $getResult['oPrice']  ;?>

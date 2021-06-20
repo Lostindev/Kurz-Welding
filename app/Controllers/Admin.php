@@ -1664,7 +1664,7 @@ class Admin extends BaseController
              $adminDB = new ModOrders();
              $subCatDB = new ModSub();
              $data = [
-                 'results' => $adminDB->paginate(20),
+                 'results' => $adminDB->orderBy('oId', 'DESC')->paginate(20),
                  'pager' => $adminDB->pager,
                  'categories' => $subCatDB->findAll()];
  
@@ -1715,6 +1715,107 @@ class Admin extends BaseController
         } else {
             $session->setFlashdata('message','Please login to delete orders.');
             $session->keepFlashdata('message');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
+
+    public function editOrder($oId, $page = 'editOrder') {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        if (adminLoggedIn()) {
+            if (!empty($oId) && isset($oId)) {
+
+                $builder = new ModOrders();
+            
+                $checkProductById = $builder->where('oId',$oId)->findAll();
+                $data['product'] = $checkProductById;
+                if (count($data['product']) == 1) {
+                    $adminDB = new ModOrders();
+                    $data['categories'] = $adminDB->findAll();
+                    
+                    echo view('admin/header/header', $data);
+                    echo view('admin/header/css', $data);
+                    echo view('admin/header/navtop', $data);
+                    echo view('admin/header/navleft', $data);
+                    echo view('admin/home/editOrder', $data);
+                    echo view('admin/header/footer', $data);
+
+                } else {
+                    $session->setFlashdata('message','Order not found.');
+                    $session->keepFlashdata('message');
+                    return redirect()->to(base_url('/admin/viewOrders'));
+                }
+                
+
+
+            } else {
+                $session->setFlashdata('message','Something went wrong, please try again.');
+                return redirect()->to(base_url('/admin/viewProducts'));
+            }
+            
+        }   
+        
+        else {
+            $session->setFlashdata('message','Please login to edit products.');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
+
+    public function updateOrder($oId) {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        $adminDB = new ModOrders();
+        
+
+        if (adminLoggedIn()) {
+            $data['oId'] = $request->getPost('oId');
+            $data['tempId'] = $request->getPost('tempId');
+            $data['oDate'] = $request->getPost('oDate');
+            $data['userId'] = $request->getPost('userId');
+            $data['oStatus'] = $request->getPost('statusSelect');
+            $data['oProducts'] = $request->getPost('oProducts');
+            $data['oPrice'] = $request->getPost('oPrice');
+            $data['oCustom'] = $request->getPost('oCustom');
+            $data['oTracking'] = $request->getPost('o_tracking');
+
+            $data['billingEmail'] = $request->getPost('billingEmail');
+            $data['billingCompany'] = $request->getPost('billingCompany');
+            $data['billingFirst'] = $request->getPost('billingFirst');
+            $data['billingLast'] = $request->getPost('billingLast');
+            $data['billingAddress'] = $request->getPost('billingAddress');
+            $data['billingApt'] = $request->getPost('billingApt');
+            $data['billingCity'] = $request->getPost('billingCity');
+            $data['billingCountry'] = $request->getPost('billingCountry');
+            $data['billingZip'] = $request->getPost('billingZip');
+            $data['billingState'] = $request->getPost('billingState');
+            $data['billingPhone'] = $request->getPost('billingPhone');
+            $data['billingNotes'] = $request->getPost('billingNotes');
+
+            $data['shippingCompany'] = $request->getPost('shippingCompany');
+            $data['shippingFirst'] = $request->getPost('shippingFirst');
+            $data['shippingLast'] = $request->getPost('shippingLast');
+            $data['shippingAddress'] = $request->getPost('shippingAddress');
+            $data['shippingApt'] = $request->getPost('shippingApt');
+            $data['shippingCity'] = $request->getPost('shippingCity');
+            $data['shippingCountry'] = $request->getPost('shippingCountry');
+            $data['shippingZip'] = $request->getPost('shippingZip');
+            $data['shippingState'] = $request->getPost('shippingState');
+
+                    $adminDB->where('oId',$oId);
+
+                    $addData = $adminDB->replace($data);
+                        if ($addData) {
+                            $session->setFlashdata('successMessage','You have successfully updated the order status.');
+                            return redirect()->to(base_url('/admin/viewOrders'));
+                        } else {
+                            $session->setFlashdata('message','Something went wrong, please try again.');
+                            return redirect()->to(base_url('/admin/viewOrders'));
+                        }
+                    
+
+
+        } else {
+            $session->setFlashdata('message','Please login to edit orders.');
             return redirect()->to(base_url('/admin/login'));
         }
     }
