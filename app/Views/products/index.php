@@ -165,7 +165,7 @@
 										<a href="#" class="product-variation-clean">Clear All</a>
 									</div>
 									<?php endif; ?>
-								</div>
+								</div><br>
 								<div class="form-group">
 										<textarea name="oCustom" cols="40" rows="10" class="form-control" placeholder="Enter custom details. (Applies to customizable products)"></textarea>
 									</div>

@@ -79,7 +79,7 @@
 											<option value="price-high">Sort forward price high</option>
 											<option value="">Clear custom sort</option>
 										</select>
-									</div>-->
+									</div>
 								</div>
 								<div class="toolbox-right">
 									<div class="toolbox-item toolbox-show select-box text-dark">
@@ -95,6 +95,7 @@
 										<a href="shop.html" class="d-icon-mode-grid btn-layout active"></a>
 									</div>
 								</div>
+								-->
 							</nav>
 							<div class="row cols-2 cols-sm-3 product-wrapper">
                             <?php //load store products based on category?>
@@ -108,6 +109,7 @@
 											<a href="<?php echo base_url('/shop/custom-metal-art/'.$pUrl) ; ?>">
 												<img style="height:200px;width:auto;margin:auto;" src="<?php echo base_url('/img/products/'.$product['pDp']); ?>" alt="product" width="280" height="315">
 											</a>
+											<!--
 											<div class="product-label-group">
 												<label class="product-label label-sale">25% off</label>
 											</div>
@@ -117,7 +119,7 @@
 														class="d-icon-bag"></i></a>
 												<a href="#" class="btn-product-icon btn-wishlist"
 													title="Add to wishlist"><i class="d-icon-heart"></i></a>
-											</div>
+											</div>-->
 											<div class="product-action">
 												<a href="<?php echo base_url('/shop/custom-metal-art/'.$pUrl) ; ?>" class="btn-product" title="Quick View">View</a>
 											</div>
@@ -146,11 +148,11 @@
                                 <?php endforeach; ?>
                                 <?php endif; ?>
 								</div>
-							</div>
+							</div><!--
 							<nav class="toolbox toolbox-pagination">
 								<p class="show-info">Showing <span>12 of 56</span> Products</p>
                                 
-							</nav>
+							</nav>-->
 						</div>
 					</div>
 				</div>

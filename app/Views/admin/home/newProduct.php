@@ -22,7 +22,7 @@
                 <?php echo form_input('productName','',array('class'=>"form-control", 'placeholder'=>'Enter Product Name (No dashes ---)')); ?>
             </div>
             <div class="form-group">
-                <?php echo form_input('pPrice','',array('class'=>"form-control", 'placeholder'=>'Enter Product Price (49.99)')); ?>
+                <?php echo form_input('pPrice','',array('class'=>"form-control", 'placeholder'=>'Enter Product Price (50)')); ?>
             </div>
             <div class="form-group">
                 <?php echo form_textarea('productDescription','',array('class'=>"form-control", 'placeholder'=>'Enter Product Description (Optional)')); ?>

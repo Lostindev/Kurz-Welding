@@ -302,6 +302,7 @@
                                         <a href="<?php echo base_url('/shop/custom-metal-art/'.$pUrl) ; ?>">
                                             <img style="height:200px;width:auto;margin:auto;" src="<?php echo base_url('/img/products/'.$product['pDp']); ?>" alt="product">
                                         </a>
+                                        <!--
                                         <div class="product-label-group">
                                             <label class="product-label label-sale">25% off</label>
                                         </div>
@@ -311,9 +312,9 @@
                                                     class="d-icon-bag"></i></a>
                                             <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i
                                                     class="d-icon-heart"></i></a>
-                                        </div>
+                                        </div>-->
                                         <div class="product-action">
-                                            <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
+                                            <a href="<?php echo base_url('/shop/custom-metal-art/'.$pUrl) ; ?>" class="btn-product btn-quickview" title="Quick View">View</a>
                                         </div>
                                     </figure>
                                     <div class="product-details">
@@ -455,6 +456,7 @@
                                 <a href="<?php echo base_url('/shop/custom-metal-art/'.$pfUrl) ; ?>">
                                     <img style="height:200px;width:auto;margin:auto;" src="<?php echo base_url('/img/products/'.$productFeatured['pDp']); ?>" alt="product">
                                 </a>
+                                <!--
                                 <div class="product-label-group">
                                     <label class="product-label label-sale">25% off</label>
                                 </div>
@@ -463,7 +465,7 @@
                                         data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
                                     <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i
                                             class="d-icon-heart"></i></a>
-                                </div>
+                                </div>-->
                                 <div class="product-action">
                                     <a href="<?php echo base_url('/shop/custom-metal-art/'.$pfUrl) ; ?>" class="btn-product" title="Quick View">View</a>
                                 </div>
