@@ -1685,4 +1685,38 @@ class Admin extends BaseController
          }
      }
 
+     public function deleteOrder($oId) {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        
+        if (adminLoggedIn()) {
+
+            if (!empty($oId) && isset($oId)) {
+                $adminDB = new ModOrders();
+                $result = $adminDB->where('oId',$oId)->delete();
+
+                if ($result) {
+  
+                    $session->setFlashdata('successMessage','Order successfully deleted.');
+                    $session->keepFlashdata('sucessMessage');
+                    return redirect()->to(base_url('/admin/viewOrders'));
+                } else {
+                    $session->setFlashdata('message','Something went wrong, please try again.');
+                    $session->keepFlashdata('message');
+                    return redirect()->to(base_url('/admin/viewOrders'));
+                }
+                
+            } else {
+                $session->setFlashdata('message','Something went wrong, please try again.');
+                $session->keepFlashdata('message');
+                return redirect()->to(base_url('/admin/viewOrders'));
+            }
+
+        } else {
+            $session->setFlashdata('message','Please login to delete orders.');
+            $session->keepFlashdata('message');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
+
 } //end of controller
