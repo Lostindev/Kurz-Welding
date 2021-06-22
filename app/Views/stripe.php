@@ -7,7 +7,7 @@
           $stripeCharge = $sum.'00';
         };
 
-        \Stripe\Stripe::setApiKey('sk_test_51J0Z2pGou0fkx6yrG69qBHLG7NeP7Sa0wTBZrosjFvX4cSsr7NHAJWk9992PQqNe8tqkXwg4j6y857BOZesTGPEy00uhyVVe2i');
+        \Stripe\Stripe::setApiKey('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');
         
 
             $session = \Stripe\Checkout\Session::create([
@@ -40,7 +40,7 @@
 <script src="https://js.stripe.com/v3/"></script>
 <script type="text/javascript">
             // Create an instance of the Stripe object with your publishable API key
-            var stripe = Stripe('pk_test_51J0Z2pGou0fkx6yr2E3R0YAErGzBubxzQYFkJpwq773XTZyNW1IiWSVXBeMg2s7gw1LfkKLDEmilwkO6BTqvzEE200dZGY9L7v');
+            var stripe = Stripe('pk_live_51J0Z2pGou0fkx6yr4XiCqwHWrIwOPbFurDBK9hvr6pDVSQ4RybphjDWJ9NRrmEEktPGUEB7jElM83Ut3lXkD6gQ7004r31BPPI');
 
             var session = "<?php echo $session['id']; ?>";
             console.log(session);

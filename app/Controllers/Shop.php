@@ -373,12 +373,12 @@ class Shop extends BaseController
             require_once '/var/www/html/public/vendor/init.php';
             // Set your secret key. Remember to switch to your live secret key in production.
             // See your keys here: https://dashboard.stripe.com/apikeys
-            \Stripe\Stripe::setApiKey('sk_test_51J0Z2pGou0fkx6yrG69qBHLG7NeP7Sa0wTBZrosjFvX4cSsr7NHAJWk9992PQqNe8tqkXwg4j6y857BOZesTGPEy00uhyVVe2i');
+            \Stripe\Stripe::setApiKey('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');
 
             // If you are testing your webhook locally with the Stripe CLI you
             // can find the endpoint's secret by running `stripe listen`
             // Otherwise, find your endpoint's secret in your webhook settings in the Developer Dashboard
-            $endpoint_secret = 'whsec_mEm8nrRK2xP18Unv10eocp1FCPIBOF1Q';
+            $endpoint_secret = 'whsec_VZNN4TnuByR9FxZmWSGX0ek5MOeaaZFb';
 
             $payload = @file_get_contents('php://input');
             $sig_header = $_SERVER['HTTP_STRIPE_SIGNATURE'];

@@ -1813,7 +1813,6 @@ class Admin extends BaseController
                         }
                     
 
-
         } else {
             $session->setFlashdata('message','Please login to edit orders.');
             return redirect()->to(base_url('/admin/login'));
