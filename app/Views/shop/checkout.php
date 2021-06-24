@@ -8,6 +8,13 @@
 <?php foreach($shippingAddress as $sSpec): ?>
 <?php endforeach; ?>
 <?php endif;?>
+
+<?php $userInfo = getUserInfo(); ?>
+<?php if (!empty($userInfo)): ?>
+<?php foreach ($userInfo as $user): ?>
+<?php endforeach; ?>
+<?php endif; ?>
+
 <script src="https://js.stripe.com/v3/"></script>
 
 <main class="main checkout">
@@ -126,7 +133,7 @@
 									</div>
 								</div>
 								<label>Email Address *</label>
-								<input type="text" class="form-control" name="email-address" required="" />
+								<input type="text" class="form-control" name="email-address" value="<?php if (isset($user['email'])) echo $user['email']; ?>" required="" />
 								<div class="form-checkbox mb-6">
 									<input type="checkbox" class="custom-checkbox shipping-diff" id="different-address"
 										name="different-address">

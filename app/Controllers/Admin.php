@@ -7,6 +7,7 @@ use App\Models\ModProducts;
 use App\Models\ModSpec;
 use App\Models\ModSpecValues;
 use App\Models\ModGallery;
+use App\Models\ModUsers;
 
 use App\Models\ModCustomOrders;
 use App\Models\ModOrders;
@@ -20,6 +21,10 @@ class Admin extends BaseController
         $session = \Config\Services::session();
         $request = \Config\Services::request();
         
+        $ordersDB = new ModOrders();
+        $usersDB = new ModUsers();
+        $customDB = new ModCustomOrders();
+        $productDB = new ModProducts();
         
 		$data['title'] = 'Kurz Welding & Metal Art | Home';
 		$data['metaData'] = "";
@@ -28,6 +33,11 @@ class Admin extends BaseController
 		$data['uri'] = $this->request->uri;
 
         $checkUser = $session->get('aId');
+
+        $data['getOrders'] = $ordersDB->countAll();
+        $data['getCustom'] = $customDB->countAll();
+        $data['getRegistered'] = $usersDB->countAll();
+        $data['productList'] = $productDB->countAll();
 
         if ($checkUser) {
             echo view('admin/header/header', $data);
