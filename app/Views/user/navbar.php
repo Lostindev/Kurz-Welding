@@ -56,7 +56,6 @@
                             <a href="#currency">USD</a>
                             <ul class="dropdown-box">
                                 <li><a href="#USD">USD</a></li>
-                                <li><a href="#EUR">EUR</a></li>
                             </ul>
                         </div>
                         <!-- End DropDown Menu -->
@@ -65,9 +64,6 @@
                             <ul class="dropdown-box">
                                 <li>
                                     <a href="#USD">ENG</a>
-                                </li>
-                                <li>
-                                    <a href="#EUR">FRH</a>
                                 </li>
                             </ul>
                         </div>

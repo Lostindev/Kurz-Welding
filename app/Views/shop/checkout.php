@@ -286,7 +286,7 @@
 											<input type="checkbox" class="custom-checkbox" id="terms-condition"
 												name="terms-condition" required />
 											<label class="form-control-label" for="terms-condition">
-												I have read and agree to the website <a href="#">terms and conditions </a>*
+												I have read and agree to the website <a href="/home/terms-and-conditions" target="_BLANK">terms and conditions </a>*
 											</label>
 										</div>
 

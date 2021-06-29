@@ -67,7 +67,7 @@
                                 <p class="section-desc text-grey">
                                 Kurz Metal Art is a family owned business located in Youngstown, Ohio. We are proud Americans who specialize in custom made metal signs, home decor, and metal artwork. <br><br> We will produce your “One of a Kind” design to your specifications. Have an idea, but not sure how it will look?<br> 
                                 No problem, we will help you through the design phase.<br>
-                                <br>We have built our name, Kurz Metal Art, on producing specialty signs and unique artwork. Our quality standard includes metal for at least a 16 gauge. No flimsy metal here. 
+                                <br>We have built our name, Kurz Metal Art, on producing specialty signs and unique artwork. Our quality standard includes a 16 gauge metal minimum. No flimsy metal here. 
                                 </p>
                                 <a href="/shop" class="btn btn-dark btn-link btn-underline ls-m">Visit Our Store<i
                                         class="d-icon-arrow-right"></i></a>
