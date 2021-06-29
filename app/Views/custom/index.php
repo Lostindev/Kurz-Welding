@@ -101,8 +101,8 @@ After that, each component is powder coated for further durability and can be us
 
                         <!-- Size input -->
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="co_size">Size</label>
-                            <input type="text" name="co_size" id="co_size" class="form-control" required="" />
+                            <label class="form-label" for="co_size">Size/Dimensions</label>
+                            <input type="text" name="co_size" id="co_size" class="form-control" placeholder="(L x W or diameter)" required="" />
                         </div>
 
                         <!-- Message input -->
