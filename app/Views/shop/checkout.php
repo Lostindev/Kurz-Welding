@@ -25,45 +25,6 @@
 					<h3 class="title title-simple title-step"><a href="#">3. Order Complete</a></h3>
 				</div>
 				<div class="container mt-7">
-				<?php if(userLoggedIn()): ?>
-                  
-                <?php else:?>
-					<div class="card accordion">
-						<div class="alert alert-light alert-primary alert-icon mb-4 card-header">
-							<i class="fas fa-exclamation-circle"></i>
-							<span class="text-body">Returning customer?</span>
-							<a href="#alert-body1" class="text-primary collapse">Click here to login</a>
-						</div>
-						<div class="alert-body collapsed" style="display:none;" id="alert-body1"> 
-							<p>If you have shopped with us before, please enter your details below. 
-								If you are a new customer, please proceed to the Billing section.</p>
-						<form method="POST" action="/users/check-user">
-							<div class="row cols-md-2">
-								
-									<label for="username">Username Or Email *</label>
-									<input type="text" class="input-text form-control mb-0" name="email" id="email" autocomplete="email">
-								
-								
-									<label for="password">Password *</label>
-									<input class="input-text form-control mb-0" type="password" name="password" id="password" autocomplete="current-password"> 
-								
-							</div>
-							<div class="checkbox d-flex align-items-center justify-content-between">
-								<div class="form-checkbox pt-0 mb-0">
-									<input type="checkbox" class="custom-checkbox" id="signin-remember"
-										name="signin-remember" />
-									<label class="form-control-label" for="signin-remember">Remember
-										Me</label>
-								</div>
-								<a href="#" class="lost-link">Lost your password?</a>
-							</div>
-							<div class="link-group">
-								<button class="btn btn-dark btn-rounded mb-4" type="submit">Login</button>
-							</div>
-						</form>
-						</div>
-					</div>
-                <?php endif; ?>
 
 					<div class="card accordion">
 						<div class="alert alert-light alert-primary alert-icon mb-4 card-header">
