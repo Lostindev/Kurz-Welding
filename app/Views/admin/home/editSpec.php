@@ -23,7 +23,7 @@
 
             <div class="form-group">
             <select name="productId" id="productId" class="form-select" aria-label="Product Select">
-            <option value="0" selected>Select Product</option>
+            <option value="<?php echo $product['pId']; ?>" selected><?php echo $product['pName']; ?></option>
             <?php if(count($products) > 0): ?>
             <?php foreach ($products as $product): ?>
             <option value="<?php echo $product['pId']; ?>">
