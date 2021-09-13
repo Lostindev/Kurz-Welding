@@ -15,7 +15,7 @@
                             <video playsinline autoplay muted loop
                             style="
                                 height: 625px;"> 
-                                <source src="/img/home/cnc-metal-art-video.mp4" type="video/mp4">
+                                <source src="./img/home/cnc-metal-art-video.mp4" type="video/mp4">
                             </video>
                         </figure>
                         <div class="container slide-animate">
@@ -43,7 +43,7 @@
                     <!--Other Sliders 
                     <div class="intro-slide2 banner banner-fixed" style="background-color: #9e9e9e">
                         <figure>
-                            <img src="/theme/images/demos/demo17/slides/2.jpg" width="1903" height="625" alt="banner" />
+                            <img src="./theme/images/demos/demo17/slides/2.jpg" width="1903" height="625" alt="banner" />
                         </figure>
                         <div class="container">
                             <div class="banner-content y-50">
@@ -64,7 +64,7 @@
                     </div>
                     <div class="intro-slide3 banner banner-fixed" style="background-color: #012837">
                         <figure>
-                            <img src="/theme/images/demos/demo17/slides/3.jpg" width="1903" height="625" alt="banner" />
+                            <img src="./theme/images/demos/demo17/slides/3.jpg" width="1903" height="625" alt="banner" />
                         </figure>
                         <div class="container">
                             <div class="banner-content y-50 text-center slide-animate"
@@ -88,7 +88,7 @@
                                 style="background-color: #141414 ">
                                 <a href="#">
                                     <figure class="category-media">
-                                        <img src="/img/home/most-popular.jpg" alt="category" width="465"
+                                        <img src="./img/home/most-popular.jpg" alt="category" width="465"
                                             height="257" />
                                     </figure>
                                 </a>
@@ -106,7 +106,7 @@
                                 style="background-color: #524b45">
                                 <a href="#">
                                     <figure class="category-media">
-                                        <img src="/img/home/view-gallery.jpg" alt="category" width="465"
+                                        <img src="./img/home/view-gallery.jpg" alt="category" width="465"
                                             height="257" />
                                     </figure>
                                 </a>
@@ -122,7 +122,7 @@
                         <div class="grid-item col-lg-6 height-x2">
                             <div class="intro-banner1 banner row gutter-no">
                                 <figure class="col-sm-6" style="background-color: #aba8a1">
-                                    <img src="/img/home/custom-design.jpg" alt="banner" width="465" height="534" />
+                                    <img src="./img/home/custom-design.jpg" alt="banner" width="465" height="534" />
                                 </figure>
                                 <div class="col-sm-6">
                                     <div class="banner-content  text-center pl-2 pr-2">
@@ -153,7 +153,7 @@
                             <div class="intro-banner2 banner banner-fixed overlay-dark"
                                 style="background-color: #252525">
                                 <figure>
-                                    <img src="/img/home/custom-metal-pit-banner.jpg" alt="banner" width="950" height="257" />
+                                    <img src="./img/home/custom-metal-pit-banner.jpg" alt="banner" width="950" height="257" />
                                 </figure>
                                 <div class="banner-content y-50">
                                     <div class="appear-animate" data-animation-options="{
@@ -300,7 +300,7 @@
                                 <div class="product text-center">
                                     <figure class="product-media">
                                         <a href="<?php echo base_url('/shop/custom-metal-art/'.$pUrl) ; ?>">
-                                            <img style="height:200px;width:auto;margin:auto;" src="<?php echo base_url('/img/products/'.$product['pDp']); ?>" alt="product">
+                                            <img style="height:200px;width:auto;margin:auto;" src="<?php echo base_url('./img/products/'.$product['pDp']); ?>" alt="product">
                                         </a>
                                         <!--
                                         <div class="product-label-group">
@@ -361,7 +361,7 @@
                                     </div>
                                 </div>
                                 <figure class="col-6" style="background-color: #a28778">
-                                    <img src="/img/home/collage.jpg" alt="banner" width="475" height="341" />
+                                    <img src="./img/home/collage.jpg" alt="banner" width="475" height="341" />
                                 </figure>
                             </div>
                         </div>
@@ -370,7 +370,7 @@
                         }">
                             <div class="banner2 banner banner-fixed" style="background-color: #1c1c1e">
                                 <figure>
-                                    <img src="/img/home/colors.jpg" alt="banner" width="950" height="341" />
+                                    <img src="./img/home/colors.jpg" alt="banner" width="950" height="341" />
                                 </figure>
                                 <div class="banner-content y-50">
                                     <div class="appear-animate" data-animation-options="{
@@ -454,7 +454,7 @@
                         <div class="product text-center">
                             <figure class="product-media">
                                 <a href="<?php echo base_url('/shop/custom-metal-art/'.$pfUrl) ; ?>">
-                                    <img style="height:200px;width:auto;margin:auto;" src="<?php echo base_url('/img/products/'.$productFeatured['pDp']); ?>" alt="product">
+                                    <img style="height:200px;width:auto;margin:auto;" src="<?php echo base_url('./img/products/'.$productFeatured['pDp']); ?>" alt="product">
                                 </a>
                                 <!--
                                 <div class="product-label-group">

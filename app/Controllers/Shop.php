@@ -133,9 +133,12 @@ class Shop extends BaseController
                 $_SESSION['varDimensions'] = array();
                 $_SESSION['varCustom'] = array();
             } 
+            if(!isset($_SESSION["quantity"][$pId])){
+                $_SESSION["quantity"][$pId] = 0; 
+            }
 
             $specDB = new ModSpec();
-            $valuesDB = new ModSpecValues();
+            $valuesDB = new ModSpecValues(); 
 
             //Set new price
             $prePrice = $request->getPost('var-price');
@@ -153,19 +156,33 @@ class Shop extends BaseController
             
             //Add to cart
             array_push($_SESSION['cart'], $pId);
-
+            if(in_array($pId,$_SESSION['cart'])){
+                $_SESSION["quantity"][$pId] +=1;
+            }else{
+                $_SESSION["quantity"][$pId] = 1;
+            }
+           
             //Add Price Variation
-            array_push($_SESSION['varPrice'], $varPrice);
+            $_SESSION['varPrice'][$pId] = $varPrice;
+            $_SESSION['varColor'][$pId] = $varColor;
 
-            //Add Color to Cart
-            array_push($_SESSION['varColor'], $varColor);
 
             //Add Dimensions to cart
             $getSpec = $specDB->getWhere(['productId'=>$pId])->getResultArray();
+            if(!empty($getSpec)){
+                $newSize = $valuesDB->getWhere(['specId'=>$pId,'spvPrice'=>$varSize])->getResultArray();
+                if(!empty($newSize)){
+                    
+                    // array_push($_SESSION['varDimensions'], $newSize[0]['spvName']);
+                    $_SESSION['varDimensions'][$pId] = $newSize[0]['spvName'];
+                }
+               
+            }
 
-            $newSize = $valuesDB->getWhere(['specId'=>$getSpec[0]['spId'],'spvPrice'=>$varSize])->getResultArray();
+        
 
-            array_push($_SESSION['varDimensions'], $newSize[0]['spvName']);
+//             print_r($_SESSION['varPrice']);
+// die();
 
             //Redirect to cart
             $session->setFlashdata('successMessage','Product successfully added to cart!');
@@ -177,6 +194,62 @@ class Shop extends BaseController
             //Redirect to cart
             $session->setFlashdata('message','Product not found.');
             return redirect()->to(site_url('/shop/cart'));
+        }
+    }
+
+public function rest(){
+    unset($_SESSION["cart"]);
+    unset($_SESSION["varPrice"]);
+    unset($_SESSION["varCustom"]);
+    unset($_SESSION["varColor"]);
+    unset($_SESSION["varDimensions"]);
+    unset($_SESSION["quantity"]);
+}
+    public function removeProduct($id){
+        $session = \Config\Services::session();
+        if(isset($id)){
+            if(in_array($id,$_SESSION['cart'])){
+                foreach($_SESSION["cart"] as $k => $c){
+                    if($id==$c){
+
+                        
+                        unset($_SESSION["cart"][$k]);
+                        unset($_SESSION["varPrice"][$c]);
+                        unset($_SESSION["varCustom"]);
+                        unset($_SESSION["varColor"][$c]);
+                        unset($_SESSION["varDimensions"][$c]);
+                        unset($_SESSION["quantity"][$c]);
+
+                        
+                    }
+                }
+                // echo array_search($pId,$_SESSION['cart']);
+                
+            $session->setFlashdata('message','Product Remove From Cart.');
+            return redirect()->to(site_url('/shop/cart'));
+          }
+        }
+    }
+
+    public function addQuantity($id){
+        if(isset($id)){
+            if(in_array($id,$_SESSION['cart'])){
+               
+                $_SESSION["quantity"][$id] +=1;
+                // echo array_search($pId,$_SESSION['cart']);
+                echo json_encode($_SESSION["quantity"][$id]);
+          }
+        }
+    }
+
+    public function minusQuantity($id){
+        if(isset($id)){
+            if(in_array($id,$_SESSION['cart'])){
+               
+                $_SESSION["quantity"][$id] -=1;
+                // echo array_search($pId,$_SESSION['cart']);
+                echo json_encode($_SESSION["quantity"][$id]);
+          }
         }
     }
 

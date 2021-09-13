@@ -189,7 +189,7 @@ function loadCartPrices() {
             return $price;
         }
         
-    }
+    } 
 }
 
 

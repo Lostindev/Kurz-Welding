@@ -1,5 +1,5 @@
-<link rel="stylesheet" type="text/css" href="vendor/photoswipe/photoswipe.min.css">
-<link rel="stylesheet" type="text/css" href="vendor/photoswipe/default-skin/default-skin.min.css">
+<link rel="stylesheet" type="text/css" href="<?= base_url()?>/theme/vendor/photoswipe/photoswipe.min.css">
+<link rel="stylesheet" type="text/css" href="<?= base_url()?>/theme/vendor/photoswipe/default-skin/default-skin.min.css">
 <style>
 #btn-cart {
 	border: 0;
@@ -23,28 +23,28 @@
 								data-sticky-options="{'minWidth': 767}">
 								<div class="product-single-carousel owl-carousel owl-theme owl-nav-inner row cols-1">
 									<figure class="product-image">
-										<img src="<?php echo site_url('/img/products/'.$product[0]['pDp'])?>"
-											data-zoom-image="<?php echo site_url('/img/products/'.$product[0]['pDp'])?>"
+										<img src="<?php echo site_url('./img/products/'.$product[0]['pDp'])?>"
+											data-zoom-image="<?php echo site_url('./img/products/'.$product[0]['pDp'])?>"
 											alt="<?php echo $product[0]['pDp'];?>" width="800" height="900">
 									</figure>
 									<?php if (isset($product[0]['pDp2'])) :?>
 										<figure class="product-image">
-											<img src="<?php echo site_url('/img/products/'.$product[0]['pDp2'])?>"
-											data-zoom-image="<?php echo site_url('/img/products/'.$product[0]['pDp2'])?>"
+											<img src="<?php echo site_url('./img/products/'.$product[0]['pDp2'])?>"
+											data-zoom-image="<?php echo site_url('./img/products/'.$product[0]['pDp2'])?>"
 											alt="<?php echo $product[0]['pDp2'];?>" width="800" height="900">
 										</figure>
 									<?php endif; ?>
 									<?php if (isset($product[0]['pDp3'])) :?>
 										<figure class="product-image">
-											<img src="<?php echo site_url('/img/products/'.$product[0]['pDp3'])?>"
-											data-zoom-image="<?php echo site_url('/img/products/'.$product[0]['pDp3'])?>"
+											<img src="<?php echo site_url('./img/products/'.$product[0]['pDp3'])?>"
+											data-zoom-image="<?php echo site_url('./img/products/'.$product[0]['pDp3'])?>"
 											alt="<?php echo $product[0]['pDp3'];?>" width="800" height="900">
 										</figure>
 									<?php endif; ?>
 									<?php if (isset($product[0]['pDp4'])) :?>
 										<figure class="product-image">
-											<img src="<?php echo site_url('/img/products/'.$product[0]['pDp4'])?>"
-											data-zoom-image="<?php echo site_url('/img/products/'.$product[0]['pDp4'])?>"
+											<img src="<?php echo site_url('./img/products/'.$product[0]['pDp4'])?>"
+											data-zoom-image="<?php echo site_url('./img/products/'.$product[0]['pDp4'])?>"
 											alt="<?php echo $product[0]['pDp4'];?>" width="800" height="900">
 										</figure>
 									<?php endif; ?>
@@ -53,24 +53,24 @@
 									<div class="product-thumbs">
 										<!--Load all thumbnails if they exists-->
 										<div class="product-thumb active">
-											<img src="<?php echo site_url('/img/products/'.$product[0]['pDp'])?>" alt="product thumbnail"
+											<img src="<?php echo site_url('./img/products/'.$product[0]['pDp'])?>" alt="product thumbnail"
 												width="109" height="122">
 										</div>
 										<?php if (isset($product[0]['pDp2'])) :?>
 										<div class="product-thumb">
-											<img src="<?php echo site_url('/img/products/'.$product[0]['pDp2'])?>" alt="product thumbnail"
+											<img src="<?php echo site_url('./img/products/'.$product[0]['pDp2'])?>" alt="product thumbnail"
 												width="109" height="122">
 										</div>
 										<?php endif; ?>
 										<?php if (isset($product[0]['pDp3'])) :?>
 										<div class="product-thumb">
-											<img src="<?php echo site_url('/img/products/'.$product[0]['pDp3'])?>" alt="product thumbnail"
+											<img src="<?php echo site_url('./img/products/'.$product[0]['pDp3'])?>" alt="product thumbnail"
 												width="109" height="122">
 										</div>
 										<?php endif; ?>
 										<?php if (isset($product[0]['pDp4'])) :?>
 										<div class="product-thumb">
-											<img src="<?php echo site_url('/img/products/'.$product[0]['pDp4'])?>" alt="product thumbnail"
+											<img src="<?php echo site_url('./img/products/'.$product[0]['pDp4'])?>" alt="product thumbnail"
 												width="109" height="122">
 										</div>
 										<?php endif; ?>
@@ -97,7 +97,7 @@
 											<a href="#">
 												<i class="d-icon-arrow-left"></i> Prev
 												<span class="product-nav-popup">
-													<img src="/theme/images/product/product-thumb-prev.jpg"
+													<img src="./theme/images/product/product-thumb-prev.jpg"
 														alt="product thumbnail" width="110" height="123">
 													<span class="product-name">Sed egtas Dnte Comfort</span>
 												</span>
@@ -107,7 +107,7 @@
 											<a href="#">
 												Next <i class="d-icon-arrow-right"></i>
 												<span class="product-nav-popup">
-													<img src="/theme/images/product/product-thumb-next.jpg"
+													<img src="./theme/images/product/product-thumb-next.jpg"
 														alt="product thumbnail" width="110" height="123">
 													<span class="product-name">Sed egtas Dnte Comfort</span>
 												</span>
@@ -129,7 +129,7 @@
 									</div>
 									<a href="#product-tab-reviews" class="link-to-tab rating-reviews">( 4+ reviews )</a>
 								</div>
-								<form action="<?php echo '/shop/add-to-cart/'.$product[0]['pId']; ?>" method="POST">
+								<form action="<?php echo base_url().'/shop/add-to-cart/'.$product[0]['pId']; ?>" method="POST">
 								<p class="product-short-desc"><?php echo $product[0]['pDescription'];?></p>
 								<div class="product-form product-variations product-color">
 									<label>Color:</label>
@@ -232,7 +232,7 @@
 							<div class="product">
 								<figure class="product-media">
 									<a href="<?php echo base_url('/shop/custom-metal-art/'.$pUrl) ; ?>">
-										<img src="<?php echo base_url('/img/products/'.$product['pDp']); ?>" alt="product" style="height:230px;width:330px;">
+										<img src="<?php echo base_url('./img/products/'.$product['pDp']); ?>" alt="product" style="height:230px;width:330px;">
 									</a>
 									<div class="product-label-group">
                                     	<label class="product-label label-sale">25% off</label>

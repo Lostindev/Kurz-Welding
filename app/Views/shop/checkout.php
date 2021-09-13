@@ -15,7 +15,7 @@
 <?php endforeach; ?>
 <?php endif; ?>
 
-<script src="https://js.stripe.com/v3/"></script>
+<script src="https://js.stripe.com/v3/"></script> 
 
 <main class="main checkout">
 			<div class="page-content pt-7 pb-10 mb-10">

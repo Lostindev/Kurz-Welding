@@ -5,7 +5,7 @@
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="widget widget-about">
                                 <a href="/" class="logo-footer mb-5">
-                                    <img src="/img/logo.png" alt="logo-footer" width="308"
+                                    <img src="<?= base_url()?>/img/logo.png" alt="logo-footer" width="308"
                                         height="86" />
                                 </a>
                                 <div class="widget-body">
@@ -66,7 +66,7 @@
                             </div>
                             <div class="footer-info d-flex align-items-center justify-content-between">
                                 <figure class="payment">
-                                    <img src="/theme/images/demos/demo4/payment.png" alt="payment" width="135" height="24" />
+                                    <img src="<?= base_url()?>/theme/images/demos/demo4/payment.png" alt="payment" width="135" height="24" />
                                 </figure>
                                 <div class="social-links">
                                     <a href="https://www.facebook.com/Kurz-Welding-Fabrication-101022675070967" target="_BLANK" class="social-link social-facebook fab fa-facebook-f"></a>
@@ -163,7 +163,7 @@
         </div>
     </div>
 
-    <div class="newsletter-popup mfp-hide" id="newsletter-popup" style="background-image: url(/img/newsletter-popup.png)">
+    <div class="newsletter-popup mfp-hide" id="newsletter-popup" style="background-image: url(<?= base_url()?>/img/newsletter-popup.png)">
         <div class="newsletter-content">
             <h4 class="text-uppercase text-dark">Up to <span class="text-primary">20% Off</span></h4>
             <h2 class="font-weight-semi-bold">Sign up to <span>Kurz Metal Metal</span></h2>
@@ -183,21 +183,81 @@
     </div>
     
     <!-- Plugins JS File -->
-    <script src="/theme/vendor/jquery/jquery.min.js"></script>
-    <script src="/theme/vendor/elevatezoom/jquery.elevatezoom.min.js"></script>
-    <script src="/theme/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="<?= base_url()?>/theme/vendor/jquery/jquery.min.js"></script>
+    <script src="<?= base_url()?>/theme/vendor/elevatezoom/jquery.elevatezoom.min.js"></script>
+    <script src="<?= base_url()?>/theme/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
-    <script src="/theme/vendor/owl-carousel/owl.carousel.min.js"></script>
-    <script src="/theme/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="/theme/vendor/isotope/isotope.pkgd.min.js"></script>
+    <script src="<?= base_url()?>/theme/vendor/owl-carousel/owl.carousel.min.js"></script>
+    <script src="<?= base_url()?>/theme/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="<?= base_url()?>/theme/vendor/isotope/isotope.pkgd.min.js"></script>
     <!-- Main JS File -->
-    <script src="/theme/js/main.js"></script>
+    <script src="<?= base_url()?>/theme/js/main.js"></script>
 
    
     <script src="/js/userBPopup.js"></script>
     <script src="/js/addCart.js"></script>
     
+<script>
+    $(function(){
+        $(".quantity-plus").click(function(){
+            var p = $(this).parents("td.product-quantity");
+            // alert(q.val());
+            var q = p.find("input");
+            var id = p.data("id");
+          
+            // alert($(this).parents("tr").find(".t_m").text());
+            // exit;
+            // q.val(Number(parseInt(q.val()) +1));
+            
+            var price = $(this).parents("tr").find("td.product-total").data("price");
+            var subt = $(this).parents("tr").find(".t_m.amount");
+            $.ajax({
+                url:"<?= base_url("shop/addQuantity")?>/"+ id,
+                method:"get",
+                dataType:"json",
+                success:function(res){
+                    q.val(res);
+                    subt.text(Number(parseInt(price) * parseInt(res)));
+                    total_price_update();   
+                }
+            })
+            
+        })
+        $(".quantity-minus").click(function(){
+            var p = $(this).parents("td.product-quantity");
+            // alert(q.val());
+            var q = p.find("input");
+            var id = p.data("id");
+          
+            // alert($(this).parents("tr").find(".t_m").text());
+            // exit;
+            // q.val(Number(parseInt(q.val()) +1));
+            
+            var price = $(this).parents("tr").find("td.product-total").data("price");
+            var subt = $(this).parents("tr").find(".t_m.amount");
+            $.ajax({
+                url:"<?= base_url("shop/minusQuantity")?>/"+ id,
+                method:"get",
+                dataType:"json",
+                success:function(res){
+                    q.val(res);
+                    subt.text(Number(parseInt(price) * parseInt(res)));
+                    total_price_update();
+                }
+            })
+        })
 
+ function total_price_update(){
+    var total = 0; 
+    $("table.cart-table tr").each(function(){
+        var n = Number($(this).find(".t_m").text());
+        total += Number(parseInt(n));
+     })
+    //  alert(total);
+    $(".s_b_t").text("$ "+total);
+ }
+}) 
+</script>
 
 </body>
 </html>

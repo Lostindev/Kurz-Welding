@@ -17,7 +17,7 @@
                         },
                         '1200': {
                             'items': 3
-                        }
+                        } 
                     }
                 }">
                     <div class="icon-box icon-box-tiny text-center">
@@ -85,7 +85,7 @@
                     </div>
                     <div class="header-center">
                         <a href="/" class="logo mr-1">
-                            <img src="/img/logo.png" alt="logo"  />
+                            <img src="../img/logo.png" alt="logo"  />
                         </a>
                         <!-- End Logo -->
                     </div>
@@ -100,7 +100,7 @@
                         </a>
 
                         <?php else:?>
-                            <a class="login-link" href="/theme/ajax/login.html">
+                            <a class="login-link" href="./theme/ajax/login.html">
                             <i class="d-icon-user" ></i>
                             </a>
                         <?php endif; ?>
@@ -113,8 +113,13 @@
                             <a href="#" class="cart-toggle label-block link">
                                 <div class="cart-label d-lg-show">
                                     <span class="cart-name">Shopping Cart:</span>
-                                    <span class="cart-price">$<?php if(isset($_SESSION['varPrice'])):?>
-                                    <?php $sum = array_sum($_SESSION['varPrice']);?>
+                                    <span class="cart-price s_b_t">$<?php if(isset($_SESSION['cart']) && isset($_SESSION['varPrice'])):?>
+                                        <?php
+									$sum = 0;
+										foreach($_SESSION['varPrice'] as $k => $price){
+											$sum += $price * $_SESSION["quantity"][$k];
+										}
+										?>
                                     <?php echo $sum.'.00'; ?>
                                     <?php else:?>
                                     <?php echo "0.00";?></span>
@@ -122,8 +127,8 @@
                                 
                                 </span>
                                 </div>
-                                <i class="d-icon-bag"><span class="cart-count"><?php if(isset($_SESSION['varPrice'])):?>
-                                    <?php echo count($_SESSION['varPrice']); ?>
+                                <i class="d-icon-bag"><span class="cart-count"><?php if(isset($_SESSION['cart'])):?>
+                                    <?php echo count($_SESSION['cart']); ?>
                                     <?php else:?>
                                     <?php echo "0";?></span>
                                     <?php endif; ?>
@@ -139,25 +144,25 @@
                                 </div>
                                 <div class="products scrollable">
                                 <?php $a = -1 ?>
-								<?php if(isset($_SESSION['varPrice'])): ?>
+								<?php if (loadCart()): ?>
                                 <?php $cart = loadCart() ;?>
                                 <?php foreach ($cart->getResult() as $row):?>
 								<?php $a++ ;?>
                                     <div class="product product-cart">
                                         <figure class="product-media">
                                             <a href="product.html">
-                                                <img src="<?php echo site_url('/img/products/'.$row->pDp)?>" alt="product" width="80"
+                                                <img src="<?php echo site_url('./img/products/'.$row->pDp)?>" alt="product" width="80"
                                                     height="88" />
                                             </a>
-                                            <button class="btn btn-link btn-close">
+                                            <a class="btn btn-link btn-close" href="<?= base_url("shop/removeProduct/".$row->pId)?>">
                                                 <i class="fas fa-times"></i><span class="sr-only">Close</span>
-                                            </button>
+                                </a>
                                         </figure>
                                         <div class="product-detail">
                                             <a href="product.html" class="product-name"><?php echo $row->pName; ?></a>
                                             <div class="price-box">
-                                                <span class="product-quantity">1</span>
-                                                <span class="product-price"><?php echo '$'.$_SESSION['varPrice'][$a]; ?></span>
+                                                <span class="product-quantity"><?= $_SESSION["quantity"][$row->pId]?></span>
+                                                <span class="product-price"><?php echo '$'.$_SESSION['varPrice'][$row->pId] * $_SESSION["quantity"][$row->pId]; ?></span>
                                             </div>
                                         </div>
                                     </div>
@@ -169,8 +174,14 @@
                                 <!-- End of Products  -->
                                 <div class="cart-total">
                                     <label>Subtotal:</label>
-                                    <span class="price">$<?php if(isset($_SESSION['varPrice'])):?>
-                                        <?php echo array_sum($_SESSION['varPrice']);?>
+                                    <span class="price s_b_t">$<?php if(isset($_SESSION['varPrice'])):?>
+                                        <?php
+									$sum = 0;
+										foreach($_SESSION['varPrice'] as $k => $price){
+											$sum += $price * $_SESSION["quantity"][$k];
+										}
+                                        echo $sum;
+										?>
                                     <?php else:?>
                                     <?php echo "0";?></span>
                                     <?php endif; ?>
@@ -251,7 +262,7 @@
                                             <div
                                                 class="col-6 col-sm-4 col-md-3 col-lg-4 menu-banner menu-banner1 banner banner-fixed">
                                                 <figure>
-                                                    <img src="/img/home/banner-shop.jpg" alt="Menu banner" width="221"
+                                                    <img src="../img/home/banner-shop.jpg" alt="Menu banner" width="221"
                                                         height="330" />
                                                 </figure>
                                                 <div class="banner-content y-50">

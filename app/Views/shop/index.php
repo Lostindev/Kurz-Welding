@@ -1,6 +1,6 @@
 <main class="main">
 			<div class="page-header"
-				style="background-image: url('/img/home/shop.jpg'); background-color: #3C63A4;">
+				style="background-image: url('./img/home/shop.jpg'); background-color: #3C63A4;">
 				<h1 class="page-title">Shop</h1>
 				<ul class="breadcrumb">
 					<li><a href="demo1.html"><i class="d-icon-home"></i></a></li>
@@ -107,7 +107,7 @@
 									<div class="product">
 										<figure class="product-media">
 											<a href="<?php echo base_url('/shop/custom-metal-art/'.$pUrl) ; ?>">
-												<img style="height:200px;width:auto;margin:auto;" src="<?php echo base_url('/img/products/'.$product['pDp']); ?>" alt="product" width="280" height="315">
+												<img style="height:200px;width:auto;margin:auto;" src="<?php echo base_url('./img/products/'.$product['pDp']); ?>" alt="product" width="280" height="315">
 											</a>
 											<!--
 											<div class="product-label-group">

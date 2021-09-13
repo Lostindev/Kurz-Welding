@@ -13,7 +13,7 @@
     <meta name="author" content="pivotgrowth.io">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/theme/images/icons/favicon.png">
+    <link rel="icon" type="image/png" href="<?= base_url()?>/theme/images/icons/favicon.png">
 
     <!--Google Fonts -->
     <script>
@@ -22,7 +22,7 @@
         };
         ( function ( d ) {
             var wf = d.createElement( 'script' ), s = d.scripts[ 0 ];
-            wf.src = '/theme/js/webfont.js';
+            wf.src = '<?= base_url()?>/theme/js/webfont.js';
             wf.async = true;
             s.parentNode.insertBefore( wf, s );
         } )( document );

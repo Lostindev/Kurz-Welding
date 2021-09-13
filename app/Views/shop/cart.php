@@ -21,6 +21,8 @@
 										<th class="text-left"><span>Size</span></th>
 										<th class="text-left"><span>Color</span></th>
 										<th class="text-left"><span>Price</span></th>
+										<th class="text-left"><span>Quantity</span></th>
+										<th class="text-left"><span>Total</span></th>
 										<th class="text-right">Remove</th>
 									</tr>
 								</thead>
@@ -48,22 +50,29 @@
 										</td>
 										<td class="product-size">
 											<div style="white-space: normal;" class="product-size-section">
-												<a href="#"><?php echo $_SESSION['varDimensions'][$a]; ?></a>
+												<a href="#"><?= $_SESSION['varDimensions'][$row->pId] ?? '' ?></a>
 											</div>
 										</td>
 										<td class="product-color">
 											<div style="white-space: normal;" class="product-color-section">
-												<a href="#"><?php echo $_SESSION['varColor'][$a]; ?></a>
+												<a href="#"><?php echo $_SESSION['varColor'][$row->pId]; ?></a>
 											</div>
 										</td>
 										<td class="product-subtotal">
-											<span class="amount"><?php echo '$'.$_SESSION['varPrice'][$a]; ?></span>
+											<span class="amount"><?php echo '$'.$_SESSION["varPrice"][$row->pId]; ?></span>
 										</td>
-										<td class="product-price">
-											<span class="amount"></span>
+										<td class="product-quantity" data-id="<?= $row->pId?>">
+											<div class="input-group">
+												<button class="quantity-minus d-icon-minus"></button>
+												<input class=" form-control" type="number" value="<?= $_SESSION["quantity"][$row->pId]?>" >
+												<button class="quantity-plus d-icon-plus"></button>
+											</div>
+										</td>
+										<td class="product-total" data-price="<?=  $_SESSION["varPrice"][$row->pId]?>"	>
+											<span class="amount t_m"><?=  $_SESSION["quantity"][$row->pId] *  $_SESSION["varPrice"][$row->pId];?></span>
 										</td>
 										<td class="product-close">
-											<a href="#" class="product-remove" title="Remove this product">
+											<a href="<?= base_url("shop/removeProduct/".$row->pId)?>" class="product-remove" title="Remove this product">
 												<i class="fas fa-times"></i>
 											</a>
 										</td>
@@ -93,8 +102,14 @@
 												<h4 class="summary-subtitle">Subtotal</h4>
 											</td>
 											<td>
-												<p class="summary-subtotal-price">$<?php if(isset($_SESSION['varPrice'])):?>
-                                    <?php $sum = array_sum($_SESSION['varPrice']);?>
+												<p class="summary-subtotal-price s_b_t">$<?php if(isset($_SESSION['varPrice'])):?>
+                                    <?php
+									$sum = 0;
+										foreach($_SESSION['varPrice'] as $k => $price){
+											$sum += $price * $_SESSION["quantity"][$k];
+											// echo $k;
+										}
+										?>
                                     <?php echo $sum; ?>
                                     <?php else:?>
                                     <?php echo "0.00";?></span>
@@ -109,8 +124,13 @@
 												<h4 class="summary-subtitle">Total</h4>
 											</td>
 											<td>
-												<p class="summary-total-price ls-s">$<?php if(isset($_SESSION['varPrice'])):?>
-                                    <?php $sum = array_sum($_SESSION['varPrice']);?>
+												<p class="summary-total-price s_b_t ls-s">$<?php if(isset($_SESSION['varPrice'])):?>
+													<?php
+									$sum = 0;
+										foreach($_SESSION['varPrice'] as $k => $price){
+											$sum += $price * $_SESSION["quantity"][$k];
+										}
+										?>	
                                     <?php echo $sum; ?>
                                     <?php else:?>
                                     <?php echo "0.00";?></span>
