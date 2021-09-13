@@ -28,7 +28,7 @@
             <?php foreach ($products as $product): ?>
             <option value="<?php echo $product['pId']; ?>">
             <?php echo $product['pName']; ?>
-            </option>
+            </option> 
             <?php endforeach; ?>
             <?php endif; ?>
             </select>
