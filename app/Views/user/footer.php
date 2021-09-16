@@ -163,6 +163,7 @@
         </div>
     </div>
 
+<!-- WEBSTIE POPUP 
     <div class="newsletter-popup mfp-hide" id="newsletter-popup" style="background-image: url(<?= base_url()?>/img/newsletter-popup.png)">
         <div class="newsletter-content">
             <h4 class="text-uppercase text-dark">Up to <span class="text-primary">20% Off</span></h4>
@@ -180,7 +181,7 @@
                 <label for="hide-newsletter-popup">Don't show this popup again</label>
             </div>
         </div>
-    </div>
+    </div> -->
     
     <!-- Plugins JS File -->
     <script src="<?= base_url()?>/theme/vendor/jquery/jquery.min.js"></script>
