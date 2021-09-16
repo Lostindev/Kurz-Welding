@@ -103,7 +103,16 @@ function fetchCategoriesTwo() {
 
     $data['getNumCategories'] = $categoriesDB->where('cStatus',1)->countAllResults();
 
-    return $categoriesDB->getWhere(['cStatus'=>1], 14, 7)->getResultArray();
+    return $categoriesDB->getWhere(['cStatus'=>1], 14, 7)->getResultArray(); 
+}
+
+function fetchCategoriesThree() {
+
+    $categoriesDB = new ModAdmin();
+
+    $data['getNumCategories'] = $categoriesDB->where('cStatus',1)->countAllResults();
+
+    return $categoriesDB->getWhere(['cStatus'=>1], 21, 14)->getResultArray();
 }
 
 function fetchSubCategories($categoryId) {

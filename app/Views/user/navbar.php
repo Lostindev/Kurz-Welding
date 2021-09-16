@@ -251,6 +251,7 @@
                                                 <?php if(count(fetchCategoriesTwo()) > 0):?>
                                                     <?php $i=1; ?>
                                                     <?php foreach(fetchCategoriesTwo() as $category): ?>
+                                                    <?php if ($i++ == 8) break; ?>
                                                     
                                                 <ul>
                                                     <?php $cUrl = (str_replace(' ', '-', strtolower($category['cName'])));?>
@@ -259,6 +260,22 @@
                                                 <?php endforeach;?>
                                                 <?php endif; ?>
                                             </div>
+                                            <div class="col-6 col-sm-4 col-md-3 col-lg-4">
+                                                <h4 class="menu-title"><br></h4>
+                                                <?php if(count(fetchCategoriesThree()) > 0):?>
+                                                    <?php $i=1; ?>
+                                                    <?php foreach(fetchCategoriesThree() as $category): ?>
+                                                    <?php if ($i++ == 8) break; ?>
+                                                    
+                                                <ul>
+                                                    <?php $cUrl = (str_replace(' ', '-', strtolower($category['cName'])));?>
+                                                    <li> <a href="<?php echo base_url('/'.'categories/'.$category['cId'].'/'.$cUrl); ?>"><?php echo $category['cName']; ?></a></li>
+                                                </ul>
+                                                <?php endforeach;?>
+                                                <?php endif; ?>
+                                            </div>
+
+                                            <!-- Shop Now Banner (Disabled)
                                             <div
                                                 class="col-6 col-sm-4 col-md-3 col-lg-4 menu-banner menu-banner1 banner banner-fixed">
                                                 <figure>
@@ -273,7 +290,7 @@
                                                     <a style="color:#0088aa" href="/shop" class="btn btn-link btn-underline">shop
                                                         now<i class="d-icon-arrow-right"></i></a>
                                                 </div>
-                                            </div>
+                                            </div>-->
                                             <!-- End Megamenu -->
                                         </div>
                                     </div>
