@@ -1285,6 +1285,108 @@ class Admin extends BaseController
         }
     }
 
+    public function testSpec($page = 'newSpec') //testSpec
+    {
+		$data['title'] = 'Admin - Create New Spec';
+		$data['metaData'] = "";
+		$data['page'] = $page;
+		$data['cssFile'] = $page;
+		$data['uri'] = $this->request->uri;
+
+        $session = \Config\Services::session();
+        $data['message'] = $session->getFlashdata('message');
+        $data['successMessage'] = $session->getFlashdata('successMessage');
+        
+        if (adminLoggedIn()) {
+            $adminDB = new ModProducts();
+            $data['products'] = $adminDB->findAll();
+            
+            echo view('admin/header/header', $data);
+            echo view('admin/header/css', $data);
+            echo view('admin/header/navtop', $data);
+            echo view('admin/header/navleft', $data);
+            echo view('admin/home/newSpec', $data);
+            echo view('admin/header/footer', $data);
+        } else {
+            $session->setFlashdata('message','Please login to add new specs.');
+            return redirect()->to(base_url('/admin/login'));
+            
+            
+        }
+    }
+
+    public function testUpdateSpecs($page = 'addSpecs') { //for redesigning the edit spec function
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        $adminDB = new ModProducts();
+        $specDB = new ModSpec();
+
+        if (adminLoggedIn()) {
+            $dataUpload['spName'] = $request->getPost('sp_name');
+            $specValues = $request->getPost('sp_val');//array
+            $specValues = array_filter($specValues);
+
+            $specPrices = $request->getPost('sp_p'); //array
+            $specPrices = array_filter($specPrices);
+
+            $dataUpload['productId'] = $request->getPost('productId');
+            
+            if (!empty($dataUpload['spName']) && !empty($specValues) ) {
+
+                if ($dataUpload['productId'] != '0') {
+
+                    $arrayCheck = ['spName' => $dataUpload['spName'], 'productId' => $dataUpload['productId']];
+                    $checkAlreadyThere = $specDB->where($arrayCheck)->findAll();
+
+                    $specId = $request->getPost('specId');
+
+                    $dataUpload['adminId'] = getAdminId();
+                    $dataUpload['spDate'] = date('Y-m-d H:i:s');
+
+                
+             
+                        if (is_numeric($specId)) {
+                            $specValueDB = new ModSpecValues();
+                            $spec_values = array();
+                            foreach ($specValues as $specVal => $price) {
+                                $spec_values[] = array(
+                                    'specId'=>$specId,
+                                    'adminId'=>$dataUpload['adminId'],
+                                    'spvDate'=>date('Y-m-d H:i:s'),
+                                    'spvName'=>$price,
+                                    'spvPrice'=>$specPrices[$specVal]
+                                );
+                            } 
+                
+                            $specValStatus = $specValueDB->updateBatch($spec_values,'spvPrice');
+
+                            if ($specValStatus) {
+                                $session->setFlashdata('successMessage','You have successfully added a new spec.');
+                                return redirect()->to(base_url('/admin/viewSpecs'));
+                            } else {
+                                $session->setFlashdata('message','Something went wrong, please try again.');
+                                return redirect()->to(base_url('/admin/newSpec'));
+                            }
+                        }
+                    
+
+                } else {
+                    $session->setFlashdata('message','Please select a product.');
+                    return redirect()->to(base_url('/admin/newSpec'));
+                }
+
+
+            } else {
+                $session->setFlashdata('message','You need a spec name.');
+                return redirect()->to(base_url('/admin/newSpec'));
+            }
+
+        } else {
+            $session->setFlashdata('message','Please login to add a product.');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
+
     public function newGallery($page = 'newGallery')
     {
 		$data['title'] = 'Admin - New Gallery Entry';
