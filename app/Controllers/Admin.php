@@ -915,7 +915,7 @@ class Admin extends BaseController
                     $file = $request->getFile('pDp');
                     if (!empty($file) && $file->getSize() > 0) {
                         $oldImg = $request->getPost('oldImg');
-                        if (file_exists('/var/www/html/public/img/products/'.$oldImg)) {
+                        if (is_file('/var/www/html/public/img/products/'.$oldImg)) {
                             unlink('/var/www/html/public/img/products/'.$oldImg);
                         } else {
                         }
