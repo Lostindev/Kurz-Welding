@@ -1179,9 +1179,17 @@ class Admin extends BaseController
             
                 $checkSpecById = $builder->where('spId',$spId)->findAll();
                 $data['spec'] = $checkSpecById;
+                
+                $adminDB = new ModProducts();
+                $productId = $data['spec'][0]['productId'];
+                $getProduct = $adminDB->where('pId',$productId)->findAll();
+                    $data['getProduct'] = $getProduct;
+
                 if (count($data['spec']) == 1) {
-                    $adminDB = new ModProducts();
+                    
                     $data['products'] = $adminDB->findAll();
+
+                    
                     
                     echo view('admin/header/header', $data);
                     echo view('admin/header/css', $data);

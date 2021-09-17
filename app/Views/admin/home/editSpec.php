@@ -20,10 +20,12 @@
 
             <?php echo form_open_multipart('/admin/updateSpec','')?>
             <input type="hidden" value="<?php echo $spec[0]['spId']; ?>" name="specId"></input>
+            <?php $specId = $spec[0]['spId'] ;?>
+            <?php $productId = $spec[0]['productId'] ;?>
 
             <div class="form-group">
             <select name="productId" id="productId" class="form-select" aria-label="Product Select">
-            <option value="<?php echo $product['pId']; ?>" selected><?php echo $product['pName']; ?></option>
+            <option value="<?php echo $productId?>" selected><?php echo $getProduct[0]['pName']; ?></option>
             <?php if(count($products) > 0): ?>
             <?php foreach ($products as $product): ?>
             <option value="<?php echo $product['pId']; ?>">
