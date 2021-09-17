@@ -39,11 +39,20 @@
             <div class="form-group">   
                 <input type="text" class="form-control" placeholder="Enter Spec Name" name="sp_name" value="<?php echo $spec[0]['spName']?>">
             </div>
+
+            <?php if(count($getDimensions) > 0): ?>
+            <?php foreach ($getDimensions as $dimension): ?>
+            <div class="form-group">   
+                <input type="text" class="form-control" placeholder="Enter Spec Name" name="sp_name" value='<?php echo $dimension['spvName']; ?>'>
+                <input type="text" name="sp_p[]" value="<?php echo $dimension['spvPrice']; ?>" class="form-control col-md-3 sp_p" placeholder="Enter Price Addition">
+            </div>
+            <?php endforeach; ?>
+            <?php endif; ?> 
             
 
 
             <div class="form-group">
-                <?php echo form_submit('Add Spec','Add Spec','class="btn btn-primary"'); ?>
+                <?php echo form_submit('Edit Spec','Edit Spec','class="btn btn-primary"'); ?>
             </div>
             
             <?php echo form_close()?>

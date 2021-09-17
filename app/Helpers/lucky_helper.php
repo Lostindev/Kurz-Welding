@@ -246,21 +246,5 @@ function getUserOrders($uId) {
         echo 'You need to be logged in!';
     }
 
-    function getProductBySpecId($pId) {
-        $session = \Config\Services::session();
-
-        if (userLoggedIn()) {
-            $ordersDB = new ModProducts();
-            $orders = $ordersDB->getWhere(['pId'=>$pId])->getResultArray();
-    
-            if (isset($orders)) {
-                return $ordersDB->getWhere(['pId'=>$pId])->getResultArray();
-            } else {
-                return false;
-            }
-        } else {
-            echo 'You need to be logged in!';
-        }
-    }
 
 }
