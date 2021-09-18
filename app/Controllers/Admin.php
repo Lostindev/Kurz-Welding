@@ -1344,7 +1344,6 @@ class Admin extends BaseController
                     $dataUpload['spDate'] = date('Y-m-d H:i:s');
 
                 
-             
                         if (is_numeric($specId)) {
                             $specValueDB = new ModSpecValues();
                             $spec_values = array();
@@ -1357,11 +1356,13 @@ class Admin extends BaseController
                                     'spvPrice'=>$specPrices[$specVal]
                                 );
                             } 
-                
-                            $specValStatus = $specValueDB->updateBatch($spec_values,'spvPrice');
+                            
+                            $specValueDB->where('specId',$specId)->delete();
+
+                            $specValStatus = $specValueDB->insertBatch($spec_values);
 
                             if ($specValStatus) {
-                                $specNameStatus = $specValueDB->updateBatch($spec_values,'spvName');
+                                //$specNameStatus = $specValueDB->updateBatch($spec_values,'spvName');
                                 $session->setFlashdata('successMessage','You have successfully added a new spec.');
                                 return redirect()->to(base_url('/admin/viewSpecs'));
 
