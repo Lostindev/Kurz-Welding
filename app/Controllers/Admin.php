@@ -1361,8 +1361,10 @@ class Admin extends BaseController
                             $specValStatus = $specValueDB->updateBatch($spec_values,'spvPrice');
 
                             if ($specValStatus) {
+                                $specNameStatus = $specValueDB->updateBatch($spec_values,'spvName');
                                 $session->setFlashdata('successMessage','You have successfully added a new spec.');
                                 return redirect()->to(base_url('/admin/viewSpecs'));
+
                             } else {
                                 $session->setFlashdata('message','Something went wrong, please try again.');
                                 return redirect()->to(base_url('/admin/newSpec'));
@@ -1374,7 +1376,6 @@ class Admin extends BaseController
                     $session->setFlashdata('message','Please select a product.');
                     return redirect()->to(base_url('/admin/newSpec'));
                 }
-
 
             } else {
                 $session->setFlashdata('message','You need a spec name.');
