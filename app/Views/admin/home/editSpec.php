@@ -2,6 +2,7 @@
     <div class="row justify-content-center dataRow">
         <div class="col-md-6 col-md-offset-3">
         <h3>Edit Spec</h3>
+        <p>**Leave field blank to remove a dimension**
         <?php if (isset($message)) : ?>
                             <div class=" alert alert-danger">
                                 <div class="text-white">
@@ -49,14 +50,16 @@
                     <input type="text" name="sp_p[]" value="<?php echo $dimension['spvPrice']; ?>" class="form-control col-md-3 sp_p" placeholder="Enter Price Addition">
                 </div>
                 <?php endforeach; ?>
+                <a href="javascript:void(0)" id="add_spec" class="add_spec"><i class="far fa-plus-square"></i></a>
                 <?php else: ?>
                     <div class="form-group">  
                     <?php echo form_input('sp_val[]','',array('class'=>"form-control col-md-12 sp_cn", 'placeholder'=>'Enter Spec Value')); ?><br>
                     <?php echo form_input('sp_p[]','',array('class'=>"form-control col-md-3 sp_p", 'placeholder'=>'Enter Price Addition')); ?>
                     <a href="javascript:void(0)" id="add_spec" class="add_spec"><i class="far fa-plus-square"></i></a>
                     </div>
-                <?php endif; ?> 
-                <a href="javascript:void(0)" id="add_spec" class="add_spec"><i class="far fa-plus-square"></i></a>
+                <?php endif; ?>
+
+                
 
 
             </div>
