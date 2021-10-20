@@ -30,8 +30,7 @@
 									<div class="filter-actions mb-4">
 										<a href="#"
 											class="sidebar-toggle-btn toggle-remain btn btn-outline btn-primary btn-icon-right btn-rounded">Filter<i
-												class="d-icon-arrow-left"></i></a>
-										<a href="#" class="filter-clean">Clean All</a>
+												class="d-icon-arrow-left"></i></a><br>
 									</div>
 									<div class="widget widget-collapsible">
 										<h3 class="widget-title">All Categories</h3>
