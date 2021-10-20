@@ -117,6 +117,7 @@
 -->
 								</div>
 								<?php $loadDimensions = getDimensions($product[0]['pId']); ?>
+								<?php $loadColors = getColors($product[0]['pId']); ?>
 								<h1 class="product-name"><?php echo $product[0]['pName'];?></h1>
 								<div class="product-meta">
 									ID: <span class="product-sku"><?php echo $product[0]['pId'];?></span>
@@ -131,20 +132,26 @@
 								</div>
 								<form action="<?php echo base_url().'/shop/add-to-cart/'.$product[0]['pId']; ?>" method="POST">
 								<p class="product-short-desc"><?php echo $product[0]['pDescription'];?></p>
-								<div class="product-form product-variations product-color">
+								<div class="product-form product-variations product-size">
 									<label>Color:</label>
-									<div class="select-box">
-										<select name="color" class="form-control">
-											<option value="" selected="selected">Choose an Option</option>
-											<option value="Flat Black">Flat Black</option>
-											<option value="Gloss Black">Gloss Black</option>
-											<option value="White">White</option>
-											<option value="Red">Red</option>
-											<option value="Teal">Teal</option>
-											<option value="Bronze">Bronze</option>
-										</select>
+									<?php if (count($loadColors) > 0): ?>
+									<div class="product-form-group">
+										<div class="select-box">
+											<select id="sizeSelect" name="color" class="form-control">
+												<option value="" selected="selected"><?php echo $loadColors[0]['spName'] ?></option>
+												<?php $specValues = getColorValues($loadColors[0]['spId']); ?>
+												<?php if (count($specValues) > 0): ?>
+												<?php foreach($specValues as $color):?>
+												<option value="<?php echo $color['spvPrice'];?>"><?php echo $color['spvName'].'&nbsp(+$'.$color['spvPrice'].')';?> </option>
+												<?php endforeach; ?>
+												<?php endif;?>
+											</select>
+										</div>
 									</div>
+									<?php endif; ?>
 								</div>
+
+								<!--Load the dimensions for each product here-->
 								<div class="product-form product-variations product-size">
 									<label>Size:</label>
 							

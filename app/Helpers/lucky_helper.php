@@ -121,16 +121,28 @@ function fetchSubCategories($categoryId) {
 
 }
 
-function getDimensions($productId) {
+function getColors($productId) {
     $session = \Config\Services::session();
 
     $specDB = new ModSpec();
-    return $specDB->getWhere(['spStatus'=>1,'productId'=>$productId])->getResultArray();
+    return $specDB->getWhere(['spStatus'=>1,'spName'=>'Colors','productId'=>$productId])->getResultArray();
+}
+
+function getColorValues($specId) {
+    $session = \Config\Services::session();
+
+    $specValueDB = new ModSpecValues();
+    return $specValueDB->getWhere(['spvStatus'=>1,'specId'=>$specId])->getResultArray();
+}
+
+function getDimensions($productId) {
+    $session = \Config\Services::session();
+    $specDB = new ModSpec();
+    return $specDB->getWhere(['spStatus'=>1,'spName'=>'Dimensions','productId'=>$productId])->getResultArray();
 }
 
 function getDimensionValues($specId) {
     $session = \Config\Services::session();
-
     $specValueDB = new ModSpecValues();
     return $specValueDB->getWhere(['spvStatus'=>1,'specId'=>$specId])->getResultArray();
 }

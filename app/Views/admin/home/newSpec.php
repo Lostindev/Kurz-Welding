@@ -34,7 +34,11 @@
             </div>
 
             <div class="form-group">
-                <?php echo form_input('sp_name','Dimensions',array('class'=>"form-control",'readonly'=>'')); ?>
+            <select name="sp_name" id="sp_name" class="form-select" aria-label="Add Spec Type">
+            <option value="0" selected="">Select Spec to Add</option>
+                <option value="Dimensions">Dimensions</option>
+                <option value="Colors">Colors</option>
+                </select>
             </div>
             
             <div class="sp_items">
