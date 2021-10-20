@@ -173,9 +173,15 @@
 									</div>
 									<?php endif; ?>
 								</div><br>
+
+								<?php if ($product[0]['pCustom']==1)  : ?>
 								<div class="form-group">
-										<textarea name="oCustom" cols="40" rows="10" class="form-control" placeholder="Enter custom details. (Applies to customizable products)"></textarea>
-									</div>
+									<textarea name="oCustom" cols="40" rows="10" class="form-control" placeholder="Enter custom details. (Applies to customizable products)"></textarea>
+								</div>
+								<?php endif; ?>					
+
+
+
 								<div class="product-variation-price">
 									<span>$79</span>
 									<input type="hidden" name="var-price" id="var-price"></input>
