@@ -68,6 +68,14 @@
                     <?php echo form_upload('pDp4','',''); ?>
                 </div>
             </div>
+
+            <div>
+                <div class="form-check form-switch">
+                <input class="form-check-input" value="1" type="checkbox" name="customCheck" id="customCheck">
+                <label class="form-check-label" for="customCheck">Check this box for custom products</label>
+                </div>
+            </div><br>
+
             <div class="form-group">
                 <?php echo form_submit('Add Product','Add Product','class="btn btn-primary"'); ?>
             </div>

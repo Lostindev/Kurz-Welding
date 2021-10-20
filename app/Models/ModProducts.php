@@ -8,6 +8,6 @@ class ModProducts extends Model
     protected $table = 'products';
     protected  $primaryKey = "pId";
     protected $returnType = 'array';
-    protected $allowedFields = ['pName','pDp','pDp2','pDp3','pDp4','pDate','pDescription','adminId','subCatId','categoryId','pPrice','pId'];
+    protected $allowedFields = ['pName','pDp','pDp2','pDp3','pDp4','pDate','pDescription','adminId','subCatId','categoryId','pPrice','pId','pCustom'];
 
 }

@@ -75,6 +75,27 @@
                     <?php echo form_upload('pDp4','',''); ?>
                 </div>
             </div>
+
+            <?php if ($product[0]['pCustom']==1)  : ?>
+                <div>
+                <div class="form-check form-switch">
+                <input class="form-check-input" value="1" type="checkbox" checked name="customCheck" id="customCheck">
+                <label class="form-check-label" for="customCheck">Check this box for custom products</label>
+                </div>
+            </div><br>
+            <?php endif; ?>
+
+            <?php if ($product[0]['pCustom']==0)  : ?>
+                <div>
+                <div class="form-check form-switch">
+                <input class="form-check-input" value="1" type="checkbox" name="customCheck" id="customCheck">
+                <label class="form-check-label" for="customCheck">Check this box for custom products</label>
+                </div>
+            </div><br>
+            <?php endif; ?>
+
+
+
             <div class="form-group">
                 <?php echo form_submit('Edit Product','Edit Product','class="btn btn-primary"'); ?>
             </div>

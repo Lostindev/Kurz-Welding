@@ -707,6 +707,7 @@ class Admin extends BaseController
             $dataUpload['categoryId'] = $request->getPost('categoryId');
             $dataUpload['subCatId'] = $request->getPost('subCategory');
             $dataUpload['pPrice'] = $request->getPost('pPrice');
+            $dataUpload['pCustom'] = $request->getPost('customCheck');
 
             if (!empty($dataUpload['pName']) ) {
 
@@ -907,6 +908,12 @@ class Admin extends BaseController
             $dataUpload['pId'] = $request->getPost('pId');
             $dataUpload['pPrice'] = $request->getPost('pPrice');
 
+            $checkCustom = $request->getPost('customCheck');
+            if (isset($checkCustom)) {
+                $dataUpload['pCustom'] = $checkCustom;
+            };
+
+        
             if (!empty($dataUpload['pName']) ) {
 
                 if ($dataUpload['categoryId'] != '0') {
