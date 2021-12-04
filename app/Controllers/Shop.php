@@ -571,12 +571,4 @@ class Shop extends BaseController
         echo view('user/footer', $data);
     }
 
-    public function debug()
-    {
-        $ordersDB = new ModOrders();
-        $getInfo = getOrderDetails($_SESSION['checkoutId'][0]);
-
-
-        echo $_SESSION['varCustom'][0];
-    }
 }//end of controller
