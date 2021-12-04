@@ -47,19 +47,25 @@
 									<img src="<?php echo site_url('./img/products/' . $product[0]['pDp']) ?>" alt="product thumbnail" width="109" height="122">
 								</div>
 								<?php if (isset($product[0]['pDp2'])) : ?>
-									<div class="product-thumb">
-										<img src="<?php echo site_url('./img/products/' . $product[0]['pDp2']) ?>" alt="product thumbnail" width="109" height="122">
-									</div>
+									<?php if (is_file('/var/www/html/public/img/products/'.$product[0]['pDp2'])): ?>
+										<div class="product-thumb">
+											<img src="<?php echo site_url('./img/products/' . $product[0]['pDp2']) ?>" alt="product thumbnail" width="109" height="122">
+										</div>
+									<?php endif; ?>
 								<?php endif; ?>
 								<?php if (isset($product[0]['pDp3'])) : ?>
-									<div class="product-thumb">
-										<img src="<?php echo site_url('./img/products/' . $product[0]['pDp3']) ?>" alt="product thumbnail" width="109" height="122">
-									</div>
+									<?php if (is_file('/var/www/html/public/img/products/'.$product[0]['pDp3'])): ?>
+										<div class="product-thumb">
+											<img src="<?php echo site_url('./img/products/' . $product[0]['pDp3']) ?>" alt="product thumbnail" width="109" height="122">
+										</div>
+								<?php endif; ?>
 								<?php endif; ?>
 								<?php if (isset($product[0]['pDp4'])) : ?>
+									<?php if (is_file('/var/www/html/public/img/products/'.$product[0]['pDp4'])): ?>
 									<div class="product-thumb">
 										<img src="<?php echo site_url('./img/products/' . $product[0]['pDp4']) ?>" alt="product thumbnail" width="109" height="122">
 									</div>
+								<?php endif; ?>
 								<?php endif; ?>
 							</div>
 							<button class="thumb-up disabled"><i class="fas fa-chevron-left"></i></button>

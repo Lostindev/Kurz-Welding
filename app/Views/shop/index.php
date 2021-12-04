@@ -3,7 +3,7 @@
 				style="background-image: url('/img/home/shop.jpg'); background-color: #3C63A4;">
 				<h1 class="page-title">Shop</h1>
 				<ul class="breadcrumb">
-					<li><a href="demo1.html"><i class="d-icon-home"></i></a></li>
+					<li><a href="/"><i class="d-icon-home"></i></a></li>
 					<li class="delimiter">/</li>
 					<li>Shop</li>
 				</ul>
