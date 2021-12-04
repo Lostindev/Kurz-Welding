@@ -25,7 +25,7 @@
 			<h3 class="title title-simple title-step"><a href="#">3. Order Complete</a></h3>
 		</div>
 		<div class="container mt-7">
-
+<!--Coupon Section
 			<div class="card accordion">
 				<div class="alert alert-light alert-primary alert-icon mb-4 card-header">
 					<i class="fas fa-exclamation-circle"></i>
@@ -40,6 +40,7 @@
 					</div>
 				</div>
 			</div>
+-->
 			<form action="<?= base_url() ?>/shop/checkout_submit" method="POST" id="payment-form" class="form">
 				<div class="row">
 					<div class="col-lg-7 mb-6 mb-lg-0 pr-lg-4">
@@ -182,8 +183,8 @@
 													<input type="hidden" name="<?php echo 'cHidden' . $a; ?>" value="<?php echo $_SESSION['varCustom'][$a] . ';';  ?>">
 													<td style="white-space: inherit!important;" class="product-name"><?php echo $varColor[$a] . ', ';
 																														echo $row->pName;
-																														echo ', ' . $varDimensions[$a]; ?> <span class="product-quantity">×&nbsp;1</span></td>
-													<td class="product-total text-body"><?php echo '$' . $varPrice[$a]; ?></td>
+																														echo ', ' . $varDimensions[$a]; ?> <span class="product-quantity">×&nbsp;<?= $_SESSION["quantity"][$row->pId] ?></span></td>
+													<td class="product-total text-body"><?php echo '$' . $varPrice[$a] * $_SESSION["quantity"][$row->pId] ?></td>
 												</tr>
 											<?php endforeach; ?>
 										<?php endif; ?>
@@ -192,7 +193,12 @@
 												<h4 class="summary-subtitle">Subtotal</h4>
 											</td>
 											<td class="summary-subtotal-price pb-0 pt-0">$<?php if (isset($_SESSION['varPrice'])) : ?>
-												<?php $sum = array_sum($_SESSION['varPrice']); ?>
+												<?php 
+												    $sum = 0;
+													foreach ($_SESSION['varPrice'] as $k => $price) {
+														$sum += $price * $_SESSION["quantity"][$k];
+														// echo $k;
+													} ?>
 												<?php echo $sum; ?>
 											<?php else : ?>
 												<?php echo "0.00"; ?></span>
@@ -241,7 +247,12 @@
 											</td>
 											<td class=" pt-0 pb-0">
 												<p class="summary-total-price ls-s text-primary"><?php if (isset($_SESSION['varPrice'])) : ?>
-														<?php $sum = array_sum($_SESSION['varPrice']); ?>
+													<?php
+																				$sum = 0;
+																				foreach ($_SESSION['varPrice'] as $k => $price) {
+																					$sum += $price * $_SESSION["quantity"][$k];
+																				}
+													?>
 														<?php echo '$' . $sum; ?>
 													<?php else : ?>
 														<?php echo "0.00"; ?></span>

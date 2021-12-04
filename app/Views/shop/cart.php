@@ -90,11 +90,11 @@
 									<td>
 										<p class="summary-subtotal-price s_b_t">$<?php if (isset($_SESSION['varPrice'])) : ?>
 											<?php
-																						$sum = 0;
-																						foreach ($_SESSION['varPrice'] as $k => $price) {
-																							$sum += $price * $_SESSION["quantity"][$k];
-																							// echo $k;
-																						}
+																				$sum = 0;
+																				foreach ($_SESSION['varPrice'] as $k => $price) {
+																					$sum += $price * $_SESSION["quantity"][$k];
+																					// echo $k;
+																				}
 											?>
 											<?php echo $sum; ?>
 										<?php else : ?>
@@ -112,10 +112,10 @@
 									<td>
 										<p class="summary-total-price s_b_t ls-s">$<?php if (isset($_SESSION['varPrice'])) : ?>
 											<?php
-																						$sum = 0;
-																						foreach ($_SESSION['varPrice'] as $k => $price) {
-																							$sum += $price * $_SESSION["quantity"][$k];
-																						}
+																				$sum = 0;
+																				foreach ($_SESSION['varPrice'] as $k => $price) {
+																					$sum += $price * $_SESSION["quantity"][$k];
+																				}
 											?>
 											<?php echo $sum; ?>
 										<?php else : ?>
