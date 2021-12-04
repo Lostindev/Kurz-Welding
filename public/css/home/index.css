@@ -15,10 +15,10 @@
 
 
 
-#nav-owl .owl-item {
+#nav-owl .owl-item, .ic-1,.ic-3,.header-top {
     background-color:#49bdce
 }
 
-#nav-owl .owl-item:nth-of-type(2) {
+#nav-owl .owl-item:nth-of-type(2), .ic-2 {
     background-color: #11a3bf!important;
 }

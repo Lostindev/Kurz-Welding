@@ -1,97 +1,84 @@
-<link rel="stylesheet" type="text/css" href="<?= base_url()?>/theme/vendor/photoswipe/photoswipe.min.css">
-<link rel="stylesheet" type="text/css" href="<?= base_url()?>/theme/vendor/photoswipe/default-skin/default-skin.min.css">
+<link rel="stylesheet" type="text/css" href="<?= base_url() ?>/theme/vendor/photoswipe/photoswipe.min.css">
+<link rel="stylesheet" type="text/css" href="<?= base_url() ?>/theme/vendor/photoswipe/default-skin/default-skin.min.css">
 <style>
-#btn-cart {
-	border: 0;
-    flex: 1;
-    min-width: 13rem;
-    font-size: 1.4rem;
-    border-radius: .3rem;
-    background-color: #26c;
-    color: #fff;
-    cursor: pointer;
-    max-width: 20.7rem;
-    height: 4.5rem;
+	#btn-cart {
+		border: 0;
+		flex: 1;
+		min-width: 13rem;
+		font-size: 1.4rem;
+		border-radius: .3rem;
+		background-color: #26c;
+		color: #fff;
+		cursor: pointer;
+		max-width: 20.7rem;
+		height: 4.5rem;
 	}
 </style>
 <main class="main mt-6 single-product">
-			<div class="page-content mb-10 pb-6">
-				<div class="container">
-					<div class="product product-single row mb-7">
-						<div class="col-md-6 sticky-sidebar-wrapper">
-							<div class="product-gallery pg-vertical sticky-sidebar"
-								data-sticky-options="{'minWidth': 767}">
-								<div class="product-single-carousel owl-carousel owl-theme owl-nav-inner row cols-1">
-									<figure class="product-image">
-										<img src="<?php echo site_url('./img/products/'.$product[0]['pDp'])?>"
-											data-zoom-image="<?php echo site_url('./img/products/'.$product[0]['pDp'])?>"
-											alt="<?php echo $product[0]['pDp'];?>" width="800" height="900">
-									</figure>
-									<?php if (isset($product[0]['pDp2'])) :?>
-										<figure class="product-image">
-											<img src="<?php echo site_url('./img/products/'.$product[0]['pDp2'])?>"
-											data-zoom-image="<?php echo site_url('./img/products/'.$product[0]['pDp2'])?>"
-											alt="<?php echo $product[0]['pDp2'];?>" width="800" height="900">
-										</figure>
-									<?php endif; ?>
-									<?php if (isset($product[0]['pDp3'])) :?>
-										<figure class="product-image">
-											<img src="<?php echo site_url('./img/products/'.$product[0]['pDp3'])?>"
-											data-zoom-image="<?php echo site_url('./img/products/'.$product[0]['pDp3'])?>"
-											alt="<?php echo $product[0]['pDp3'];?>" width="800" height="900">
-										</figure>
-									<?php endif; ?>
-									<?php if (isset($product[0]['pDp4'])) :?>
-										<figure class="product-image">
-											<img src="<?php echo site_url('./img/products/'.$product[0]['pDp4'])?>"
-											data-zoom-image="<?php echo site_url('./img/products/'.$product[0]['pDp4'])?>"
-											alt="<?php echo $product[0]['pDp4'];?>" width="800" height="900">
-										</figure>
-									<?php endif; ?>
-								</div>
-								<div class="product-thumbs-wrap">
-									<div class="product-thumbs">
-										<!--Load all thumbnails if they exists-->
-										<div class="product-thumb active">
-											<img src="<?php echo site_url('./img/products/'.$product[0]['pDp'])?>" alt="product thumbnail"
-												width="109" height="122">
-										</div>
-										<?php if (isset($product[0]['pDp2'])) :?>
-										<div class="product-thumb">
-											<img src="<?php echo site_url('./img/products/'.$product[0]['pDp2'])?>" alt="product thumbnail"
-												width="109" height="122">
-										</div>
-										<?php endif; ?>
-										<?php if (isset($product[0]['pDp3'])) :?>
-										<div class="product-thumb">
-											<img src="<?php echo site_url('./img/products/'.$product[0]['pDp3'])?>" alt="product thumbnail"
-												width="109" height="122">
-										</div>
-										<?php endif; ?>
-										<?php if (isset($product[0]['pDp4'])) :?>
-										<div class="product-thumb">
-											<img src="<?php echo site_url('./img/products/'.$product[0]['pDp4'])?>" alt="product thumbnail"
-												width="109" height="122">
-										</div>
-										<?php endif; ?>
-									</div>
-									<button class="thumb-up disabled"><i class="fas fa-chevron-left"></i></button>
-									<button class="thumb-down disabled"><i class="fas fa-chevron-right"></i></button>
-								</div>
-								<div class="product-label-group">
-									<label class="product-label label-new">new</label>
-								</div>
-							</div>
+	<div class="page-content mb-10 pb-6">
+		<div class="container">
+			<div class="product product-single row mb-7">
+				<div class="col-md-6 sticky-sidebar-wrapper">
+					<div class="product-gallery pg-vertical sticky-sidebar" data-sticky-options="{'minWidth': 767}">
+						<div class="product-single-carousel owl-carousel owl-theme owl-nav-inner row cols-1">
+							<figure class="product-image">
+								<img src="<?php echo site_url('./img/products/' . $product[0]['pDp']) ?>" data-zoom-image="<?php echo site_url('./img/products/' . $product[0]['pDp']) ?>" alt="<?php echo $product[0]['pDp']; ?>" width="800" height="900">
+							</figure>
+							<?php if (isset($product[0]['pDp2'])) : ?>
+								<figure class="product-image">
+									<img src="<?php echo site_url('./img/products/' . $product[0]['pDp2']) ?>" data-zoom-image="<?php echo site_url('./img/products/' . $product[0]['pDp2']) ?>" alt="<?php echo $product[0]['pDp2']; ?>" width="800" height="900">
+								</figure>
+							<?php endif; ?>
+							<?php if (isset($product[0]['pDp3'])) : ?>
+								<figure class="product-image">
+									<img src="<?php echo site_url('./img/products/' . $product[0]['pDp3']) ?>" data-zoom-image="<?php echo site_url('./img/products/' . $product[0]['pDp3']) ?>" alt="<?php echo $product[0]['pDp3']; ?>" width="800" height="900">
+								</figure>
+							<?php endif; ?>
+							<?php if (isset($product[0]['pDp4'])) : ?>
+								<figure class="product-image">
+									<img src="<?php echo site_url('./img/products/' . $product[0]['pDp4']) ?>" data-zoom-image="<?php echo site_url('./img/products/' . $product[0]['pDp4']) ?>" alt="<?php echo $product[0]['pDp4']; ?>" width="800" height="900">
+								</figure>
+							<?php endif; ?>
 						</div>
-						<div class="col-md-6">
-							<div class="product-details">
-								<div class="product-navigation">
-									<ul class="breadcrumb breadcrumb-lg">
-										<li><a href="demo1.html"><i class="d-icon-home"></i></a></li>
-										<li><a href="#" class="active">Products</a></li>
-										<li>Detail</li>
-									</ul>
-<!-- Product Next/previous
+						<div class="product-thumbs-wrap">
+							<div class="product-thumbs">
+								<!--Load all thumbnails if they exists-->
+								<div class="product-thumb active">
+									<img src="<?php echo site_url('./img/products/' . $product[0]['pDp']) ?>" alt="product thumbnail" width="109" height="122">
+								</div>
+								<?php if (isset($product[0]['pDp2'])) : ?>
+									<div class="product-thumb">
+										<img src="<?php echo site_url('./img/products/' . $product[0]['pDp2']) ?>" alt="product thumbnail" width="109" height="122">
+									</div>
+								<?php endif; ?>
+								<?php if (isset($product[0]['pDp3'])) : ?>
+									<div class="product-thumb">
+										<img src="<?php echo site_url('./img/products/' . $product[0]['pDp3']) ?>" alt="product thumbnail" width="109" height="122">
+									</div>
+								<?php endif; ?>
+								<?php if (isset($product[0]['pDp4'])) : ?>
+									<div class="product-thumb">
+										<img src="<?php echo site_url('./img/products/' . $product[0]['pDp4']) ?>" alt="product thumbnail" width="109" height="122">
+									</div>
+								<?php endif; ?>
+							</div>
+							<button class="thumb-up disabled"><i class="fas fa-chevron-left"></i></button>
+							<button class="thumb-down disabled"><i class="fas fa-chevron-right"></i></button>
+						</div>
+						<div class="product-label-group">
+							<label class="product-label label-new">new</label>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="product-details">
+						<div class="product-navigation">
+							<ul class="breadcrumb breadcrumb-lg">
+								<li><a href="demo1.html"><i class="d-icon-home"></i></a></li>
+								<li><a href="#" class="active">Products</a></li>
+								<li>Detail</li>
+							</ul>
+							<!-- Product Next/previous
 									<ul class="product-nav">
 										<li class="product-nav-prev">
 											<a href="#">
@@ -115,108 +102,105 @@
 										</li>
 									</ul>
 -->
-								</div>
-								<?php $loadDimensions = getDimensions($product[0]['pId']); ?>
-								<?php $loadColors = getColors($product[0]['pId']); ?>
-								<h1 class="product-name"><?php echo $product[0]['pName'];?></h1>
-								<div class="product-meta">
-									ID: <span class="product-sku"><?php echo $product[0]['pId'];?></span>
-								</div>
-								<div id="pre-price" class="product-price">$<?php echo $product[0]['pPrice'];?></div>
-								<div class="ratings-container">
-									<div class="ratings-full">
-										<span class="ratings" style="width:100%"></span>
-										<span class="tooltiptext tooltip-top"></span>
-									</div>
-									<a href="#product-tab-reviews" class="link-to-tab rating-reviews">( 4+ reviews )</a>
-								</div>
-								<form action="<?php echo base_url().'/shop/add-to-cart/'.$product[0]['pId']; ?>" method="POST">
-								<p class="product-short-desc"><?php echo $product[0]['pDescription'];?></p>
-								<div class="product-form product-variations product-size">
-									<label>Color:</label>
-									<?php if (count($loadColors) > 0): ?>
+						</div>
+						<?php $loadDimensions = getDimensions($product[0]['pId']); ?>
+						<?php $loadColors = getColors($product[0]['pId']); ?>
+						<h1 class="product-name"><?php echo $product[0]['pName']; ?></h1>
+						<div class="product-meta">
+							ID: <span class="product-sku"><?php echo $product[0]['pId']; ?></span>
+						</div>
+						<div id="pre-price" class="product-price">$<?php echo $product[0]['pPrice']; ?></div>
+						<div class="ratings-container">
+							<div class="ratings-full">
+								<span class="ratings" style="width:100%"></span>
+								<span class="tooltiptext tooltip-top"></span>
+							</div>
+							<a href="#product-tab-reviews" class="link-to-tab rating-reviews">( 4+ reviews )</a>
+						</div>
+						<form action="<?php echo base_url() . '/shop/add-to-cart/' . $product[0]['pId']; ?>" method="POST">
+							<p class="product-short-desc"><?php echo $product[0]['pDescription']; ?></p>
+							<div class="product-form product-variations product-size">
+								<label>Color:</label>
+								<?php if (count($loadColors) > 0) : ?>
 									<div class="product-form-group">
 										<div class="select-box">
-											<select id="sizeSelect" name="color" class="form-control">
+											<select id="colorSelect" name="color" class="form-control">
 												<option value="" selected="selected"><?php echo $loadColors[0]['spName'] ?></option>
 												<?php $specValues = getColorValues($loadColors[0]['spId']); ?>
-												<?php if (count($specValues) > 0): ?>
-												<?php foreach($specValues as $color):?>
-												<option value="<?php echo $color['spvPrice'];?>"><?php echo $color['spvName'].'&nbsp(+$'.$color['spvPrice'].')';?> </option>
-												<?php endforeach; ?>
-												<?php endif;?>
+												<?php if (count($specValues) > 0) : ?>
+													<?php foreach ($specValues as $color) : ?>
+														<option value="<?php echo $color['spvPrice']; ?>"><?php echo $color['spvName'] . '&nbsp(+$' . $color['spvPrice'] . ')'; ?> </option>
+													<?php endforeach; ?>
+												<?php endif; ?>
 											</select>
-										</div>
+										</div> 
 									</div>
-									<?php endif; ?>
-								</div>
+								<?php endif; ?>
+							</div>
 
-								<!--Load the dimensions for each product here-->
-								<div class="product-form product-variations product-size">
-									<label>Size:</label>
-							
-									<?php if (count($loadDimensions) > 0): ?>
+							<!--Load the dimensions for each product here-->
+							<div class="product-form product-variations product-size">
+								<label>Size:</label>
+
+								<?php if (count($loadDimensions) > 0) : ?>
 									<div class="product-form-group">
 										<div class="select-box">
 											<select id="sizeSelect" name="sizeSelect" class="form-control">
 												<option value="" selected="selected"><?php echo $loadDimensions[0]['spName'] ?></option>
 												<?php $specValues = getDimensionValues($loadDimensions[0]['spId']); ?>
-												
-												<?php if (count($specValues) > 0): ?>
-												<?php foreach($specValues as $dimension):?>
-												<option value="<?php echo $dimension['spvPrice'];?>"><?php echo $dimension['spvName'].'&nbsp(+$'.$dimension['spvPrice'].')';?> </option>
-												<?php endforeach; ?>
-												<?php endif;?>
+
+												<?php if (count($specValues) > 0) : ?>
+													<?php foreach ($specValues as $dimension) : ?>
+														<option value="<?php echo $dimension['spvPrice']; ?>"><?php echo $dimension['spvName'] . '&nbsp(+$' . $dimension['spvPrice'] . ')'; ?> </option>
+													<?php endforeach; ?>
+												<?php endif; ?>
 											</select>
 										</div>
 										<a href="#" class="product-variation-clean">Clear All</a>
 									</div>
-									<?php endif; ?>
-								</div><br>
+								<?php endif; ?>
+							</div><br>
 
-								<?php if ($product[0]['pCustom']==1)  : ?>
+							<?php if ($product[0]['pCustom'] == 1) : ?>
 								<div class="form-group">
 									<textarea name="oCustom" cols="40" rows="10" class="form-control" placeholder="Enter custom details. (Applies to customizable products)"></textarea>
 								</div>
-								<?php endif; ?>					
+							<?php endif; ?>
 
 
 
-								<div class="product-variation-price">
-									<span>$79</span>
-									<input type="hidden" name="var-price" id="var-price"></input>
-								</div>
+							<div class="product-variation-price">
+								<span>$79</span>
+								<input type="hidden" name="var-price" id="var-price" value="<?= $product[0]['pPrice']; ?>"></input>
+							</div>
 
-								<hr class="product-divider">
+							<hr class="product-divider">
 
-								<div class="product-form product-qty">
-									<div class="product-form-group">
-										<button type="submit" id="btn-cart" href=""
-											class="btn-product text-normal ls-normal font-weight-semi-bold"><i
-												class="d-icon-bag"></i>&nbsp Add to
-											Cart</button>
-											<div style="padding-top:5px" class="social-links mr-4">
+							<div class="product-form product-qty">
+								<div class="product-form-group">
+									<button type="submit" id="btn-cart" href="" class="btn-product text-normal ls-normal font-weight-semi-bold"><i class="d-icon-bag"></i>&nbsp Add to
+										Cart</button>
+									<div style="padding-top:5px" class="social-links mr-4">
 										<a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
 										<a href="#" class="social-link social-twitter fab fa-twitter"></a>
 										<a href="#" class="social-link social-pinterest fab fa-pinterest-p"></a>
 									</div>
-									</div>
-								</div>
-								</form>
-
-								<hr class="product-divider mb-3">
-
-								<div class="product-footer">
-								
 								</div>
 							</div>
+						</form>
+
+						<hr class="product-divider mb-3">
+
+						<div class="product-footer">
+
 						</div>
 					</div>
-					<section class="pt-3 mt-10">
-						<h2 class="title justify-content-center">Related Products</h2>
+				</div>
+			</div>
+			<section class="pt-3 mt-10">
+				<h2 class="title justify-content-center">Related Products</h2>
 
-						<div class="owl-carousel owl-theme owl-nav-full row cols-2 cols-md-3 cols-lg-4"
-							data-owl-options="{
+				<div class="owl-carousel owl-theme owl-nav-full row cols-2 cols-md-3 cols-lg-4" data-owl-options="{
 							'items': 5,
 							'nav': false,
 							'loop': false,
@@ -236,26 +220,23 @@
 								}
 							}
 						}">
-						<?php if(isset($allProducts)): ?>
-                        <?php $i=1; ?>
-                        <?php foreach($allProducts as $product): 
-                            if ($i++ == 5) break;
-                        ?>
-                        <?php $pUrl = (str_replace(' ', '-', strtolower($product['pName']))); ?>
+					<?php if (isset($allProducts)) : ?>
+						<?php $i = 1; ?>
+						<?php foreach ($allProducts as $product) :
+							if ($i++ == 5) break;
+						?>
+							<?php $pUrl = (str_replace(' ', '-', strtolower($product['pName']))); ?>
 							<div class="product">
 								<figure class="product-media">
-									<a href="<?php echo base_url('/shop/custom-metal-art/'.$pUrl) ; ?>">
-										<img src="<?php echo base_url('./img/products/'.$product['pDp']); ?>" alt="product" style="height:230px;width:330px;">
+									<a href="<?php echo base_url('/shop/custom-metal-art/' . $pUrl); ?>">
+										<img src="<?php echo base_url('./img/products/' . $product['pDp']); ?>" alt="product" style="height:230px;width:330px;">
 									</a>
 									<div class="product-label-group">
-                                    	<label class="product-label label-sale">25% off</label>
-                                	</div>
+										<label class="product-label label-sale">25% off</label>
+									</div>
 									<div class="product-action-vertical">
-										<a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
-											data-target="#addCartModal" title="Add to cart"><i
-												class="d-icon-bag"></i></a>
-										<a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i
-												class="d-icon-heart"></i></a>
+										<a href="#" class="btn-product-icon btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a>
+										<a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
 									</div>
 									<div class="product-action">
 										<a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
@@ -266,7 +247,7 @@
 										<a href="/shop">Custom Metal Art</a>
 									</div>
 									<h3 class="product-name">
-										<a href="<?php echo base_url('/shop/custom-metal-art/'.$product['pName']) ?>"><?php echo $product['pName']; ?></a>
+										<a href="<?php echo base_url('/shop/custom-metal-art/' . $product['pName']) ?>"><?php echo $product['pName']; ?></a>
 									</h3>
 									<div class="product-price">
 										<span class="price">$<?php echo $product['pPrice'] ?></span>
@@ -282,11 +263,11 @@
 									</div>
 								</div>
 							</div>
-							<?php endforeach;?>
-                       		<?php endif; ?>
+						<?php endforeach; ?>
+					<?php endif; ?>
 
-						</div>
-					</section>
 				</div>
-			</div>
-		</main>
+			</section>
+		</div>
+	</div>
+</main>

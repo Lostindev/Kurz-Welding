@@ -11,7 +11,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="/img/logo.png" class="img-circle elevation-2" alt="User Image">
+          <img src="<?= base_url() ?>/img/logo.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">Kurz Welding</a>
@@ -35,10 +35,10 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-            <li class="nav-item ">
-              <a href="/admin/viewCustomOrders" class="nav-link">
-                <i class="nav-icon fas fa-copy"></i>
-                <p>
+          <li class="nav-item ">
+            <a href="<?= base_url() ?>/admin/viewCustomOrders" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
                 Custom Orders
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -46,9 +46,9 @@
           </li>
 
           <li class="nav-item ">
-              <a href="/admin/viewOrders" class="nav-link">
+            <a href="<?= base_url() ?>/admin/viewOrders" class="nav-link">
               <i class="nav-icon fas fa-sort-amount-up-alt"></i>
-                <p>
+              <p>
                 View Orders
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -65,13 +65,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/admin/newCategory" class="nav-link">
+                <a href="<?= base_url() ?>/admin/newCategory" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>New Category</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/viewCategories" class="nav-link">
+                <a href="<?= base_url() ?>/admin/viewCategories" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Categories</p>
                 </a>
@@ -89,13 +89,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/admin/newSubCategory" class="nav-link">
+                <a href="<?= base_url() ?>/admin/newSubCategory" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>New Sub-Category</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/viewSubCategories" class="nav-link">
+                <a href="<?= base_url() ?>/admin/viewSubCategories" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Sub-Categories</p>
                 </a>
@@ -113,13 +113,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/admin/newProduct" class="nav-link">
+                <a href="<?= base_url() ?>/admin/newProduct" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>New Product</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/viewProducts" class="nav-link">
+                <a href="<?= base_url() ?>/admin/viewProducts" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Products</p>
                 </a>
@@ -137,13 +137,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/admin/newSpec" class="nav-link">
+                <a href="<?= base_url() ?>/admin/newSpec" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>New Spec</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/viewSpecs" class="nav-link">
+                <a href="<?= base_url() ?>/admin/viewSpecs" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View All Specs</p>
                 </a>
@@ -153,7 +153,7 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-            <i class="nav-icon far fa-images"></i>
+              <i class="nav-icon far fa-images"></i>
               <p>
                 Gallery
                 <i class="fas fa-angle-left right"></i>
@@ -161,20 +161,20 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/admin/newGallery" class="nav-link">
+                <a href="<?= base_url() ?>/admin/newGallery" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>New Gallery Entry</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/viewGallery" class="nav-link">
+                <a href="<?= base_url() ?>/admin/viewGallery" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View All Gallery Entries</p>
                 </a>
               </li>
             </ul>
           </li>
-  
+
 
         </ul>
       </nav>
