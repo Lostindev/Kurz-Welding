@@ -86,7 +86,7 @@
                         <div class="grid-item col-lg-3 col-md-6 height-x1">
                             <div class="category category-absolute category-banner overlay-dark text-white"
                                 style="background-color: #141414 ">
-                                <a href="#">
+                                <a href="/categories/1/most-popular">
                                     <figure class="category-media">
                                         <img src="./img/home/most-popular.jpg" alt="category" width="465"
                                             height="257" />
@@ -97,14 +97,14 @@
                                     <span class="category-count">
                                         <span>29</span> Products
                                     </span>
-                                    <a href="demo17-shop.html" class="btn btn-underline btn-link">Shop Now</a>
+                                    <a href="/shop" class="btn btn-underline btn-link">Shop Now</a>
                                 </div>
                             </div>
                         </div>
                         <div class="grid-item col-lg-3 col-md-6 height-x1">
                             <div class="category category-absolute category-banner overlay-dark text-white"
                                 style="background-color: #524b45">
-                                <a href="#">
+                                <a href="/gallery">
                                     <figure class="category-media">
                                         <img src="./img/home/view-gallery.jpg" alt="category" width="465"
                                             height="257" />
@@ -115,7 +115,7 @@
                                     <span class="category-count">
                                         <span>39</span> Products
                                     </span>
-                                    <a href="demo17-shop.html" class="btn btn-underline btn-link">Shop Now</a>
+                                    <a href="/gallery" class="btn btn-underline btn-link">Shop Now</a>
                                 </div>
                             </div>
                         </div>
