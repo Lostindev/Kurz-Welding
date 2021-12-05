@@ -29,7 +29,7 @@
 								<div class="sticky-sidebar" data-sticky-options="{'top': 10}">
 									<div class="filter-actions mb-4">
 										<a href="#"
-											class="sidebar-toggle-btn toggle-remain btn btn-outline btn-primary btn-icon-right btn-rounded">Filter<i
+											class="sidebar-toggle-btn toggle-remain btn btn-outline btn-primary btn-icon-right btn-rounded">Categories<i
 												class="d-icon-arrow-left"></i></a><br>
 									</div>
 									<div class="widget widget-collapsible">
@@ -65,7 +65,7 @@
 							<nav class="toolbox sticky-toolbox sticky-content fix-top">
 								<div class="toolbox-left">
 									<a href="#"
-										class="toolbox-item left-sidebar-toggle btn btn-sm btn-outline btn-primary btn-rounded btn-icon-right d-lg-none">Filter<i
+										class="toolbox-item left-sidebar-toggle btn btn-sm btn-outline btn-primary btn-rounded btn-icon-right d-lg-none">Categories<i
 											class="d-icon-arrow-right"></i></a>
 									<!--<div class="toolbox-item toolbox-sort select-box text-dark">
 										<label>Sort By :</label>
