@@ -11,6 +11,7 @@
                     'animateIn': 'slideInLeft'
                 }">
                     <div class="intro-slide1 banner banner-fixed" style="background-color: #505052">
+                    <div id="figure-div">
                         <figure>
                             <video playsinline autoplay muted loop
                             style="
@@ -18,6 +19,7 @@
                                 <source src="./img/home/cnc-metal-art-video.mp4" type="video/mp4">
                             </video>
                         </figure>
+                    </div>
                         <div class="container slide-animate">
                             <div class="banner-content x-50 y-50 text-center pt-3">
                                 <h4 class="banner-subtitle mb-4 text-white text-uppercase font-weight-normal slide-animate"
