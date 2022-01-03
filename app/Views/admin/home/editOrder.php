@@ -59,6 +59,12 @@
             </div><br>
 
             <div class="form-group">
+            <label class="form-label" for="order-date">Order Date</label><br>
+            <?php if (isset($product[0]['oDate'])) echo $product[0]['oDate'] ;?>
+            </div><br>
+            
+
+            <div class="form-group">
             <label class="form-label" for="co_message">Custom Design Information</label><br>
                 <?php echo str_replace(";","<br>",$product[0]['oCustom']); ?>
             </div><br>
