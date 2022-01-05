@@ -159,15 +159,15 @@ function loadStoreProducts($categoryId) {
 
         if (!empty($subCatId)) {
             //Find all products for sub category and main
-            return $productDB->getWhere(['categoryId'=>$categoryId,'subCatId'=>$subCatId])->getResultArray();
+            return $productDB->orderBy('pId', 'DESC')->getWhere(['categoryId'=>$categoryId,'subCatId'=>$subCatId])->getResultArray();
         } else {
             //Find all products for category
-            return $productDB->getWhere(['categoryId'=>$categoryId])->getResultArray();
+            return $productDB->orderBy('pId', 'DESC')->getWhere(['categoryId'=>$categoryId])->getResultArray();
         }
         
     } else {
         //Show all products in database
-        return $productDB->getWhere(['pStatus'=>1])->getResultArray();
+        return $productDB->orderBy('pId', 'DESC')->getWhere(['pStatus'=>1])->getResultArray();
     }
 }
 

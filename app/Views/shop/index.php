@@ -100,6 +100,7 @@
                             <?php //load store products based on category?>
                             <?php $getProducts = loadStoreProducts($catId); ?>
                                 <?php if(count($getProducts) > 0):?>
+								
                                 <?php foreach($getProducts as $product):?>
                                 <?php $pUrl = (str_replace(' ', '-', strtolower($product['pName']))); ?>
 								<div class="product-wrap">
