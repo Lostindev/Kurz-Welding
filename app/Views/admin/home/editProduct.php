@@ -78,18 +78,24 @@
 
             <?php if ($product[0]['pCustom']==1)  : ?>
                 <div>
-                <div class="form-check form-switch">
-                <input class="form-check-input" value="1" type="checkbox" checked name="customCheck" id="customCheck">
-                <label class="form-check-label" for="customCheck">Check this box for custom products</label>
+                <div style="padding-top:25px;" class="form-check form-switch">
+                <input class="form-check-input" value="1" type="radio" checked name="customCheck" id="customCheck">
+                <label class="form-check-label" for="customCheck">Custom</label>
+                <br><br>
+                <input class="form-check-input" value="0" type="radio" name="customCheck" id="customCheck2">
+                <label class="form-check-label" for="customCheck">Standard</label>
                 </div>
             </div><br>
             <?php endif; ?>
 
             <?php if ($product[0]['pCustom']==0)  : ?>
                 <div>
-                <div class="form-check form-switch">
-                <input class="form-check-input" value="1" type="checkbox" name="customCheck" id="customCheck">
-                <label class="form-check-label" for="customCheck">Check this box for custom products</label>
+                <div style="padding-top:25px;" class="form-check form-switch">
+                <input class="form-check-input" value="1" type="radio" name="customCheck" id="customCheck">
+                <label class="form-check-label" for="customCheck">Custom</label>
+                <br><br>
+                <input class="form-check-input" value="0" checked type="radio" name="customCheck" id="customCheck2">
+                <label class="form-check-label" for="customCheck">Standard</label>
                 </div>
             </div><br>
             <?php endif; ?>

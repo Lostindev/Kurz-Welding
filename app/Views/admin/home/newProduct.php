@@ -69,10 +69,13 @@
                 </div>
             </div>
 
-            <div>
+            <div><br>
                 <div class="form-check form-switch">
-                <input class="form-check-input" value="1" type="checkbox" name="customCheck" id="customCheck">
-                <label class="form-check-label" for="customCheck">Check this box for custom products</label>
+                <input class="form-check-input" value="1" type="radio" name="customCheck" id="customCheck">
+                <label class="form-check-label" for="customCheck">Custom</label>
+                <br><br>
+                <input class="form-check-input" value="0" type="radio" name="customCheck" id="customCheck2">
+                <label class="form-check-label" for="customCheck">Standard</label>
                 </div>
             </div><br>
 
