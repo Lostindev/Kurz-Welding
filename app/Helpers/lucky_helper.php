@@ -175,7 +175,7 @@ function getGallery() {
     $session = \Config\Services::session();
 
     $galleryDB = new ModGallery();
-    return $galleryDB->getWhere(['gStatus'=>1])->getResultArray();
+    return $galleryDB->orderBy('gId', 'DESC')->getWhere(['gStatus'=>1])->getResultArray();
 }
 
 function loadCart() {

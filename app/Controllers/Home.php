@@ -36,6 +36,8 @@ class Home extends BaseController
 								->orderBy('pId', 'DESC')
 								->findAll();								
 
+		$data['productAmt'] = $productsDB->countAll();
+
 		echo view('user/header', $data);
 		echo view('user/css', $data);
 		echo view('user/navbar', $data);

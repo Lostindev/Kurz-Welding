@@ -95,9 +95,9 @@
                                     </figure>
                                 </a>
                                 <div class="category-content d-flex x-50 text-center align-items-center appear-animate">
-                                    <h4 class="category-name text-center">Most Popular</h4>
+                                    <h4 class="category-name text-center">All Products</h4>
                                     <span class="category-count">
-                                        <span>29</span> Products
+                                        <span> <?php echo $productAmt; ?> </span> Products
                                     </span>
                                     <a href="/shop" class="btn btn-underline btn-link">Shop Now</a>
                                 </div>
