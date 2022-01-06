@@ -39,8 +39,8 @@
                     <div class="icon-box ic-3 icon-box-tiny text-center">
                         <div class="icon-box-content">
                             <h4 class="icon-box-title text-white">
-                                <i class="fas fa-user" style="font-size: 2rem"></i>
-                                &nbsp 15% OFF for New Users
+                            <i class="fas fa-boxes" style="font-size: 2rem"></i>
+                                &nbsp Highest Quality Materials
                             </h4>
                         </div>
                     </div>
