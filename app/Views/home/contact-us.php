@@ -35,20 +35,20 @@
                             </div>
                             <div class="col-lg-9 col-md-8 col-sm-6 d-flex align-items-center mb-4">
                                 <div class="w-100">
-                                    <form class="pl-lg-2" action="#">
+                                    <form class="pl-lg-2" action="/home/connect" method="POST">
                                         <h4 class="ls-m font-weight-bold">Let’s Connect</h4>
                                         <p>Your email address will not be published. Required fields are
                                             marked *</p>
                                         <div class="row mb-2">
                                             <div class="col-12 mb-4">
                                                 <textarea class="form-control" required
-                                                    placeholder="Comment*"></textarea>
+                                                    name="contactMessage" placeholder="Message *"></textarea>
                                             </div>
                                             <div class="col-md-6 mb-4">
-                                                <input class="form-control" type="text" placeholder="Name *" required>
+                                                <input class="form-control" type="text" name="contactName" placeholder="Name *" required>
                                             </div>
                                             <div class="col-md-6 mb-4">
-                                                <input class="form-control" type="email" placeholder="Email *" required>
+                                                <input class="form-control" type="email" name="contactEmail" placeholder="Email *" required>
                                             </div>
                                         </div>
                                         <button class="btn btn-dark btn-rounded">Post Comment<i

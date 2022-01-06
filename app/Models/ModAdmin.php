@@ -8,6 +8,6 @@ class ModAdmin extends Model
     protected $table = 'categories';
     protected  $primaryKey = "cId";
     protected $returnType = 'array';
-    protected $allowedFields = ['cName','cDp','cDate','adminId'];
+    protected $allowedFields = ['cName','cDp','cDate','adminId','contactEmail'];
 
 }

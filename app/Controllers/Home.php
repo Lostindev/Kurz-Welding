@@ -7,6 +7,8 @@ use App\Models\ModAdmin;
 
 use App\Models\ModProducts;
 
+use App\Models\ModContact;
+
 use CodeIgniter\Controller;
 
 class Home extends BaseController
@@ -224,6 +226,38 @@ class Home extends BaseController
 		echo view('home/contact-us', $data);
 		echo view('user/footer', $data);
 	}
+
+	public function connect($page = 'index')
+    {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        $contactDB = new ModContact();
+        
+
+		$dataUpload['contactDate'] = date('Y-m-d H:i:s');
+		$dataUpload['contactName'] = $request->getPost('contactName');
+		$dataUpload['contactEmail'] = $request->getPost('contactEmail');
+		$dataUpload['contactComment'] = $request->getPost('contactMessage');
+
+		$checkAlreadyThere = $contactDB->where('contactEmail', $dataUpload['contactEmail'])->findAll();
+
+		if (count($checkAlreadyThere) > 0 ){
+			$session->setFlashdata('message','A message was already submitted with this email.');
+			return redirect()->to(base_url('/home/contact-us'));
+		} 
+		
+		else {
+			$addData = $contactDB->insert($dataUpload);
+			if ($addData) {
+				$session->setFlashdata('successMessage','Thanks for reaching out to us! We appreciate your feedback.');
+				return redirect()->to(base_url('/home/contact-us'));
+			} else {
+				$session->setFlashdata('message','Something went wrong, please try again.');
+				return redirect()->to(base_url('/home/contact-us'));
+			}
+		}
+
+    }
 
 	public function frequently_asked_questions($page = 'faq')
 	{
