@@ -73,7 +73,7 @@
                                 <i class="d-icon-search"></i>
                                 <span class="ml-1 text-uppercase">Search</span>
                             </a>
-                            <form action="#" class="input-wrapper">
+                            <form action="/shop/search" method="POST" class="input-wrapper">
                                 <input type="text" class="form-control" name="search" autocomplete="off" placeholder="Search your keyword..." required />
                                 <button class="btn btn-search" type="submit">
                                     <i class="d-icon-search"></i>

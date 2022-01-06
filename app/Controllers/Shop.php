@@ -48,6 +48,36 @@ class Shop extends BaseController
         echo view('user/footer', $data);
     }
 
+    public function search($page = 'index')
+    {
+        $session = \Config\Services::session();
+        $request = \Config\Services::request();
+
+        $data['title'] = 'Kurz Metal Art | Shop';
+        $data['metaData'] = "";
+        $data['page'] = $page;
+        $data['cssFile'] = $page;
+        $uri = $request->uri;
+        $data['uri'] = $uri->getSegment(1);
+        $data['uri2'] = '';
+
+        $productDB = new ModProducts();
+        $queryS = $request->getPost('search');
+        $data['pResult'] = $productDB->like('pName',$queryS)->findAll();
+
+        //Fetch number of categories from database
+        $categoriesDB = new ModAdmin();
+        $data['getNumCategories'] = $categoriesDB->where('cstatus', 1)->countAllResults();
+        $data['allCategories'] = $categoriesDB->getWhere(['cStatus' => 1], $data['getNumCategories'])->getResultArray();
+
+
+        echo view('user/header', $data);
+        echo view('user/css', $data);
+        echo view('user/navbar', $data);
+        echo view('shop/search', $data);
+        echo view('user/footer', $data);
+    }
+
     public function productLookup($id)
     {
         $session = \Config\Services::session();
