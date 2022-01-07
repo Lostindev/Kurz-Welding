@@ -40,7 +40,7 @@
                         <div class="icon-box-content">
                             <h4 class="icon-box-title text-white">
                             <i class="fas fa-boxes" style="font-size: 2rem"></i>
-                                &nbsp Highest Quality Materials
+                                &nbsp High Quality Materials
                             </h4>
                         </div>
                     </div>
