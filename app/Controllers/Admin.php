@@ -969,7 +969,7 @@ class Admin extends BaseController
 
                     $adminDB->where('pId',$dataUpload['pId'])->findAll();
 
-                    $addData = $adminDB->replace($dataUpload);
+                    $addData = $adminDB->update($dataUpload['pId'],$dataUpload);
                         if ($addData) {
                             $session->setFlashdata('successMessage','You have successfully updated your product.');
                             return redirect()->to(base_url('/admin/viewProducts'));
