@@ -163,14 +163,12 @@
                                         'duration': '1.6s'
                                     }">
                                         <h4 class="banner-subtitle text-uppercase text-white font-weight-normal">
-                                            Flash Sale
-                                            20% Off</h4>
+                                            Personalized Designs & More!</h4>
                                         <h3 class="banner-title text-white appear-animate mb-3 font-weight-bold"
                                             data-animation-options="{
                                             'name': 'fadeInLeftShorter'
-                                        }">Custom Metal <span class="text-secondary text-uppercase">Fire Pit</span>
-                                            Designs</h3>
-                                        <p class="text-grey font-primary">The Warm Weather Companion you need...</p>
+                                        }">Custom Metal Art for <span class="text-secondary text-uppercase">EVERYBODY</span></h3>
+                                        <p class="text-grey font-primary">High quality metal art designed perfectly for you...</p>
                                         <a href="/shop" class="btn btn-primary btn-md ls-m">Shop now</a>
                                     </div>
                                 </div>

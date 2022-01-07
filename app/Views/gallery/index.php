@@ -30,7 +30,7 @@
                             <article class="post post-mask gradient">
                                 <figure class="post-media overlay-zoom">
                                     <a href="#">
-                                        <img src="<?php echo base_url('/img/gallery/'.$item['gDp']); ?>" width="380" height="280" alt="post" />
+                                        <img style="max-height:350px;" src="<?php echo base_url('/img/gallery/'.$item['gDp']); ?>" width="380" height="280" alt="post" />
                                     </a>
                                 </figure>
                                 <div class="post-details">
