@@ -115,7 +115,7 @@
                                 <div class="category-content d-flex align-items-center x-50 text-center appear-animate">
                                     <h4 class="category-name text-center">View Gallery</h4>
                                     <span class="category-count">
-                                        <span>39</span> Products
+                                        <span><?php echo $galleryAmt; ?></span> Pictures
                                     </span>
                                     <a href="/gallery" class="btn btn-underline btn-link">Shop Now</a>
                                 </div>

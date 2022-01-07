@@ -9,6 +9,8 @@ use App\Models\ModProducts;
 
 use App\Models\ModContact;
 
+use App\Models\ModGallery;
+
 use CodeIgniter\Controller;
 
 class Home extends BaseController
@@ -38,7 +40,10 @@ class Home extends BaseController
 								->orderBy('pId', 'DESC')
 								->findAll();								
 
+		//Fetch total number of products & gallery items
+		$galleryDB = new ModGallery();
 		$data['productAmt'] = $productsDB->countAll();
+		$data['galleryAmt'] = $galleryDB->countAll();
 
 		echo view('user/header', $data);
 		echo view('user/css', $data);
