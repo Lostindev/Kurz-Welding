@@ -163,6 +163,7 @@
 
 
 										$session = \Config\Services::session();
+
 										$varDimensions = array_values($_SESSION['varDimensions']);
 										$varPrice = array_values($_SESSION['varPrice']);
 										$varColor = array_values($_SESSION['varColor']);
@@ -176,9 +177,8 @@
 											<?php foreach ($cart->getResult() as $row) : ?>
 												<?php $a++; ?>
 												<tr>
-													<input type="hidden" name="pHidden<?= $a ?>" value="<?php echo $varColor[$a] . ', ';
-																										echo $row->pName;  ?>
-													<?= $varDimensions[$a] . ';'; ?>">
+													<input type="hidden" name="pHidden<?= $a ?>" value="<?php echo $colorName[$a] ;
+														echo $row->pName . '&nbsp'; echo $sizeName[$a] ?>">
 													<input type="hidden" name="<?php echo 'cHidden' . $a; ?>" value="<?php echo $_SESSION['varCustom'][$a] . ';';  ?>">
 													<td style="white-space: inherit!important;" class="product-name">
 													<?php echo $colorName[$a] ;
