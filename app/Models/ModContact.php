@@ -8,6 +8,6 @@ class ModContact extends Model
     protected $table = 'contact';
     protected  $primaryKey = "contactId";
     protected $returnType = 'array';
-    protected $allowedFields = ['contactName','contactComment','contactDate','ContactEmail'];
+    protected $allowedFields = ['contactName','contactComment','contactDate','contactEmail'];
 
 }

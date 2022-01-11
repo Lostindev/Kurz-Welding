@@ -8,6 +8,7 @@ use App\Models\ModSpec;
 use App\Models\ModSpecValues;
 use App\Models\ModGallery;
 use App\Models\ModUsers;
+use App\Models\ModContact;
 
 use App\Models\ModCustomOrders;
 use App\Models\ModOrders;
@@ -1951,6 +1952,117 @@ class Admin extends BaseController
             $session->setFlashdata('message','Please login to edit orders.');
             return redirect()->to(base_url('/admin/login'));
         }
+    }
+
+
+
+    public function viewMessages($page = 'viewCategories') {
+        $session = \Config\Services::session();
+		$data['title'] = 'Admin - View Categories';
+		$data['metaData'] = "";
+		$data['page'] = $page;
+		$data['cssFile'] = $page;
+		$data['uri'] = $this->request->uri;
+    
+
+
+        if (adminLoggedIn()) {
+            $adminDB = new ModContact();
+            $data = [
+                'results' => $adminDB->orderBy('contactId', 'DESC')->paginate(20),
+                'pager' => $adminDB->pager];
+
+                $data['message'] = $session->getFlashdata('message');
+                $data['successMessage'] = $session->getFlashdata('successMessage');
+            
+            echo view('admin/header/header', $data);
+            echo view('admin/header/css', $data);
+            echo view('admin/header/navtop', $data);
+            echo view('admin/header/navleft', $data);
+            echo view('admin/home/viewMessages', $data);
+            echo view('admin/header/footer', $data);
+
+            
+        } else {
+            $session->setFlashdata('message','Please login to view all categories.');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
+
+
+    public function deleteMessage($cId) {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        
+        if (adminLoggedIn()) {
+
+            if (!empty($cId) && isset($cId)) {
+                $adminDB = new ModContact();
+                $result = $adminDB->where('contactId',$cId)->delete();
+
+                if ($result) {
+  
+                    $session->setFlashdata('successMessage','Message successfully deleted.');
+                    $session->keepFlashdata('sucessMessage');
+                    return redirect()->to(base_url('/admin/viewMessages'));
+                } else {
+                    $session->setFlashdata('message','Something went wrong, please try again.');
+                    $session->keepFlashdata('message');
+                    return redirect()->to(base_url('/admin/viewMessages'));
+                }
+                
+            } else {
+                $session->setFlashdata('message','Something went wrong, please try again.');
+                $session->keepFlashdata('message');
+                return redirect()->to(base_url('/admin/viewMessages'));
+            }
+
+        } else {
+            $session->setFlashdata('message','Please login to delete messages.');
+            $session->keepFlashdata('message');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
+
+    public function editMessage($cId = NULL, $page = 'editCategory') {
+        $session = \Config\Services::session();
+        $data['message'] = $session->getFlashdata('message');
+        $data['successMessage'] = $session->getFlashdata('successMessage');
+
+        if (adminLoggedIn()) {
+            if (!empty($cId) && isset($cId)) {
+                $adminDB = new ModContact();
+                $checkCategoryById = $adminDB->where('contactId',$cId)->findAll();
+                $data['category'] = $checkCategoryById;
+                if (count($data['category']) == 1) {
+                    echo view('admin/header/header', $data);
+                    echo view('admin/header/css', $data);
+                    echo view('admin/header/navtop', $data);
+                    echo view('admin/header/navleft', $data);
+                    echo view('admin/home/editMessage', $data);
+                    echo view('admin/header/footer', $data);
+                } else {
+                    $session->setFlashdata('message','Category not found.');
+                    $session->keepFlashdata('message');
+                    return redirect()->to(base_url('/admin/viewCategories'));
+                }
+                
+
+
+            } else {
+                $session->setFlashdata('message','Something went wrong, please try again.');
+                return redirect()->to(base_url('/admin/viewCategories'));
+            }
+            
+        } 
+        
+        
+        
+        else {
+            $session->setFlashdata('message','Please login to edit categories.');
+            return redirect()->to(base_url('/admin/login'));
+        }
+
     }
 
 } //end of controller
