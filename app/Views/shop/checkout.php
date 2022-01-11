@@ -166,10 +166,9 @@
 										$varDimensions = array_values($_SESSION['varDimensions']);
 										$varPrice = array_values($_SESSION['varPrice']);
 										$varColor = array_values($_SESSION['varColor']);
-										// print_r($varDimensions);
-
-										// die();
-
+										
+										$colorName = array_values($_SESSION['varColorName']);
+										$sizeName = array_values($_SESSION['varDimensionName']);
 										?>
 										<?php $a = -1 ?>
 										<?php if (loadCart()) : ?> 
@@ -181,9 +180,10 @@
 																										echo $row->pName;  ?>
 													<?= $varDimensions[$a] . ';'; ?>">
 													<input type="hidden" name="<?php echo 'cHidden' . $a; ?>" value="<?php echo $_SESSION['varCustom'][$a] . ';';  ?>">
-													<td style="white-space: inherit!important;" class="product-name"><?php echo $varColor[$a] . ', ';
-																														echo $row->pName;
-																														echo ', ' . $varDimensions[$a]; ?> <span class="product-quantity">×&nbsp;<?= $_SESSION["quantity"][$row->pId] ?></span></td>
+													<td style="white-space: inherit!important;" class="product-name">
+													<?php echo $colorName[$a] ;
+													echo $row->pName;
+													?> <span class="product-quantity">×&nbsp;<?= $_SESSION["quantity"][$row->pId] ?></span></td>
 													<td class="product-total text-body"><?php echo '$' . $varPrice[$a] * $_SESSION["quantity"][$row->pId] ?></td>
 												</tr>
 											<?php endforeach; ?>

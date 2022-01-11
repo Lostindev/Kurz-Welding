@@ -165,6 +165,9 @@ class Shop extends BaseController
                 $_SESSION['varColor'] = array();
                 $_SESSION['varDimensions'] = array();
                 $_SESSION['varCustom'] = array();
+
+                $_SESSION['varColorName'] = array();
+                $_SESSION['varDimensionsName'] = array();
             }
             if (!isset($_SESSION["quantity"][$pId])) {
                 $_SESSION["quantity"][$pId] = 0;
@@ -183,6 +186,10 @@ class Shop extends BaseController
             //Get Dimensions
             $varSize = $request->getPost('sizeSelect');
 
+            //Get color & dimension names
+            $varDimensionName = $request->getPost('dimensionName');
+            $varColorName = $request->getPost('colorName');
+
             //Get Custom Field input
             $oCustom = $request->getPost('oCustom'); 
             array_push($_SESSION['varCustom'], $oCustom);
@@ -200,6 +207,13 @@ class Shop extends BaseController
             $_SESSION['varColor'][$pId] = $varColor;
             $_SESSION['varDimensions'][$pId] = $varSize;
 
+
+
+      
+
+            //Add Color & Size Information
+            $_SESSION['varDimensionName'][$pId] = $varDimensionName;
+            $_SESSION['varColorName'][$pId] = $varColorName;
 
             //Add Dimensions to cart
             $getSpec = $specDB->getWhere(['productId' => $pId])->getResultArray();

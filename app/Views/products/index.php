@@ -126,6 +126,10 @@
 						<form action="<?php echo base_url() . '/shop/add-to-cart/' . $product[0]['pId']; ?>" method="POST">
 							<p class="product-short-desc"><?php echo $product[0]['pDescription']; ?></p>
 							<div class="product-form product-variations product-size">
+							<!--Hidden input to store color & dimension selection, not price.-->
+							<input type="hidden" id="colorName" name="colorName" value=""></input>
+							<input type="hidden" id="dimensionName" name="dimensionName" value=""></input>
+
 								<label>Color:</label>
 								<?php if (count($loadColors) > 0) : ?>
 									<div class="product-form-group">
@@ -277,3 +281,17 @@
 		</div>
 	</div>
 </main>
+
+<script>
+$('#colorSelect').change(function()
+                  {
+                      var selected = $(this).find('option:selected').text();
+                      $('input[name="colorName"]').val(selected);
+                  });
+
+$('#sizeSelect').change(function()
+  {
+      var sizechange = $(this).find('option:selected').text();
+      $('input[name="dimensionName"]').val(sizechange);
+    });
+</script>
