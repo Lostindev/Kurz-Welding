@@ -58,14 +58,18 @@
 						<label>Company Name (Optional)</label>
 						<input type="text" class="form-control" name="company-name" value="<?php if (isset($bSpec['bCompany'])) echo $bSpec['bCompany']; ?>" />
 						<label>Country / Region *</label>
+						<input type="hidden" value="" id="country-billing" name="country-billing"/>
 						<div class="select-box">
 							<select style="max-width: 100%;width:100%;    padding: 1rem 1.4rem .8rem;
 										font-size: 1.4rem;
-										color: #666;" name="country" class="form-control">
-								<option value="us" selected>United States (US)</option>
-								<option value="uk"> United Kingdom</option>
-								<option value="fr">France</option>
-								<option value="aus">Austria</option>
+										color: #666;" name="country" id="country" class="form-control">
+								<option value="60">Canada</option>
+								<option value="45" selected>United States</option>
+								<option value="90">United Kingdom</option>
+								<option value="95">France</option>
+								<option value="55">Austria</option>
+								<option value="65">Mexico</option>
+								
 							</select>
 						</div>
 						<label>Street Address *</label>
@@ -117,14 +121,17 @@
 						<label>Company Name (Optional)</label>
 						<input type="text" class="form-control" name="shipping-company" value="<?php if (isset($sSpec['shippingCompany'])) echo $sSpec['shippingCompany']; ?>" />
 						<label>Country / Region *</label>
+						<input type="hidden" name="shipping-country" id="shipping-country" value=""></input>
 						<div class="select-box">
 							<select style="max-width: 100%;width:100%;    padding: 1rem 1.4rem .8rem;
 										font-size: 1.4rem;
-										color: #666;" name="shipping-country" class="form-control">
-								<option value="us" selected>United States (US)</option>
-								<option value="uk"> United Kingdom</option>
-								<option value="fr">France</option>
-								<option value="aus">Austria</option>
+										color: #666;" id="countryShip" name="countryShip" class="form-control">
+								<option value="60">Canada</option>
+								<option value="45" selected>United States</option>
+								<option value="90">United Kingdom</option>
+								<option value="95">France</option>
+								<option value="55">Austria</option>
+								<option value="65">Mexico</option>
 							</select>
 						</div>
 						<label>Street Address *</label>
@@ -205,20 +212,32 @@
 											<?php endif; ?>
 											</td>
 										</tr>
-										<!-- Shipping calculator 
 												<tr class="sumnary-shipping shipping-row-last">
 													<td colspan="2">
 														<h4 class="summary-subtitle">Calculate Shipping</h4>
-														<ul>
+														<ul >
 															<li>
 																<div class="custom-radio">
 																	<input type="radio" id="flat_rate"
 																		name="shipping" class="custom-control-input" checked>
 																	<label class="custom-control-label"
-																		for="flat_rate">Flat rate</label>
+																		for="flat_rate">
+																		<?php if (isset($_SESSION['varPrice'])) : ?>
+																		<?php 
+																			$sum = 0;
+																			foreach ($_SESSION['varPrice'] as $k => $price) {
+																				$sum += $price * $_SESSION["quantity"][$k];
+																				// echo $k;
+																			} ?>
+																		<?php echo '$' . $sum * .20 ; ?>
+																	<?php else : ?>
+																		<?php echo "0.00"; ?></span>
+																	<?php endif; ?>
+																		
+																		Flat rate Shipping</label>
 																</div>
 															</li>
-
+														<!--
 															<li>
 																<div class="custom-radio">
 																	<input type="radio" id="free-shipping"
@@ -228,19 +247,11 @@
 																		shipping</label>
 																</div>
 															</li>
-															
-															<li>
-																<div class="custom-radio">
-																	<input type="radio" id="local_pickup"
-																		name="shipping" class="custom-control-input">
-																	<label class="custom-control-label"
-																		for="local_pickup">Local pickup</label>
-																</div>
-															</li>
+														-->
 														</ul>
 													</td>
 												</tr>
-													-->
+												
 										<tr class="summary-total">
 											<td class="pb-0">
 												<h4 class="summary-subtitle">Total</h4>
@@ -290,4 +301,19 @@
 			}
 		});
 	});
+</script>
+
+<script>
+$('#country').change(function()
+                  {
+                      var selected = $(this).find('option:selected').text();
+                      $('input[name="country-billing"]').val(selected);
+                  });
+
+$('#countryShip').change(function()
+{
+    var selected = $(this).find('option:selected').text();	 
+    $('input[name="shipping-country"]').val(selected);
+ });
+
 </script>

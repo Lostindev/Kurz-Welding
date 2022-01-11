@@ -337,7 +337,7 @@ class Shop extends BaseController
         $dataUpload['billingFirst'] = $request->getPost('first-name');
         $dataUpload['billingLast'] = $request->getPost('last-name');
         $dataUpload['billingCompany'] = $request->getPost('company');
-        $dataUpload['billingCountry'] = $request->getPost('country');
+        $dataUpload['billingCountry'] = $request->getPost('country-billing');
         $dataUpload['billingAddress'] = $request->getPost('address1');
         $dataUpload['billingApt'] = $request->getPost('address2');
         $dataUpload['billingCity'] = $request->getPost('city');
@@ -365,7 +365,7 @@ class Shop extends BaseController
             $dataUpload['shippingFirst'] = $dataUpload['billingFirst'];
             $dataUpload['shippingLast'] = $dataUpload['billingLast'];
             $dataUpload['shippingCompany'] = $dataUpload['billingCompany'];
-            $dataUpload['shippingCountry'] = $request->getPost('country');
+            $dataUpload['shippingCountry'] = $request->getPost('country-billing');
             $dataUpload['shippingAddress'] = $request->getPost('address1');
             $dataUpload['shippingApt'] = $request->getPost('address2');
             $dataUpload['shippingCity'] = $request->getPost('city');
