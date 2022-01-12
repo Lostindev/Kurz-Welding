@@ -199,7 +199,7 @@
 											<td>
 												<h4 class="summary-subtitle">Subtotal</h4>
 											</td>
-											<td class="summary-subtotal-price pb-0 pt-0">$<?php if (isset($_SESSION['varPrice'])) : ?>
+											<td class="summary-subtotal-price pb-0 pt-0"><?php if (isset($_SESSION['varPrice'])) : ?>
 												<?php 
 												    $sum = 0;
 													foreach ($_SESSION['varPrice'] as $k => $price) {
@@ -220,7 +220,7 @@
 																<div class="custom-radio">
 																	<input type="radio" id="flat_rate"
 																		name="shipping" class="custom-control-input" checked>
-																	<label class="custom-control-label"
+																	<label id="total-price-ship" class="custom-control-label"
 																		for="flat_rate">
 																		<?php if (isset($_SESSION['varPrice'])) : ?>
 																		<?php 
@@ -229,7 +229,8 @@
 																				$sum += $price * $_SESSION["quantity"][$k];
 																				// echo $k;
 																			} ?>
-																		<?php echo '$' . $sum * .20 ; ?>
+																			<?php $shipVar = $sum * .20 + 45; ?>
+																		<?php echo '$' .  $shipVar; ?>
 																	<?php else : ?>
 																		<?php echo "0.00"; ?></span>
 																	<?php endif; ?>
@@ -264,7 +265,7 @@
 																					$sum += $price * $_SESSION["quantity"][$k];
 																				}
 													?>
-														<?php echo '$' . $sum; ?>
+														<?php echo '$' . $sum+$shipVar; ?>
 													<?php else : ?>
 														<?php echo "0.00"; ?></span>
 													<?php endif; ?></p>
@@ -305,10 +306,25 @@
 
 <script>
 $('#country').change(function()
-                  {
-                      var selected = $(this).find('option:selected').text();
-                      $('input[name="country-billing"]').val(selected);
-                  });
+    {
+        var selected = $(this).find('option:selected').text();
+        $('input[name="country-billing"]').val(selected);
+
+		var subTotal = parseInt($(".summary-subtotal-price").text());
+		var countryVal = parseInt($("#country option:selected").val());
+
+		var percentAmt = subTotal*.20;
+
+		var shipTotal = countryVal+percentAmt;
+		
+		var finalTotal = subTotal+shipTotal;
+
+		$("#total-price-ship").text('$'+shipTotal+' Flat Rate Shipping');
+		$(".summary-total-price").text('$'+finalTotal);
+
+		
+
+    });
 
 $('#countryShip').change(function()
 {
