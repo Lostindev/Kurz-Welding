@@ -215,7 +215,7 @@
 												<tr class="sumnary-shipping shipping-row-last">
 													<td colspan="2">
 														<h4 class="summary-subtitle">Calculate Shipping</h4>
-														<ul >
+														<ul style="list-style-type:none;" >
 															<li>
 																<div class="custom-radio">
 																	<input type="radio" id="flat_rate"
@@ -235,7 +235,7 @@
 																		<?php echo "0.00"; ?></span>
 																	<?php endif; ?>
 																		
-																		Flat rate Shipping</label>
+																		Flat Rate Shipping</label>
 																</div>
 															</li>
 														<!--
