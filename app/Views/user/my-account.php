@@ -200,7 +200,7 @@
 
 										<div class="col-6">
 										<label>State/Province</label>
-                                        <input type="text" value="<?php if (isset($bSpec['bFirstName'])) echo $bSpec['bFirstName']; ?>" class="form-control" name="billing_state">
+                                        <input type="text" value="<?php if (isset($bSpec['bState'])) echo $bSpec['bState']; ?>" class="form-control" name="billing_state">
 										</div>
 
 										<div class="col-6">

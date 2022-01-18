@@ -216,7 +216,7 @@ class Users extends BaseController
 				$billDB->where('userId',$checkLoggedIn);
 				$updateBilling = $billDB->update();
                 $session->setFlashdata('message','Billing address successfully updated.');
-                return redirect()->to(site_url('/#address')); 
+                return redirect()->to(site_url('/users#address')); 
             }
     
             else {
