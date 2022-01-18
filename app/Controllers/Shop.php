@@ -314,16 +314,25 @@ class Shop extends BaseController
         $data['catId'] = $uri->getSegment(2);
         $data['uri2'] = '';
 
-        //Fetch number of categories from database
-        $categoriesDB = new ModAdmin();
-        $data['getNumCategories'] = $categoriesDB->where('cstatus', 1)->countAllResults();
-        $data['allCategories'] = $categoriesDB->getWhere(['cStatus' => 1], $data['getNumCategories'])->getResultArray();
 
-        echo view('user/header', $data);
-        echo view('user/css', $data);
-        echo view('user/navbar', $data);
-        echo view('shop/checkout', $data);
-        echo view('user/footer', $data);
+        if (isset($_SESSION['varDimensions'])) {
+            //Fetch number of categories from database
+            $categoriesDB = new ModAdmin();
+            $data['getNumCategories'] = $categoriesDB->where('cstatus', 1)->countAllResults();
+            $data['allCategories'] = $categoriesDB->getWhere(['cStatus' => 1], $data['getNumCategories'])->getResultArray();
+
+            echo view('user/header', $data);
+            echo view('user/css', $data);
+            echo view('user/navbar', $data);
+            echo view('shop/checkout', $data);
+            echo view('user/footer', $data);
+        }
+
+        else {
+            return redirect()->to(base_url('/shop/cart'));
+        }
+
+
     }
 
     public function checkout_submit($page = 'checkout')

@@ -128,8 +128,8 @@
 										color: #666;" id="countryShip" name="countryShip" class="form-control">
 								<option value="60">Canada</option>
 								<option value="45" selected>United States</option>
-								<option value="90">United Kingdom</option>
-								<option value="95">France</option>
+								<option value="63">United Kingdom</option>
+								<option value="66">France</option>
 								<option value="55">Austria</option>
 								<option value="65">Mexico</option>
 							</select>
