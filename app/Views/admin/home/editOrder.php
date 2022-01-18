@@ -55,7 +55,7 @@
 
             <div class="form-group">
             <label class="form-label" for="co_message">Products</label><br>
-                <?php echo str_replace(';','<br>',$product[0]['oProducts']); ?>
+                <?php echo str_replace(';','<br><br>',$product[0]['oProducts']); ?>
             </div><br>
 
             <div class="form-group">

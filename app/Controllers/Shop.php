@@ -384,6 +384,7 @@ class Shop extends BaseController
         }
 
         //Big code to get all products (Up to 10)
+        $seperateVar = ";";
         if (isset($_POST['pHidden0'])) {
             $hidden0 = $_POST['pHidden0'];
             $custom0 = $_POST['cHidden0'];
@@ -414,38 +415,38 @@ class Shop extends BaseController
                                             if (isset($_POST['pHidden9'])) { //check if item 10 exits
                                                 $hidden9 = $_POST['pHidden9'];
                                                 $custom9 = $_POST['cHidden9'];
-                                                $dataUpload['oProducts'] = $hidden0 .= $hidden1 .= $hidden2 .= $hidden3 .= $hidden4 .= $hidden5 .= $hidden6 .= $hidden7 .= $hidden8 .= $hidden9;
+                                                $dataUpload['oProducts'] = $hidden0 .=$seperateVar .= $hidden1 .=$seperateVar .= $hidden2 .=$seperateVar .= $hidden3 .=$seperateVar .= $hidden4 .=$seperateVar .= $hidden5 .=$seperateVar .= $hidden6 .=$seperateVar .= $hidden7 .=$seperateVar .= $hidden8 .=$seperateVar .= $hidden9;
                                                 $dataUpload['oCustom'] = $custom0 .= $custom1 .= $custom2 .= $custom3 .= $custom4 .= $custom5 .= $custom6 .= $custom7 .= $custom8 .= $custom9;
                                             } else { //Only nine products.
-                                                $dataUpload['oProducts'] = $hidden0 .= $hidden1 .= $hidden2 .= $hidden3 .= $hidden4 .= $hidden5 .= $hidden6 .= $hidden7 .= $hidden8;
+                                                $dataUpload['oProducts'] = $hidden0 .=$seperateVar .= $hidden1 .=$seperateVar .= $hidden2 .=$seperateVar .= $hidden3 .=$seperateVar .= $hidden4 .=$seperateVar .= $hidden5 .=$seperateVar .= $hidden6 .=$seperateVar .= $hidden7 .=$seperateVar .= $hidden8;
                                                 $dataUpload['oCustom'] = $custom0 .= $custom1 .= $custom2 .= $custom3 .= $custom4 .= $custom5 .= $custom6 .= $custom7 .= $custom8;
                                             }
                                         } else { //Only eight products.
-                                            $dataUpload['oProducts'] = $hidden0 .= $hidden1 .= $hidden2 .= $hidden3 .= $hidden4 .= $hidden5 .= $hidden6 .= $hidden7;
+                                            $dataUpload['oProducts'] = $hidden0 .=$seperateVar .= $hidden1 .=$seperateVar .= $hidden2 .=$seperateVar .= $hidden3 .=$seperateVar .= $hidden4 .=$seperateVar .= $hidden5 .=$seperateVar .= $hidden6 .=$seperateVar .= $hidden7;
                                             $dataUpload['oCustom'] = $custom0 .= $custom1 .= $custom2 .= $custom3 .= $custom4 .= $custom5 .= $custom6 .= $custom7;
                                         }
                                     } else { //Only seven products.
-                                        $dataUpload['oProducts'] = $hidden0 .= $hidden1 .= $hidden2 .= $hidden3 .= $hidden4 .= $hidden5 .= $hidden6;
+                                        $dataUpload['oProducts'] = $hidden0 .=$seperateVar .= $hidden1 .=$seperateVar .= $hidden2 .=$seperateVar .= $hidden3 .=$seperateVar .= $hidden4 .=$seperateVar .= $hidden5 .=$seperateVar .= $hidden6;
                                         $dataUpload['oCustom'] = $custom0 .= $custom1 .= $custom2 .= $custom3 .= $custom4 .= $custom5 .= $custom6;
                                     }
                                 } else { //Only six products.
-                                    $dataUpload['oProducts'] = $hidden0 .= $hidden1 .= $hidden2 .= $hidden3 .= $hidden4 .= $hidden5;
+                                    $dataUpload['oProducts'] = $hidden0 .=$seperateVar .= $hidden1 .=$seperateVar .= $hidden2 .=$seperateVar .= $hidden3 .=$seperateVar .= $hidden4 .=$seperateVar .= $hidden5;
                                     $dataUpload['oCustom'] = $custom0 .= $custom1 .= $custom2 .= $custom3 .= $custom4 .= $custom5;
                                 }
                             } else { //Only five products.
-                                $dataUpload['oProducts'] = $hidden0 .= $hidden1 .= $hidden2 .= $hidden3 .= $hidden4;
+                                $dataUpload['oProducts'] = $hidden0 .=$seperateVar .= $hidden1 .=$seperateVar .= $hidden2 .=$seperateVar .= $hidden3 .=$seperateVar .= $hidden4;
                                 $dataUpload['oCustom'] = $custom0 .= $custom1 .= $custom2 .= $custom3 .= $custom4;
                             }
                         } else { //Only four products.
-                            $dataUpload['oProducts'] = $hidden0 .= $hidden1 .= $hidden2 .= $hidden3;
+                            $dataUpload['oProducts'] = $hidden0 .=$seperateVar .= $hidden1 .=$seperateVar .= $hidden2 .=$seperateVar .= $hidden3;
                             $dataUpload['oCustom'] = $custom0 .= $custom1 .= $custom2 .= $custom3;
                         }
                     } else { //Only three products.
-                        $dataUpload['oProducts'] = $hidden0 .= $hidden1 .= $hidden2;
+                        $dataUpload['oProducts'] = $hidden0 .=$seperateVar .= $hidden1 .=$seperateVar .= $hidden2;
                         $dataUpload['oCustom'] = $custom0 .= $custom1 .= $custom2;
                     }
                 } else { //Only two products.
-                    $dataUpload['oProducts'] = $hidden0 .= $hidden1;
+                    $dataUpload['oProducts'] = $hidden0 .=$seperateVar .= $hidden1;
                     $dataUpload['oCustom'] = $custom0 .= $custom1;
                 }
             } else { //Only one product.
