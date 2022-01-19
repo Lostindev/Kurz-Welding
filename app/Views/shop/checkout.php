@@ -126,8 +126,14 @@
 							<select style="max-width: 100%;width:100%;    padding: 1rem 1.4rem .8rem;
 										font-size: 1.4rem;
 										color: #666;" id="countryShip" name="countryShip" class="form-control">
-								<option value="60">Canada</option>
 								<option value="45" selected>United States</option>
+								<option value="84">Afghanistan</option>
+								<option value="70">Albania</option>
+								<option value="80">Algeria</option>
+								<option value="64">Andorra</option>
+								<option value="68">Angola</option>
+								<option value="69">Antigua and Barbuda</option>
+								<option value="60">Canada</option>
 								<option value="63">United Kingdom</option>
 								<option value="66">France</option>
 								<option value="55">Austria</option>
