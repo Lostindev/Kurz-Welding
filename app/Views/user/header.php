@@ -7,8 +7,7 @@
     
 
     <title><?php echo $title ?></title>
-
-    <meta name="keywords" content="HTML5 Template" />
+    
     <meta name="description" content="<?php echo $metaData ?>" />
     <meta name="author" content="pivotgrowth.io">
 

@@ -31,8 +31,6 @@ class Gallery extends BaseController
 			$data['uri2'] = "";
 		}
 
-        
-
         echo view('user/header', $data);
         echo view('user/css', $data);
         echo view('user/navbar', $data);

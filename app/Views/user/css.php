@@ -13,3 +13,7 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+
+    <!-- Lightbox -->
+<link rel="stylesheet" type="text/css" href="<?= base_url('css/lightbox.min.css') ?>"/>
+<script type="text/javascript" src="<?= base_url('js/lightbox-plus-jquery.min.js') ?>"></script>

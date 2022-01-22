@@ -1,3 +1,5 @@
+
+
 <main class="main">
 <div class="page-header"
 	style="background-image: url('/img/home/gallery.jpg'); background-color: #3C63A4;">
@@ -29,8 +31,8 @@
                         <div class="grid-item col-sm-6 col-lg-4 lifestyle shopping winter-sale">
                             <article class="post post-mask gradient">
                                 <figure class="post-media overlay-zoom">
-                                    <a href="#">
-                                        <img style="max-height:350px;" src="<?php echo base_url('/img/gallery/'.$item['gDp']); ?>" width="380" height="280" alt="post" />
+                                    <a href="<?php echo base_url('/img/gallery/'.$item['gDp']); ?>"  data-lightbox="mygallery" data-title='<?php if(isset($item['gDescription'])) echo $item['gDescription']   ;?>'>
+                                        <img style="max-height:350px;"src="<?php echo base_url('/img/gallery/'.$item['gDp']); ?>" width="380" height="280" alt="post" />
                                     </a>
                                 </figure>
                                 <div class="post-details">
@@ -66,3 +68,5 @@
                 </div>
             </div>
         </main>
+
+       
