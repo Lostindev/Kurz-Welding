@@ -11,6 +11,8 @@ use App\Models\ModContact;
 
 use App\Models\ModGallery;
 
+use App\Models\ModReviews;
+
 use CodeIgniter\Controller;
 
 class Home extends BaseController
@@ -23,7 +25,14 @@ class Home extends BaseController
 		$data['cssFile'] = $page;
 		$uri = $this->request->uri;
 		$data['uri'] = $uri->getSegment(1);
-		$data['uri2'] = '';
+		$data['uri2'] = '';        
+		
+		$reviewDB = new ModReviews();
+
+		$data['reviews'] = $reviewDB->where('rStatus',1)
+		->orderBy('rId DESC')
+		->paginate(3); 
+		$data['pager'] = $reviewDB->pager;
 	
 		//Fetch number of categories from database
 		$categoriesDB = new ModAdmin();
@@ -318,5 +327,30 @@ class Home extends BaseController
 		echo view('user/footer', $data);
 	}
 
+	public function send_review() {
+		$session = \Config\Services::session();
+		$request = \Config\Services::request();
 
+		$data['rFirstName'] = $request->getPost('r_first');
+        $data['rLastName'] = $request->getPost('r_last');
+        $data['rEmail'] = $request->getPost('r_email');
+        $data['rMessage'] = $request->getPost('r_message');
+        $data['rDate'] = date('Y-m-d');
+
+		$reviewDB = new ModReviews();
+
+		$addComment = $reviewDB->insert($data);
+
+		if ($addComment) {
+			$session->setFlashdata('successMessage','Your review was submitted for approval.');
+			return redirect()->to(site_url('/#comments'));
+		} else {
+			$session->setFlashdata('message','Something went wrong, please try again.');
+			return redirect()->to(site_url('/#comments'));
+		}
+
+
+
+		//$checkUser = $commentDB->getWhere(['cEmail'=>'','c'],)->getResultArray();
+	}
 }

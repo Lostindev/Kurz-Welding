@@ -494,6 +494,93 @@
 
 
                 <section class="space-section"></section> <!--Padding Section-->
+
+                <!--Comment Section -->
+                <a id='comments'> </a>
+                <div class="container-fluid" id="commentDiv">
+                    <div class="row justify-content-center">
+                    <div class="col-12">
+                    <?php if (isset($message)) : ?>
+                        <div class="row justify-content-center text-center">
+                            <div class=" alert alert-danger">
+                                <div class="text-black">
+                                <?php print_r($message); ?>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (isset($successMessage)) : ?>
+                        <div class="row justify-content-center text-center">
+                            <div class=" alert btn-purple alert-success">
+                                <div class="text-black">
+                                <?php print_r($successMessage); ?>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    </div>
+
+                    <div class="col-md-7">
+                        <div class="col-12  commentCol">
+                            <h1>Reviews</h1>
+                            <?php if (isset($reviews)): ?>
+                            <?php foreach ($reviews as $row): ?>
+                            <div style="background-color: lightgrey;
+                                border-radius: 20px;padding:15px; width:97%;" class="comment row mt-4 text-justify float-left"> 
+                                <h4 style="color:#11a3bf;"><?php echo $row['rFirstName'].'&nbsp'.$row['rLastName']; ?></h4><br><br>
+                                <p><?php echo $row['rMessage']; ?>
+                                <br>
+                                <span style="color:darkgrey;">&nbsp &nbsp- <?php echo $row['rDate']; ?></span> 
+                                </p>
+                            </div>
+                            <?php endforeach;?>
+                            <?php else: ?>
+
+                            <div class="comment mt-4 text-justify float-left">
+                                <p style="color:black;"><i>There are no reviews.</i></p>
+                            </div>
+                            <?php endif;?>
+                            <?php echo $pager->links();?>
+                        </div>
+                    </div>
+
+
+                    <form action="/home/send-review" method="POST" class="col-md-3 mt-5 pt-4 text-black">
+                        <!-- Name input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="r_first">First Name</label>
+                            <input type="text" required name="r_first" id="r_first" class="form-control" />
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="r_last">Last Name</label>
+                            <input type="text" required name="r_last" id="r_last" class="form-control" />
+                        </div>
+
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="r_email">Email address</label>
+                            <input type="email" required name="r_email" id="r_email" class="form-control" />
+                        </div>
+
+                        <!-- Message input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="r_message">Message</label>
+                            <textarea class="form-control" required name="r_message" id="r_message" rows="4"></textarea>
+                        </div>
+
+
+                        <!-- Submit button -->
+                        <button type="submit" style="background:#11a3bf;color:white;" class="btn btn-block mb-4">Send</button>
+                        </form>
+                                        
+                    </div>     
+                </div>
+
+
+                <section class="space-section"></section> <!--Padding Section-->
+                </div>
             </div>
         </main>
         <!-- End Main -->
