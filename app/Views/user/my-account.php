@@ -95,7 +95,7 @@
                                             <th>Date</th>
                                             <th>Status</th>
                                             <th>Total</th>
-                                            <!--<th class="pr-2">Actions</th>-->
+                                            <th class="pr-2">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody class="text-center">
@@ -115,13 +115,16 @@
         									<?php $order_array = explode(";", $products); ?>
         									<?php $result = count($order_array);?>
                                             <td class="order-total"><span>$<?php echo $row['oPrice'] ?></span></td>
-                                            <!--<td class="order-action"><a href="#" class="btn btn-primary btn-link btn-underline">View</a></td>-->
+                                            <td class="order-action"><button type="button" class="btn btn-primary btn-link btn-underline" data-toggle="modal" data-target="#exampleModalLong" >
+												View
+												</button></td>
                                         </tr>
 										<?php endforeach; ?>
 										<?php endif;?>
 										
                                     </tbody>
                                 </table>
+
 							</div>
 							<!--gone<div class="tab-pane" id="downloads">
 								<p class="mb-4 text-body">No downloads available yet.</p>
@@ -310,6 +313,9 @@
 										</form>
 										</div>
 									</div><!--End Modal 2-->
+
+
+															
 								</div>
 							</div>
 							<div class="tab-pane" id="account">

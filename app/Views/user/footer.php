@@ -195,6 +195,8 @@
 <script src="<?= base_url() ?>/js/userBPopup.js"></script>
 <script src="<?= base_url() ?>/js/addCart.js"></script>
 
+
+
 <script>
     $(function() {
         $(".quantity-plus").click(function() {
