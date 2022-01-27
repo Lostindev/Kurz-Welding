@@ -75,7 +75,7 @@
                     <?php echo $product[0]['shippingFirst']; echo ' '.$product[0]['shippingLast'].'<br>';
                     if(isset($product[0]['shippingCompany'])) echo $product[0]['shippingCompany'].'<br>';
                     echo $product[0]['shippingAddress']; if(isset($product[0]['shippingApt'])) echo $product[0]['shippingApt'].'<br>';
-                    echo $product[0]['shippingCountry'].', '; echo $product[0]['shippingState'].' '; echo $product[0]['shippingZip'];
+                    echo $product[0]['shippingCity'].', '; echo $product[0]['shippingCountry'].', '; echo $product[0]['shippingState'].' '; echo $product[0]['shippingZip'];
                     ?>
                 </div>
                 <div class="col-lg-6">
@@ -83,7 +83,7 @@
                     <?php echo $product[0]['billingFirst']; echo ' '.$product[0]['billingLast'].'<br>';
                     if(isset($product[0]['billingCompany'])) echo $product[0]['billingCompany'].'<br>';
                     echo $product[0]['billingAddress']; if(isset($product[0]['billingApt'])) echo $product[0]['billingApt'].'<br>';
-                    echo $product[0]['billingCountry'].', '; echo $product[0]['billingState'].' '; echo $product[0]['billingZip'];
+                    echo $product[0]['billingCity'].', '; echo $product[0]['billingCountry'].', '; echo $product[0]['billingState'].' '; echo $product[0]['billingZip'];
                     ?>
                 </div>
             </div>

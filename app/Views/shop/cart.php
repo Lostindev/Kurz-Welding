@@ -70,7 +70,6 @@
 					</table>
 					<div class="cart-actions mb-6 pt-4">
 						<a href="/shop" class="btn btn-dark btn-md btn-rounded btn-icon-left mr-4 mb-4"><i class="d-icon-arrow-left"></i>Continue Shopping</a>
-						<button type="submit" class="btn btn-outline btn-dark btn-md btn-rounded btn-disabled">Update Cart</button>
 					</div>
 					<div class="cart-coupon-box mb-8">
 						<h4 class="title coupon-title text-uppercase ls-m">Coupon Discount</h4>
