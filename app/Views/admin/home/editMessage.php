@@ -1,3 +1,13 @@
+<style>
+.content-wrapper {
+    margin-left:0px!important;
+};
+
+body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .content-wrapper, body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-footer, body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-header {
+    
+    margin-left: 0px!important;}
+</style>
+
 <div class="content-wrapper">
     <div class="row justify-content-center">
         <div class="col-md-6 col-md-offset-1">
