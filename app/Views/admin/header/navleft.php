@@ -177,9 +177,19 @@
 
           <li class="nav-item ">
             <a href="<?= base_url() ?>/admin/viewMessages" class="nav-link">
-              <i class="nav-icon fas fa-sort-amount-up-alt"></i>
+            <i class="nav-icon far fa-comment-dots"></i>
               <p>
                 View Messages
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item ">
+            <a href="<?= base_url() ?>/admin/viewReviews" class="nav-link">
+            <i class="nav-icon far fa-comments"></i>
+              <p>
+                View Reviews
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>

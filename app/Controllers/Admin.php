@@ -12,6 +12,7 @@ use App\Models\ModContact;
 
 use App\Models\ModCustomOrders;
 use App\Models\ModOrders;
+use App\Models\ModReviews;
 
 use CodeIgniter\Controller;
 
@@ -2063,6 +2064,161 @@ class Admin extends BaseController
             return redirect()->to(base_url('/admin/login'));
         }
 
+    }
+
+    public function viewReviews($page = 'viewCategories') {
+        $session = \Config\Services::session();
+		$data['title'] = 'Admin - View Categories';
+		$data['metaData'] = "";
+		$data['page'] = $page;
+		$data['cssFile'] = $page;
+		$data['uri'] = $this->request->uri;
+    
+
+
+        if (adminLoggedIn()) {
+            $adminDB = new ModReviews();
+            $data = [
+                'results' => $adminDB->orderBy('rId', 'DESC')->paginate(20),
+                'pager' => $adminDB->pager];
+
+                $data['message'] = $session->getFlashdata('message');
+                $data['successMessage'] = $session->getFlashdata('successMessage');
+            
+            echo view('admin/header/header', $data);
+            echo view('admin/header/css', $data);
+            echo view('admin/header/navtop', $data);
+            echo view('admin/header/navleft', $data);
+            echo view('admin/home/viewReviews', $data);
+            echo view('admin/header/footer', $data);
+
+            
+        } else {
+            $session->setFlashdata('message','Please login to view all categories.');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
+
+    public function editReview($rId = NULL, $page = 'editCategory') {
+        $session = \Config\Services::session();
+        $data['message'] = $session->getFlashdata('message');
+        $data['successMessage'] = $session->getFlashdata('successMessage');
+
+        if (adminLoggedIn()) {
+            if (!empty($rId) && isset($rId)) {
+                $adminDB = new ModReviews();
+                $checkCategoryById = $adminDB->where('rId',$rId)->findAll();
+                $data['category'] = $checkCategoryById;
+                if (count($data['category']) == 1) {
+                    echo view('admin/header/header', $data);
+                    echo view('admin/header/css', $data);
+                    echo view('admin/header/navtop', $data);
+                    echo view('admin/header/navleft', $data);
+                    echo view('admin/home/editReview', $data);
+                    echo view('admin/header/footer', $data);
+                } else {
+                    $session->setFlashdata('message','Review not found.');
+                    $session->keepFlashdata('message');
+                    return redirect()->to(base_url('/admin/viewReviews'));
+                }
+                
+
+
+            } else {
+                $session->setFlashdata('message','Something went wrong, please try again.');
+                return redirect()->to(base_url('/admin/viewReviews'));
+            }
+            
+        } 
+        
+        else {
+            $session->setFlashdata('message','Please login to edit reviews.');
+            return redirect()->to(base_url('/admin/login'));
+        }
+
+    }
+
+    public function updateReview($page = 'editCategory') {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        $adminDB = new ModReviews();
+
+        $data['message'] = $session->getFlashdata('message');
+        $data['successMessage'] = $session->getFlashdata('successMessage');
+
+        if (adminLoggedIn()) {
+            //$data['cFirstName'] = $request->getPost('firstName');
+            //$data['cLastName'] = $request->getPost('lastName');
+            $data['rMessage'] = $request->getPost('message');
+            //$data['cDate'] = $request->getPost('date');
+            //$data['cEmail'] = $request->getPost('email');
+            $data['rStatus'] = $request->getPost('status');
+     
+            if (!empty($data['rMessage']) ) {
+
+                $rId = $request->getPost('id');
+
+                //$adminDB->where('cId',$cId)->findAll();
+                $adminDB->set('rStatus', $data['rStatus']);
+                $adminDB->where('rId', $rId);
+                $updateData = $adminDB->update();
+
+                //$updateData = $adminDB->replace($data);
+
+                if ($updateData) {
+                    $session->setFlashdata('successMessage','You have successfully updated the review status.');
+                    return redirect()->to(base_url('/admin/viewReviews'));
+                } else{
+                    $session->setFlashdata('message','Something went wrong, please try again.');
+                    return redirect()->to(base_url('/admin/viewReviews'));
+                }
+
+            } else {
+                $session->setFlashdata('message','Something went wrong, please try again.');
+                return redirect()->to(base_url('/admin/viewReviews'));
+
+            }
+        } else {
+            $session->setFlashdata('message','Please login to delete reviews.');
+            $session->keepFlashdata('message');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
+
+    public function deleteReview($rId) {
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        $data['message'] = $session->getFlashdata('message');
+        $data['successMessage'] = $session->getFlashdata('successMessage');
+
+        if (adminLoggedIn()) {
+
+            if (!empty($rId) && isset($rId)) {
+                $adminDB = new ModReviews();
+                $result = $adminDB->where('rId',$rId)->delete();
+
+                if ($result) {
+  
+                    $session->setFlashdata('successMessage','Review successfully deleted.');
+                    $session->keepFlashdata('sucessMessage');
+                    return redirect()->to(base_url('/admin/viewReviews'));
+                } else {
+                    $session->setFlashdata('message','Something went wrong, please try again.');
+                    $session->keepFlashdata('message');
+                    return redirect()->to(base_url('/admin/viewReviews'));
+                }
+                
+            } else {
+                $session->setFlashdata('message','Something went wrong, please try again.');
+                $session->keepFlashdata('message');
+                return redirect()->to(base_url('/admin/viewReviews'));
+            }
+
+        } else {
+            $session->setFlashdata('message','Please login to delete reviews.');
+            $session->keepFlashdata('message');
+            return redirect()->to(base_url('/admin/login'));
+        }
     }
 
 } //end of controller
