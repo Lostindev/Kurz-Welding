@@ -116,8 +116,6 @@
   })
 </script>
 
-<!-- NEW FUNTION DONT FORGET TO LABEL-->
-
 
 </body>
 
