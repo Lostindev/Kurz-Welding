@@ -87,31 +87,31 @@
 								<option value="55">Belize</option>
 								<option value="55">Benin</option>
 								<option value="50">Bermuda</option>
-								<option value="BT">Bhutan</option>
-								<option value="BO">Bolivia</option>
-								<option value="BA">Bosnia &amp; Herzegovina</option>
-								<option value="BW">Botswana</option>
-								<option value="BR">Brazil</option>
-								<option value="IO">British Indian Ocean Territory</option>
-								<option value="BN">Brunei</option>
-								<option value="BG">Bulgaria</option>
-								<option value="BF">Burkina Faso</option>
-								<option value="BI">Burundi</option>
-								<option value="KH" value="Cambodia">Cambodia</option>
-								<option value="CM" value="Republic of Cameroon">Cameroon</option>
-								<option value="CV" value="Cape Verde">Cape Verde</option>
-								<option value="BQ" value="Caribbean Netherlands">Caribbean Netherlands</option>
-								<option value="KY" value="Cayman Islands">Cayman Islands</option>
-								<option value="CF" value="Central African Republic">Central African Republic</option>
-								<option value="TD" value="Chad">Chad</option>
-								<option value="CL" value="Chile">Chile</option>
-								<option value="CN" value="China">China</option>
-								<option value="CX" value="Christmas Island">Christmas Island</option>
-								<option value="CC" value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
-								<option value="CO" value="Colombia">Colombia</option>
-								<option value="KM" value="Comoros">Comoros</option>
-								<option value="CG" value="Congo">Congo - Brazzaville</option>
-								<option value="CD" value="Congo, The Democratic Republic Of The">Congo - Kinshasa</option>
+								<option value="52">Bhutan</option>
+								<option value="56">Bolivia</option>
+								<option value="52">Bosnia &amp; Herzegovina</option>
+								<option value="50">Botswana</option>
+								<option value="40">Brazil</option>
+								<option value="49">British Indian Ocean Territory</option>
+								<option value="90">Brunei</option>
+								<option value="40">Bulgaria</option>
+								<option value="55">Burkina Faso</option>
+								<option value="55">Burundi</option>
+								<option value="KH">Cambodia</option>
+								<option value="CM">Cameroon</option>
+								<option value="CV">Cape Verde</option>
+								<option value="BQ">Caribbean Netherlands</option>
+								<option value="KY">Cayman Islands</option>
+								<option value="CF">Central African Republic</option>
+								<option value="TD">Chad</option>
+								<option value="CL">Chile</option>
+								<option value="CN">China</option>
+								<option value="CX">Christmas Island</option>
+								<option value="CC">Cocos (Keeling) Islands</option>
+								<option value="CO">Colombia</option>
+								<option value="KM">Comoros</option>
+								<option value="CG">Congo - Brazzaville</option>
+								<option value="CD">Congo - Kinshasa</option>
 								<option data-code="CK" value="Cook Islands">Cook Islands</option>
 								<option data-code="CR" value="Costa Rica">Costa Rica</option>
 								<option data-code="HR" value="Croatia">Croatia</option>

@@ -618,6 +618,7 @@ class Shop extends BaseController
         $session->remove('varCustom');
 
 
+
         echo view('user/header', $data);
         echo view('user/css', $data);
         echo view('user/navbar', $data);
