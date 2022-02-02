@@ -471,7 +471,7 @@
 																				$sum += $price * $_SESSION["quantity"][$k];
 																				// echo $k;
 																			} ?>
-																			<?php $shipVar = $sum * .20 + 45; ?>
+																			<?php $shipVar = $sum * .10 + 45; ?>
 																		<?php echo '$' .  $shipVar; ?>
 																	<?php else : ?>
 																		<?php echo "0.00"; ?></span>
