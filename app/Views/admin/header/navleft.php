@@ -195,6 +195,16 @@
             </a>
           </li>
 
+          <li class="nav-item ">
+            <a href="<?= base_url() ?>/admin/emailList" class="nav-link">
+            <i class="nav-icon fa-solid fa-at"></i>
+              <p>
+                Email List
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+          </li>
+
 
         </ul>
       </nav>

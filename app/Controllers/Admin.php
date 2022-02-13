@@ -9,6 +9,8 @@ use App\Models\ModSpecValues;
 use App\Models\ModGallery;
 use App\Models\ModUsers;
 use App\Models\ModContact;
+use App\Models\ModNewsletter;
+
 
 use App\Models\ModCustomOrders;
 use App\Models\ModOrders;
@@ -2217,6 +2219,39 @@ class Admin extends BaseController
         } else {
             $session->setFlashdata('message','Please login to delete reviews.');
             $session->keepFlashdata('message');
+            return redirect()->to(base_url('/admin/login'));
+        }
+    }
+
+    public function emailList($page = 'viewCategories') {
+        $session = \Config\Services::session();
+		$data['title'] = 'Admin - View Categories';
+		$data['metaData'] = "";
+		$data['page'] = $page;
+		$data['cssFile'] = $page;
+		$data['uri'] = $this->request->uri;
+    
+
+
+        if (adminLoggedIn()) {
+            $adminDB = new ModNewsletter();
+            $data = [
+                'results' => $adminDB->orderBy('nId', 'DESC')->paginate(20),
+                'pager' => $adminDB->pager];
+
+                $data['message'] = $session->getFlashdata('message');
+                $data['successMessage'] = $session->getFlashdata('successMessage');
+            
+            echo view('admin/header/header', $data);
+            echo view('admin/header/css', $data);
+            echo view('admin/header/navtop', $data);
+            echo view('admin/header/navleft', $data);
+            echo view('admin/home/emaiList', $data);
+            echo view('admin/header/footer', $data);
+
+            
+        } else {
+            $session->setFlashdata('message','Please login to view email list.');
             return redirect()->to(base_url('/admin/login'));
         }
     }
