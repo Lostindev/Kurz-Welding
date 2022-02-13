@@ -55,8 +55,8 @@
                     <div class="widget mb-4">
                         <h4 class="widget-title">Subscribe to our newsletter</h4>
                         <div class="widget-body widget-newsletter mt-1">
-                            <form action="#" class="input-wrapper input-wrapper-inline mb-5">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Email address here..." required />
+                            <form action="/home/newsletter" method="POST" class="input-wrapper input-wrapper-inline mb-5">
+                                <input type="email" class="form-control" name="email-news" id="email-news" placeholder="Email address here..." required />
                                 <button class="btn btn-primary font-weight-bold" type="submit">subscribe <i class="d-icon-arrow-right"></i></button>
                             </form>
                         </div>

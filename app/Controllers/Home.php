@@ -13,6 +13,8 @@ use App\Models\ModGallery;
 
 use App\Models\ModReviews;
 
+use App\Models\ModNewsletter;
+
 use CodeIgniter\Controller;
 
 class Home extends BaseController
@@ -183,7 +185,7 @@ class Home extends BaseController
 				$activateUser = $usersDB->update();
 
 				if ($activateUser) {
-					$session->setFlashdata('SuccessMessage','Your account was succesfully activated, we\'re glad you\'re here!');
+					$session->setFlashdata('successMessage','Your account was succesfully activated, we\'re glad you\'re here!');
 					return redirect()->to(site_url('/'));
 				} else {
 					$session->setFlashdata('message','Something went wrong, please try again or request a new link.');
@@ -200,6 +202,46 @@ class Home extends BaseController
 			$session->setFlashdata('message','Please check your email and try again.');
 			return redirect()->to(site_url('/'));
 		}
+	}
+
+	public function newsletter($page = 'register')
+	{
+		$request = \Config\Services::request();
+        $session = \Config\Services::session();
+		helper('text');
+
+		$usersDB = new ModNewsletter();
+
+		//Dynamic Page Info
+		$data['title'] = 'Newsletter Signup | Kurz Welding & Metal Art ';
+		$data['metaData'] = "";
+		$data['page'] = $page;
+		$data['cssFile'] = $page;
+		$data['uri'] = $this->request->uri;
+
+		$data['nEmail'] = $request->getPost('email-news');
+		$data['nDate'] = date('Y-m-d');
+
+		$checkEmail =  $usersDB->where('nEmail',$data['nEmail'])->findAll();
+
+		if (count($checkEmail) == 1) {
+			//Email is already registered.
+			$session->setFlashdata('message',$data['nEmail'].' is already on the newsletter list.');
+			return redirect()->to(site_url('/'));
+		}
+
+		else {
+			$addUser = $usersDB->insert($data);
+
+			if ($addUser) {
+				$session->setFlashdata('successMessage','You have sucessfully joined our newsletter! Thanks for your interest in Kurz Metal Art');
+				return redirect()->to(site_url('/'));
+			} else {
+				$session->setFlashdata('message','Something went wrong, please try again.');
+				return redirect()->to(site_url('/'));
+			}
+		}
+
 	}
 
 	public function about_us($page = 'about-us')
