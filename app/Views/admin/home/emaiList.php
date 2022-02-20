@@ -44,7 +44,7 @@
                         </td>
 
                         <td>
-                            <a href="<?php echo site_url('/admin/deleteMessage/'.$getResult['nId'])?>" class="btn btn-danger deleteCat" data-id="<?php echo $getResult['nId']; ?>" data-text="<?php echo $getResult['nId'] ;?>" >
+                            <a href="<?php echo site_url('/admin/deleteEmail/'.$getResult['nId'])?>" class="btn btn-danger deleteCat" data-id="<?php echo $getResult['nId']; ?>" data-text="<?php echo $getResult['nId'] ;?>" >
                             Delete
                             </a>
                         </td>

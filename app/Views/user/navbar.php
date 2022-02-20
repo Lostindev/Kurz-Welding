@@ -24,7 +24,7 @@
                         <div class="icon-box-content">
                             <h4 class="icon-box-title text-white">
                                 <i class="icon-box-icon d-icon-truck" style="font-size: 3.2rem;"></i>
-                                Free Shipping on Orders Over $99
+                                Competitive & Worldwide Shipping
                             </h4>
                         </div>
                     </div>
